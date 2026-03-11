@@ -12,8 +12,8 @@
 -- Database Section
 -- ________________ 
 
-create database Alma_aule_REL;
-use Alma_aule_REL;
+create database Alma_aule_DB;
+use Alma_aule_DB;
 
 
 -- Tables Section
