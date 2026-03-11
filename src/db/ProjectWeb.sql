@@ -70,6 +70,7 @@ create table LEZIONE (
 
 create table INSEGNAMENTO (
      codiceIns int not null,
+     nomeIns char(50),
      professore char(25) not null,
      constraint ID_INSEGNAMENTO_ID primary key (codiceIns));
 
