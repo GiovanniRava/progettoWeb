@@ -36,12 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
+        <div class="logo & title">
+            <a href="index.php">
+                <img src="logo.png" alt="Logo Alma Aule">
+            </a>
+            <h1>Alma Aule</h1>
+        </div>
+
         <nav>
-            <ul>
-                <li><a href="index.php">img</a></li>
-                <li><h1>Alma Aule</h1></li>
-                <li><a href="login.php">Login</a></li>
-            </ul>
+            <a href="login.php">Login</a>
         </nav>
     </header>
     <footer>
