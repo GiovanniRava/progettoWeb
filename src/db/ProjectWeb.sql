@@ -20,75 +20,76 @@ use Alma_aule_REL;
 -- _____________ 
 
 create table AULA (
-     numeroAula char(1) not null,
-     capienza char(1) not null,
+     numeroAula char(5) not null,
+     capienza int not null,
      constraint ID_AULA_ID primary key (numeroAula));
 
 create table ESAME (
-     codiceIns char(1) not null,
-     codiceEsame char(1) not null,
-     oraInizio char(1) not null,
-     durata char(1) not null,
-     data char(1) not null,
-     numeroLab char(1),
-     numeroAula char(1),
+     codiceIns int not null,
+     codiceEsame int not null,
+     oraInizio char(10) not null,
+     durata int not null,
+     data date not null,
+     numeroLab char(5),
+     numeroAula char(5),
      constraint ID_ESAME_ID primary key (codiceIns, codiceEsame));
 
 create table EVENTO (
-     titolo char(1) not null,
-     data char(1) not null,
-     oraInizio char(1) not null,
-     durata char(1) not null,
-     numeroLab char(1),
-     numeroAula char(1),
+     titolo char(20) not null,
+     data date not null,
+     oraInizio char(10) not null,
+     durata int not null,
+     numeroLab char(5),
+     numeroAula char(5),
+     locandina char(50),
      constraint ID_EVENTO_ID primary key (titolo));
 
 create table LABORATORIO (
-     numeroLab char(1) not null,
-     capienza char(1) not null,
+     numeroLab char(5) not null,
+     capienza int not null,
      constraint ID_LABORATORIO_ID primary key (numeroLab));
 
 create table LAUREA (
-     codiceLaurea char(1) not null,
-     oraInizio char(1) not null,
-     durata char(1) not null,
-     corso char(1) not null,
-     data char(1) not null,
-     numeroAula char(1) not null,
+     codiceLaurea int not null,
+     oraInizio char(10) not null,
+     durata int not null,
+     corso char(20) not null,
+     data date not null,
+     numeroAula char(5) not null,
      constraint ID_LAUREA_ID primary key (codiceLaurea));
 
 create table LEZIONE (
-     codiceIns char(1) not null,
-     codiceLez char(1) not null,
-     oraInizio char(1) not null,
-     durata char(1) not null,
-     data char(1) not null,
-     numeroLab char(1),
-     numeroAula char(1),
+     codiceIns int not null,
+     codiceLez int not null,
+     oraInizio char(10) not null,
+     durata int not null,
+     data date not null,
+     numeroLab char(5),
+     numeroAula char(5),
      constraint ID_LEZIONE_ID primary key (codiceIns, codiceLez));
 
 create table INSEGNAMENTO (
-     codiceIns char(1) not null,
-     professore char(1) not null,
+     codiceIns int not null,
+     professore char(25) not null,
      constraint ID_INSEGNAMENTO_ID primary key (codiceIns));
 
 create table POLIVALENTE (
-     nome char(1) not null,
-     postiTotali char(1) not null,
-     postiDisponibili char(1) not null,
-     computerTotali char(1) not null,
-     computerDisponibili char(1) not null,
+     nome char(15) not null,
+     postiTotali int not null,
+     postiDisponibili int not null,
+     computerTotali int not null,
+     computerDisponibili int not null,
      constraint ID_POLIVALENTE_ID primary key (nome));
 
 create table PRENOTAZIONE (
-     codicePre char(1) not null,
-     nominativo char(1) not null,
-     data char(1) not null,
-     oraInizio char(1) not null,
-     durata char(1) not null,
-     motivazione char(1) not null,
-     numeroLab char(1),
-     numeroAula char(1),
+     codicePre int not null,
+     nominativo char(20) not null,
+     data date not null,
+     oraInizio char(10) not null,
+     durata int not null,
+     motivazione char(100) not null,
+     numeroLab char(5),
+     numeroAula char(5),
      constraint ID_PRENOTAZIONE_ID primary key (codicePre));
 
 
