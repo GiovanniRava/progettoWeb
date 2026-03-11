@@ -34,4 +34,6 @@ insert into ESAME (codiceIns, codiceEsame, oraInizio, durata, data, numeroLab, n
 (, '62', '10:30:00', 120, '2026-02-03', null, '2.6');
 
 insert into EVENTO (titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina) values
-('GAME AS A LAB', '2026-11-27', '17:00:00', 120, '2.2', null, )
+('GAME AS A LAB', '2026-11-27', '17:00:00', 120, '2.2', null, 'asALAB.jpeg'),
+('QUANTUM ENGINEERING', '2026-11-19', '17:00:00', 90, '2.3', null, 'Quantum.jpeg'),
+('FUTURO NELL\'ICT', '2026-11-27', '17:00:00', 120, '2.13', null, 'futuroICT.jpeg');
