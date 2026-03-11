@@ -35,5 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login Aule - Accesso</title>
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.php">img</a></li>
+                <li><h1>Alma Aule</h1></li>
+                <li><a href="login.php">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <footer>
+        <p>Contatti</p>
+    </footer>
 </body>
