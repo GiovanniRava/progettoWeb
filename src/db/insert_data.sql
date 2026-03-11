@@ -64,3 +64,46 @@ VALUES
     (18, '09:00:00', 420, 'Architettura', '2026-12-10', '2.15'),
     (19, '09:00:00', 420, 'Ingegneria e Scienze Informatiche', '2026-12-15', '3.4'),
     (20, '09:00:00', 420, 'Ingegneria Biomedica', '2026-12-18', '2.1');
+    
+insert into INSEGNAMENTO (codiceIns, nomeIns, professore) values 
+(00013, "ANALISI MATEMATICA", "Eleonora Cinti"), 
+(00819, "PROGRAMMAZIONE", "Antonella Carbonaro"), 
+(58414, "ALGEBRA E GEOMETRIA", "Andrea Bianchi"),
+(11929, "ALGORITMI E STRUTTURE DATI", "Luciano Margara"),
+(69731, "ARCHITETTURE DEGLI ELABORATORI", "Davide Maltoni"),
+(77776, "MATEMATICA DISCRETA E PROBABILITÀ", "Fabrizio Caselli"), 
+(70219, "PROGRAMMAZIONE AD OGGETTI", "Mirko Viroli"),
+(08574, "SISTEMI OPERATIVI", "Vittorio Ghini"), 
+(10906, "BASI DI DATI", "Annalisa Franco"), 
+(00405, "FISICA", "Luigi Guiducci"), 
+(2561, "METODI NUMERICI PER L'INTELLIGENZA ARTIFICIALE", "Damiana Lazzaro"),
+(70226, "PROGRAMMAZIONE DI RETE", "Franco Callegati"),
+(09032, "INGEGNERIA DEL SOFTWARE", "Stefano Rizzi"), 
+(70218, "RETI DI TELECOMUNICAZIONE", "Franco Callegati"),
+(00884, "RICERCA OPERATIVA", "Marco Antonio Boschetti"), 
+(41731, "TECNOLOGIE WEB", "Silvia Mirri"),
+(70090, "COMPUTER GRAPHICS", "Damiana Lazzaro"),
+(77780, "SISTEMI EMBEDDED E INTERNET-OF-THING", "Alessandro Ricci"), 
+(84339, "BASI DI DATI AVANZATE", "Matteo Golfarelli"),
+(70227, "INFORMATICA E DIRITTO", "Luisa Dall'Acqua"), 
+(72796, "PROGRAMMAZIONE DI APPLICAZIONI DATA INTENSIVE", "Gianluca Moro"), 
+(72787, "PROGRAMMAZIONE DI SISTEMI MOBILE", "Catia Prandi"),
+(17634, "VISIONE ARTIFICIALE", "Raffaele Cappelli"),
+(72778, "HIGH-PERFOMANCE COMPUTING", "Moreno Marzolla"), 
+(14015, "CRITTOGRAFIA", "Luciano Margara"), 
+(96642, "VIRTUALIZZAZIONE E INTEGRAZIONE DI SISTEMI", "Vittorio Ghini"),
+(30569, "ELABORAZIONE DEI SEGNALI", "Marco Chiani"), 
+(00430, "FISICA TECNICA", "Marco Lorenzini"), 
+(05181, "FISIOLOGIA", "Matteo Filippini"),
+(09454, "BIOINGEGNERIA", "Maria Cristina Bisi"),
+(03716, "CALCOLATORI ELETTRONICI", "Luca Roffia"),
+(00196, "CONTROLLI AUTOMATICI", "Paolo Castaldi"),
+(40137, "AFPG-LABORATORIO DI DIAGNOSTICA STRUTTURALE II", "Lucio Nobile"), 
+(40130, "AFPG-LABORATORIO DI MODELLISTICA I", "Davide Giaffreda"),
+(19092, "FISICA TECNICA AMBIENTALE I", "Lamberto Tronchin"),
+(70117, "ARCHITETTURA DEGLI INTERNI", "Massimiliano Cantalupo"),
+(01069, "TECNICA URBANISTICA", "Marialuisa Cipriani");
+ 
+ 
+ 
+
