@@ -45,7 +45,7 @@ create table EVENTO (
      constraint ID_EVENTO_ID primary key (titolo));
 
 create table LABORATORIO (
-     numeroLab char(5) not null,
+     numeroLab char(15) not null,
      capienza int not null,
      constraint ID_LABORATORIO_ID primary key (numeroLab));
 
@@ -53,7 +53,7 @@ create table LAUREA (
      codiceLaurea int not null,
      oraInizio char(10) not null,
      durata int not null,
-     corso char(20) not null,
+     corso char(50) not null,
      data date not null,
      numeroAula char(5) not null,
      constraint ID_LAUREA_ID primary key (codiceLaurea));
@@ -64,7 +64,7 @@ create table LEZIONE (
      oraInizio char(10) not null,
      durata int not null,
      data date not null,
-     numeroLab char(5),
+     numeroLab char(15),
      numeroAula char(5),
      constraint ID_LEZIONE_ID primary key (codiceIns, codiceLez));
 
