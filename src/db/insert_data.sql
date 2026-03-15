@@ -178,3 +178,19 @@ INSERT INTO LEZIONE(codiceIns, codiceLez, oraInizio, durata, data, numeroLab, nu
 ('00196', 231, '14:00:00', 3, '2026-09-28', 'LIB(I)', NULL), ('00196', 232, '14:00:00', 3, '2026-09-30', 'LIB(I)', NULL),
 ('30569', 233, '14:00:00', 3, '2026-09-21', 'LIB(M)', NULL), ('30569', 234, '14:00:00', 3, '2026-09-23', 'LIB(M)', NULL),
 ('30569', 235, '14:00:00', 3, '2026-09-28', 'LIB(M)', NULL), ('30569', 236, '14:00:00', 3, '2026-09-30', 'LIB(M)', NULL);
+
+insert into POLIVALENTE (nome, postiTotali, postiDisponibili, computerTotali, computerDisponibili) values
+('Sala Polivalente', 136, 33, 17, 4);
+
+INSERT INTO PRENOTAZIONE (codicePre, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) VALUES
+(1, 'Alessandro Conti', '2026-07-02', '10:00:00', 2, 'sviluppo progetto', 2.2, NULL),
+(2, 'Sofia Moretti', '2026-07-02', '14:30:00', 3, 'studio di gruppo esame database', NULL, 2.5),
+(3, 'Valerio Riva', '2026-07-03', '09:00:00', 2, 'sviluppo progetto programmazione', 3.1, NULL),
+(4, 'Beatrice Ferri', '2026-07-03', '13:00:00', 4, 'gruppo studio ripasso esame', NULL, 2.11),
+(5, 'Marco Gatti', '2026-07-04', '15:00:00', 4, 'esercitazione pratica programmazione', 2.2, NULL),
+(6, 'Giulia Bianchi', '2026-07-04', '09:00:00', 2, 'preparazione presentazione progetto', NULL, 2.3),
+(6, 'Elena Vitali', '2026-07-05', '09:00:00', 5, 'realizzazione plastico urbanistica', NULL, 2.13),
+(7, 'Riccardo Sanna', '2026-07-05', '14:00:00', 3, 'rendering 3D concorso idee', 'LAFO', NULL),
+(8, 'Giulia de Luca', '2026-07-06', '10:00:00', 2, 'revisione tavole progettuali', 'LaMo', NULL),
+(9, 'Lorenzo Serra', '2026-07-06', '16:00:00', 4, 'studio di fattibilità restauro', NULL, 2.5),
+(10, 'Chiara Neri', '2026-07-07', '08:30:00', 6, 'workshop progettazione bioclimatica', NULL, 3.10);
