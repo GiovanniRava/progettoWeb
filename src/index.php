@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     
     <main>
-
+    <!-- foto -->
     </main>
 
     <footer>

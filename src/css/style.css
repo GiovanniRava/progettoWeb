@@ -38,13 +38,63 @@ h1 {
     justify-content: flex-end;
 }
 
-.login a {
+.login a, form ul li input[type="submit"] {
     color: #ffffff;
     text-decoration: none;
     background-color: #ed1d1d;
     border-radius: 5px;
     padding: 5px 15px;
     font-family: 'Lucida Sans', sans-serif;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+form {
+    background: rgb(224, 224, 224);
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+form h2 {
+    background-color: #e21d1d;
+    color: #ffffff;
+    font-family: 'Lucida Sans', sans-serif;
+    text-align: center;
+    margin-top: 0;
+    padding: 15px 0;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+form ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+
+form ul li{
+    margin-bottom: 20px;
+}
+
+form ul li label{
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 15px;
+}
+
+form ul li input[type="submit"] {
+    margin-top: 30px;
+}
+
+form ul li input[type="submit"]:hover{
+    cursor: pointer;
 }
 
 footer {
