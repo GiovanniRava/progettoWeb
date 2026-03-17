@@ -27,11 +27,8 @@
             <h2>LEZIONI IN CORSO</h2>
         </div>
         <div class = "spacer"></div>
-
+    </div>
     <main>
-        <section class="page-title">
-            <h2>LEZIONI IN CORSO</h2>
-        </section>
         <table>
             <tr>
                 <th>EVENTO</th>
