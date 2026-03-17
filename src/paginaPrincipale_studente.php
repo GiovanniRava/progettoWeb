@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-    <title>Login Aule - Accesso</title>
+    <title>Lezioni in corso</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
@@ -15,18 +15,30 @@
         <div class="title">
             <h1>Alma Aule</h1>
         </div>
-        <div class="login">
-            <nav>
-                <a href="login.php">Login</a>
-            </nav>
+        <div class = "hamburgerMenu" id = "hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </header>
-    
+    <div class = "red-bar">
+        <div class = "spacer"></div>
+        <div class = "subtitle">
+            <h2>LEZIONI IN CORSO</h2>
+        </div>
+        <div class = "spacer"></div>
+    </div>
     <main>
-    <!-- foto -->
+        <table>
+            <tr>
+                <th>EVENTO</th>
+                <th>AULA</th>
+            </tr>
+        </table>
     </main>
 
-    <footer>
+     <footer>
         <p>Contatti</p>
     </footer>
 </body>
+</html>

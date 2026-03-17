@@ -17,6 +17,7 @@ insert into AULA (numeroAula, capienza) values
 ('3.10', 84),
 ('3.11', 79),
 ('4.1', 72);
+
 INSERT INTO LABORATORIO(numeroLab,capienza) VALUES
 ('2.2', 98), ('3.1', 42), ('3.3', 49), ('4.2', 79), ('CARTA', 2), ('LaMo', 30), ('LaMoV',17), ('LaRAC', 2),
 ('LAFO', 16), ('OFF', 30), ('LIB(I)', 50), ('LIB(M)', 40);
@@ -183,14 +184,14 @@ insert into POLIVALENTE (nome, postiTotali, postiDisponibili, computerTotali, co
 ('Polivalente', 136, 33, 17, 4);
 
 INSERT INTO PRENOTAZIONE (codicePre, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) VALUES
-(1, 'Alessandro Conti', '2026-07-02', '10:00:00', 2, 'sviluppo progetto', 2.2, NULL),
-(2, 'Sofia Moretti', '2026-07-02', '14:30:00', 3, 'studio di gruppo esame database', NULL, 2.5),
-(3, 'Valerio Riva', '2026-07-03', '09:00:00', 2, 'sviluppo progetto programmazione', 3.1, NULL),
-(4, 'Beatrice Ferri', '2026-07-03', '13:00:00', 4, 'gruppo studio ripasso esame', NULL, 2.11),
-(5, 'Marco Gatti', '2026-07-04', '15:00:00', 4, 'esercitazione pratica programmazione', 2.2, NULL),
-(6, 'Giulia Bianchi', '2026-07-04', '09:00:00', 2, 'preparazione presentazione progetto', NULL, 2.3),
-(7, 'Elena Vitali', '2026-07-05', '09:00:00', 5, 'realizzazione plastico urbanistica', NULL, 2.13),
-(8, 'Riccardo Sanna', '2026-07-05', '14:00:00', 3, 'rendering 3D concorso idee', 'LAFO', NULL),
-(9, 'Giulia de Luca', '2026-07-06', '10:00:00', 2, 'revisione tavole progettuali', 'LaMo', NULL),
-(10, 'Lorenzo Serra', '2026-07-06', '16:00:00', 4, 'studio di fattibilità restauro', NULL, 2.5),
-(11, 'Chiara Neri', '2026-07-07', '08:30:00', 6, 'workshop progettazione bioclimatica', NULL, 3.10);
+(1, 'Alessandro Conti', '2026-09-19', '10:00:00', 2, 'sviluppo progetto', 2.2, NULL),
+(2, 'Sofia Moretti', '2026-09-19', '14:30:00', 3, 'studio di gruppo esame database', NULL, 2.5),
+(3, 'Valerio Riva', '2026-09-20', '09:00:00', 2, 'sviluppo progetto programmazione', 3.1, NULL),
+(4, 'Beatrice Ferri', '2026-09-20', '13:00:00', 4, 'gruppo studio ripasso esame', NULL, 2.11),
+(5, 'Marco Gatti', '2026-09-21', '15:00:00', 4, 'esercitazione pratica programmazione', 2.2, NULL),
+(6, 'Giulia Bianchi', '2026-09-21', '09:00:00', 2, 'preparazione presentazione progetto', NULL, 2.3),
+(7, 'Elena Vitali', '2026-09-22', '09:00:00', 5, 'realizzazione plastico urbanistica', NULL, 2.13),
+(8, 'Riccardo Sanna', '2026-09-22', '14:00:00', 3, 'rendering 3D concorso idee', 'LAFO', NULL),
+(9, 'Giulia de Luca', '2026-09-23', '10:00:00', 2, 'revisione tavole progettuali', 'LaMo', NULL),
+(10, 'Lorenzo Serra', '2026-09-23', '16:00:00', 4, 'studio di fattibilità restauro', NULL, 2.5),
+(11, 'Chiara Neri', '2026-09-24', '08:30:00', 6, 'workshop progettazione bioclimatica', NULL, 3.10);
