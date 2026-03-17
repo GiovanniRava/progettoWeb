@@ -57,9 +57,9 @@
 
         </main>
 
-        <footer class="footer-contatti">
-            <p>Contatti Per Docenti ...</p>
-            <p>Contatti Per Studenti ...</p>
+        <footer>
+            <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</a></p>
+            <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301 </a></p>
         </footer>
 
     </div>
