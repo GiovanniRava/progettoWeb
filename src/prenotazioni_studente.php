@@ -36,7 +36,7 @@
     <main>
         <table>
             <tr>
-                <th>AULA</th>
+                <th>AULA / LAB</th>
                 <th>ORARIO</th>
                 <th></th>
             </tr>
