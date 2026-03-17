@@ -17,6 +17,7 @@ insert into AULA (numeroAula, capienza) values
 ('3.10', 84),
 ('3.11', 79),
 ('4.1', 72);
+
 INSERT INTO LABORATORIO(numeroLab,capienza) VALUES
 ('2.2', 98), ('3.1', 42), ('3.3', 49), ('4.2', 79), ('CARTA', 2), ('LaMo', 30), ('LaMoV',17), ('LaRAC', 2),
 ('LAFO', 16), ('OFF', 30), ('LIB(I)', 50), ('LIB(M)', 40);
