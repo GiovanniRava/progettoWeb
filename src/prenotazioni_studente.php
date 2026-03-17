@@ -36,9 +36,9 @@
     <main>
         <table>
             <tr>
-                <td>AULA</td>
-                <td>ORARIO</td>
-                <td></td>
+                <th>AULA</th>
+                <th>ORARIO</th>
+                <th></th>
             </tr>
             <tr>
                 <td></td>
