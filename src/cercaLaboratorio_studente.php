@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
     <title>Cerca laboratorio</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style_cercaAulaLab.css" />
 </head>
 <body>
     <header>
@@ -32,25 +32,25 @@
     <main>
         <section class="search-bar">
             <form action="#" method="GET">
-                <div class="input-aule">
+                <div class="input-lab">
                     <input type="text" id="search" name="search" placeholder="Search...">
                     <input type="date" id="data-lezione" name="data-lezione">
                 </div>
                 <button type="submit" class = "button-prenota">PRENOTA</button>
             </form>
         </section>
-        <section class = "table-aule">
+        <section class = "table-lab">
             <table>
                 <thead>
                     <tr>
-                        <th>AULA</th>
+                        <th>LABORATORIO</th>
                         <th>EVENTO</th>
                         <th>ORARIO</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>2.12</td>
+                        <td>2.2</td>
                         <td>Tecnologie Web</td>
                         <td>09:00-11-00</td>
                     </tr>
@@ -58,6 +58,9 @@
             </table>
         </section>
     </main>
+     <footer>
+        <p>Contatti</p>
+    </footer>
 </body>
 
 </html> 

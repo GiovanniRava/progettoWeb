@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
     <title>Cerca aula</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style_cercaAulaLab.css" />
 </head>
 <body>
     <header>
@@ -15,18 +15,18 @@
         <div class="title">
             <h1>Alma Aule</h1>
         </div>
-        <div class = "hamburgerMenu" id = "hamburger">
+        <div class="hamburgerMenu" id="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </header>
-    <div class = "red-bar">
-        <div class = "spacer"></div>
-        <div class = "subtitle">
+    <div class="red-bar">
+        <div class="spacer"></div>
+        <div class="subtitle">
             <h2>CERCA AULA</h2>
         </div>
-        <div class = "spacer"></div>
+        <div class="spacer"></div>
     </div>
 
     <main>
@@ -36,7 +36,7 @@
                     <input type="text" id="search" name="search" placeholder="Search...">
                     <input type="date" id="data-lezione" name="data-lezione">
                 </div>
-                <button type="submit" class = "button-prenota">PRENOTA</button>
+                <button type="submit" class="button-prenota">PRENOTA</button>
             </form>
         </section>
         <section class = "table-aule">
@@ -58,6 +58,9 @@
             </table>
         </section>
     </main>
+    <footer>
+        <p>Contatti</p>
+    </footer>
 </body>
 
 </html> 

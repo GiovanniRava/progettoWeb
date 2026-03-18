@@ -103,6 +103,38 @@ form ul li input[type="submit"]:hover {
     color: #000;
 }
 
+.search-bar {
+    display: flex;
+    justify-content: center; /* Centra il form orizzontalmente */
+    padding: 40px 0;         /* Crea spazio sopra e sotto (addio effetto appiccicato!) */
+}
+
+.search-bar form {
+    background: none;       /* Rimuove lo sfondo grigio del form generico */
+    box-shadow: none;       /* Rimuove l'ombra */
+    display: flex;
+    flex-direction: column; /* Mette input sopra e bottone sotto */
+    align-items: center;    /* Centra tutto */
+    gap: 15px;              /* Spazio tra i vari elementi del form */
+}
+
+.button-prenota {
+    background-color: #add8e6; 
+    color: #000;               
+    border: 1px solid #8eb9c7; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Lucida Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Effetto al passaggio del mouse */
+.button-prenota:hover {
+    background-color: #87ceeb;
+}
+
 footer {
     background-color: #e21d1d; 
     color: #fff;
