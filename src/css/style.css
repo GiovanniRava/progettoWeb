@@ -112,12 +112,13 @@ table {
 }
 
 th {
-    background-color: #d3d3d3;
+    background-color: #c0c0c0;
     color : black;
     text-align: left;
-    padding: 10px 15px;
+    padding: 8px 15px;
     border-bottom: 1px solid #999;
 }
+
 .red-bar {
     background-color: #e21d1d;
     display: flex;
@@ -158,3 +159,4 @@ th {
 @media screen and (min-width:768px){
 
 }
+
