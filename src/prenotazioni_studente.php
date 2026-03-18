@@ -36,14 +36,14 @@
     <main>
         <table>
             <tr>
-                <td>AULA</td>
-                <td>ORARIO</td>
-                <td></td>
+                <th>AULA / LAB</th>
+                <th>ORARIO</th>
+                <th></th>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
-                <td><input type="submit" name="submit" value="ANNULLA"/></td>
+                <td><a href="#" class="annullaPrenotazione">ANNULLA</a></td>
             </tr>
         </table>
     </main>

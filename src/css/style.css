@@ -38,13 +38,14 @@ h1 {
     justify-content: flex-end;
 }
 
-.login a, form ul li input[type="submit"] {
+.login a, form ul li input[type="submit"], .annullaPrenotazione {
     color: #ffffff;
     text-decoration: none;
     background-color: #ed1d1d;
     border-radius: 5px;
     padding: 5px 15px;
     font-family: 'Lucida Sans', sans-serif;
+    border: 1px solid #000;
 }
 
 .login-form {
@@ -93,8 +94,13 @@ form ul li input[type="submit"] {
     margin-top: 30px;
 }
 
-form ul li input[type="submit"]:hover{
+form ul li input[type="submit"]:hover {
     cursor: pointer;
+}
+
+.annullaPrenotazione:hover {
+    background-color: #ffffff;
+    color: #000;
 }
 
 footer {
@@ -109,14 +115,26 @@ footer {
 table {
     width: 100%; 
     font-family: 'Lucida Sans', sans-serif;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table td:nth-child(-n+2), table th:nth-child(-n+2){
+    border-right: 1px solid #000;
 }
 
 th {
-    background-color: #c0c0c0;
-    color : black;
+    background-color: #d3d3d3;
+    color: black;
     text-align: left;
     padding: 8px 15px;
     border-bottom: 1px solid #999;
+    padding: 20px 0;
+}
+
+table td{
+    text-align: center;
+    padding: 20px 0;
 }
 
 .red-bar {
