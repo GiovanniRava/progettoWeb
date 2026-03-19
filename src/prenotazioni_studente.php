@@ -41,14 +41,46 @@
                 <th></th>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td><a href="#" class="annullaPrenotazione">ANNULLA</a></td>
+                <td>2.12</td>
+                <td>10.00 - 12.00</td>
+                <td>
+                    <button id="button-annulla-prenotazione" class="button-annulla-prenotazione">ANNULLA</button>
+                    <dialog id="finestra-annulla">
+                        <h3>ANNULLAMENTO PRENOTAZIONE</h3>
+                        <p>Sei sicuro di voler annullare la prenotazione?</p>
+                        <button id="conferma-annulla">SI</button><button id="revoca-annulla">NO</button>
+                    </dialog>
+                </td>
             </tr>
         </table>
     </main>
 
     <footer>
-        <p>Contatti</p>
+        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
+        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
     </footer>
+
+    <script>
+        const finestra = document.getElementById('finestra-annulla');
+        const btnApri = document.getElementById('button-annulla-prenotazione');
+        const btnNo = document.getElementById('revoca-annulla');
+        const btnSi = document.getElementById('conferma-annulla');
+
+        // Funzione per aprire la finestra
+        btnApri.addEventListener('click', () => {
+            finestra.showModal(); 
+        });
+
+        // Funzione per chiudere se clicchi NO
+        btnNo.addEventListener('click', () => {
+            finestra.close();
+        });
+
+        // Azione se clicchi SI
+        btnSi.addEventListener('click', () => {
+            console.log("Prenotazione annullata!");
+            finestra.close();
+            // Qui aggiungerai la logica per cancellare davvero (es. una chiamata al database)
+        });
+    </script>
 </body>

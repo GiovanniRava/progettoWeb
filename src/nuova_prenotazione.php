@@ -92,7 +92,7 @@
                 <li>
                     <div class="col">
                         <label for="motivazione">Motivazione</label>
-                        <textarea name="motivazionePrenotazione" rows="7" cols="30"></textarea>
+                        <textarea name="motivazionePrenotazione" rows="7" placeholder="Scrivi..."></textarea>
                     </div>
                 </li>
                 <li>
@@ -103,6 +103,7 @@
     </div>
 
     <footer>
-        <p>Contatti</p>
+        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
+        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
     </footer>
 </body>
