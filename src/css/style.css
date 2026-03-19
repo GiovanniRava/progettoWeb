@@ -11,7 +11,7 @@ header {
     padding: 10px 0;
 }
 
-.logo, .title, .login, .hamburgerMenu, .subtitle, .add-container, .spacer {
+.logo, .title, .login, .hamburgerMenu, .subtitle, .add-container, .spacer, .back-container {
     display: flex;
     align-items: center;
 }
@@ -32,13 +32,13 @@ h1 {
     font-family: 'Lucida Sans', sans-serif;
 }
 
-.login, .hamburgerMenu, .add-container {
+.login, .hamburgerMenu, .add-container, .back-container {
     width: 25%;
     padding-right: 25px;
     justify-content: flex-end;
 }
 
-.login a, form ul li input[type="submit"], .annullaPrenotazione {
+.login a, .conferma-login, .annullaPrenotazione {
     color: #ffffff;
     text-decoration: none;
     background-color: #ed1d1d;
@@ -48,11 +48,11 @@ h1 {
     border: 1px solid #000;
 }
 
-.login-form {
+.login-form, .form-prenotazione {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70vh;
+    min-height: 70vh; /* Significa che il contenitore del tuo form deve essere alto almeno il 70% dell'altezza dello schermo. */
 }
 
 form {
@@ -61,6 +61,9 @@ form {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
+    margin-top: 15px;
+    width: 90%;
+    max-width: 700px;
 }
 
 form h2 {
@@ -84,7 +87,7 @@ form ul li{
     margin-bottom: 20px;
 }
 
-form ul li label{
+.login-form ul li label{
     display: inline-block;
     width: 50%;
     margin-bottom: 15px;
@@ -118,7 +121,7 @@ form ul li input[type="submit"]:hover {
     gap: 15px;              /* Spazio tra i vari elementi del form */
 }
 
-.button-prenota {
+.button-prenota, .button-nuova-prenotazione {
     background-color: #add8e6; 
     color: #000;               
     border: 1px solid #8eb9c7; 
@@ -131,7 +134,7 @@ form ul li input[type="submit"]:hover {
 }
 
 /* Effetto al passaggio del mouse */
-.button-prenota:hover {
+.button-prenota:hover, .button-nuova-prenotazione:hover {
     background-color: #87ceeb;
 }
 
@@ -155,13 +158,12 @@ table td:nth-child(-n+2), table th:nth-child(-n+2){
     border-right: 1px solid #000;
 }
 
-th {
+table th {
     background-color: #d3d3d3;
     color: black;
     text-align: left;
-    padding: 8px 15px;
+    padding: 20px 5px;
     border-bottom: 1px solid #999;
-    padding: 20px 0;
 }
 
 table td{
@@ -182,7 +184,7 @@ table td{
     font-family: 'Lucida Sans', sans-serif;
 }
 
-.add-box {
+.add-box, .back-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,14 +198,42 @@ table td{
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.plus-icon {
-    font-size: 40px;
+.plus-icon, .cross-icon {
+    font-size: 35px;
     font-weight: bold;
     line-height: 1;
 }
 
-.add-box:hover {
-    background-color: #cccccc;
+.add-box:hover, .back-box:hover {
+    background-color: #ffffff;
+}
+
+.form-prenotazione ul li:not(:last-child) {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-prenotazione ul li label {
+    margin-bottom: 4px;
+}
+
+.input-medio, .input-pieno, .form-prenotazione ul li textarea {
+    resize: none;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
 @media screen and (min-width:768px){

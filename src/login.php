@@ -42,7 +42,7 @@
                     <input type="password" id="password" name="password" />
                 </li>
                 <li>
-                    <input type="submit" name="submit" value="CONFERMA" />
+                    <input type="submit" name="submit" class="conferma-login" value="CONFERMA" />
                 </li>
             </ul>
         </form>

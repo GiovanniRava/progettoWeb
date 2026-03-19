@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <title>Prenotazioni-Studente</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.php">
+                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+            </a>
+        </div>
+        <div class="title">
+            <h1>Alma Aule</h1>
+        </div>
+        <div class="hamburgerMenu" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <div class="red-bar">
+        <div class="spacer"></div>
+        <div class="subtitle">
+            <h2>NUOVA PRENOTAZIONE</h2>
+        </div>
+        <div class="back-container">
+            <a href="prenotazioni_studente.php" class="back-box" title="BackToPrenotazioni">
+                <span class="cross-icon">&times;</span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="form-prenotazione">
+        <form action="#" method="POST">
+            <ul>
+                <li>
+                    <div class="col">
+                        <label for="Aula/Laboratorio">Seleziona Aula o Lab</label>
+                        <input type="text" class="input-medio" id="aula-lab" name="aula-lab" />
+                    </div>
+                    <div class="col">
+                        <label for="data">Data</label>
+                        <input type="date" class="input-medio" id="data" name="data" />
+                    </div>
+                </li>
+                <li>
+                    <div class="col">
+                        <label for="ora">Scegli l'orario:</label>
+                        <select class="input-medio" name="oraInizio" id="ora">
+                            <option value="08:00">09:00</option>
+                            <option value="08:30">09:30</option>
+                            <option value="09:00">10:00</option>
+                            <option value="09:30">10:30</option>
+                            <option value="10:00">11:00</option>
+                            <option value="08:00">11:30</option>
+                            <option value="08:30">12:00</option>
+                            <option value="09:00">12:30</option>
+                            <option value="09:30">13:00</option>
+                            <option value="10:00">13:30</option>
+                            <option value="08:00">14:00</option>
+                            <option value="08:30">14:30</option>
+                            <option value="09:00">15:00</option>
+                            <option value="09:30">15:30</option>
+                            <option value="10:00">16:00</option>
+                            <option value="08:30">16:30</option>
+                            <option value="09:00">17:00</option>
+                            <option value="09:30">17:30</option>
+                            <option value="10:00">18:00</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                    <label for="durata">Durata</label>
+                        <select class="input-medio" name="durataPermanenza" id="durata">
+                            <option value="08:00">00:30</option>
+                            <option value="08:30">01:00</option>
+                            <option value="09:00">01:30</option>
+                            <option value="09:30">02:00</option>
+                            <option value="10:00">02:30</option>
+                            <option value="08:00">03:00</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="col">
+                        <label for="username">Nome e Cognome</label>
+                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
+                    </div>
+                </li>
+                <li>
+                    <div class="col">
+                        <label for="motivazione">Motivazione</label>
+                        <textarea name="motivazionePrenotazione" rows="7" cols="30"></textarea>
+                    </div>
+                </li>
+                <li>
+                    <input type="submit" name="submit" class="button-nuova-prenotazione" value="INVIA PRENOTAZIONE" />
+                </li>
+            </ul>  
+        </form>
+    </div>
+
+    <footer>
+        <p>Contatti</p>
+    </footer>
+</body>
