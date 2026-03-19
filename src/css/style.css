@@ -10,6 +10,29 @@ header {
     align-items: center; 
     padding: 10px 0;
 }
+.header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+    background-color: rgb(224, 224, 224);
+    position: relative;
+    width:100%;
+} 
+.btn-indietro-menu {
+    position: absolute;
+    left: 20px;
+    color: #e21d1d;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-menu {
+    height: 60px; 
+    width: auto;  
+    max-width: 100%; 
+}
 
 .logo, .title, .login, .hamburgerMenu, .subtitle, .add-container, .spacer, .back-container {
     display: flex;
@@ -331,4 +354,46 @@ table td{
     font-size: 14px;
     color: #333; 
     line-height: 1.5;
+}
+
+.menu-navigazione {
+    flex-grow: 1; 
+}
+
+.menu-navigazione ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.menu-navigazione li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    text-decoration: none;
+    color: #333; 
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.menu-navigazione li a:hover {
+    background-color: white; 
+    color: #e21d1d; 
+}
+
+.sezione-logout {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.btn-logout {
+    background-color: #cc0000;
+    color: white;
+    border: 1px solid #990000;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); 
+    cursor: pointer;
 }
