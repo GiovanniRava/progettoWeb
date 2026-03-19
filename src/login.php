@@ -27,7 +27,7 @@
     </main>
 
     <div class="login-form">
-        <form action="#" method="POST">
+        <form action="#" method="POST" class="login-form-form">
             <h2>ACCEDI</h2>
             <?php if(isset($templateParams["errorelogin"])): ?>
             <p><?php echo $templateParams["errorelogin"]; ?></p>

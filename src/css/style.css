@@ -78,7 +78,16 @@ h1 {
     min-height: 70vh; /* Significa che il contenitore del tuo form deve essere alto almeno il 70% dell'altezza dello schermo. */
 }
 
-form {
+.login-form-form {
+    background: rgb(224, 224, 224);
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-form-prenotazione {
     background: rgb(224, 224, 224);
     padding: 0;
     border-radius: 8px;
@@ -120,8 +129,9 @@ form ul li input[type="submit"] {
     margin-top: 30px;
 }
 
-form ul li input[type="submit"]:hover {
+.conferma-login:hover {
     cursor: pointer;
+    background-color: #be1919;
 }
 
 .button-annulla-prenotazione:hover {

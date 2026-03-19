@@ -34,7 +34,7 @@
     </div>
     
     <div class="form-prenotazione">
-        <form action="#" method="POST">
+        <form action="#" method="POST" class="form-form-prenotazione">
             <ul>
                 <li>
                     <div class="col">
