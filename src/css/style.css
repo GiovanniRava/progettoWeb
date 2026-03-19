@@ -239,4 +239,73 @@ table td{
 @media screen and (min-width:768px){
 
 }
+/*Serve per immagine sfondo della polivalente*/
+.contenuto-aula {
+    background-image: url('../upload/polivalenteMobile.png'); 
+    
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
 
+.orario-badge {
+    background-color: #c0c0c0; 
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-bottom: 30px;
+}
+.griglia-statistiche {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px 40px; 
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-numero {
+    color: #cc0000;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-testo {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+.banner-avviso {
+    width: 100%;
+    background-image: url('../upload/polivalenteLaurea.png'); 
+    background-size: cover;
+    background-position: center;
+    padding-top: 15px;    
+    padding-bottom: 65px; 
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    border-radius: 5px; 
+}
+
+.banner-avviso p {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333; 
+    line-height: 1.5;
+}
