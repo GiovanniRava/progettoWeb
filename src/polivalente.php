@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polivalente - Alma Aule</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
@@ -19,11 +19,18 @@
             <div class="title">
                 <h1>Alma Aule</h1>
             </div>
-            
+            <div class="hamburgerMenu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </header>
-
-        <div class="titolo-sezione">
-            <h2>POLIVALENTE</h2>
+        <div class="red-bar">
+            <div class="spacer"></div>
+            <div class="subtitle">
+                <h2>POLIVALENTE</h2>
+            </div>
+            <div class="spacer"></div>
         </div>
 
         <main class="contenuto-aula">
