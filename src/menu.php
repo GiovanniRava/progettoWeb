@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Alma Aule</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
-
-    <div class="schermata-mobile">
-        
-        <header class="top-bar">
-            <a href="javascript:history.back()" class="btn-indietro">&gt;</a>
-            <img src="upload/uniboLogo.png" alt="Logo Università" class="logo">
+<body>        
+        <header class="header-menu">
+            <a href="javascript:history.back()" class="btn-indietro-menu">&gt;</a>
+            <img src="upload/uniboLogo.png" alt="Logo Università" class="logo-menu">
         </header>
 
-        <div class="titolo-sezione">
-            <h1>MENU</h1>
+        <div class="red-bar">
+            <div class="spacer"></div>
+            <div class="subtitle">
+                <h2>MENU</h2>
+            </div>
+            <div class="spacer"></div>
         </div>
 
         <nav class="menu-navigazione">
             <ul>
-                <li><a href="aule_studente.php">AULE</a></li>
-                <li><a href="laboratori_studente.php">LABORATORI</a></li>
+                <li><a href="cercaAula_studente.php">AULE</a></li>
+                <li><a href="cercaLaboratorio_studente.php">LABORATORI</a></li>
                 <li><a href="polivalente.php">POLIVALENTE</a></li>
                 <li><a href="eventi_studente.php">EVENTI</a></li>
                 <li><a href="prenotazione_studente.php">PRENOTAZIONI</a></li>
@@ -38,8 +39,6 @@
             <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</a></p>
             <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301 </a></p>
         </footer>
-
-    </div>
 
 </body>
 </html>

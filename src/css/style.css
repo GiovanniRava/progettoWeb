@@ -10,6 +10,29 @@ header {
     align-items: center; 
     padding: 10px 0;
 }
+.header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+    background-color: rgb(224, 224, 224);
+    position: relative;
+    width:100%;
+} 
+.btn-indietro-menu {
+    position: absolute;
+    left: 20px;
+    color: #e21d1d;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-menu {
+    height: 60px; 
+    width: auto;  
+    max-width: 100%; 
+}
 
 .logo, .title, .login, .hamburgerMenu, .subtitle, .add-container, .spacer, .back-container {
     display: flex;
@@ -273,7 +296,228 @@ table tr td:last-child {
     background-color: #bebebe;
 }
 
-@media screen and (min-width:768px){
 
+@media screen and (min-width: 768px) {
+    .contenuto-aula {
+        
+        background-image: url('../upload/polivalenteMobile.png'), url('../upload/polivalenteDesktop.png') !important;
+        background-position: left top, right top !important;
+        background-size: 50% 100%, 50% 100% !important;
+        background-repeat: no-repeat, no-repeat;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 600px; 
+    }
+
+    .banner-avviso {
+        width: 100%;         
+        max-width: 600px;    
+        margin: 20px auto;   
+        padding: 40px 20px 80px 20px; 
+    }
+
+    .griglia-statistiche {
+        max-width: 800px;    
+        margin: 0 auto 40px auto;
+    }
+}
+/*Serve per immagine sfondo della polivalente*/
+.contenuto-aula {
+    background-image: url('../upload/polivalenteMobile.png'); 
+    
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
+.orario-badge {
+    background-color: #c0c0c0; 
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-bottom: 30px;
+}
+.griglia-statistiche {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px 40px; 
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-numero {
+    color: #cc0000;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-testo {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+.banner-avviso {
+    width: 100%;
+    background-image: url('../upload/polivalenteLaurea.png'); 
+    background-size: cover;
+    background-position: center;
+    padding-top: 15px;    
+    padding-bottom: 65px; 
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    border-radius: 5px; 
+}
+
+.banner-avviso p {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333; 
+    line-height: 1.5;
+}
+
+.menu-navigazione {
+    flex-grow: 1; 
+}
+
+.menu-navigazione ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.menu-navigazione li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    text-decoration: none;
+    color: #333; 
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.menu-navigazione li a:hover {
+    background-color: white; 
+    color: #e21d1d; 
+}
+
+.sezione-logout {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.btn-logout {
+    background-color: #cc0000;
+    color: white;
+    border: 1px solid #990000;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); 
+    cursor: pointer;
+}
+
+
+/* Container principale */
+.container-eventi {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titolo-sezione {
+    text-align: center;
+    color: #e21d1d;
+    margin-bottom: 20px;
+}
+
+/* Layout lista eventi */
+.lista-eventi {
+    display: flex;
+    flex-direction: column; /* Una sotto l'altra su mobile */
+    gap: 25px;
+}
+.card-evento {
+    display: flex;
+    flex-direction: column; /* Immagine sopra, testo sotto */
+    background: white;
+    border-radius: 8px;
+    overflow: hidden; /* Importante per object-fit */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 1. Blocchiamo l'altezza del contenitore dell'immagine */
+.immagine-locandina {
+    width: 100%;
+    height: 180px; /* Alza o abbassa questo valore per decidere l'altezza della foto */
+    overflow: hidden;
+}
+
+/* 2. Diciamo all'immagine di riempire lo spazio senza deformarsi */
+.immagine-locandina img {
+    width: 100%;
+    height: 100%; /* Riempie l'altezza del contenitore (180px) */
+    object-fit: cover; /* MAGIA: Taglia i bordi eccedenti e centra la foto, come Instagram */
+    object-position: center; /* Assicura che il centro della locandina sia visibile */
+    display: block;
+}
+
+/* Spaziatura del testo (info-evento) */
+.info-evento {
+    padding: 15px;
+    flex-grow: 1; /* Occupa lo spazio rimanente */
+}
+
+.info-evento h3 {
+    font-size: 16px; /* Dimensioni equilibrate per il titolo */
+    color: #e21d1d;
+    margin: 0 0 8px 0;
+}
+
+.info-evento p {
+    font-size: 13px; /* Testo descrizione più piccolo per leggibilità */
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.data-evento {
+    display: block;
+    font-weight: bold;
+    font-size: 12px; /* Data piccola ma leggibile */
+    color: #333;
+}
+
+/* --- MEDIA QUERY PER PC --- */
+@media screen and (min-width: 768px) {
+    .lista-eventi {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 colonne su PC */
+        gap: 30px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .lista-eventi {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonne su schermi larghi */
+    }
+}
