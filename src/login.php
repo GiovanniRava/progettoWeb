@@ -22,33 +22,32 @@
         </div>
     </header>
     
-    <main>
-    <!-- foto -->
+    <main class="main-home">
+        <img src="upload/giardinoCampus.jpeg" alt="giardino Campus Cesena, foto di sfondo Home page" class="home-img-login">
+            <div class="login-form">
+            <form action="#" method="POST" class="login-form-form">
+                <h2>ACCEDI</h2>
+                <?php if(isset($templateParams["errorelogin"])): ?>
+                <p><?php echo $templateParams["errorelogin"]; ?></p>
+                <?php endif; ?>
+                <ul>
+                    <li>
+                        <label for="username">E-mail</label>
+                        <input type="text" id="email" name="email" />
+                    </li>
+                    <li>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" />
+                    </li>
+                    <li>
+                        <input type="submit" name="submit" class="conferma-login" value="CONFERMA" />
+                    </li>
+                </ul>
+            </form>
+        </div>
     </main>
 
-    <div class="login-form">
-        <form action="#" method="POST" class="login-form-form">
-            <h2>ACCEDI</h2>
-            <?php if(isset($templateParams["errorelogin"])): ?>
-            <p><?php echo $templateParams["errorelogin"]; ?></p>
-            <?php endif; ?>
-            <ul>
-                <li>
-                    <label for="username">E-mail</label>
-                    <input type="text" id="email" name="email" />
-                </li>
-                <li>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" />
-                </li>
-                <li>
-                    <input type="submit" name="submit" class="conferma-login" value="CONFERMA" />
-                </li>
-            </ul>
-        </form>
-    </div>
-
-    <footer>
+    <footer class="home-footer">
         <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
         <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
     </footer>

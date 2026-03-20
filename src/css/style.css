@@ -10,6 +10,17 @@ header {
     align-items: center; 
     padding: 10px 0;
 }
+
+.main-home {
+    position: relative; /* Fondamentale: fa da ancora per il contenuto sopra */
+    width: 100%;
+    min-height: 100vh; /* Usa tutta l'altezza dello schermo */
+    display: flex;     /* Usiamo flex per centrare il form facilmente */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  /* Evita che l'immagine crei scroll inutili */
+}
+
 .header-menu {
     display: flex;
     align-items: center;
@@ -19,6 +30,7 @@ header {
     position: relative;
     width:100%;
 } 
+
 .btn-indietro-menu {
     position: absolute;
     left: 20px;
@@ -32,6 +44,33 @@ header {
     height: 60px; 
     width: auto;  
     max-width: 100%; 
+}
+
+footer {
+    background-color: #e21d1d; 
+    color: #fff;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px 0;
+    margin-top: 15px;
+}
+
+.home-footer {
+    margin: 0;
+}
+
+.home-img, .home-img-login {
+    display: block;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.home-img-login {
+    filter: brightness(0.7);
 }
 
 .logo, .title, .login, .hamburgerMenu, .subtitle, .add-container, .spacer, .back-container {
@@ -76,13 +115,14 @@ h1 {
     justify-content: center;
     align-items: center;
     min-height: 70vh; /* Significa che il contenitore del tuo form deve essere alto almeno il 70% dell'altezza dello schermo. */
+    position: relative; /* Serve per usare z-index */
+    z-index: 2;
 }
 
 .login-form-form {
     background: rgb(224, 224, 224);
     padding: 0;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
     margin-top: 15px;
 }
@@ -169,15 +209,6 @@ form ul li input[type="submit"] {
 
 .button-prenota:hover, .button-nuova-prenotazione:hover {
     background-color: #87ceeb;
-}
-
-footer {
-    background-color: #e21d1d; 
-    color: #fff;
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px 0;
-    margin-top: 15px;
 }
 
 table {

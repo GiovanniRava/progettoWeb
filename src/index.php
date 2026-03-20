@@ -22,11 +22,11 @@
         </div>
     </header>
     
-    <main>
-    <!-- foto -->
+    <main class="main-home">
+        <img src="upload/giardinoCampus.jpeg" alt="giardino Campus Cesena, foto di sfondo Home page" class="home-img">
     </main>
 
-    <footer>
+    <footer class="home-footer">
         <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
         <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
 <!-- da aggiungere icone social con link e aggiungere roba del copyright verosimile -->
