@@ -522,3 +522,27 @@ table tr td:last-child {
     font-size: 1rem;
     color: #555555; 
 }
+
+.stato-aule {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*due colonne uguali che usano una frazione uguale di spazio disponibile*/
+    text-align: center;
+    padding: 40px 0 0 0;
+    margin-bottom: 0px;
+}
+
+.eventi {
+    text-align: center;
+    margin-top: 0;
+}
+
+.stato h2, .eventi h2{
+    color: #e21d1d;
+    font-size: 32px;
+    margin-bottom: 5px; 
+}
+
+.stato p, .eventi p{
+    font-size: 16px;
+    font-weight: bold;
+}
