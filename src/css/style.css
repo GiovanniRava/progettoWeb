@@ -477,88 +477,48 @@ table tr td:last-child {
     cursor: pointer;
 }
 
-
-/* Container principale */
-.container-eventi {
-    padding: 20px;
+.griglia-eventi {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+    padding: 15px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.titolo-sezione {
-    text-align: center;
-    color: #e21d1d;
-    margin-bottom: 20px;
+@media (min-width: 768px) {
+    .griglia-eventi {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 50px;
+    }
 }
 
-/* Layout lista eventi */
-.lista-eventi {
-    display: flex;
-    flex-direction: column; /* Una sotto l'altra su mobile */
-    gap: 25px;
-}
 .card-evento {
     display: flex;
-    flex-direction: column; /* Immagine sopra, testo sotto */
-    background: white;
-    border-radius: 8px;
-    overflow: hidden; /* Importante per object-fit */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-direction: column; 
+    background-color: #ffffff; 
+    width: 100%; 
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* 1. Blocchiamo l'altezza del contenitore dell'immagine */
-.immagine-locandina {
-    width: 100%;
-    height: 180px; /* Alza o abbassa questo valore per decidere l'altezza della foto */
-    overflow: hidden;
-}
 
-/* 2. Diciamo all'immagine di riempire lo spazio senza deformarsi */
-.immagine-locandina img {
+.img-evento {
     width: 100%;
-    height: 100%; /* Riempie l'altezza del contenitore (180px) */
-    object-fit: cover; /* MAGIA: Taglia i bordi eccedenti e centra la foto, come Instagram */
-    object-position: center; /* Assicura che il centro della locandina sia visibile */
+    aspect-ratio: 3 / 4;
+    object-fit: cover; 
     display: block;
+    
 }
-
-/* Spaziatura del testo (info-evento) */
 .info-evento {
-    padding: 15px;
-    flex-grow: 1; /* Occupa lo spazio rimanente */
+    padding: 20px;
 }
-
 .info-evento h3 {
-    font-size: 16px; /* Dimensioni equilibrate per il titolo */
-    color: #e21d1d;
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0; 
+    font-size: 1.3rem;
 }
-
-.info-evento p {
-    font-size: 13px; /* Testo descrizione più piccolo per leggibilità */
-    color: #555;
-    line-height: 1.4;
-    margin-bottom: 10px;
-}
-
-.data-evento {
-    display: block;
-    font-weight: bold;
-    font-size: 12px; /* Data piccola ma leggibile */
-    color: #333;
-}
-
-/* --- MEDIA QUERY PER PC --- */
-@media screen and (min-width: 768px) {
-    .lista-eventi {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 colonne su PC */
-        gap: 30px;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .lista-eventi {
-        grid-template-columns: repeat(3, 1fr); /* 3 colonne su schermi larghi */
-    }
+.info-evento .data-evento {
+    font-size: 1rem;
+    color: #555555; 
 }

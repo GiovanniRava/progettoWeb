@@ -29,46 +29,38 @@
         <div class = "spacer"></div>
     </div>
     <main class="container-eventi">
+        <section class="griglia-eventi">
+            
+            <article class="card-evento">
+                <img src="upload/asALAB.jpeg" alt="Locandina Evento 1" class="img-evento">
+                <div class="info-evento">
+                    <h3>Game as A Lab - 2.12</h3>
+                    <span class="data-evento">27/11/2026 - Ore 17:00</span>
+                </div>
+            </article>
 
-    <section class="lista-eventi">
-        
-        <article class="card-evento">
-            <div class="immagine-locandina">
-                <img src="upload/asALAB.jpeg" alt="Locandina Evento 1">
-            </div>
-            <div class="info-evento">
-                <h3>Game as A Lab - 2.12</h3>
-                <span class="data-evento">Data: 25/03/2026 - Ore 15:00</span>
-            </div>
-        </article>
+            <article class="card-evento">
+                <img src="upload/futuroICT.jpeg" alt="Locandina Evento 2" class="img-evento">
+                <div class="info-evento">
+                    <h3>Futuro ICT - 2.13</h3>
+                    <span class="data-evento">21/10/2026 - Ore 17:00</span>
+                </div>
+            </article>
 
-        <article class="card-evento">
-            <div class="immagine-locandina">
-                <img src="upload/futuroICT.jpeg" alt="Locandina Evento 2">
-            </div>
-            <div class="info-evento">
-                <h3>FUturo ICT</h3>
-                <span class="data-evento">Data: 28/03/2026 - Ore 09:30</span>
-            </div>
-        </article>
+            <article class="card-evento">
+                <img src="upload/Quantum.jpeg" alt="Locandina Evento 3" class="img-evento">
+                <div class="info-evento">
+                    <h3>Quantum</h3>
+                    <span class="data-evento">28/03/2026 - Ore 09:30</span>
+                </div>
+            </article>
 
-        <article class="card-evento">
-            <div class="immagine-locandina">
-                <img src="upload/evento3.jpg" alt="Locandina Evento 3">
-            </div>
-            <div class="info-evento">
-                <h3>Eventuale altro evento</h3>
-                <span class="data-evento">Data: 11-11-11</span>
-            </div>
-        </article>
-
-    </section>
-
-</main>
+        </section>
+    </main>
     <footer>
-            <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</a></p>
-            <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301 </a></p>
-        </footer>
+        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</a></p>
+        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301 </a></p>
+    </footer>
 </body>
         
     
