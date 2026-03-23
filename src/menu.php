@@ -26,7 +26,7 @@
                 <li><a href="cercaLaboratorio_studente.php">LABORATORI</a></li>
                 <li><a href="polivalente.php">POLIVALENTE</a></li>
                 <li><a href="eventi_studente.php">EVENTI</a></li>
-                <li><a href="prenotazione_studente.php">PRENOTAZIONI</a></li>
+                <li><a href="prenotazioni_studente.php">PRENOTAZIONI</a></li>
             </ul>
         </nav>
 
