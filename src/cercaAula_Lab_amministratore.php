@@ -61,7 +61,12 @@
                             <div class="dettagli">
                                 <p>Nome e Cognome: Mario Rossi</p>
                                 <p>Motivazione: presentazione progetto Web</p>
-                                <button class="button-elimina">ELIMINA</button>
+                                <button id="button-elimina" class="button-elimina">ELIMINA</button>
+                                <dialog id="finestra-elimina">
+                                    <h3>ELIMINAZIONE PRENOTAZIONE</h3>
+                                    <p>Sei sicuro di voler eliminare la prenotazione?</p>
+                                    <button id="conferma-elimina">SI</button><button id="revoca-elimina">NO</button>
+                                </dialog>
                             </div>
                         </td>
                     </tr>
@@ -73,6 +78,27 @@
     <footer>
         <p>Contatti</p>
     </footer>
+
+    <script>
+        const finestra = document.getElementById('finestra-elimina');
+        const btnApri = document.getElementById('button-elimina');
+        const btnNo = document.getElementById('revoca-elimina');
+        const btnSi = document.getElementById('conferma-elimina');
+
+        btnApri.addEventListener('click', () => {
+            finestra.showModal(); 
+        });
+
+        btnNo.addEventListener('click', () => {
+            finestra.close();
+        });
+
+        btnSi.addEventListener('click', () => {
+            console.log("Prenotazione annullata!");
+            finestra.close();
+            // Qui aggiungerai la logica per cancellare davvero (es. una chiamata al database)
+        });
+    </script>
     
     <!--
     <script>
