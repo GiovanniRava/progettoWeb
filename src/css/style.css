@@ -300,7 +300,7 @@ table tr td:last-child {
     box-sizing: border-box;
 }
 
-#finestra-annulla {
+#finestra-annulla, #finestra-elimina {
     border: 2px solid black;
     border-radius: 8px;
     padding: 20px;
@@ -308,32 +308,32 @@ table tr td:last-child {
     text-align: center;
 }
 
-#finestra-annulla::backdrop {
+#finestra-annulla::backdrop, #finestra-elimina::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-#finestra-annulla button {
+#finestra-annulla button, #finestra-elimina button {
     margin: 20px 40px;
     padding: 15px 30px;
     cursor: pointer;
     font-size: 18px;
 }
 
-#conferma-annulla {
+#conferma-annulla, #conferma-elimina {
     color: #ffffff;
     background-color: #e21d1d;
 }
 
-#conferma-annulla:hover {
+#conferma-annulla:hover, #conferma-elimina:hover {
     background-color: #be1919;
 }
 
-#revoca-annulla {
+#revoca-annulla, #revoca-elimina {
     color: #000;
     background-color: #ffffff;
 }
 
-#revoca-annulla:hover {
+#revoca-annulla:hover, #revoca-elimina:hover {
     background-color: #bebebe;
 }
 
@@ -445,6 +445,7 @@ table tr td:last-child {
     margin: 0;
     width: 100%;
 }
+
 .menu-navigazione li a {
     display: flex;
     justify-content: center;
