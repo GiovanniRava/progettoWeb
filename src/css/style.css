@@ -73,7 +73,7 @@ footer {
     filter: brightness(0.7);
 }
 
-.logo, .title, .login, .hamburgerMenu, .subtitle, .add-container, .spacer, .back-container {
+.logo, .title, .login, .subtitle, .add-container, .spacer, .back-container {
     display: flex;
     align-items: center;
 }
@@ -94,7 +94,7 @@ h1 {
     font-family: 'Lucida Sans', sans-serif;
 }
 
-.login, .hamburgerMenu, .add-container, .back-container {
+.login, .add-container, .back-container {
     width: 25%;
     padding-right: 25px;
     justify-content: flex-end;
@@ -524,6 +524,13 @@ table tr td:last-child {
     color: #555555; 
 }
 
+.menu-container {
+    display: flex;
+    width: 25%; 
+    justify-content: flex-end; 
+    padding-right: 20px; 
+    align-items: center;
+}
 .stato-aule {
     display: grid;
     grid-template-columns: 1fr 1fr; /*due colonne uguali che usano una frazione uguale di spazio disponibile*/
