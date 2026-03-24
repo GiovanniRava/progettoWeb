@@ -19,10 +19,10 @@
             <div class="title">
                 <h1>Alma Aule</h1>
             </div>
-            <div class="hamburgerMenu" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="menu-container">
+                <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
+                    &#9776;
+                </a>
             </div>
         </header>
         <div class="red-bar">
