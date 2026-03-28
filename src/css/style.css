@@ -601,3 +601,135 @@ table tr td:last-child {
     padding-bottom: 20px;
     text-align: center;
 }
+/* Nasconde la riga dei dettagli di default */
+.nascosta {
+    display: none !important;
+}
+
+/* Stile per i bottoni per farli sembrare come in foto (se non li hai già) */
+.btn-accetta {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: 1px solid #388E3C;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.btn-rifiuta {
+    background-color: #e21d1d; /* Rosso */
+    color: white;
+    border: 1px solid #990000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container-bottoni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nascosta {
+    display: none !important;
+}
+
+.btn-accetta {
+    background-color: #63a75a;
+    color: white;
+    border: 2px solid #3c7035;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+.btn-rifiuta {
+    background-color: #d94343;
+    color: white;
+    border: 2px solid #8e2323;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100px;
+}
+
+.container-bottoni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#apri-menu {
+    font-size: 35px;
+    color: #e21d1d;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tabella-prenotazioni table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabella-prenotazioni thead tr {
+    background-color: #d3d3d3;
+    border-bottom: 2px solid #fff;
+}
+
+.tabella-prenotazioni th {
+    padding: 15px 10px;
+}
+
+.tabella-prenotazioni th:last-child {
+    text-align: center;
+}
+
+.riga-principale {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+}
+
+.riga-principale td {
+    padding: 20px 10px;
+}
+
+.riga-principale td:last-child {
+    text-align: center;
+}
+
+.riga-dettagliPrenotazione {
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #ccc;
+}
+
+.riga-dettagliPrenotazione td {
+    padding: 15px 10px;
+    vertical-align: top;
+}
+
+.riga-dettagliPrenotazione td[colspan="2"] {
+    vertical-align: middle;
+}
+
+.etichetta-dettaglio {
+    font-size: 12px;
+    color: #555;
+}
