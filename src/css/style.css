@@ -2,11 +2,11 @@ header > div > a > img{
     max-height: 100px;
 }
 
-header, nav {
+header {
     display: flex;
     background-color: rgb(224, 224, 224);
     width: 100%;
-    padding: 10px 0;
+    padding: 10px 0 5px;
 }
 /* body e main aggiunti in modo che il footer stia in basso alla pagina, è una prova se non vabene e non ci piace si toglie*/
 body {
@@ -23,7 +23,7 @@ main {
 .main-home {
     position: relative; /*fa da ancora per il contenuto sopra */
     min-height: 100vh; /* Usa tutta l'altezza dello schermo */
-    display: flex;     /* Usiamo flex per centrare il form facilmente */
+    display: flex;     /*Usiamo flex per centrare il form facilmente */
     justify-content: center;
     overflow: hidden;  /* Evita che l'immagine crei scroll inutili - previene perchè in realtà non li crea già */
 }
@@ -62,22 +62,23 @@ footer {
     margin-top: 15px;
 }
 
+footer p {
+    margin: 20px 14px;
+}
+
 .home-footer {
     margin: 0;
 }
 
 .home-img, .home-img-login {
-    display: block;
-    margin: 0;
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
 }
 
 .home-img-login {
-    filter: brightness(0.7);
+    filter: brightness(0.6);
 }
 
 .logo, .title, .login, .subtitle, .add-container, .spacer, .back-container, .menu-container {
@@ -127,9 +128,9 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70vh; /* Significa che il contenitore del tuo form deve essere alto almeno il 70% dell'altezza dello schermo. */
-    position: relative; /* Serve per usare z-index */
-    z-index: 2;
+    min-height: 85vh; /*Significa che il contenitore del form deve essere alto almeno l'85% dell'altezza dello schermo. */
+    position: relative; /*Serve per usare z-index - anche se in realtà funziona anche solo con flex*/
+    z-index: 1;
 }
 
 .login-form-form {
@@ -174,15 +175,15 @@ form ul li{
 
 .login-form ul li label{
     display: inline-block;
-    width: 50%;
-    margin-bottom: 15px;
+    width: 100%;
+    margin-bottom: 14px;
 }
 
 form ul li input[type="submit"] {
     margin-top: 30px;
 }
 
-.conferma-login:hover {
+.conferma-login:hover, .login a:hover {
     cursor: pointer;
     background-color: #be1919;
 }
@@ -196,6 +197,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     color: #000;
     cursor: pointer;
 }
+/*ciao sono riki sono arrivato a qui nella pulizia del mio css*/ /*c'è da capire se i form si vedono bene su mobile*/
 
 .search-bar {
     display: flex;
@@ -392,7 +394,7 @@ table tr td:last-child {
         margin: 0;
         justify-content: center;
         background-color: rgb(224, 224, 224);
-        padding: 8px 0;
+        padding: 5px 0 8px;
     }
 
     nav ul {
@@ -405,6 +407,14 @@ table tr td:last-child {
         font-family: 'Lucida Sans', sans-serif;
         text-decoration: none;
         color: #000;
+        padding: 12px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    nav ul li a:hover{
+        background-color: #e21d1d;
+        color: #ffffff;
     }
 }
 /*Serve per immagine sfondo della polivalente*/
