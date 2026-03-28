@@ -499,6 +499,7 @@ table tr td:last-child {
 }
 
 .sezione-logout {
+    background-color: rgb(224, 224, 224);
     text-align: center;
     padding: 20px 0;
 }
