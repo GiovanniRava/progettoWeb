@@ -241,12 +241,18 @@ table td:nth-child(-n+3), table th:nth-child(-n+3){
     border-right: 1px solid #000;
 }
 
-table th {
+table tr th {
     background-color: #d3d3d3;
     color: black;
     text-align: left;
     padding: 20px 5px;
     border-bottom: 1px solid #999;
+}
+
+table tr td {
+    color: black;
+    text-align: left;
+    padding: 20px 5px;
 }
 
 table tr td:last-child {
