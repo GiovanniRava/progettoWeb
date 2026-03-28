@@ -16,9 +16,7 @@
             <h1>Alma Aule</h1>
         </div>
         <div class="login">
-            <nav>
-                <a href="login.php">Login</a>
-            </nav>
+            <a href="login.php">Login</a>
         </div>
     </header>
     

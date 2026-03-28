@@ -1,5 +1,4 @@
 header > div > a > img{
-    max-width: 100%;
     max-height: 100px;
 }
 
@@ -8,17 +7,14 @@ header, nav {
     background-color: rgb(224, 224, 224);
     width: 100%;
     padding: 10px 0;
-    flex-wrap: wrap; /* Permette agli elementi di andare a capo */
 }
 
 .main-home {
     position: relative; /*fa da ancora per il contenuto sopra */
-    width: 100%;
     min-height: 100vh; /* Usa tutta l'altezza dello schermo */
     display: flex;     /* Usiamo flex per centrare il form facilmente */
     justify-content: center;
-    align-items: center;
-    overflow: hidden;  /* Evita che l'immagine crei scroll inutili */
+    overflow: hidden;  /* Evita che l'immagine crei scroll inutili - previene perchè in realtà non li crea già */
 }
 
 .header-menu {
@@ -29,7 +25,7 @@ header, nav {
     background-color: rgb(224, 224, 224);
     position: relative;
     width:100%;
-} 
+}
 
 .btn-indietro-menu {
     position: absolute;

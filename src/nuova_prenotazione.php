@@ -21,6 +21,15 @@
             </a>
         </div>
     </header>
+    <nav>
+        <ul>
+            <li><a href="cercaAula_studente.php">AULE</a></li>
+            <li><a href="cercaLaboratorio_studente.php">LABORATORI</a></li>
+            <li><a href="polivalente.php">POLIVALENTE</a></li>
+            <li><a href="eventi_studente.php">EVENTI</a></li>
+            <li><a href="prenotazioni_studente.php">PRENOTAZIONI</a></li>
+        </ul>
+    </nav>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
