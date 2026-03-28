@@ -228,7 +228,7 @@ table {
     border-collapse: collapse;
 }
 
-table td:nth-child(-n+2), table th:nth-child(-n+2){
+table td:nth-child(-n+3), table th:nth-child(-n+3){
     border-right: 1px solid #000;
 }
 
@@ -583,4 +583,10 @@ table tr td:last-child {
 .stato p, .eventi p{
     font-size: 16px;
     font-weight: bold;
+}
+
+.section-nuovo-evento-btn{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
 }
