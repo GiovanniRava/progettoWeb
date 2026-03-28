@@ -8,6 +8,17 @@ header, nav {
     width: 100%;
     padding: 10px 0;
 }
+/* body e main aggiunti in modo che il footer stia in basso alla pagina, è una prova se non vabene e non ci piace si toglie*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0; 
+}
+
+main {
+    flex-grow: 1; 
+}
 
 .main-home {
     position: relative; /*fa da ancora per il contenuto sopra */
@@ -224,7 +235,7 @@ table {
     border-collapse: collapse;
 }
 
-table td:nth-child(-n+2), table th:nth-child(-n+2){
+table td:nth-child(-n+3), table th:nth-child(-n+3){
     border-right: 1px solid #000;
 }
 
@@ -495,6 +506,7 @@ table tr td:last-child {
 }
 
 .sezione-logout {
+    background-color: rgb(224, 224, 224);
     text-align: center;
     padding: 20px 0;
 }
@@ -578,4 +590,142 @@ table tr td:last-child {
 .stato p, .eventi p{
     font-size: 16px;
     font-weight: bold;
+}
+
+.section-nuovo-evento-btn{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+/* Nasconde la riga dei dettagli di default */
+.nascosta {
+    display: none !important;
+}
+
+/* Stile per i bottoni per farli sembrare come in foto (se non li hai già) */
+.btn-accetta {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: 1px solid #388E3C;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.btn-rifiuta {
+    background-color: #e21d1d; /* Rosso */
+    color: white;
+    border: 1px solid #990000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container-bottoni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nascosta {
+    display: none !important;
+}
+
+.btn-accetta {
+    background-color: #63a75a;
+    color: white;
+    border: 2px solid #3c7035;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+.btn-rifiuta {
+    background-color: #d94343;
+    color: white;
+    border: 2px solid #8e2323;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100px;
+}
+
+.container-bottoni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#apri-menu {
+    font-size: 35px;
+    color: #e21d1d;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tabella-prenotazioni table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabella-prenotazioni thead tr {
+    background-color: #d3d3d3;
+    border-bottom: 2px solid #fff;
+}
+
+.tabella-prenotazioni th {
+    padding: 15px 10px;
+}
+
+.tabella-prenotazioni th:last-child {
+    text-align: center;
+}
+
+.riga-principale {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+}
+
+.riga-principale td {
+    padding: 20px 10px;
+}
+
+.riga-principale td:last-child {
+    text-align: center;
+}
+
+.riga-dettagliPrenotazione {
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #ccc;
+}
+
+.riga-dettagliPrenotazione td {
+    padding: 15px 10px;
+    vertical-align: top;
+}
+
+.riga-dettagliPrenotazione td[colspan="2"] {
+    vertical-align: middle;
+}
+
+.etichetta-dettaglio {
+    font-size: 12px;
+    color: #555;
 }

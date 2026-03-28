@@ -22,8 +22,8 @@
 
         <nav class="menu-navigazione">
             <ul>
-                <li><a href="prenotazioni_admin.php">PRENOTAZIONI</a></li>
-                <li><a href="richieste_in_corso.php">RICHIESTE IN CORSO</a></li>
+                <li><a href="cercaAula_Lab_amministratore.php">PRENOTAZIONI</a></li>
+                <li><a href="richieste_admin.php">RICHIESTE IN CORSO</a></li>
                 <li><a href="eventi_admin.php">EVENTI</a></li>
             </ul>
         </nav>
