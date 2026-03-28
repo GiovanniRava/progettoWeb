@@ -3,16 +3,16 @@ header > div > a > img{
     max-height: 100px;
 }
 
-header {
-    background-color: rgb(224, 224, 224);
+header, nav {
     display: flex;
+    background-color: rgb(224, 224, 224);
     width: 100%;
-    align-items: center; 
     padding: 10px 0;
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo */
 }
 
 .main-home {
-    position: relative; /* Fondamentale: fa da ancora per il contenuto sopra */
+    position: relative; /*fa da ancora per il contenuto sopra */
     width: 100%;
     min-height: 100vh; /* Usa tutta l'altezza dello schermo */
     display: flex;     /* Usiamo flex per centrare il form facilmente */
@@ -73,7 +73,7 @@ footer {
     filter: brightness(0.7);
 }
 
-.logo, .title, .login, .subtitle, .add-container, .spacer, .back-container {
+.logo, .title, .login, .subtitle, .add-container, .spacer, .back-container, .menu-container {
     display: flex;
     align-items: center;
 }
@@ -82,6 +82,7 @@ footer {
     width: 25%;
     padding-left: 20px;
     justify-content: flex-start;
+    box-sizing: border-box; /*non conta il padding nella % del width*/
 }
 
 .title, .subtitle {
@@ -94,10 +95,15 @@ h1 {
     font-family: 'Lucida Sans', sans-serif;
 }
 
-.login, .add-container, .back-container {
+.login, .menu-container, .add-container, .back-container {
     width: 25%;
-    padding-right: 25px;
+    padding-right: 20px;
     justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+nav {
+    display: none;
 }
 
 .login a, .conferma-login, .button-annulla-prenotazione {
@@ -110,7 +116,7 @@ h1 {
     border: 1px solid #000;
 }
 
-.login-form, .form-prenotazione {
+.login-form, .form-prenotazione, .form-evento {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,7 +133,7 @@ h1 {
     margin-top: 15px;
 }
 
-.form-form-prenotazione {
+.form-form-prenotazione, .form-form-evento {
     background: rgb(224, 224, 224);
     padding: 0;
     border-radius: 8px;
@@ -174,6 +180,10 @@ form ul li input[type="submit"] {
     background-color: #be1919;
 }
 
+input[type="file"]::-webkit-file-upload-button, input[type="file"]{
+    cursor: pointer;
+}
+
 .button-annulla-prenotazione:hover {
     background-color: #ffffff;
     color: #000;
@@ -195,7 +205,7 @@ form ul li input[type="submit"] {
     gap: 15px;              /* Spazio tra i vari elementi del form */
 }
 
-.button-prenota, .button-nuova-prenotazione {
+.button-prenota, .button-nuova-prenotazione, .button-nuovo-evento {
     background-color: #add8e6; 
     color: #000;               
     border: 1px solid #8eb9c7; 
@@ -207,7 +217,7 @@ form ul li input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-.button-prenota:hover, .button-nuova-prenotazione:hover {
+.button-prenota:hover, .button-nuova-prenotazione:hover, .button-nuovo-evento:hover {
     background-color: #87ceeb;
 }
 
@@ -272,7 +282,7 @@ table tr td:last-child {
     background-color: #ffffff;
 }
 
-.form-prenotazione ul li:not(:last-child) {
+.form-prenotazione ul li:not(:last-child), .form-evento ul li:not(:last-child) {
     display: flex;
     gap: 50px;
     margin-bottom: 15px;
@@ -287,17 +297,18 @@ table tr td:last-child {
     flex: 1;
 }
 
-.form-prenotazione ul li label {
+.form-prenotazione ul li label, .form-evento ul li label {
     margin-bottom: 4px;
 }
 
-.input-medio, .input-pieno, .form-prenotazione ul li textarea {
+.input-medio, .input-pieno, ul li textarea {
     resize: none;
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    background-color: #ffffff;
 }
 
 #finestra-annulla, #finestra-elimina {
@@ -362,6 +373,31 @@ table tr td:last-child {
     .griglia-statistiche {
         max-width: 800px;    
         margin: 0 auto 40px auto;
+    }
+
+    .menu-container {
+        display: none;
+    }
+
+    nav {
+        display: flex !important;
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+        background-color: rgb(224, 224, 224);
+        padding: 8px 0;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li a {
+        margin: 0 25px 10px;
+        font-family: 'Lucida Sans', sans-serif;
+        text-decoration: none;
+        color: #000;
     }
 }
 /*Serve per immagine sfondo della polivalente*/
@@ -524,13 +560,6 @@ table tr td:last-child {
     color: #555555; 
 }
 
-.menu-container {
-    display: flex;
-    width: 25%; 
-    justify-content: flex-end; 
-    padding-right: 20px; 
-    align-items: center;
-}
 .stato-aule {
     display: grid;
     grid-template-columns: 1fr 1fr; /*due colonne uguali che usano una frazione uguale di spazio disponibile*/
