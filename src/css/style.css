@@ -10,6 +10,17 @@ header, nav {
     padding: 10px 0;
     flex-wrap: wrap; /* Permette agli elementi di andare a capo */
 }
+/* body e main aggiunti in modo che il footer stia in basso alla pagina, è una prova se non vabene e non ci piace si toglie*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0; 
+}
+
+main {
+    flex-grow: 1; 
+}
 
 .main-home {
     position: relative; /*fa da ancora per il contenuto sopra */
@@ -586,7 +597,7 @@ table tr td:last-child {
 }
 
 .section-nuovo-evento-btn{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
 }
