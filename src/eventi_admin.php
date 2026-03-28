@@ -31,7 +31,7 @@
 
     <main>
         <section class="section-nuovo-evento-btn">
-                <button type="submit" class="button-prenota">PRENOTA</button>
+                <a href="nuovoEvento_amministratore.php" class="button-nuovo-evento" >PRENOTA</a>
         </section>
         <section class = "table-aule">
             <table>
