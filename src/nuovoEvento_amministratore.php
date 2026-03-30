@@ -30,30 +30,27 @@ if (!isset($_SESSION['utente_loggato'])) {
             </a>
         </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="cercaAula_studente.php">AULE</a></li>
-            <li><a href="cercaLaboratorio_studente.php">LABORATORI</a></li>
-            <li><a href="polivalente.php">POLIVALENTE</a></li>
-            <li><a href="eventi_studente.php">EVENTI</a></li>
-            <li><a href="prenotazioni_studente.php">PRENOTAZIONI</a></li>
-        </ul>
-    </nav>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
-            <h2>NUOVA PRENOTAZIONE</h2>
+            <h2>NUOVO EVENTO</h2>
         </div>
         <div class="back-container">
-            <a href="prenotazioni_studente.php" class="back-box" title="BackToPrenotazioni">
+            <a href="eventi_admin.php" class="back-box" title="BackToPrenotazioni">
                 <span class="cross-icon">&times;</span>
             </a>
         </div>
     </div>
     
-    <div class="form-prenotazione">
-        <form action="#" method="POST" class="form-form-prenotazione">
+    <div class="form-evento">
+        <form action="#" method="POST" class="form-form-evento">
             <ul>
+                <li>
+                    <div class="col">
+                        <label for="nome-evento">Titolo Evento</label>
+                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
+                    </div>
+                </li>
                 <li>
                     <div class="col">
                         <label for="Aula/Laboratorio">Seleziona Aula o Lab</label>
@@ -103,18 +100,18 @@ if (!isset($_SESSION['utente_loggato'])) {
                 </li>
                 <li>
                     <div class="col">
-                        <label for="username">Nome e Cognome</label>
-                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
+                        <label for="locandina-img">Seleziona Immagine Locandina</label>
+                        <input type="file" class="input-pieno" id="locandina" name="locandina" />
                     </div>
                 </li>
                 <li>
                     <div class="col">
-                        <label for="motivazione">Motivazione</label>
-                        <textarea name="motivazionePrenotazione" rows="7" placeholder="Scrivi..."></textarea>
+                        <label for="descrizione">Descrizione</label>
+                        <textarea name="descrizioneEvento" rows="7" placeholder="Scrivi..."></textarea>
                     </div>
                 </li>
                 <li>
-                    <input type="submit" name="submit" class="button-nuova-prenotazione" value="INVIA PRENOTAZIONE" />
+                    <input type="submit" name="submit" class="button-nuovo-evento" value="AGGIUNGI EVENTO" />
                 </li>
             </ul>  
         </form>

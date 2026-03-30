@@ -16,9 +16,7 @@
             <h1>Alma Aule</h1>
         </div>
         <div class="login">
-            <nav>
-                <a href="login.php">Login</a>
-            </nav>
+            <a href="login.php">Login</a>
         </div>
     </header>
     
@@ -29,6 +27,6 @@
     <footer class="home-footer">
         <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
         <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
-<!-- da aggiungere icone social con link e aggiungere roba del copyright verosimile -->
+        <!-- da aggiungere icone social con link e aggiungere roba del copyright verosimile -->
     </footer>
 </body>

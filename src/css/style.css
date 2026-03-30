@@ -1,24 +1,31 @@
 header > div > a > img{
-    max-width: 100%;
     max-height: 100px;
 }
 
 header {
-    background-color: rgb(224, 224, 224);
     display: flex;
+    background-color: rgb(224, 224, 224);
     width: 100%;
-    align-items: center; 
-    padding: 10px 0;
+    padding: 10px 0 5px;
+}
+/* body e main aggiunti in modo che il footer stia in basso alla pagina, è una prova se non vabene e non ci piace si toglie*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0; 
+}
+
+main {
+    flex-grow: 1; 
 }
 
 .main-home {
-    position: relative; /* Fondamentale: fa da ancora per il contenuto sopra */
-    width: 100%;
+    position: relative; /*fa da ancora per il contenuto sopra */
     min-height: 100vh; /* Usa tutta l'altezza dello schermo */
-    display: flex;     /* Usiamo flex per centrare il form facilmente */
+    display: flex;     /*Usiamo flex per centrare il form facilmente */
     justify-content: center;
-    align-items: center;
-    overflow: hidden;  /* Evita che l'immagine crei scroll inutili */
+    overflow: hidden;  /* Evita che l'immagine crei scroll inutili - previene perchè in realtà non li crea già */
 }
 
 .header-menu {
@@ -29,7 +36,7 @@ header {
     background-color: rgb(224, 224, 224);
     position: relative;
     width:100%;
-} 
+}
 
 .btn-indietro-menu {
     position: absolute;
@@ -55,25 +62,26 @@ footer {
     margin-top: 15px;
 }
 
+footer p {
+    margin: 20px 14px;
+}
+
 .home-footer {
     margin: 0;
 }
 
 .home-img, .home-img-login {
-    display: block;
-    margin: 0;
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
 }
 
 .home-img-login {
-    filter: brightness(0.7);
+    filter: brightness(0.6);
 }
 
-.logo, .title, .login, .hamburgerMenu, .subtitle, .add-container, .spacer, .back-container {
+.logo, .title, .login, .subtitle, .add-container, .spacer, .back-container, .menu-container {
     display: flex;
     align-items: center;
 }
@@ -82,6 +90,7 @@ footer {
     width: 25%;
     padding-left: 20px;
     justify-content: flex-start;
+    box-sizing: border-box; /*non conta il padding nella % del width*/
 }
 
 .title, .subtitle {
@@ -94,10 +103,15 @@ h1 {
     font-family: 'Lucida Sans', sans-serif;
 }
 
-.login, .hamburgerMenu, .add-container, .back-container {
+.login, .menu-container, .add-container, .back-container {
     width: 25%;
-    padding-right: 25px;
+    padding-right: 20px;
     justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+nav {
+    display: none;
 }
 
 .login a, .conferma-login, .button-annulla-prenotazione {
@@ -110,13 +124,13 @@ h1 {
     border: 1px solid #000;
 }
 
-.login-form, .form-prenotazione {
+.login-form, .form-prenotazione, .form-evento {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 70vh; /* Significa che il contenitore del tuo form deve essere alto almeno il 70% dell'altezza dello schermo. */
-    position: relative; /* Serve per usare z-index */
-    z-index: 2;
+    min-height: 85vh; /*Significa che il contenitore del form deve essere alto almeno l'85% dell'altezza dello schermo. */
+    position: relative; /*Serve per usare z-index - anche se in realtà funziona anche solo con flex*/
+    z-index: 1;
 }
 
 .login-form-form {
@@ -127,7 +141,7 @@ h1 {
     margin-top: 15px;
 }
 
-.form-form-prenotazione {
+.form-form-prenotazione, .form-form-evento {
     background: rgb(224, 224, 224);
     padding: 0;
     border-radius: 8px;
@@ -149,6 +163,12 @@ form h2 {
     border-radius: 8px 8px 0 0;
 }
 
+.error-message {
+    padding: 0 10px;
+    color: red;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
 form ul {
     list-style: none;
     padding: 20px;
@@ -161,17 +181,21 @@ form ul li{
 
 .login-form ul li label{
     display: inline-block;
-    width: 50%;
-    margin-bottom: 15px;
+    width: 100%;
+    margin-bottom: 14px;
 }
 
 form ul li input[type="submit"] {
     margin-top: 30px;
 }
 
-.conferma-login:hover {
+.conferma-login:hover, .login a:hover {
     cursor: pointer;
     background-color: #be1919;
+}
+
+input[type="file"]::-webkit-file-upload-button, input[type="file"]{
+    cursor: pointer;
 }
 
 .button-annulla-prenotazione:hover {
@@ -179,6 +203,7 @@ form ul li input[type="submit"] {
     color: #000;
     cursor: pointer;
 }
+/*ciao sono riki sono arrivato a qui nella pulizia del mio css*/ /*c'è da capire se i form si vedono bene su mobile*/
 
 .search-bar {
     display: flex;
@@ -195,7 +220,7 @@ form ul li input[type="submit"] {
     gap: 15px;              /* Spazio tra i vari elementi del form */
 }
 
-.button-prenota, .button-nuova-prenotazione {
+.button-prenota, .button-nuova-prenotazione, .button-nuovo-evento {
     background-color: #add8e6; 
     color: #000;               
     border: 1px solid #8eb9c7; 
@@ -207,7 +232,7 @@ form ul li input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-.button-prenota:hover, .button-nuova-prenotazione:hover {
+.button-prenota:hover, .button-nuova-prenotazione:hover, .button-nuovo-evento:hover {
     background-color: #87ceeb;
 }
 
@@ -218,16 +243,22 @@ table {
     border-collapse: collapse;
 }
 
-table td:nth-child(-n+2), table th:nth-child(-n+2){
+table td:nth-child(-n+3), table th:nth-child(-n+3){
     border-right: 1px solid #000;
 }
 
-table th {
+table tr th {
     background-color: #d3d3d3;
     color: black;
     text-align: left;
     padding: 20px 5px;
     border-bottom: 1px solid #999;
+}
+
+table tr td {
+    color: black;
+    text-align: left;
+    padding: 20px 5px;
 }
 
 table tr td:last-child {
@@ -272,7 +303,7 @@ table tr td:last-child {
     background-color: #ffffff;
 }
 
-.form-prenotazione ul li:not(:last-child) {
+.form-prenotazione ul li:not(:last-child), .form-evento ul li:not(:last-child) {
     display: flex;
     gap: 50px;
     margin-bottom: 15px;
@@ -287,20 +318,21 @@ table tr td:last-child {
     flex: 1;
 }
 
-.form-prenotazione ul li label {
+.form-prenotazione ul li label, .form-evento ul li label {
     margin-bottom: 4px;
 }
 
-.input-medio, .input-pieno, .form-prenotazione ul li textarea {
+.input-medio, .input-pieno, ul li textarea {
     resize: none;
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    background-color: #ffffff;
 }
 
-#finestra-annulla {
+#finestra-annulla, #finestra-elimina {
     border: 2px solid black;
     border-radius: 8px;
     padding: 20px;
@@ -308,32 +340,32 @@ table tr td:last-child {
     text-align: center;
 }
 
-#finestra-annulla::backdrop {
+#finestra-annulla::backdrop, #finestra-elimina::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-#finestra-annulla button {
+#finestra-annulla button, #finestra-elimina button {
     margin: 20px 40px;
     padding: 15px 30px;
     cursor: pointer;
     font-size: 18px;
 }
 
-#conferma-annulla {
+#conferma-annulla, #conferma-elimina {
     color: #ffffff;
     background-color: #e21d1d;
 }
 
-#conferma-annulla:hover {
+#conferma-annulla:hover, #conferma-elimina:hover {
     background-color: #be1919;
 }
 
-#revoca-annulla {
+#revoca-annulla, #revoca-elimina {
     color: #000;
     background-color: #ffffff;
 }
 
-#revoca-annulla:hover {
+#revoca-annulla:hover, #revoca-elimina:hover {
     background-color: #bebebe;
 }
 
@@ -362,6 +394,39 @@ table tr td:last-child {
     .griglia-statistiche {
         max-width: 800px;    
         margin: 0 auto 40px auto;
+    }
+
+    .menu-container {
+        display: none;
+    }
+
+    nav {
+        display: flex !important;
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+        background-color: rgb(224, 224, 224);
+        padding: 5px 0 8px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav ul li a {
+        margin: 0 25px 10px;
+        font-family: 'Lucida Sans', sans-serif;
+        text-decoration: none;
+        color: #000;
+        padding: 12px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    nav ul li a:hover{
+        background-color: #e21d1d;
+        color: #ffffff;
     }
 }
 /*Serve per immagine sfondo della polivalente*/
@@ -445,6 +510,7 @@ table tr td:last-child {
     margin: 0;
     width: 100%;
 }
+
 .menu-navigazione li a {
     display: flex;
     justify-content: center;
@@ -462,6 +528,7 @@ table tr td:last-child {
 }
 
 .sezione-logout {
+    background-color: rgb(224, 224, 224);
     text-align: center;
     padding: 20px 0;
 }
@@ -545,4 +612,142 @@ table tr td:last-child {
 .stato p, .eventi p{
     font-size: 16px;
     font-weight: bold;
+}
+
+.section-nuovo-evento-btn{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+/* Nasconde la riga dei dettagli di default */
+.nascosta {
+    display: none !important;
+}
+
+/* Stile per i bottoni per farli sembrare come in foto (se non li hai già) */
+.btn-accetta {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: 1px solid #388E3C;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.btn-rifiuta {
+    background-color: #e21d1d; /* Rosso */
+    color: white;
+    border: 1px solid #990000;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container-bottoni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nascosta {
+    display: none !important;
+}
+
+.btn-accetta {
+    background-color: #63a75a;
+    color: white;
+    border: 2px solid #3c7035;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+.btn-rifiuta {
+    background-color: #d94343;
+    color: white;
+    border: 2px solid #8e2323;
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100px;
+}
+
+.container-bottoni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#apri-menu {
+    font-size: 35px;
+    color: #e21d1d;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tabella-prenotazioni table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.tabella-prenotazioni thead tr {
+    background-color: #d3d3d3;
+    border-bottom: 2px solid #fff;
+}
+
+.tabella-prenotazioni th {
+    padding: 15px 10px;
+}
+
+.tabella-prenotazioni th:last-child {
+    text-align: center;
+}
+
+.riga-principale {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+}
+
+.riga-principale td {
+    padding: 20px 10px;
+}
+
+.riga-principale td:last-child {
+    text-align: center;
+}
+
+.riga-dettagliPrenotazione {
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #ccc;
+}
+
+.riga-dettagliPrenotazione td {
+    padding: 15px 10px;
+    vertical-align: top;
+}
+
+.riga-dettagliPrenotazione td[colspan="2"] {
+    vertical-align: middle;
+}
+
+.etichetta-dettaglio {
+    font-size: 12px;
+    color: #555;
 }

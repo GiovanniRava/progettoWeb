@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['utente_loggato'])) {
+    // Se non sei loggato, ti rimando al login
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -8,19 +17,28 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.php">
+            <a href="paginaPrincipale_studente.php">
                 <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
             </a>
         </div>
         <div class="title">
             <h1>Alma Aule</h1>
         </div>
-        <div class="hamburgerMenu" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-container">
+            <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
+                &#9776;
+            </a>
         </div>
     </header>
+    <nav>
+        <ul>
+            <li><a href="cercaAula_studente.php">AULE</a></li>
+            <li><a href="cercaLaboratorio_studente.php">LABORATORI</a></li>
+            <li><a href="polivalente.php">POLIVALENTE</a></li>
+            <li><a href="eventi_studente.php">EVENTI</a></li>
+            <li><a href="prenotazioni_studente.php">PRENOTAZIONI</a></li>
+        </ul>
+    </nav>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -61,26 +79,31 @@
     </footer>
 
     <script>
-        const finestra = document.getElementById('finestra-annulla');
+        const finestra = document.getElementById('finestra-annulla'); //document + funzione giusto per recuperare elementi
+        //funzioni tipo: getElementiById("idElemento"), querySelector("#idElemento"), querySelectorAll(), getElementsByClassName("nomeClasse")[indice numerico]
         const btnApri = document.getElementById('button-annulla-prenotazione');
+        //document.querySelector("button")[0] oppure document.querySelector("button:first-chilf")
         const btnNo = document.getElementById('revoca-annulla');
         const btnSi = document.getElementById('conferma-annulla');
 
-        // Funzione per aprire la finestra
+        // Funzione per aprire la finestra (trovata su w3school)
         btnApri.addEventListener('click', () => {
             finestra.showModal(); 
         });
 
         // Funzione per chiudere se clicchi NO
-        btnNo.addEventListener('click', () => {
+        btnNo.addEventListener("click", function(){
             finestra.close();
         });
 
         // Azione se clicchi SI
         btnSi.addEventListener('click', () => {
-            console.log("Prenotazione annullata!");
+            console.log("Prenotazione annullata!");//stampa in console 
             finestra.close();
             // Qui aggiungerai la logica per cancellare davvero (es. una chiamata al database)
         });
     </script>
+    <!--giusto mettere lo script in fondo per essere sicuri che il dom (tutti gli elementi) sia creato e che js trovi tutti gli elementi.-->
+    <!-- sarebbe da fare un file a parte .js, e qui usare <script src="file.js"></script> -->
+    <!-- fare: let testo = btnSi.innerHTML (o .innerText) assegna a testo il contenuto del tag button con id=conferma-annulla. è possibile fare: btnSi.innerHTML = "qualcosa" per cambiarne il contenuto visibile nella pagina -->
 </body>
