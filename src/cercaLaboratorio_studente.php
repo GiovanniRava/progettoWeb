@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
     <title>Cerca laboratorio</title>
-    <link rel="stylesheet" type="text/css" href="./css/style_cercaAulaLab.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
     <header>
@@ -15,12 +15,21 @@
         <div class="title">
             <h1>Alma Aule</h1>
         </div>
-        <div class = "hamburgerMenu" id = "hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-container">
+            <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
+                &#9776;
+            </a>
         </div>
     </header>
+    <nav class="navbar-desktop">
+        <ul>
+            <li><a href="cercaAula_studente.php">AULE</a></li>
+            <li><a href="cercaLaboratorio_studente.php">LABORATORI</a></li>
+            <li><a href="polivalente.php">POLIVALENTE</a></li>
+            <li><a href="eventi_studente.php">EVENTI</a></li>
+            <li><a href="prenotazioni_studente.php">PRENOTAZIONI</a></li>
+        </ul>
+    </nav>
     <div class = "red-bar">
         <div class = "spacer"></div>
         <div class = "subtitle">
