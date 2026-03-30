@@ -163,6 +163,12 @@ form h2 {
     border-radius: 8px 8px 0 0;
 }
 
+.error-message {
+    padding: 0 10px;
+    color: red;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
 form ul {
     list-style: none;
     padding: 20px;
