@@ -73,8 +73,16 @@
     <footer>
         <p>Contatti</p>
     </footer>
+
+    <dialog id="popup-elimina">
+        <p>Sei sicuro di voler eliminare la prenotazione?</p>
+
+        <div class="azioni-popup">
+            <button id ="conferma">SÌ</button>
+            <button id="annulla">NO</button>
+        </div>
+    </dialog>
     
-    <!--
     <script>
         document.querySelectorAll(".toggle-btn").forEach((btn) => {
             btn.addEventListener("click", function () {
@@ -89,6 +97,32 @@
                     this.textContent = "▲";
                 }
             });
+        });
+    </script>
+    <!-- <script>
+        const popup = document.getElementById("popup-elimina");
+        const bottone_NO = document.getElementById("annulla");
+        const bottone_SI = document.getElementById("conferma");
+
+        let rigaDaEliminare = null; 
+
+        document.querySelectorAll(".button-elimina").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+               rigaDaEliminare = e.target.closest.("tr");
+               popup.showModal(); 
+            });
+        });
+
+        bottone_NO.addEventListener("click", () => {
+            popup.close();
+        });
+
+        bottone_SI.addEventListener("click", () => {
+            if(rigaDaEliminare) {
+                rigaDaEliminare.remove();
+                rigaDaEliminare = null;
+            }
+            popup.close();
         });
     </script> -->
 </body>

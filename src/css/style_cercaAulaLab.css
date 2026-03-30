@@ -100,7 +100,7 @@ td {
 }
 
 .riga-dettagliPrenotazione{
-    /*display: none;*/
+    display: none;
     background-color: #f9f9f9; 
 }
 
