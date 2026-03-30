@@ -139,6 +139,8 @@ nav {
     border-radius: 8px;
     text-align: center;
     margin-top: 15px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .form-form-prenotazione, .form-form-evento {
@@ -164,8 +166,10 @@ form h2 {
 }
 
 .error-message {
-    padding: 0 10px;
-    color: red;
+    text-align: center;
+    width: 90%;
+    margin: 5px 15px;
+    color: #be1919;
     font-family: 'Lucida Sans', sans-serif;
 }
 
