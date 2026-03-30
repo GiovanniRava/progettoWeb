@@ -116,31 +116,5 @@
             });
         });
     </script>
-    <!-- <script>
-        const popup = document.getElementById("popup-elimina");
-        const bottone_NO = document.getElementById("annulla");
-        const bottone_SI = document.getElementById("conferma");
-
-        let rigaDaEliminare = null; 
-
-        document.querySelectorAll(".button-elimina").forEach(btn => {
-            btn.addEventListener("click", (e) => {
-               rigaDaEliminare = e.target.closest.("tr");
-               popup.showModal(); 
-            });
-        });
-
-        bottone_NO.addEventListener("click", () => {
-            popup.close();
-        });
-
-        bottone_SI.addEventListener("click", () => {
-            if(rigaDaEliminare) {
-                rigaDaEliminare.remove();
-                rigaDaEliminare = null;
-            }
-            popup.close();
-        });
-    </script> -->
 </body>
 </html>
