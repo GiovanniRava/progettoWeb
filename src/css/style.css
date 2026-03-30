@@ -719,6 +719,38 @@ th:last-child, td:last-child {
 }
 
 /*FINE CERCA LAB E AULA AMMINISTRATORE - STUDENTE */
+/*NASCONDO LA NAV BAR DEL DESKTOP PER MOBILE*/
+.navbar-desktop{
+    display: none;
+}
+@media screen and (min-width:768px) {
+    .menu-container {
+        display: none !important;
+    }
+
+    .navbar-desktop {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(224, 224, 224);
+        padding: 10px 0;
+    }
+
+    .navbar-desktop ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 5px;
+        padding: 0;
+
+    }
+
+    .navbar-desktop ul li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        font-family: 'Lucida Sans', sans-serif;
+    }
+}
 
 .section-nuovo-evento-btn{
     padding-top: 20px;

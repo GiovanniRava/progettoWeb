@@ -21,6 +21,13 @@
             </a>
         </div>
     </header>
+    <nav class="navbar-desktop">
+        <ul>
+            <li><a href="">PRENOTAZIONI</a></li>
+            <li><a href="richieste_admin.php">RICHIESTE IN CORSO</a></li>
+            <li><a href="eventi_admin.php">EVENTI</a></li>
+        </ul>
+    </nav>
     <div class = "red-bar">
         <div class = "spacer"></div>
         <div class = "subtitle">
