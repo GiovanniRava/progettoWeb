@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
     <title>Cerca aula/lab - amministrazione</title>
-    <link rel="stylesheet" type="text/css" href="./css/style_cercaAulaLab.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
     <header>

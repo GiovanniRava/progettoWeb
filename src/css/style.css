@@ -590,6 +590,7 @@ table tr td:last-child {
     color: #555555; 
 }
 
+/*PAGINA PRINCIPALE DELL'AMMINISTRATORE - fra*/
 .stato-aule {
     display: grid;
     grid-template-columns: 1fr 1fr; /*due colonne uguali che usano una frazione uguale di spazio disponibile*/
@@ -613,6 +614,111 @@ table tr td:last-child {
     font-size: 16px;
     font-weight: bold;
 }
+/*fine parte pagina principale dell'amministratore*/
+/*CERCA AULE E LAB AMMINISTRATORE - STUDENTE - fra*/
+.search-bar {
+    padding: 20px 20px 20px 20px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-aule, .input-lab {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.input-aule input, .input-lab input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    /*border-radius: 4px;*/
+}
+
+#search {
+    border-radius: 25px;
+    width: 250px;
+}
+
+.button-prenota {
+    background-color: #52d4ff;
+    color: #000;
+    border: 1px solid #000000;
+    padding: 10px 40px;
+    border-radius: 5px;
+    font-weight: bold; 
+    width: 200px;
+    cursor: pointer;
+}
+
+.table-aule, .table-lab {
+    width: 100%;
+    padding: 10px 0 0 0 ;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 0;
+}
+
+th {
+    background-color: #d3d3d3;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #999;
+    border-right: 2px solid #999;
+    border-top: 2px solid #999;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    border-right:2px solid #999;
+}
+
+.riga-dettagliPrenotazione{
+    display: none;
+    background-color: #f9f9f9; 
+}
+
+.dettagli {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none; 
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.button-elimina{
+    background-color: #e21d1d;
+    color: #ffffff;
+    border: 1px solid black;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+th:last-child, td:last-child {
+    border-right: none;
+}
+
+/*FINE CERCA LAB E AULA AMMINISTRATORE - STUDENTE */
 
 .section-nuovo-evento-btn{
     padding-top: 20px;
