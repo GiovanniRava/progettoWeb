@@ -1,54 +1,27 @@
-<?php
-if (!isset($_SESSION['utente_loggato'])) {
-    // Se non sei loggato, ti rimando al login
-    header("Location: login.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-    <title>Nuovo - Evento - Amministratore</title>
+    <title>Nuova - Prenotazione - Studente</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="infoGenerali_amministratore.php">
-                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
-            </a>
-        </div>
-        <div class="title">
-            <h1>Alma Aule</h1>
-        </div>
-        <div class="menu-container">
-            <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
-                &#9776;
-            </a>
-        </div>
-    </header>
+    <?php require($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
-            <h2>NUOVO EVENTO</h2>
+            <h2>NUOVA PRENOTAZIONE</h2>
         </div>
         <div class="back-container">
-            <a href="eventi_admin.php" class="back-box" title="BackToPrenotazioni">
+            <a href="prenotazioni_studente.php" class="back-box" title="BackToPrenotazioni">
                 <span class="cross-icon">&times;</span>
             </a>
         </div>
     </div>
     
-    <div class="form-evento">
-        <form action="#" method="POST" class="form-form-evento">
+    <div class="form-prenotazione">
+        <form action="nuova_prenotazione.php" method="POST" class="form-form-prenotazione">
             <ul>
-                <li>
-                    <div class="col">
-                        <label for="nome-evento">Titolo Evento</label>
-                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
-                    </div>
-                </li>
                 <li>
                     <div class="col">
                         <label for="Aula/Laboratorio">Scegli Aula o Lab</label>
@@ -98,18 +71,18 @@ if (!isset($_SESSION['utente_loggato'])) {
                 </li>
                 <li>
                     <div class="col">
-                        <label for="locandina-img">Seleziona Immagine Locandina</label>
-                        <input type="file" class="input-pieno" id="locandina" name="locandina" />
+                        <label for="username">Nome e Cognome</label>
+                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
                     </div>
                 </li>
                 <li>
                     <div class="col">
-                        <label for="descrizione">Descrizione</label>
-                        <textarea name="descrizioneEvento" rows="7" placeholder="Scrivi..."></textarea>
+                        <label for="motivazione">Motivazione</label>
+                        <textarea name="motivazionePrenotazione" rows="7" placeholder="Scrivi..."></textarea>
                     </div>
                 </li>
                 <li>
-                    <input type="submit" name="submit" class="button-nuovo-evento" value="AGGIUNGI EVENTO" />
+                    <input type="submit" name="submit" class="button-nuova-prenotazione" value="INVIA PRENOTAZIONE" />
                 </li>
             </ul>  
         </form>

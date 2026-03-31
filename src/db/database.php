@@ -42,6 +42,13 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
+    public function insert_prenotazione($codiceRichiesta, $nominativo, $data, $oraInizio, $durata, $motivazione, $Lab, $Aula){
+        $query = "INSERT INTO richiesta_in_corso (codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('isdsisss', $codiceRichiesta, $nominativo, $data, $oraInizio, $durata, $motivazione, $Lab, $Aula);
+        return $stmt->execute();
+    }
 }
 
 ?>

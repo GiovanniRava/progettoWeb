@@ -149,6 +149,14 @@ alter table PRENOTAZIONE add constraint FKPRENOTAZIONE_L_FK
 alter table PRENOTAZIONE add constraint FKPRENOTAZIONE_A_FK
      foreign key (numeroAula)
      references AULA (numeroAula);
+     
+ alter table RICHIESTA_IN_CORSO add constraint FKRICHIESTA_L_FK
+	 foreign key (numeroLab)
+	 references LABORATORIO (numeroLab);
+
+alter table RICHIESTA_IN_CORSO add constraint FKRICHIESTA_A_FK
+     foreign key (numeroAula)
+     references AULA (numeroAula);
 
 
 -- Index Section
@@ -207,4 +215,14 @@ create index FKPRENOTAZIONE_L_IND
 
 create index FKPRENOTAZIONE_A_IND
      on PRENOTAZIONE (numeroAula);
+     
+create unique index ID_RICHIESTA_IND
+     on RICHIESTA_IN_CORSO (codiceRichiesta);
 
+create index FKRICHIESTA_L_IND
+     on RICHIESTA_IN_CORSO (numeroLab);
+
+create index FKRICHIESTA_A_IND
+     on RICHIESTA_IN_CORSO (numeroAula);
+
+create table RICHIESTA_IN_CORSO (      codiceRichiesta int not null,      nominativo char(20) not null,      data date not null,      oraInizio char(10) not null,      durata int not null,      motivazione char(100) not null,      numeroLab char(5),      numeroAula char(5),      constraint ID_RICHIESTA_ID primary key (codiceRichiesta))

@@ -184,20 +184,8 @@ insert into POLIVALENTE (nome, postiTotali, postiDisponibili, computerTotali, co
 ('Polivalente', 136, 33, 17, 4);
 
 INSERT INTO PRENOTAZIONE (codicePre, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) VALUES
-<<<<<<< HEAD
-(1, 'Alessandro Conti', '2026-09-19', '10:00:00', 2, 'sviluppo progetto', 2.2, NULL),
-(2, 'Sofia Moretti', '2026-09-19', '14:30:00', 180, 'studio di gruppo esame database', NULL, 2.1),
-(3, 'Valerio Riva', '2026-09-20', '09:00:00', 2, 'sviluppo progetto programmazione', 3.1, NULL),
-(4, 'Beatrice Ferri', '2026-09-20', '13:00:00', 4, 'gruppo studio ripasso esame', NULL, 2.11),
-(5, 'Marco Gatti', '2026-09-21', '15:00:00', 4, 'esercitazione pratica programmazione', 2.2, NULL),
-(6, 'Giulia Bianchi', '2026-09-21', '09:00:00', 2, 'preparazione presentazione progetto', NULL, 2.3),
-(7, 'Elena Vitali', '2026-09-22', '09:00:00', 5, 'realizzazione plastico urbanistica', NULL, 2.13),
-(8, 'Riccardo Sanna', '2026-09-22', '14:00:00', 3, 'rendering 3D concorso idee', 'LAFO', NULL),
-(9, 'Giulia de Luca', '2026-09-23', '10:00:00', 2, 'revisione tavole progettuali', 'LaMo', NULL),
-(10, 'Lorenzo Serra', '2026-09-23', '16:00:00', 4, 'studio di fattibilità restauro', NULL, 2.5),
-(11, 'Chiara Neri', '2026-09-24', '08:30:00', 6, 'workshop progettazione bioclimatica', NULL, 3.10);
-=======
 (1, 'Alessandro Conti', '2026-09-19', '10:00:00', 120, 'sviluppo progetto', 2.2, NULL),
+(2, 'Sofia Moretti', '2026-09-19', '14:30:00', 180, 'studio di gruppo esame database', NULL, 2.1),
 (3, 'Valerio Riva', '2026-09-20', '09:00:00', 120, 'sviluppo progetto programmazione', 3.1, NULL),
 (4, 'Beatrice Ferri', '2026-09-20', '13:00:00', 240, 'gruppo studio ripasso esame', NULL, 2.11),
 (5, 'Marco Gatti', '2026-09-21', '15:00:00', 240, 'esercitazione pratica programmazione', 2.2, NULL),
@@ -207,7 +195,6 @@ INSERT INTO PRENOTAZIONE (codicePre, nominativo, data, oraInizio, durata, motiva
 (9, 'Giulia de Luca', '2026-09-23', '10:00:00', 120, 'revisione tavole progettuali', 'LaMo', NULL),
 (10, 'Lorenzo Serra', '2026-09-23', '16:00:00', 240, 'studio di fattibilità restauro', NULL, 2.5),
 (11, 'Chiara Neri', '2026-09-24', '08:30:00', 360, 'workshop progettazione bioclimatica', NULL, 3.10);
->>>>>>> 6a1a4c6b453dc78248347f529cd593dadeb3f6f6
 
 INSERT INTO PRENOTAZIONE (codicePre, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) VALUES
 (12, 'Sofia Moretti', '2026-09-29', '14:00:00', 120, 'studio di gruppo esame database', NULL, 2.5);
