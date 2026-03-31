@@ -342,7 +342,9 @@ table tr td:last-child {
     padding: 20px;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     text-align: center;
+    font-family: 'Lucida Sans', sans-serif;
 }
+
 
 #finestra-annulla::backdrop, #finestra-elimina::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
