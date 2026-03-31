@@ -12,7 +12,7 @@
         
         <header>
             <div class="logo">
-                <a href="index.php">
+                <a href="paginaPrincipale_studente.php">
                     <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
                 </a>
             </div>
