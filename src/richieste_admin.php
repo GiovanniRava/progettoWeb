@@ -5,10 +5,34 @@
     <title>Pagina Principale - admin</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
+<<<<<<< HEAD
 <div class="red-bar">
     <div class="spacer"></div>
     <div class="subtitle">
         <h2>RICHIESTE IN CORSO</h2>
+=======
+<body>
+    <header>
+        <div class="logo">
+            <a href="infoGenrali_amministratore.php">
+                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+            </a>
+        </div>
+        <div class="title">
+            <h1>Alma Aule</h1>
+        </div>
+        <div class="menu-container">
+            <span id="apri-menu">&#9776;</span>
+        </div>
+    </header>
+
+    <div class="red-bar">
+        <div class="spacer"></div>
+        <div class="subtitle">
+            <h2>RICHIESTE IN CORSO</h2>
+        </div>
+        <div class="spacer"></div>
+>>>>>>> 74575dad259e5a2557f7ba330ad04c7651e5750e
     </div>
     <div class="spacer"></div>
 </div>

@@ -15,7 +15,7 @@ if (!isset($_SESSION['utente_loggato'])) {
 <body>
     <header>
         <div class="logo">
-            <a href="paginaPrincipale_studente.php">
+            <a href="infoGenerali_amministratore.php">
                 <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
             </a>
         </div>

@@ -13,7 +13,7 @@ if (!isset($_SESSION['utente_loggato'])) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["nome"]); ?>
+    <?php require($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -43,15 +43,19 @@ if (!isset($_SESSION['utente_loggato'])) {
                     echo $oraFine;
                 ?></td>
                 <td>
-                    <button id="button-annulla-prenotazione" class="button-annulla-prenotazione">ANNULLA</button>
-                    <dialog id="finestra-annulla">
-                        <h3>ANNULLAMENTO PRENOTAZIONE</h3>
-                        <p>Sei sicuro di voler annullare la prenotazione?</p>
-                        <button id="conferma-annulla">SI</button><button id="revoca-annulla">NO</button>
-                    </dialog>
+                    <button id="button-annulla-prenotazione" class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ANNULLA</button>
                 </td>
             </tr>
             <?php endforeach; ?>
+            <dialog id="finestra-annulla">
+                <h3>ANNULLAMENTO PRENOTAZIONE</h3>
+                <p>Sei sicuro di voler annullare la prenotazione?</p>
+                <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
+                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
+                    <button type="submit" id="conferma-annulla">SI</button>
+                    <button type="button" id="revoca-annulla">NO</button>
+                </form>
+            </dialog>
         </table>
     </main>
 
@@ -61,20 +65,25 @@ if (!isset($_SESSION['utente_loggato'])) {
     </footer>
 
     <script>
-        const finestra = document.getElementById('finestra-annulla'); //document + funzione giusto per recuperare elementi
+        const finestra = document.getElementById('finestra-annulla'); //document + funzione è giusto per recuperare elementi
         //funzioni tipo: getElementiById("idElemento"), querySelector("#idElemento"), querySelectorAll(), getElementsByClassName("nomeClasse")[indice numerico]
-        const btnApri = document.getElementById('button-annulla-prenotazione');
+        const inputNascosto = document.getElementById('input-nascosto-elimina');
+        const bottoniAnnulla = document.querySelectorAll('.button-annulla-prenotazione');
         //document.querySelector("button")[0] oppure document.querySelector("button:first-chilf")
         const btnNo = document.getElementById('revoca-annulla');
         const btnSi = document.getElementById('conferma-annulla');
 
         // Funzione per aprire la finestra (trovata su w3school)
-        btnApri.addEventListener('click', () => {
-            finestra.showModal(); 
+        bottoniAnnulla.forEach(bottone => {
+            bottone.addEventListener('click', () => {
+                const idDaEliminare = bottone.getAttribute('data-id');
+                inputNascosto.value = idDaEliminare;
+                finestra.showModal(); 
+            });
         });
 
         // Funzione per chiudere se clicchi NO
-        btnNo.addEventListener("click", function(){
+        btnNo.addEventListener('click', function(){
             finestra.close();
         });
 
@@ -82,7 +91,6 @@ if (!isset($_SESSION['utente_loggato'])) {
         btnSi.addEventListener('click', () => {
             console.log("Prenotazione annullata!");//stampa in console 
             finestra.close();
-            // Qui aggiungerai la logica per cancellare davvero (es. una chiamata al database)
         });
     </script>
     <!--giusto mettere lo script in fondo per essere sicuri che il dom (tutti gli elementi) sia creato e che js trovi tutti gli elementi.-->
