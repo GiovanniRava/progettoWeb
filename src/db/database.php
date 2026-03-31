@@ -18,6 +18,15 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
+    public function get_statistiche_polivalente() {
+    $stmt = $this->db->prepare("SELECT postiTotali, postiDisponibili, computerTotali, computerDisponibili 
+              FROM POLIVALENTE 
+              WHERE nome = 'Polivalente'");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc();
+}
+    
 }
 
 ?>
