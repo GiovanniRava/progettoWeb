@@ -93,7 +93,16 @@ create table PRENOTAZIONE (
      numeroAula char(5),
      constraint ID_PRENOTAZIONE_ID primary key (codicePre));
 
-
+create table RICHIESTA_IN_CORSO (
+     codiceRichiesta int not null,
+     nominativo char(20) not null,
+     data date not null,
+     oraInizio char(10) not null,
+     durata int not null,
+     motivazione char(100) not null,
+     numeroLab char(5),
+     numeroAula char(5),
+     constraint ID_RICHIESTA_ID primary key (codiceRichiesta));
 -- Constraints Section
 -- ___________________ 
 

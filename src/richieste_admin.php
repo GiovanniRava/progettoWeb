@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.php">
+            <a href="infoGenrali_amministratore.php">
                 <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
             </a>
         </div>

@@ -8,7 +8,7 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.php">
+            <a href="infoGenerali_amministratore.php">
                 <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
             </a>
         </div>
