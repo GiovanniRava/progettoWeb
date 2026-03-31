@@ -25,7 +25,16 @@ class DatabaseHelper {
     $stmt->execute();
     $result = $stmt->get_result();
     return $result->fetch_assoc();
-}
+    }
+
+    public function get_eventi() {
+        $stmt = $this->db->prepare("SELECT titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina 
+                  FROM EVENTO 
+                  ORDER BY data ASC, oraInizio ASC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
 }
 
