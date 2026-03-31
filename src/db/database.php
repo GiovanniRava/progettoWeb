@@ -50,6 +50,14 @@ class DatabaseHelper {
         return $stmt->execute();
     }
 
+    public function insert_evento($titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione){
+        $query = "INSERT INTO evento (titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina, descrizione) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssissss', $titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione);
+        return $stmt->execute();
+    }
+
     public function get_aule(){
         $stmt = $this->db->prepare("SELECT numeroAula FROM aula");
         $stmt->execute();

@@ -1,6 +1,5 @@
 <?php
 if (!isset($_SESSION['utente_loggato'])) {
-    // Se non sei loggato, ti rimando al login
     header("Location: login.php");
     exit();
 }

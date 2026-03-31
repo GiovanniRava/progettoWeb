@@ -339,7 +339,7 @@ table tr td:last-child {
 #finestra-annulla, #finestra-elimina {
     border: 2px solid black;
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
     text-align: center;
     font-family: 'Lucida Sans', sans-serif;
@@ -351,8 +351,8 @@ table tr td:last-child {
 }
 
 #finestra-annulla button, #finestra-elimina button {
-    margin: 20px 40px;
-    padding: 15px 30px;
+    margin: 20px 20px;
+    padding: 15px 20px;
     cursor: pointer;
     font-size: 18px;
 }
@@ -433,6 +433,13 @@ table tr td:last-child {
     nav ul li a:hover{
         background-color: #e21d1d;
         color: #ffffff;
+    }
+
+    #finestra-annulla button, #finestra-elimina button {
+        margin: 20px 40px;
+        padding: 15px 30px;
+        cursor: pointer;
+        font-size: 18px;
     }
 }
 /*Serve per immagine sfondo della polivalente*/
