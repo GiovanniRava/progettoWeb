@@ -1,17 +1,8 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['utente_loggato'])) {
-    // Se non sei loggato, ti rimando al login
-    header("Location: login.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-    <title>Prenotazioni-Studente</title>
+    <title>Nuova - Prenotazione - Studente</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
