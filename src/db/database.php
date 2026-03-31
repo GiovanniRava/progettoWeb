@@ -42,12 +42,26 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
-    public function insert_prenotazione($codiceRichiesta, $nominativo, $data, $oraInizio, $durata, $motivazione, $Lab, $Aula){
-        $query = "INSERT INTO richiesta_in_corso (codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public function insert_prenotazione($nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula){
+        $query = "INSERT INTO richiesta_in_corso (nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('isdsisss', $codiceRichiesta, $nominativo, $data, $oraInizio, $durata, $motivazione, $Lab, $Aula);
+        $stmt->bind_param('sssisss', $nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula);
         return $stmt->execute();
+    }
+
+    public function get_aule(){
+        $stmt = $this->db->prepare("SELECT numeroAula FROM aula");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_lab(){
+        $stmt = $this->db->prepare("SELECT numeroLab FROM laboratorio");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
 

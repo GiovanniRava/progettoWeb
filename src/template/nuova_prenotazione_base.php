@@ -25,7 +25,14 @@
                 <li>
                     <div class="col">
                         <label for="Aula/Laboratorio">Scegli Aula o Lab</label>
-                        <input type="text" class="input-medio" id="aula-lab" name="aula-lab" />
+                        <select class="input-medio" name="aula-lab" id="aula-lab">
+                            <?php foreach($templateParams["aule"] as $aula): ?>
+                            <option value="<?php echo $aula["numeroAula"] ?>"><?php echo $aula["numeroAula"] ?></option>
+                            <?php endforeach; ?>
+                            <?php foreach($templateParams["lab"] as $lab): ?>
+                            <option value="<?php echo $lab["numeroLab"] ?>"><?php echo $lab["numeroLab"] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="col">
                         <label for="data">Data</label>
@@ -82,9 +89,14 @@
                     </div>
                 </li>
                 <li>
+                    <?php if(isset($errore)): ?>
+                    <p class="error-message"><?php echo $errore; ?></p>
+                    <?php endif; ?>
+                </li>
+                <li>
                     <input type="submit" name="submit" class="button-nuova-prenotazione" value="INVIA PRENOTAZIONE" />
                 </li>
-            </ul>  
+            </ul>
         </form>
     </div>
 

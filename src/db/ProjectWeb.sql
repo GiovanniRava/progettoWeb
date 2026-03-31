@@ -103,6 +103,7 @@ create table RICHIESTA_IN_CORSO (
      numeroLab char(5),
      numeroAula char(5),
      constraint ID_RICHIESTA_ID primary key (codiceRichiesta));
+
 -- Constraints Section
 -- ___________________ 
 
@@ -158,6 +159,9 @@ alter table RICHIESTA_IN_CORSO add constraint FKRICHIESTA_A_FK
      foreign key (numeroAula)
      references AULA (numeroAula);
 
+ALTER TABLE RICHIESTA_IN_CORSO DROP PRIMARY KEY;
+ALTER TABLE RICHIESTA_IN_CORSO 
+	MODIFY COLUMN codiceRichiesta INT AUTO_INCREMENT PRIMARY KEY;
 
 -- Index Section
 -- _____________ 
