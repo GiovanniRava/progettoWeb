@@ -50,9 +50,6 @@ if (!isset($_SESSION['utente_loggato'])) {
         </section>
     </main>
     
-    <footer>
-        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
-        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
-    </footer>
+    <?php require("footer.php"); ?>
 </body>
 </html>
