@@ -620,6 +620,41 @@ table tr td:last-child {
     font-size: 16px;
     font-weight: bold;
 }
+.sezione-richiesteInCorso {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .container-pagPrincAdmin{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .container-infoGen {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px; 
+        margin-top: 30px;
+    }
+    .stato-aule {
+        display: flex;
+        flex-direction: row;
+        grid-template-columns: none; /* per annullare il grid mobile */
+        gap: 30px;
+        padding: 0;
+    }
+
+    .sezione-richiesteInCorso {
+        display: block;
+    }
+
+    .eventi {
+        margin-top: 0;
+        text-align: center;
+    }
+}
 /*fine parte pagina principale dell'amministratore*/
 /*CERCA AULE E LAB AMMINISTRATORE - STUDENTE - fra*/
 .search-bar {
