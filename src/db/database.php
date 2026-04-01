@@ -10,9 +10,17 @@ class DatabaseHelper {
     }
     
     public function get_prenotazioni_studente($nome){
-        $stmt = $this->db->prepare("SELECT codicePre, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata
+        $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
         FROM prenotazione WHERE nominativo = ?");
         $stmt->bind_param("s", $nome);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_prenotazioni_admin(){
+        $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
+        FROM prenotazione");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

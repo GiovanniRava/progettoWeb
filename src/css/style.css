@@ -120,7 +120,7 @@ h1 {
     box-sizing: border-box;
 }
 
-nav {
+.menu-pc {
     display: none;
 }
 
@@ -440,8 +440,7 @@ table tr td:last-child {
         display: none;
     }
 
-    /*dai nome a menu?*/
-    nav {
+    .menu-pc {
         display: flex !important;
         width: 100%;
         margin: 0;
@@ -450,12 +449,12 @@ table tr td:last-child {
         padding: 5px 0 8px;
     }
 
-    nav ul {
+    .menu-pc ul {
         list-style: none;
         display: flex;
     }
 
-    nav ul li a {
+    .menu-pc ul li a {
         margin: 0 25px 10px;
         font-family: 'Lucida Sans', sans-serif;
         text-decoration: none;
@@ -465,7 +464,7 @@ table tr td:last-child {
         font-weight: bold;
     }
 
-    nav ul li a:hover{
+    .menu-pc ul li a:hover{
         background-color: #e21d1d;
         color: #ffffff;
     }

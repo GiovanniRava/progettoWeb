@@ -12,28 +12,7 @@ if (!isset($_SESSION['utente_loggato'])) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="infoGenerali_amministratore.php">
-                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
-            </a>
-        </div>
-        <div class="title">
-            <h1>Alma Aule</h1>
-        </div>
-        <div class="menu-container">
-            <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
-                &#9776;
-            </a>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="prenotazioni_admin.php">PRENOTAZIONI</a></li>
-            <li><a href="richieste_admin.php">RICHIESTE IN CORSO</a></li>
-            <li><a href="eventi_admin.php">EVENTI</a></li>
-        </ul>
-    </nav>
+    <?php require($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">

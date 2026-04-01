@@ -1,3 +1,4 @@
+
 <header>
     <div class="logo">
         <a href="paginaPrincipale_studente.php">
@@ -13,7 +14,8 @@
         </a>
     </div>
 </header>
-<nav>
+<?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
+<nav class="menu-pc">
     <ul>
         <li><a href="cercaAula_studente.php">AULE</a></li>
         <li><a href="cercaLaboratorio_studente.php">LABORATORI</a></li>
@@ -22,3 +24,13 @@
         <li><a href="prenotazioni_studente.php">PRENOTAZIONI</a></li>
     </ul>
 </nav>
+<?php endif; ?>
+<?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "admin"): ?>
+<nav class="menu-pc">
+    <ul>
+        <li><a href="listaPrenotazioni_admin.php">PRENOTAZIONI</a></li>
+        <li><a href="richieste_admin.php">RICHIESTE IN CORSO</a></li>
+        <li><a href="eventi_admin.php">EVENTI</a></li>
+    </ul>
+</nav>
+<?php endif; ?>
