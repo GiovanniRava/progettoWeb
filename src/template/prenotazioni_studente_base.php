@@ -19,7 +19,7 @@ if (!isset($_SESSION['utente_loggato'])) {
             <h2>LE MIE PRENOTAZIONI</h2>
         </div>
         <div class="add-container">
-            <a href="nuova_prenotazione.php" class="add-box" title="AggiungiPrenotazione">
+            <a href="nuova_prenotazione.php" class="add-box" title="RichiediNuovaPrenotazione">
                 <span class="plus-icon">+</span>
             </a>
         </div>

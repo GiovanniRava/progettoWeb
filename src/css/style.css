@@ -1,13 +1,14 @@
-header > div > a > img{
-    max-height: 100px;
-}
-
 header {
     display: flex;
     background-color: rgb(224, 224, 224);
     width: 100%;
     padding: 10px 0 5px;
 }
+
+header > div > a > img {
+    max-height: 75px;
+}
+
 /* body e main aggiunti in modo che il footer stia in basso alla pagina, è una prova se non vabene e non ci piace si toglie*/
 body {
     display: flex;
@@ -88,7 +89,7 @@ footer p {
 
 .logo, .spacer{
     width: 25%;
-    padding-left: 20px;
+    padding-left: 10px;
     justify-content: flex-start;
     box-sizing: border-box; /*non conta il padding nella % del width*/
 }
@@ -96,14 +97,23 @@ footer p {
 .title, .subtitle {
     width: 50%;
     justify-content: center;
+    font-size: 14px;
 }
 
 h1 {
     color: #e21d1d;
     font-family: 'Lucida Sans', sans-serif;
+    margin-left: 7px;
 }
 
 .login, .menu-container, .add-container, .back-container {
+    width: 25%;
+    padding-right: 14px;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+.menu-container {
     width: 25%;
     padding-right: 20px;
     justify-content: flex-end;
@@ -119,7 +129,7 @@ nav {
     text-decoration: none;
     background-color: #ed1d1d;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 4px 10px;
     font-family: 'Lucida Sans', sans-serif;
     border: 1px solid #000;
 }
@@ -140,7 +150,7 @@ nav {
     text-align: center;
     margin-top: 15px;
     width: 100%;
-    max-width: 500px;
+    max-width: 330px;
 }
 
 .form-form-prenotazione, .form-form-evento {
@@ -166,9 +176,7 @@ form h2 {
 }
 
 .error-message {
-    text-align: center;
-    width: 90%;
-    margin: 5px 15px;
+    margin: 5px 8px;
     color: #be1919;
     font-family: 'Lucida Sans', sans-serif;
 }
@@ -181,6 +189,7 @@ form ul {
 
 form ul li{
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .login-form ul li label{
@@ -281,6 +290,7 @@ table tr td:last-child {
 .subtitle {
     color: #ffffff;
     font-family: 'Lucida Sans', sans-serif;
+    text-align: center;
 }
 
 .add-box, .back-box {
@@ -307,12 +317,11 @@ table tr td:last-child {
     background-color: #ffffff;
 }
 
-.form-prenotazione ul li:not(:last-child), .form-evento ul li:not(:last-child) {
+.form-prenotazione ul li:not(:nth-last-child(-n+2)), .form-evento ul li:not(:nth-last-child(-n+2)) {
     display: flex;
     gap: 50px;
     margin-bottom: 15px;
     text-align: left;
-    font-weight: bold;
     font-family: 'Lucida Sans', sans-serif;
 }
 
@@ -320,6 +329,7 @@ table tr td:last-child {
     display: flex;
     flex-direction: column;
     flex: 1;
+    margin-top: auto;
 }
 
 .form-prenotazione ul li label, .form-evento ul li label {
@@ -377,6 +387,30 @@ table tr td:last-child {
 
 
 @media screen and (min-width: 768px) {
+
+    header > div > a > img {
+        max-height: 100px;
+    }
+
+    .logo, .spacer{
+        width: 25%;
+        padding-left: 20px;
+        justify-content: flex-start;
+        box-sizing: border-box;
+    }
+
+    .title, .subtitle {
+        font-size: 18px;
+    }
+
+    .login, .add-container, .back-container {
+        padding-right: 20px;
+    }
+
+    .login a, .conferma-login, .button-annulla-prenotazione {
+        padding: 5px 15px;
+    }
+
     .contenuto-aula {
         
         background-image: url('../upload/polivalenteMobile.png'), url('../upload/polivalenteDesktop.png') !important;
@@ -406,6 +440,7 @@ table tr td:last-child {
         display: none;
     }
 
+    /*dai nome a menu?*/
     nav {
         display: flex !important;
         width: 100%;
