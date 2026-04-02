@@ -82,7 +82,7 @@ footer p {
     filter: brightness(0.6);
 }
 
-.logo, .title, .login, .subtitle, .add-container, .spacer, .back-container, .menu-container {
+.logo, .title, .login, .logout-pc, .subtitle, .add-container, .spacer, .back-container, .menu-container {
     display: flex;
     align-items: center;
 }
@@ -106,7 +106,7 @@ h1 {
     margin-left: 7px;
 }
 
-.login, .menu-container, .add-container, .back-container {
+.login, .logout-pc, .menu-container, .add-container, .back-container {
     width: 25%;
     padding-right: 14px;
     justify-content: flex-end;
@@ -120,11 +120,11 @@ h1 {
     box-sizing: border-box;
 }
 
-.menu-pc {
+.menu-pc, .logout-pc {
     display: none;
 }
 
-.login a, .conferma-login, .button-annulla-prenotazione {
+.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione {
     color: #ffffff;
     text-decoration: none;
     background-color: #ed1d1d;
@@ -189,20 +189,20 @@ form ul {
 
 form ul li{
     margin-bottom: 20px;
-    font-weight: bold;
 }
 
 .login-form ul li label{
     display: inline-block;
     width: 100%;
     margin-bottom: 14px;
+    font-family: 'Lucida Sans', sans-serif;
 }
 
 form ul li input[type="submit"] {
     margin-top: 30px;
 }
 
-.conferma-login:hover, .login a:hover {
+.conferma-login:hover, .login a:hover, .logout-pc a:hover{
     cursor: pointer;
     background-color: #be1919;
 }
@@ -322,6 +322,7 @@ table tr td:last-child {
     gap: 50px;
     margin-bottom: 15px;
     text-align: left;
+    font-weight: bold;
     font-family: 'Lucida Sans', sans-serif;
 }
 
@@ -403,11 +404,15 @@ table tr td:last-child {
         font-size: 18px;
     }
 
-    .login, .add-container, .back-container {
+    .logout-pc {
+        display: flex !important;
+    }
+
+    .login, .logout-pc, .add-container, .back-container {
         padding-right: 20px;
     }
 
-    .login a, .conferma-login, .button-annulla-prenotazione {
+    .login a, .logout-pc, .conferma-login, .button-annulla-prenotazione {
         padding: 5px 15px;
     }
 

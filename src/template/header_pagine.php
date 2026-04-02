@@ -20,6 +20,9 @@
             &#9776;
         </a>
     </div>
+    <div class="logout-pc">
+        <a href="index.php">Logout</a>
+    </div>
 </header>
 <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
 <nav class="menu-pc">
