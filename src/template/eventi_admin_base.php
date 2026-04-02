@@ -18,7 +18,7 @@
 
     <main>
         <section class="section-nuovo-evento-btn">
-                <a href="nuovoEvento_amministratore.php" class="button-nuovo-evento">PRENOTA</a>
+                <a href="nuovoEvento_amministratore.php" class="button-nuovo-evento">AGGIUNGI</a>
         </section>
         
         <section class="table-aule">
