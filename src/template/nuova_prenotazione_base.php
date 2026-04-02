@@ -94,6 +94,9 @@
                         <?php if(isset($errore)): ?>
                         <p class="error-message"><?php echo $errore; ?></p>
                         <?php endif; ?>
+                        <?php if(isset($successo)): ?>
+                        <p class="success-message"><?php echo $successo; ?></p>
+                        <?php endif; ?>
                     </li>
                     <li>
                         <input type="submit" name="submit" class="button-nuova-prenotazione" value="INVIA PRENOTAZIONE" />

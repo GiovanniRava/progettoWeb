@@ -3,6 +3,18 @@ if (!isset($_SESSION['utente_loggato'])) {
     header("Location: login.php");
     exit();
 }
+$classeBody = "";
+$successo = "";
+
+// Se nell'URL c'è "inviato=1", allora mostrare il form e il messaggio
+if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
+    $classeBody = "mostra-form";
+    $successo = "Richiesta inviata con successo!";
+}
+
+if (isset($errore)) {
+    $classeBody = "mostra-form";
+}
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -11,7 +23,7 @@ if (!isset($_SESSION['utente_loggato'])) {
     <title>Prenotazioni - Studente</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
-<body>
+<body class="<?php echo $classeBody; ?>">
     <?php require($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
@@ -23,7 +35,7 @@ if (!isset($_SESSION['utente_loggato'])) {
                 <span class="plus-icon">+</span>
             </a>
         </div>
-        <div class="back-container-prenotazioni">
+        <div class="back-container">
             <a href="#" class="back-box" title="BackToPrenotazioni">
                 <span class="cross-icon">&times;</span>
             </a>

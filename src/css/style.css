@@ -82,7 +82,7 @@ footer p {
     filter: brightness(0.6);
 }
 
-.logo, .title, .login, .logout-pc, .subtitle, .add-container, .spacer, .back-container-prenotazioni, .menu-container {
+.logo, .title, .login, .logout-pc, .subtitle, .add-container, .spacer, .back-container .menu-container {
     display: flex;
     align-items: center;
 }
@@ -106,7 +106,7 @@ h1 {
     margin-left: 7px;
 }
 
-.login, .logout-pc, .menu-container, .add-container, .back-container-prenotazioni {
+.login, .logout-pc, .menu-container, .add-container, .back-container {
     width: 25%;
     padding-right: 14px;
     justify-content: flex-end;
@@ -175,10 +175,14 @@ form h2 {
     border-radius: 8px 8px 0 0;
 }
 
-.error-message {
+.error-message, .success-message {
     margin: 5px 8px;
     color: #be1919;
     font-family: 'Lucida Sans', sans-serif;
+}
+
+.success-message {
+    color:#001bcc;
 }
 
 form ul {
@@ -396,7 +400,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     background-color: #bebebe;
 }
 
-.sezione-nuovaPrenotazione, .spacer-prenotazioni, .back-container-prenotazioni {
+.sezione-nuovaPrenotazione, .spacer-prenotazioni, .back-container {
     display: none;
 }
 
@@ -405,7 +409,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     display: none; 
 }
 
-.mostra-form .sezione-nuovaPrenotazione, .mostra-form .back-container-prenotazioni {
+.mostra-form .sezione-nuovaPrenotazione, .mostra-form .back-container {
     display: flex;
 }
 
@@ -502,7 +506,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
         font-size: 18px;
     }
 
-    .add-container, .back-container-prenotazioni {
+    .add-container, .back-container {
         display: none !important;
     }
 

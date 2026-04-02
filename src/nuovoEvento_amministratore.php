@@ -5,7 +5,7 @@ $templateParams["header"] = "header_pagine.php";
 $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 
-$errore = '';
+$errore = "";
 if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']) && isset($_POST['oraInizio']) &&
     isset($_POST['durataPermanenza']) && isset($_POST['nominativo']) && isset($_POST['descrizioneEvento']) && isset($_FILES['locandina'])) {
     

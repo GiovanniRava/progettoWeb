@@ -8,7 +8,7 @@ $templateParams["header"] = "header_pagine.php";
 if (isset($_POST['nome_da_eliminare'])) {
     $codice = $_POST['nome_da_eliminare'];
     $dbh->delete_prenotazione($codice);
-    header("Location: listaPrenotazioni_studente.php");
+    header("Location: prenotazioni_studente.php");
     exit();
 }
 
