@@ -8,7 +8,7 @@ if (!isset($_SESSION['utente_loggato'])) {
 <html lang="it">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-    <title>Nuova - Prenotazione - Studente</title>
+    <title>Nuovo - Evento - Amministratore</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
@@ -16,18 +16,24 @@ if (!isset($_SESSION['utente_loggato'])) {
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
-            <h2>NUOVA PRENOTAZIONE</h2>
+            <h2>NUOVO EVENTO</h2>
         </div>
         <div class="back-container">
-            <a href="prenotazioni_studente.php" class="back-box" title="BackToPrenotazioni">
+            <a href="eventi_admin.php" class="back-box" title="BackToEeventi">
                 <span class="cross-icon">&times;</span>
             </a>
         </div>
     </div>
     
-    <div class="form-prenotazione">
-        <form action="nuova_prenotazione.php" method="POST" class="form-form-prenotazione">
+    <div class="form-evento">
+        <form action="nuovoEvento_amministratore.php" method="POST" class="form-form-evento" enctype="multipart/form-data">
             <ul>
+                <li>
+                    <div class="col">
+                        <label for="nome-evento">Titolo Evento</label>
+                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
+                    </div>
+                </li>
                 <li>
                     <div class="col">
                         <label for="Aula/Laboratorio">Scegli Aula o Lab</label>
@@ -84,14 +90,14 @@ if (!isset($_SESSION['utente_loggato'])) {
                 </li>
                 <li>
                     <div class="col">
-                        <label for="username">Nome e Cognome</label>
-                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
+                        <label for="locandina-img">Seleziona Immagine Locandina</label>
+                        <input type="file" class="input-pieno" id="locandina" name="locandina" />
                     </div>
                 </li>
                 <li>
                     <div class="col">
-                        <label for="motivazione">Motivazione</label>
-                        <textarea name="motivazionePrenotazione" rows="7" placeholder="Scrivi..."></textarea>
+                        <label for="descrizione">Descrizione</label>
+                        <textarea name="descrizioneEvento" rows="7" placeholder="Scrivi..."></textarea>
                     </div>
                 </li>
                 <li>
@@ -100,9 +106,9 @@ if (!isset($_SESSION['utente_loggato'])) {
                     <?php endif; ?>
                 </li>
                 <li>
-                    <input type="submit" name="submit" class="button-nuova-prenotazione" value="INVIA PRENOTAZIONE" />
+                    <input type="submit" name="submit" class="button-nuovo-evento" value="AGGIUNGI EVENTO" />
                 </li>
-            </ul>
+            </ul>  
         </form>
     </div>
 

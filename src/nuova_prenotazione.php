@@ -2,6 +2,8 @@
 require_once("bootstrap.php");
 
 $templateParams["header"] = "header_pagine.php";
+$templateParams["aule"] = $dbh->get_aule();
+$templateParams["lab"] = $dbh->get_lab();
 
 $formatoNome = "/^[A-Z][a-zA-Z0-9]+ [A-Z][a-zA-Z0-9]+$/";
 $errore = '';
@@ -19,10 +21,26 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         $errore = "Devi compilare tutti i campi";
     }
     else if (preg_match($formatoNome, $nome)) {
-        
+        $insiemeAule = array_column($templateParams["aule"], 'numeroAula');
+        if (in_array($aulaLab, $insiemeAule)) {
+            $aula = $aulaLab;
+            $laboratorio = null;
+        } else {
+            $aula = null;
+            $laboratorio = $aulaLab;
+        }
+        $parti = explode(':', $durata);
+        $ore = (int)$parti[0];
+        $minuti = (int)$parti[1];
+        $durataMinuti = ($ore * 60) + $minuti;
+        $oraInizio.=":00";
+
+        $dbh->insert_prenotazione($nome, $data, $oraInizio, $durataMinuti, $motivazione, $laboratorio, $aula);
+        header("Location: nuova_prenotazione.php");
+        exit();
     }
     else {
-        $errore = "Email non valida. Usa un formato come nome.cognome@unibo.it oppure nome.cognome@studio.unibo.it";
+        $errore = "Nominativo non valido. Prova col formato \"Mario Rossi\"";
     }
 }
 
