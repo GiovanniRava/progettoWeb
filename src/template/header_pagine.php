@@ -1,4 +1,3 @@
-
 <header>
     <div class="logo">
         <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>

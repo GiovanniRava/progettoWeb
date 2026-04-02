@@ -36,7 +36,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         $oraInizio.=":00";
 
         $dbh->insert_prenotazione($nome, $data, $oraInizio, $durataMinuti, $motivazione, $laboratorio, $aula);
-        header("Location: nuova_prenotazione.php");
+        header("Location: prenotazioni_studente.php");
         exit();
     }
     else {
@@ -44,5 +44,5 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
     }
 }
 
-require("template/nuova_prenotazione_base.php");
+// require("template/nuova_prenotazione_base.php");
 ?>

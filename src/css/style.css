@@ -82,7 +82,7 @@ footer p {
     filter: brightness(0.6);
 }
 
-.logo, .title, .login, .logout-pc, .subtitle, .add-container, .spacer, .back-container, .menu-container {
+.logo, .title, .login, .logout-pc, .subtitle, .add-container, .spacer, .back-container-prenotazioni, .menu-container {
     display: flex;
     align-items: center;
 }
@@ -106,7 +106,7 @@ h1 {
     margin-left: 7px;
 }
 
-.login, .logout-pc, .menu-container, .add-container, .back-container {
+.login, .logout-pc, .menu-container, .add-container, .back-container-prenotazioni {
     width: 25%;
     padding-right: 14px;
     justify-content: flex-end;
@@ -249,18 +249,18 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     background-color: #87ceeb;
 }
 
-table {
+.table-prenotazioni-studente {
     width: 100%; 
     font-family: 'Lucida Sans', sans-serif;
     border-spacing: 0;
     border-collapse: collapse;
 }
 
-table td:nth-child(-n+3), table th:nth-child(-n+3){
+.table-prenotazioni-studente td:nth-child(-n+3), .table-prenotazioni-studente th:nth-child(-n+3){
     border-right: 1px solid #000;
 }
 
-table tr th {
+.table-prenotazioni-studente tr th {
     background-color: #d3d3d3;
     color: black;
     text-align: left;
@@ -268,13 +268,13 @@ table tr th {
     border-bottom: 1px solid #999;
 }
 
-table tr td {
+.table-prenotazioni-studente tr td {
     color: black;
     text-align: left;
     padding: 20px 5px;
 }
 
-table tr td:last-child {
+.table-prenotazioni-studente tr td:last-child {
     text-align: center;
     padding: 20px 0;
 }
@@ -326,11 +326,21 @@ table tr td:last-child {
     font-family: 'Lucida Sans', sans-serif;
 }
 
-.col {
+.form-prenotazione ul li:first-child {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.col, .col-title {
     display: flex;
     flex-direction: column;
     flex: 1;
     margin-top: auto;
+}
+
+.col-title {
+    padding: 10px 0;
+    border-bottom: 1px solid #000000;
 }
 
 .form-prenotazione ul li label, .form-evento ul li label {
@@ -386,6 +396,18 @@ table tr td:last-child {
     background-color: #bebebe;
 }
 
+.sezione-nuovaPrenotazione, .spacer-prenotazioni, .back-container-prenotazioni {
+    display: none;
+}
+
+/*prova doppia pagina*/
+.mostra-form .sezione-listaPrenotazioni, .mostra-form .add-container  {
+    display: none; 
+}
+
+.mostra-form .sezione-nuovaPrenotazione, .mostra-form .back-container-prenotazioni {
+    display: flex;
+}
 
 @media screen and (min-width: 768px) {
 
@@ -417,7 +439,6 @@ table tr td:last-child {
     }
 
     .contenuto-aula {
-        
         background-image: url('../upload/polivalenteMobile.png'), url('../upload/polivalenteDesktop.png') !important;
         background-position: left top, right top !important;
         background-size: 50% 100%, 50% 100% !important;
@@ -480,7 +501,35 @@ table tr td:last-child {
         cursor: pointer;
         font-size: 18px;
     }
+
+    .add-container, .back-container-prenotazioni {
+        display: none !important;
+    }
+
+    .container-prenotazioniStudente{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .table-prenotazioni-studente {
+        width: 85%;
+    }
+
+    .form-prenotazione {
+        min-width: 480px;
+        margin-right: 50px;
+    }
+
+    .form-form-prenotazione {
+        width: 100%;
+    }
+
+    .sezione-nuovaPrenotazione, .sezione-listaPrenotazioni {
+        display: flex !important;
+    }
 }
+
 /*Serve per immagine sfondo della polivalente*/
 .contenuto-aula {
     background-image: url('../upload/polivalenteMobile.png'); 
