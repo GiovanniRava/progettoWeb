@@ -1,9 +1,16 @@
 
 <header>
     <div class="logo">
-        <a href="paginaPrincipale_studente.php">
+        <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
+            <a href="paginaPrincipale_studente.php">
+                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+            </a>
+        <?php endif; ?>
+        <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "admin"): ?>
+        <a href="paginaPrincipale_amministratore.php">
             <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
         </a>
+        <?php endif; ?>
     </div>
     <div class="title">
         <h1>Alma Aule</h1>

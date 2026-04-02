@@ -52,8 +52,8 @@ if (!isset($_SESSION['utente_loggato'])) {
                 <p>Sei sicuro di voler eliminare la prenotazione?</p>
                 <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
                     <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
-                    <button type="submit" id="conferma-annulla">SI</button>
-                    <button type="button" id="revoca-annulla">NO</button>
+                    <button type="submit" id="conferma-annulla" name="elimina-prenotazione">SI</button>
+                    <button type="button" id="revoca-annulla" name="revoca-elimina-prenotazione">NO</button>
                 </form>
             </dialog>
         </table>
