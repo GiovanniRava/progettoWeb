@@ -79,6 +79,15 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getRichiesteInCorso() {        
+        $stmt = $this->db->prepare("SELECT codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula, descrizione 
+                  FROM RICHIESTA_IN_CORSO 
+                  ORDER BY data ASC, oraInizio ASC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>
