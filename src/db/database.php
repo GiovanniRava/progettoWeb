@@ -10,9 +10,17 @@ class DatabaseHelper {
     }
     
     public function get_prenotazioni_studente($nome){
-        $stmt = $this->db->prepare("SELECT codicePre, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata
+        $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
         FROM prenotazione WHERE nominativo = ?");
         $stmt->bind_param("s", $nome);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_prenotazioni_admin(){
+        $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
+        FROM prenotazione");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -42,6 +50,35 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
+    public function insert_prenotazione($nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula){
+        $query = "INSERT INTO richiesta_in_corso (nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssisss', $nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula);
+        return $stmt->execute();
+    }
+
+    public function insert_evento($titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione){
+        $query = "INSERT INTO evento (titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina, descrizione) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssissss', $titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione);
+        return $stmt->execute();
+    }
+
+    public function get_aule(){
+        $stmt = $this->db->prepare("SELECT numeroAula FROM aula");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_lab(){
+        $stmt = $this->db->prepare("SELECT numeroLab FROM laboratorio");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>

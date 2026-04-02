@@ -19,6 +19,7 @@ if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'
         if ($password === $pass_studente_corretta) {
             $_SESSION['utente_loggato'] = true;
             $_SESSION['email_utente'] = $email;
+            $_SESSION['tipo_utente'] = "studente";
             
             header("Location: paginaPrincipale_studente.php");
             exit();
@@ -30,6 +31,7 @@ if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'
         if ($password === $pass_admin_corretta) {
             $_SESSION['utente_loggato'] = true;
             $_SESSION['email_utente'] = $email;
+            $_SESSION['tipo_utente'] = "admin";
             
             header("Location: infoGenerali_amministratore.php");
             exit();

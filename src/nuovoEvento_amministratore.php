@@ -1,122 +1,46 @@
 <?php
-if (!isset($_SESSION['utente_loggato'])) {
-    // Se non sei loggato, ti rimando al login
-    header("Location: login.php");
-    exit();
-}
-?>
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-    <title>Nuovo - Evento - Amministratore</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="infoGenerali_amministratore.php">
-                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
-            </a>
-        </div>
-        <div class="title">
-            <h1>Alma Aule</h1>
-        </div>
-        <div class="menu-container">
-            <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
-                &#9776;
-            </a>
-        </div>
-    </header>
-    <div class="red-bar">
-        <div class="spacer"></div>
-        <div class="subtitle">
-            <h2>NUOVO EVENTO</h2>
-        </div>
-        <div class="back-container">
-            <a href="eventi_admin.php" class="back-box" title="BackToPrenotazioni">
-                <span class="cross-icon">&times;</span>
-            </a>
-        </div>
-    </div>
-    
-    <div class="form-evento">
-        <form action="#" method="POST" class="form-form-evento">
-            <ul>
-                <li>
-                    <div class="col">
-                        <label for="nome-evento">Titolo Evento</label>
-                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
-                    </div>
-                </li>
-                <li>
-                    <div class="col">
-                        <label for="Aula/Laboratorio">Seleziona Aula o Lab</label>
-                        <input type="text" class="input-medio" id="aula-lab" name="aula-lab" />
-                    </div>
-                    <div class="col">
-                        <label for="data">Data</label>
-                        <input type="date" class="input-medio" id="data" name="data" />
-                    </div>
-                </li>
-                <li>
-                    <div class="col">
-                        <label for="ora">Scegli l'orario:</label>
-                        <select class="input-medio" name="oraInizio" id="ora">
-                            <option value="09:00">09:00</option>
-                            <option value="09:30">09:30</option>
-                            <option value="10:00">10:00</option>
-                            <option value="10:30">10:30</option>
-                            <option value="11:00">11:00</option>
-                            <option value="11:30">11:30</option>
-                            <option value="12:00">12:00</option>
-                            <option value="12:30">12:30</option>
-                            <option value="13:00">13:00</option>
-                            <option value="13:30">13:30</option>
-                            <option value="14:00">14:00</option>
-                            <option value="14:30">14:30</option>
-                            <option value="15:00">15:00</option>
-                            <option value="15:30">15:30</option>
-                            <option value="16:00">16:00</option>
-                            <option value="16:30">16:30</option>
-                            <option value="17:00">17:00</option>
-                            <option value="17:30">17:30</option>
-                            <option value="18:00">18:00</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                    <label for="durata">Durata</label>
-                        <select class="input-medio" name="durataPermanenza" id="durata">
-                            <option value="00:30">00:30</option>
-                            <option value="01:00">01:00</option>
-                            <option value="01:30">01:30</option>
-                            <option value="02:00">02:00</option>
-                            <option value="02:30">02:30</option>
-                            <option value="03:00">03:00</option>
-                        </select>
-                    </div>
-                </li>
-                <li>
-                    <div class="col">
-                        <label for="locandina-img">Seleziona Immagine Locandina</label>
-                        <input type="file" class="input-pieno" id="locandina" name="locandina" />
-                    </div>
-                </li>
-                <li>
-                    <div class="col">
-                        <label for="descrizione">Descrizione</label>
-                        <textarea name="descrizioneEvento" rows="7" placeholder="Scrivi..."></textarea>
-                    </div>
-                </li>
-                <li>
-                    <input type="submit" name="submit" class="button-nuovo-evento" value="AGGIUNGI EVENTO" />
-                </li>
-            </ul>  
-        </form>
-    </div>
+require_once("bootstrap.php");
 
-    <footer>
-        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
-        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
-    </footer>
-</body>
+$templateParams["header"] = "header_pagine.php";
+$templateParams["aule"] = $dbh->get_aule();
+$templateParams["lab"] = $dbh->get_lab();
+
+$errore = '';
+if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']) && isset($_POST['oraInizio']) &&
+    isset($_POST['durataPermanenza']) && isset($_POST['nominativo']) && isset($_POST['descrizioneEvento']) && isset($_FILES['locandina'])) {
+    
+    $aulaLab = $_POST['aula-lab'];
+    $data = $_POST['data'];
+    $oraInizio = $_POST['oraInizio'];
+    $durata = $_POST['durataPermanenza'];
+    $nome = $_POST['nominativo'];
+    $descrizione = $_POST['descrizioneEvento'];
+    $locandina = $_FILES['locandina']['name'];
+    move_uploaded_file($_FILES['locandina']['tmp_name'], UPLOAD_DIR . $locandina);
+    
+    if (empty($aulaLab) || empty($data) || empty($oraInizio) || empty($durata) || empty($nome) || empty($descrizione) || empty($locandina)){
+        $errore = "Devi compilare tutti i campi";
+    }
+    else {
+        $insiemeAule = array_column($templateParams["aule"], 'numeroAula');
+        if (in_array($aulaLab, $insiemeAule)) {
+            $aula = $aulaLab;
+            $laboratorio = null;
+        } else {
+            $aula = null;
+            $laboratorio = $aulaLab;
+        }
+        $parti = explode(':', $durata);
+        $ore = (int)$parti[0];
+        $minuti = (int)$parti[1];
+        $durataMinuti = ($ore * 60) + $minuti;
+        $oraInizio.=":00";
+
+        $dbh->insert_evento($nome, $data, $oraInizio, $durataMinuti, $laboratorio, $aula, $locandina, $descrizione);
+        header("Location: nuovoEvento_amministratore.php");
+        exit();
+    }
+}
+
+require("template/nuovoEvento_amministratore_base.php");
+?>
