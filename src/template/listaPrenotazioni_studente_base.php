@@ -1,12 +1,13 @@
 <!-- <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Prenotazioni - Studente</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head> -->
 <body>
-    <!-- <?php require($templateParams["header"]); ?>
+    <!-- php
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -22,20 +23,22 @@
     <main>
         <table class="table-prenotazioni-studente">
             <tr>
-                <th>AULA / LAB</th>
-                <th>ORARIO</th>
-                <th></th>
+                <th id="numero-aula-lab">AULA / LAB</th>
+                <th id="data-prenotazione">DATA</th>
+                <th id="ora-prenotazione">ORARIO</th>
+                <th id="sezione-annulla"></th>
             </tr>
             <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
             <tr>
-                <td><?php echo $prenotazione["num"] ?></td>
-                <td><?php echo $prenotazione["oraInizio"] ?> - 
+                <td headers="numero-aula-lab"><?php echo $prenotazione["num"] ?></td>
+                <td headers="data-prenotazione"><?php echo $prenotazione["data"] ?></td>
+                <td headers="ora-prenotazione"><?php echo $prenotazione["oraInizio"] ?> - 
                 <?php $date = new DateTime($prenotazione["oraInizio"]);
                     $date->modify("+{$prenotazione["durata"]} minutes");
                     $oraFine = $date->format('H:i:s'); 
                     echo $oraFine;
                 ?></td>
-                <td>
+                <td headers="sezione-annulla">
                     <button id="button-annulla-prenotazione" class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ANNULLA</button>
                 </td>
             </tr>

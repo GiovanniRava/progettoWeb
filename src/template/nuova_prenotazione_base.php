@@ -1,12 +1,13 @@
 <!-- <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Nuova - Prenotazione - Studente</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head> -->
 <body>
-    <!-- <?php require($templateParams["header"]); ?>
+    <!-- php
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -26,7 +27,7 @@
                     <li><div class="col-title">RICHIESTA NUOVA PRENOTAZIONE</div></li>
                     <li>
                         <div class="col">
-                            <label for="Aula/Laboratorio">Scegli Aula o Lab</label>
+                            <label for="aula-lab">Scegli Aula o Lab</label>
                             <select class="input-medio" name="aula-lab" id="aula-lab">
                                 <?php foreach($templateParams["aule"] as $aula): ?>
                                 <option value="<?php echo $aula["numeroAula"] ?>"><?php echo $aula["numeroAula"] ?></option>
@@ -80,14 +81,14 @@
                     </li>
                     <li>
                         <div class="col">
-                            <label for="username">Nome e Cognome</label>
+                            <label for="nominativo">Nome e Cognome</label>
                             <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
                         </div>
                     </li>
                     <li>
                         <div class="col">
                             <label for="motivazione">Motivazione</label>
-                            <textarea name="motivazionePrenotazione" rows="7" placeholder="Scrivi..."></textarea>
+                            <textarea name="motivazionePrenotazione" id="motivazione" rows="7" placeholder="Scrivi..."></textarea>
                         </div>
                     </li>
                     <li>

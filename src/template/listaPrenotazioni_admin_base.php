@@ -7,7 +7,8 @@ if (!isset($_SESSION['utente_loggato'])) {
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Prenotazioni - Admin</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
@@ -23,27 +24,27 @@ if (!isset($_SESSION['utente_loggato'])) {
     <main>
         <table>
             <tr>
-                <th>AULA / LAB</th>
-                <th>DATA</th>
-                <th>ORARIO</th>
-                <th>NOME e COGNOME</th>
-                <th>MOTIVAZIONE</th>
-                <th></th>
+                <th id="numero-aula-lab">AULA / LAB</th>
+                <th id="data-prenotazione">DATA</th>
+                <th id="ora-prenotazione">ORARIO</th>
+                <th id="nominativo-prenotazione">NOME e COGNOME</th>
+                <th id="motivazione-prenotazione">MOTIVAZIONE</th>
+                <th id="sezione-elimina"></th>
             </tr>
             <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
             <tr>
-                <td><?php echo $prenotazione["num"] ?></td>
-                <td><?php echo $prenotazione["data"] ?></td>
-                <td><?php echo $prenotazione["oraInizio"] ?> - 
+                <td headers="numero-aula-lab"><?php echo $prenotazione["num"] ?></td>
+                <td headers="data-prenotazione"><?php echo $prenotazione["data"] ?></td>
+                <td headers="ora-prenotazione"><?php echo $prenotazione["oraInizio"] ?> - 
                 <?php $date = new DateTime($prenotazione["oraInizio"]);
                     $date->modify("+{$prenotazione["durata"]} minutes");
                     $oraFine = $date->format('H:i:s'); 
                     echo $oraFine;
                 ?></td>
-                <td><?php echo $prenotazione["nominativo"] ?></td>
-                <td><?php echo $prenotazione["motivazione"] ?></td>
-                <td>
-                    <button id="button-annulla-prenotazione" class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
+                <td headers="nominativo-prenotazione"><?php echo $prenotazione["nominativo"] ?></td>
+                <td headers="motivazione-prenotazione"><?php echo $prenotazione["motivazione"] ?></td>
+                <td headers="sezione-elimina">
+                    <button id="button-elimina-prenotazione" class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -67,11 +68,11 @@ if (!isset($_SESSION['utente_loggato'])) {
     <script>
         const finestra = document.getElementById('finestra-annulla');
         const inputNascosto = document.getElementById('input-nascosto-elimina');
-        const bottoniAnnulla = document.querySelectorAll('.button-annulla-prenotazione');
+        const bottoniElimina = document.querySelectorAll('.button-elimina-prenotazione');
         const btnNo = document.getElementById('revoca-annulla');
         const btnSi = document.getElementById('conferma-annulla');
 
-        bottoniAnnulla.forEach(bottone => {
+        bottoniElimina.forEach(bottone => {
             bottone.addEventListener('click', () => {
                 const idDaEliminare = bottone.getAttribute('data-id');
                 inputNascosto.value = idDaEliminare;

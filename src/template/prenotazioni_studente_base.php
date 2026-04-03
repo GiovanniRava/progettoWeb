@@ -12,14 +12,15 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
     $successo = "Richiesta inviata con successo!";
 }
 
-if (isset($errore)) {
+if (!empty($errore)) {
     $classeBody = "mostra-form";
 }
 ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Prenotazioni - Studente</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
@@ -44,12 +45,12 @@ if (isset($errore)) {
     </div>
     <main>
         <div class="container-prenotazioniStudente">
-            <section class="sezione-listaPrenotazioni">
+            <div class="sezione-listaPrenotazioni">
                 <?php include('listaPrenotazioni_studente_base.php'); ?>
-            </section>
-            <section class="sezione-nuovaPrenotazione">
+            </div>
+            <div class="sezione-nuovaPrenotazione">
                 <?php include('nuova_prenotazione_base.php'); ?>
-            </section>   
+            </div>   
         </div>
     </main>
     <footer>

@@ -1,13 +1,18 @@
+<!--non valido per w3c perchè template-->
 <header>
     <div class="logo">
         <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
-            <a href="paginaPrincipale_studente.php">
+        <a href="paginaPrincipale_studente.php">
+            <figure>
                 <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
-            </a>
+            </figure>
+        </a>
         <?php endif; ?>
         <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "admin"): ?>
         <a href="paginaPrincipale_amministratore.php">
-            <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+            <figure>
+                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+            </figure>
         </a>
         <?php endif; ?>
     </div>

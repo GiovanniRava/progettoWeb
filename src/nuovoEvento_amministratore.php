@@ -6,6 +6,7 @@ $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 
 $errore = "";
+$successo = "";
 if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']) && isset($_POST['oraInizio']) &&
     isset($_POST['durataPermanenza']) && isset($_POST['nominativo']) && isset($_POST['descrizioneEvento']) && isset($_FILES['locandina'])) {
     
@@ -36,6 +37,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         $durataMinuti = ($ore * 60) + $minuti;
         $oraInizio.=":00";
 
+        $successo = "Evento aggiunto con successo!";
         $dbh->insert_evento($nome, $data, $oraInizio, $durataMinuti, $laboratorio, $aula, $locandina, $descrizione);
         header("Location: nuovoEvento_amministratore.php");
         exit();
