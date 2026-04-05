@@ -831,6 +831,14 @@ th:last-child, td:last-child {
         color: #000;
         font-weight: bold;
         font-family: 'Lucida Sans', sans-serif;
+        display: inline-block;
+        padding: 10px 20px;
+        transition: 0.3s;
+        border-radius: 5px;
+    }
+    .navbar-desktop ul li a:hover {
+        background-color: #e21d1d;
+        color: white;
     }
 }
 

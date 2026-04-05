@@ -89,7 +89,7 @@ insert into ESAME (codiceIns, codiceEsame, oraInizio, durata, data, numeroLab, n
 insert into EVENTO (titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina) values
 ('GAME AS A LAB', '2026-11-27', '17:00:00', 120, '2.2', null, 'asALAB.jpeg'),
 ('QUANTUM ENGINEERING', '2026-11-19', '17:00:00', 90, null, '2.3', 'Quantum.jpeg'),
-('FUTURO NELL\'ICT', '2026-11-27', '17:00:00', 120, null, '2.13', 'futuroICT.jpeg');
+('FUTURO NELL ICT', '2026-11-27', '17:00:00', 120, null, '2.13', 'futuroICT.jpeg');
 
 
 INSERT INTO LAUREA(codiceLaurea, oraInizio, durata, corso, data, numeroAula)

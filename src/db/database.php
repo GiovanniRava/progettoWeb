@@ -79,6 +79,17 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    
+    public function get_lezioni_in_corso() {
+       $query = "SELECT I.nomeIns, L.numeroAula, L.numeroLab 
+              FROM LEZIONE L 
+              JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns 
+              WHERE L.data = '2026-09-22'
+              AND CURRENT_TIME >= L.oraInizio 
+              AND CURRENT_TIME <= ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))";
+              $stmt = $this->db->prepare($query);
+              $stmt->execute();
+    }
 }
 
 ?>
