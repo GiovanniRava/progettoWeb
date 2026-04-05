@@ -29,18 +29,18 @@ main {
     overflow: hidden;  /* Evita che l'immagine crei scroll inutili - previene perchè in realtà non li crea già */
 }
 
-figure {
+.logo a figure {
+    width: 100%;
+    margin: 0;
+}
+
+.main-home figure {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     margin: 0;
-}
-
-.logo a figure {
-    top: 5px;
-    left: 10px;
 }
 
 .header-menu {
@@ -151,6 +151,7 @@ h1 {
     min-height: 85vh; /*Significa che il contenitore del form deve essere alto almeno l'85% dell'altezza dello schermo. */
     position: relative; /*Serve per usare z-index - anche se in realtà funziona anche solo con flex*/
     z-index: 1;
+    margin-bottom: 15px;
 }
 
 .login-form-form {
@@ -429,13 +430,6 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
 
     header > div > a > figure > img {
         max-height: 100px;
-    }
-
-    .logo, .spacer{
-        width: 25%;
-        padding-left: 20px;
-        justify-content: flex-start;
-        box-sizing: border-box;
     }
 
     .title, .subtitle {

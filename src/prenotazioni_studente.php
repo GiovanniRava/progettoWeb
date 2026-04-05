@@ -1,4 +1,5 @@
 <?php
+require_once("bootstrap.php");
 $templateParams["header"] = "header_pagine.php";
 
 include("listaPrenotazioni_studente.php");

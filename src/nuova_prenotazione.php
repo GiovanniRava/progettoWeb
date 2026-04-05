@@ -1,6 +1,4 @@
 <?php
-require_once("bootstrap.php");
-
 $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 
