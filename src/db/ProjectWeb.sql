@@ -42,6 +42,7 @@ create table EVENTO (
      numeroLab char(5),
      numeroAula char(5),
      locandina char(50),
+     descrizione char(250),
      constraint ID_EVENTO_ID primary key (titolo));
 
 create table LABORATORIO (
@@ -94,7 +95,7 @@ create table PRENOTAZIONE (
      constraint ID_PRENOTAZIONE_ID primary key (codicePre));
 
 create table RICHIESTA_IN_CORSO (
-     codiceRichiesta int not null,
+     codiceRichiesta int auto_increment not null,
      nominativo char(20) not null,
      data date not null,
      oraInizio char(10) not null,
@@ -158,14 +159,7 @@ alter table PRENOTAZIONE add constraint FKPRENOTAZIONE_A_FK
 
 alter table RICHIESTA_IN_CORSO add constraint FKRICHIESTA_A_FK
      foreign key (numeroAula)
-     references AULA (numeroAula);
-
-ALTER TABLE RICHIESTA_IN_CORSO DROP PRIMARY KEY;
-ALTER TABLE RICHIESTA_IN_CORSO 
-	MODIFY COLUMN codiceRichiesta INT AUTO_INCREMENT PRIMARY KEY;
-    
-ALTER TABLE EVENTO 
-ADD COLUMN descrizione char(250) NOT NULL;
+     references AULA (numeroAula);    
 
 -- Index Section
 -- _____________ 
@@ -232,5 +226,3 @@ create index FKRICHIESTA_L_IND
 
 create index FKRICHIESTA_A_IND
      on RICHIESTA_IN_CORSO (numeroAula);
-
-create table RICHIESTA_IN_CORSO (      codiceRichiesta int not null,      nominativo char(20) not null,      data date not null,      oraInizio char(10) not null,      durata int not null,      motivazione char(100) not null,      numeroLab char(5),      numeroAula char(5),      constraint ID_RICHIESTA_ID primary key (codiceRichiesta))

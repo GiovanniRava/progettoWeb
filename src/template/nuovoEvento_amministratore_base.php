@@ -7,7 +7,8 @@ if (!isset($_SESSION['utente_loggato'])) {
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Nuovo - Evento - Amministratore</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
@@ -31,12 +32,12 @@ if (!isset($_SESSION['utente_loggato'])) {
                 <li>
                     <div class="col">
                         <label for="nome-evento">Titolo Evento</label>
-                        <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
+                        <input type="text" class="input-pieno" id="nome-evento" name="nominativo" />
                     </div>
                 </li>
                 <li>
                     <div class="col">
-                        <label for="Aula/Laboratorio">Scegli Aula o Lab</label>
+                        <label for="aula-lab">Scegli Aula o Lab</label>
                         <select class="input-medio" name="aula-lab" id="aula-lab">
                             <?php foreach($templateParams["aule"] as $aula): ?>
                             <option value="<?php echo $aula["numeroAula"] ?>"><?php echo $aula["numeroAula"] ?></option>
@@ -91,18 +92,21 @@ if (!isset($_SESSION['utente_loggato'])) {
                 <li>
                     <div class="col">
                         <label for="locandina-img">Seleziona Immagine Locandina</label>
-                        <input type="file" class="input-pieno" id="locandina" name="locandina" />
+                        <input type="file" class="input-pieno" id="locandina-img" name="locandina" />
                     </div>
                 </li>
                 <li>
                     <div class="col">
                         <label for="descrizione">Descrizione</label>
-                        <textarea name="descrizioneEvento" rows="7" placeholder="Scrivi..."></textarea>
+                        <textarea name="descrizioneEvento" id="descrizione" rows="7" placeholder="Scrivi..."></textarea>
                     </div>
                 </li>
                 <li>
                     <?php if(isset($errore)): ?>
                     <p class="error-message"><?php echo $errore; ?></p>
+                    <?php endif; ?>
+                    <?php if(isset($successo)): ?>
+                    <p class="success-message"><?php echo $successo; ?></p>
                     <?php endif; ?>
                 </li>
                 <li>

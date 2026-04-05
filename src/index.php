@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Pagina Iniziale</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
@@ -9,7 +10,9 @@
     <header>
         <div class="logo">
             <a href="index.php">
-                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+                <figure>
+                    <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+                </figure>
             </a>
         </div>
         <div class="title">
@@ -21,7 +24,9 @@
     </header>
     
     <main class="main-home">
-        <img src="upload/giardinoCampus.jpeg" alt="giardino Campus Cesena, foto di sfondo Home page" class="home-img">
+        <figure>
+            <img src="upload/giardinoCampus.jpeg" alt="giardino Campus di Cesena, foto sfondo Home page" class="home-img">
+        </figure>
     </main>
 
     <footer class="home-footer">

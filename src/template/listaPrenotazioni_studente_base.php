@@ -1,35 +1,32 @@
-<?php
-if (!isset($_SESSION['utente_loggato'])) {
-    header("Location: login.php");
-    exit();
-}
-?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Prenotazioni - Admin</title>
+    <title>Prenotazioni - Studente</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
-</head>
+</head> -->
 <body>
-    <?php require($templateParams["header"]); ?>
+    <!-- php
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
-            <h2>LISTA PRENOTAZIONI</h2>
+            <h2>LE MIE PRENOTAZIONI</h2>
         </div>
-        <div class="spacer"></div>
-    </div>
+        <div class="add-container">
+            <a href="nuova_prenotazione.php" class="add-box" title="RichiediNuovaPrenotazione">
+                <span class="plus-icon">+</span>
+            </a>
+        </div>
+    </div> -->
+    
     <main>
-        <table>
+        <table class="table-prenotazioni-studente">
             <tr>
                 <th id="numero-aula-lab">AULA / LAB</th>
                 <th id="data-prenotazione">DATA</th>
                 <th id="ora-prenotazione">ORARIO</th>
-                <th id="nominativo-prenotazione">NOME e COGNOME</th>
-                <th id="motivazione-prenotazione">MOTIVAZIONE</th>
-                <th id="sezione-elimina"></th>
+                <th id="sezione-annulla"></th>
             </tr>
             <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
             <tr>
@@ -41,38 +38,37 @@ if (!isset($_SESSION['utente_loggato'])) {
                     $oraFine = $date->format('H:i:s'); 
                     echo $oraFine;
                 ?></td>
-                <td headers="nominativo-prenotazione"><?php echo $prenotazione["nominativo"] ?></td>
-                <td headers="motivazione-prenotazione"><?php echo $prenotazione["motivazione"] ?></td>
-                <td headers="sezione-elimina">
-                    <button id="button-elimina-prenotazione" class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
+                <td headers="sezione-annulla">
+                    <button id="button-annulla-prenotazione" class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ANNULLA</button>
                 </td>
             </tr>
             <?php endforeach; ?>
             <dialog id="finestra-annulla">
-                <h3>ELIMINA PRENOTAZIONE</h3>
-                <p>Sei sicuro di voler eliminare la prenotazione?</p>
+                <h3>ANNULLAMENTO PRENOTAZIONE</h3>
+                <p>Sei sicuro di voler annullare la prenotazione?</p>
                 <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
                     <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
-                    <button type="submit" id="conferma-annulla" name="elimina-prenotazione">SI</button>
-                    <button type="button" id="revoca-annulla" name="revoca-elimina-prenotazione">NO</button>
+                    <button type="submit" id="conferma-annulla">SI</button>
+                    <button type="button" id="revoca-annulla">NO</button>
                 </form>
             </dialog>
         </table>
     </main>
 
-    <footer>
+    <!-- <footer>
         <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
         <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
-    </footer>
+    </footer> -->
 
     <script>
         const finestra = document.getElementById('finestra-annulla');
         const inputNascosto = document.getElementById('input-nascosto-elimina');
-        const bottoniElimina = document.querySelectorAll('.button-elimina-prenotazione');
+        const bottoniAnnulla = document.querySelectorAll('.button-annulla-prenotazione');
         const btnNo = document.getElementById('revoca-annulla');
         const btnSi = document.getElementById('conferma-annulla');
 
-        bottoniElimina.forEach(bottone => {
+        // Funzione per aprire la finestra (trovata su w3school)
+        bottoniAnnulla.forEach(bottone => {
             bottone.addEventListener('click', () => {
                 const idDaEliminare = bottone.getAttribute('data-id');
                 inputNascosto.value = idDaEliminare;

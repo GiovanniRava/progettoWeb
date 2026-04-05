@@ -79,6 +79,7 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+<<<<<<< HEAD
     
     public function get_lezioni_in_corso() {
        $query = "SELECT I.nomeIns, L.numeroAula, L.numeroLab 
@@ -89,6 +90,16 @@ class DatabaseHelper {
               AND CURRENT_TIME <= ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))";
               $stmt = $this->db->prepare($query);
               $stmt->execute();
+=======
+
+    public function getRichiesteInCorso() {        
+        $stmt = $this->db->prepare("SELECT codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula, descrizione 
+                  FROM RICHIESTA_IN_CORSO 
+                  ORDER BY data ASC, oraInizio ASC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+>>>>>>> 57e0e1a3da0fbfacb09e23b95809d09792ea2b7c
     }
 }
 

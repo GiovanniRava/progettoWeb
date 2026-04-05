@@ -199,3 +199,8 @@ INSERT INTO PRENOTAZIONE (codicePre, nominativo, data, oraInizio, durata, motiva
 INSERT INTO PRENOTAZIONE (codicePre, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) VALUES
 (12, 'Sofia Moretti', '2026-09-29', '14:00:00', 120, 'studio di gruppo esame database', NULL, 2.5);
 
+INSERT INTO RICHIESTA_IN_CORSO(nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula, descrizione) VALUES
+('Giovanni Rava', '2026-09-19', '9:30:00', 180, 'discussione data Intensive', NULL, 2.5, 'Durante le 3 ore verrano trattati i maggiori temi di AI e Machine Learning, spiegati dagli studenti'),
+('Riccardo Cornacchia', '2026-09-25', '14:30:00', 60, 'incontro ricerca operativa', NULL, 2.12, 'Spiegazione del simplesso Primale e Duale'),
+('Francesca Gatti', '2026-09-23', '11:30:00', 180, 'progetto mobile', 2.2, NULL, 'Sviluppo applicazione mobile android');
+

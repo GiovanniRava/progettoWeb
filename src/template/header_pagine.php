@@ -1,9 +1,20 @@
-
+<!--non valido per w3c perchè template-->
 <header>
     <div class="logo">
+        <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
         <a href="paginaPrincipale_studente.php">
-            <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+            <figure>
+                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+            </figure>
         </a>
+        <?php endif; ?>
+        <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "admin"): ?>
+        <a href="paginaPrincipale_amministratore.php">
+            <figure>
+                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
+            </figure>
+        </a>
+        <?php endif; ?>
     </div>
     <div class="title">
         <h1>Alma Aule</h1>
@@ -12,6 +23,9 @@
         <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
             &#9776;
         </a>
+    </div>
+    <div class="logout-pc">
+        <a href="index.php">Logout</a>
     </div>
 </header>
 <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>

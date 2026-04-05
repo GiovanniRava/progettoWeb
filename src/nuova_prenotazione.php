@@ -1,12 +1,11 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["header"] = "header_pagine.php";
 $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 
 $formatoNome = "/^[A-Z][a-zA-Z0-9]+ [A-Z][a-zA-Z0-9]+$/";
-$errore = '';
+$errore = "";
 if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']) && isset($_POST['oraInizio']) &&
     isset($_POST['durataPermanenza']) && isset($_POST['nominativo']) && isset($_POST['motivazionePrenotazione'])) {
     
@@ -36,7 +35,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         $oraInizio.=":00";
 
         $dbh->insert_prenotazione($nome, $data, $oraInizio, $durataMinuti, $motivazione, $laboratorio, $aula);
-        header("Location: nuova_prenotazione.php");
+        header("Location: prenotazioni_studente.php?inviato=1");
         exit();
     }
     else {
@@ -44,5 +43,5 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
     }
 }
 
-require("template/nuova_prenotazione_base.php");
+// require("template/nuova_prenotazione_base.php");
 ?>
