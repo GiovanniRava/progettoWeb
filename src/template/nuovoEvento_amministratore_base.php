@@ -27,8 +27,9 @@ if (!isset($_SESSION['utente_loggato'])) {
     </div>-->
     
     <div class="form-evento">
-        <form action="nuovoEvento_amministratore.php" method="POST" class="form-form-evento" enctype="multipart/form-data">
+        <form action="eventi_admin.php" method="POST" class="form-form-evento" enctype="multipart/form-data">
             <ul>
+                <li><div class="col-title">AGGIUNGI NUOVO EVENTO</div></li>
                 <li>
                     <div class="col">
                         <label for="nome-evento">Titolo Evento</label>

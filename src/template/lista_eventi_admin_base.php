@@ -18,8 +18,8 @@
 
     <main>
         
-        <section class="table-aule">
-            <table>
+        <!-- <section class="table-aule"> -->
+            <table class="table-prenotazioni-studente">
                 <thead>
                     <tr>
                         <th>TITOLO</th>
@@ -52,7 +52,7 @@
                     <?php endif; ?>
                 </tbody>
             </table>
-        </section>
+        <!-- </section> -->
     </main>
     <!--<php -->
 </body>

@@ -154,7 +154,7 @@ h1 {
     display: none;
 }
 
-.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotaizone {
+.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotazione {
     color: #ffffff;
     text-decoration: none;
     background-color: #ed1d1d;
@@ -363,7 +363,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     font-family: 'Lucida Sans', sans-serif;
 }
 
-.form-prenotazione ul li:first-child {
+.form-prenotazione ul li:first-child, .form-evento ul li:first-child {
     text-align: center;
     margin-bottom: 25px;
 }
@@ -559,7 +559,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
         margin-right: 40px;
     }
 
-    .form-form-prenotazione {
+    .form-form-prenotazione, .form-form-evento {
         width: 100%;
     }
 }
@@ -835,7 +835,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     padding: 10px 0 0 0 ;
 }
 
-table {
+/* table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
@@ -855,7 +855,7 @@ td {
     padding: 15px;
     border-bottom: 1px solid #eee;
     border-right:2px solid #999;
-}
+} */
 
 .riga-dettagliPrenotazione{
     display: none;
@@ -886,9 +886,9 @@ td {
     cursor: pointer;
 }
 
-th:last-child, td:last-child {
+/* th:last-child, td:last-child {
     border-right: none;
-}
+} */
 
 /*FINE CERCA LAB E AULA AMMINISTRATORE - STUDENTE */
 /*NASCONDO LA NAV BAR DEL DESKTOP PER MOBILE*/
@@ -939,11 +939,11 @@ th:last-child, td:last-child {
 }
 /*RICHIESTE ADMIIN*/
 
-table {
+/* table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-}
+}*/
 
 th, td {
     padding: 10px;
