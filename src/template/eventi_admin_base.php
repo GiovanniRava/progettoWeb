@@ -39,9 +39,9 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
         </div>
         <div class="spacer-prenotazioni"></div>
     </div>
-    <section class="section-nuovo-evento-btn">
+    <div class="section-nuovo-evento-btn">
             <a href="#" class="button-nuovo-evento">AGGIUNGI</a>
-    </section>
+    </div>
     <main>
         <div class="container-prenotazioniStudente">
             
@@ -59,32 +59,39 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
     <?php require("footer.php"); ?>
 
     <script>
+        //Aspetta di aver caricato tutta la struttura HTML, poi esegui queste funzioni
         document.addEventListener('DOMContentLoaded', function() {
-            const btnAdd = document.querySelector('.add-box');
-            const btnBack = document.querySelector('.back-box');
-            const body = document.body;
+        const btnAdd = document.querySelector('.button-nuovo-evento');
+        const btnBack = document.querySelector('.back-box');
+        const body = document.body;
 
-            if (localStorage.getItem('statoFormEventi') === 'aperto' && window.innerWidth < 768) {
-                body.classList.add('mostra-form');
-            }
+        if (localStorage.getItem('statoForm') === 'aperto' && window.innerWidth < 768) {
+            body.classList.add('mostra-form');
+        }
 
+        btnAdd.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
+                e.preventDefault();
                 body.classList.add('mostra-form');
-                localStorage.setItem('statoFormEventi', 'aperto');
+                localStorage.setItem('statoForm', 'aperto');
             }
-            
-            if (window.innerWidth < 768) {
-                body.classList.remove('mostra-form');
-                localStorage.removeItem('statoFormEventi');
-                window.history.replaceState({}, '', window.location.pathname);
-            }
-
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) {
-                    body.classList.remove('mostra-form');
-                }
-            });
         });
+
+        btnBack.addEventListener('click', function(e) {
+            if (window.innerWidth < 768) {
+                e.preventDefault();
+                body.classList.remove('mostra-form');
+                localStorage.removeItem('statoForm');
+                window.history.replaceState({}, '', window.location.pathname);// Questa riga pulisce l'URL (toglie ?inviato=1) al refresh
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                body.classList.remove('mostra-form');
+            }
+        });
+    });
     </script>
 </body>
 </html>
