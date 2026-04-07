@@ -24,7 +24,7 @@ if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
             <h2>EVENTI</h2>
         </div>
         <section class="add-container">
-                <a href="nuovoEvento_amministratore.php" class="button-nuovo-evento">AGGIUNGI</a>
+                <a href="#" class="button-nuovo-evento">AGGIUNGI</a>
         </section>
         <div class="back-container">
             <a href="#" class="back-box" title="TornaAgliEventi">
