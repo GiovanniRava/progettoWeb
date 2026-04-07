@@ -1,5 +1,5 @@
 <?php
-require_once("bootstrap.php");
+//require_once("bootstrap.php");
 
 $templateParams["header"] = "header_pagine.php";
 $templateParams["aule"] = $dbh->get_aule();
@@ -44,5 +44,5 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
     }
 }
 
-require("template/nuovoEvento_amministratore_base.php");
+//require("template/nuovoEvento_amministratore_base.php");
 ?>
