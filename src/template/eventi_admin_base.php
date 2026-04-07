@@ -23,9 +23,6 @@ if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
         <div class="subtitle">
             <h2>EVENTI</h2>
         </div>
-        <section class="add-container">
-                <a href="#" class="button-nuovo-evento">AGGIUNGI</a>
-        </section>
         <div class="back-container">
             <a href="#" class="back-box" title="TornaAgliEventi">
                 <span class="cross-icon">&times;</span>
@@ -33,7 +30,9 @@ if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
         </div>
         <div class="spacer-prenotazioni"></div>
     </div>
-
+    <section class="section-nuovo-evento-btn">
+            <a href="#" class="button-nuovo-evento">AGGIUNGI</a>
+    </section>
     <main>
         <div class="container-prenotazioniStudente">
             
