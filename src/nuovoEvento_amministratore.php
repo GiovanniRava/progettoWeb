@@ -2,6 +2,7 @@
 require_once("bootstrap.php");
 
 $templateParams["header"] = "header_pagine.php";
+$templateParams["footer"] = "footer.php";
 $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 

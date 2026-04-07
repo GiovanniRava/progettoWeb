@@ -86,12 +86,12 @@ footer p {
 }
 
 .social a{
-	display:inline-block;
-	height:40px;
-	width:40px;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
 	background-color:rgba(255,255,255,0.2);
-	margin:0 12px 10px 9px;
-	border-radius:50%;
+	margin: 0 12px 10px 9px;
+	border-radius: 50%;
 	color:white;
 	transition: all 0.5s ease;
 }
