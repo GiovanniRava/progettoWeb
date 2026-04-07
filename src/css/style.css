@@ -439,8 +439,8 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
 }
 
 /*prova doppia pagina*/
-.mostra-form .sezione-listaPrenotazioni, .mostra-form .add-container  {
-    display: none; 
+.mostra-form .sezione-listaPrenotazioni, .mostra-form .add-container {
+    display: none;
 }
 
 .mostra-form .sezione-nuovaPrenotazione, .mostra-form .back-container {

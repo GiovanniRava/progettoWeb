@@ -1,9 +1,18 @@
 <?php
-$is_included = true;
-
+if (!isset($_SESSION['utente_loggato'])) {
+    header("Location: login.php");
+    exit();
+}
 $classeBody = "";
+$successo = "";
+
+// Se nell'URL c'è "inviato=1" o l'errore, allora mostrare il form
 if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
     $classeBody = "mostra-form";
+}
+
+if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
+    $successo = "Evento aggiunto con successo!";
 }
 ?>
 <!DOCTYPE html>
