@@ -1,6 +1,8 @@
 <?php
 require_once("bootstrap.php");
-$templateParams["nome"] = "header_pagine.php"; 
-$templateParams["eventi"] = $dbh->get_eventi(); 
+$templateParams["header"] = "header_pagine.php";
+
+include("lista_eventi_admin.php");
+include("nuovoEvento_amministratore.php");
 require("template/eventi_admin_base.php");
 ?>

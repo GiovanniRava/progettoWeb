@@ -1,4 +1,4 @@
-<?php
+<!--<?php
 if (!isset($_SESSION['utente_loggato'])) {
     header("Location: login.php");
     exit();
@@ -11,9 +11,9 @@ if (!isset($_SESSION['utente_loggato'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Nuovo - Evento - Amministratore</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
-</head>
+</head>-->
 <body>
-    <?php require($templateParams["header"]); ?>
+    <!--php 
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -24,7 +24,7 @@ if (!isset($_SESSION['utente_loggato'])) {
                 <span class="cross-icon">&times;</span>
             </a>
         </div>
-    </div>
+    </div>-->
     
     <div class="form-evento">
         <form action="nuovoEvento_amministratore.php" method="POST" class="form-form-evento" enctype="multipart/form-data">
@@ -115,5 +115,5 @@ if (!isset($_SESSION['utente_loggato'])) {
             </ul>  
         </form>
     </div>
-    <?php require($templateParams["footer"]); ?>
+    <!-- require($templateParams["footer"]) -->
 </body>

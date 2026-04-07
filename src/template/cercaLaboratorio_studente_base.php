@@ -6,13 +6,13 @@
 <html lang="it">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
-    <title>Lezioni in corso</title>
+    <title>Cerca laboratorio</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="paginaPrincipale_studente.php">
+            <a href="index.php">
                 <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
             </a>
         </div>
@@ -37,41 +37,43 @@
     <div class = "red-bar">
         <div class = "spacer"></div>
         <div class = "subtitle">
-            <h2>LEZIONI IN CORSO</h2>
+            <h2>CERCA LABORATORIO</h2>
         </div>
         <div class = "spacer"></div>
     </div>
-    <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>EVENTO</th>
-                    <th>AULA</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if(empty($templateParams["lezioni"])): ?>
-                    <tr>
-                        <td colspan="2">Nessuna lezione in corso.</td>
-                    </tr>
-                <?php else: ?>
-                    <?php foreach($templateParams["lezioni"] as $lezione): ?>
-                    <tr>
-                        <td>
-                            <?php echo $lezione["nomeEvento"]; ?>
-                        </td>
-                        <td>
-                            <?php echo !empty($lezione["numeroAula"]) ?
-                            "Aula".$lezione["numeroAula"] :
-                            "Lab".$lezione["numeroLab"]; ?>
-                        </td>
-                    </tr> 
-                    <?php endforeach; ?>
-                <?php endif; ?>   
-            </tbody>
-        </table>
-    </main>
 
-    <?php require("footer.php"); ?>
+    <main>
+        <section class="search-bar">
+            <form action="#" method="GET">
+                <div class="input-lab">
+                    <input type="text" id="search" name="search" placeholder="Search...">
+                    <input type="date" id="data-lezione" name="data-lezione">
+                </div>
+                <button type="submit" class = "button-prenota">PRENOTA</button>
+            </form>
+        </section>
+        <section class = "table-lab">
+            <table>
+                <thead>
+                    <tr>
+                        <th>LABORATORIO</th>
+                        <th>EVENTO</th>
+                        <th>ORARIO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2.2</td>
+                        <td>Tecnologie Web</td>
+                        <td>09:00-11-00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+     <footer>
+        <p>Contatti</p>
+    </footer>
 </body>
-</html>
+
+</html> 
