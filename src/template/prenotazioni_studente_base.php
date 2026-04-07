@@ -6,14 +6,13 @@ if (!isset($_SESSION['utente_loggato'])) {
 $classeBody = "";
 $successo = "";
 
-// Se nell'URL c'è "inviato=1", allora mostrare il form e il messaggio
-if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
+// Se nell'URL c'è "inviato=1" o l'errore, allora mostrare il form
+if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
     $classeBody = "mostra-form";
-    $successo = "Richiesta inviata con successo!";
 }
 
-if (!empty($errore)) {
-    $classeBody = "mostra-form";
+if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
+    $successo = "Richiesta inviata con successo!";
 }
 ?>
 <!DOCTYPE html>
@@ -32,7 +31,7 @@ if (!empty($errore)) {
             <h2>LE MIE PRENOTAZIONI</h2>
         </div>
         <div class="add-container">
-            <a href="#" class="add-box" title="RichiediNuovaPrenotazione"><!-- da creare un'altra pagina per il form?-->
+            <a href="#" class="add-box" title="RichiediNuovaPrenotazione">
                 <span class="plus-icon">+</span>
             </a>
         </div>
@@ -63,24 +62,31 @@ if (!empty($errore)) {
         document.addEventListener('DOMContentLoaded', function() {
         const btnAdd = document.querySelector('.add-box');
         const btnBack = document.querySelector('.back-box');
-        const body = document.querySelector('body'); // Usiamo il body come interruttore globale
+        const body = document.body;
 
-        if (window.innerWidth > 768 && body.classList.contains('mostra-form')) {
-            body.classList.remove('mostra-form');
+        if (localStorage.getItem('statoForm') === 'aperto' && window.innerWidth < 768) {
+            body.classList.add('mostra-form');
         }
 
-        // Click sul tasto +
         btnAdd.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
                 e.preventDefault();
                 body.classList.add('mostra-form');
+                localStorage.setItem('statoForm', 'aperto');
             }
         });
 
-        // Click sul tasto X
         btnBack.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
                 e.preventDefault();
+                body.classList.remove('mostra-form');
+                localStorage.removeItem('statoForm');
+                window.history.replaceState({}, '', window.location.pathname);// Questa riga pulisce l'URL (toglie ?inviato=1) al refresh
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
                 body.classList.remove('mostra-form');
             }
         });

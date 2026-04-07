@@ -1,5 +1,6 @@
 <?php
 require_once("bootstrap.php");
+$templateParams["footer"] = "footer.php";
 
 $dominio_studente = "/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@studio\.unibo\.it$/";
 $dominio_admin = "/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@unibo\.it$/";
