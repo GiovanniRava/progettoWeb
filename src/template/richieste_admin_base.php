@@ -1,9 +1,8 @@
-<?php
-if (!isset($_SESSION['utente_loggato'])) {
+/*if (!isset($_SESSION['utente_loggato'])) {
     header("Location: login.php");
     exit();
-}
-?>
+}*/
+
 <!DOCTYPE html>
 <html lang="it">
 <head>

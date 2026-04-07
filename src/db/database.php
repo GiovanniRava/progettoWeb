@@ -79,7 +79,6 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-<<<<<<< HEAD
     
     public function get_lezioni_in_corso() {
        $query = "SELECT I.nomeIns, L.numeroAula, L.numeroLab 
@@ -90,7 +89,53 @@ class DatabaseHelper {
               AND CURRENT_TIME <= ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))";
               $stmt = $this->db->prepare($query);
               $stmt->execute();
-=======
+    }
+
+    public function get_aula_cercata($search, $data) {
+        $query = "
+            SELECT numeroAula, nomeAttivita, oraInizio, oraFine
+            FROM (
+            SELECT L.numeroAula, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
+                TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
+            FROM LEZIONE L
+            JOIN INSEGNAMENTO I ON L.codiceInd = I.codiceIns
+
+            UNION ALL
+
+            SELECT E.numeroAula, CONCAT('ESAME: ', I.nomeIns) AS nomeAttivita, E.data, E.oraInizio,
+                TIME_FORMAT(ADDTIME(E.oraInizio, SEC_TO_TIME(E.durata * 60)), '%H:%i') AS oraFine
+            FROM ESAME E
+            JOIN INSEGNAMENTO I ON E.codiceIns = I.codiceIns
+
+            UNION ALL
+            
+            SELECT LA.numeroAula, CONCAT('LAUREE: ', LA.corso) AS nomeAttivita, LA.data, LA.oraInizio,
+                TIME_FORMAT(ADDTIME(LA.oraInizio, SEC_TO_TIME(LA.durata * 60)), '%H:%i') AS oraFine
+            FROM LAUREA LA
+
+            UNION ALL
+
+            SELECT EV.numeroAula, EV.titolo AS nomeAttivita, EV.data, EV.oraInizio,
+                TIME_FORMAT(ADDTIME(EV.oraInizio, SEC_TO_TIME(EV.durata * 60)), '%H:%i') AS oraFine
+            FROM EVENTO EV
+            ) AS eventiAulaCercata
+            WHERE data = ?
+            AND numeroAula = ?
+            ORDERED BY oraInizio ASC
+            ";
+
+            $stmt = $this->db->prepare($query);
+            $searchTerm = '%' . $search . '%';
+            $stmt->bind_param('sss', $data, $searchTerm, $searchTerm);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+    return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function get_laboratorio_cercato() {
+
+    }
 
     public function getRichiesteInCorso() {        
         $stmt = $this->db->prepare("SELECT codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula, descrizione 
@@ -99,7 +144,6 @@ class DatabaseHelper {
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
->>>>>>> 57e0e1a3da0fbfacb09e23b95809d09792ea2b7c
     }
 }
 
