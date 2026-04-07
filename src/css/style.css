@@ -278,6 +278,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .button-prenota:hover, .button-nuova-prenotazione:hover, .button-nuovo-evento:hover {
@@ -460,7 +461,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
         display: flex !important;
     }
 
-    .login, .logout-pc, .add-container, .back-container {
+    .login, .logout-pc, .add-container, .back-container, .btn-event-container {
         padding-right: 20px;
     }
 
@@ -532,7 +533,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
         font-size: 18px;
     }
 
-    .add-container, .back-container {
+    .add-container, .back-container, .btn-event-container {
         display: none !important;
     }
 
@@ -929,6 +930,9 @@ td {
     .navbar-desktop ul li a:hover {
         background-color: #e21d1d;
         color: white;
+    }
+    .section-nuovo-evento-btn{
+    display: none;
     }
 }
 
