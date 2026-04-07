@@ -1,8 +1,18 @@
-/*if (!isset($_SESSION['utente_loggato'])) {
+<?php 
+if (!isset($_SESSION['utente_loggato'])) {
     header("Location: login.php");
     exit();
-}*/
+} 
 
+/**
+ * LOGICA DI INCLUSIONE:
+ * Se la pagina è caricata dalla Dashboard, $is_included_in_main sarà TRUE.
+ * Se clicchi dal MENU, la variabile NON esiste, quindi siamo in "Standalone".
+ */
+$is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
+
+?>
+<?php if ($is_standalone): ?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -12,7 +22,7 @@
 </head>
 <body>
     <?php require($templateParams["nome"]); ?>
-    
+<?php endif; ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -108,8 +118,9 @@
             </tbody>
         </table>
     </main>
-
-    <?php require("footer.php"); ?>
+    
+  <?php if ($is_standalone): ?>
+        <?php require("footer.php"); ?>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -140,3 +151,4 @@
     </script>
 </body>
 </html>
+<?php endif; ?>
