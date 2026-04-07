@@ -34,7 +34,7 @@ if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'
             $_SESSION['email_utente'] = $email;
             $_SESSION['tipo_utente'] = "admin";
             
-            header("Location: infoGenerali_amministratore.php");
+            header("Location: paginaPrincipale_amministratore.php");
             exit();
         } else {
             $errore = "password non valida";

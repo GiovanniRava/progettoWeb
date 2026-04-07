@@ -115,9 +115,5 @@ if (!isset($_SESSION['utente_loggato'])) {
             </ul>  
         </form>
     </div>
-<!--
-    <footer>
-        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
-        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
-    </footer>-->
+    <!-- require($templateParams["footer"]) -->
 </body>
