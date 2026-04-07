@@ -19,11 +19,20 @@
     <div class="title">
         <h1>Alma Aule</h1>
     </div>
+    <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
     <div class="menu-container">
         <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
             &#9776;
         </a>
     </div>
+    <?php endif; ?>
+    <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "admin"): ?>
+    <div class="menu-container">
+        <a href="menu_admin.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
+            &#9776;
+        </a>
+    </div>
+    <?php endif; ?>
     <div class="logout-pc">
         <a href="index.php">Logout</a>
     </div>

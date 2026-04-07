@@ -49,13 +49,10 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
             </div>
             <div class="sezione-nuovaPrenotazione">
                 <?php include('nuova_prenotazione_base.php'); ?>
-            </div>   
+            </div> 
         </div>
     </main>
-    <footer>
-        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
-        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
-    </footer>
+    <?php require($templateParams["footer"]); ?>
 
     <script>
         //Aspetta di aver caricato tutta la struttura HTML, poi esegui queste funzioni

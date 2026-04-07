@@ -86,12 +86,12 @@ footer p {
 }
 
 .social a{
-	display:inline-block;
-	height:40px;
-	width:40px;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
 	background-color:rgba(255,255,255,0.2);
-	margin:0 12px 10px 9px;
-	border-radius:50%;
+	margin: 0 12px 10px 9px;
+	border-radius: 50%;
 	color:white;
 	transition: all 0.5s ease;
 }
@@ -154,7 +154,7 @@ h1 {
     display: none;
 }
 
-.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotaizone {
+.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotazione {
     color: #ffffff;
     text-decoration: none;
     background-color: #ed1d1d;
@@ -278,6 +278,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .button-prenota:hover, .button-nuova-prenotazione:hover, .button-nuovo-evento:hover {
@@ -363,7 +364,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     font-family: 'Lucida Sans', sans-serif;
 }
 
-.form-prenotazione ul li:first-child {
+.form-prenotazione ul li:first-child, .form-evento ul li:first-child {
     text-align: center;
     margin-bottom: 25px;
 }
@@ -460,7 +461,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
         display: flex !important;
     }
 
-    .login, .logout-pc, .add-container, .back-container {
+    .login, .logout-pc, .add-container, .back-container, .btn-event-container {
         padding-right: 20px;
     }
 
@@ -532,7 +533,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
         font-size: 18px;
     }
 
-    .add-container, .back-container {
+    .add-container, .back-container, .btn-event-container {
         display: none !important;
     }
 
@@ -559,7 +560,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
         margin-right: 40px;
     }
 
-    .form-form-prenotazione {
+    .form-form-prenotazione, .form-form-evento {
         width: 100%;
     }
 }
@@ -835,7 +836,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     padding: 10px 0 0 0 ;
 }
 
-table {
+/* table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
@@ -855,7 +856,7 @@ td {
     padding: 15px;
     border-bottom: 1px solid #eee;
     border-right:2px solid #999;
-}
+} */
 
 .riga-dettagliPrenotazione{
     display: none;
@@ -886,9 +887,9 @@ td {
     cursor: pointer;
 }
 
-th:last-child, td:last-child {
+/* th:last-child, td:last-child {
     border-right: none;
-}
+} */
 
 /*FINE CERCA LAB E AULA AMMINISTRATORE - STUDENTE */
 /*NASCONDO LA NAV BAR DEL DESKTOP PER MOBILE*/
@@ -930,6 +931,9 @@ th:last-child, td:last-child {
         background-color: #e21d1d;
         color: white;
     }
+    .section-nuovo-evento-btn{
+    display: none;
+    }
 }
 
 .section-nuovo-evento-btn{
@@ -939,11 +943,11 @@ th:last-child, td:last-child {
 }
 /*RICHIESTE ADMIIN*/
 
-table {
+/* table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-}
+}*/
 
 th, td {
     padding: 10px;
@@ -1009,7 +1013,7 @@ th, td {
 
 .azioni-mobile-stacked {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -1017,7 +1021,7 @@ th, td {
 
 .azioni-mobile-stacked button {
     width: 50%;
-    margin: 0;
+    margin: 0 50;
     padding: 10px;
 }
 

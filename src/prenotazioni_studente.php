@@ -1,6 +1,7 @@
 <?php
 require_once("bootstrap.php");
 $templateParams["header"] = "header_pagine.php";
+$templateParams["footer"] = "footer.php";
 
 include("listaPrenotazioni_studente.php");
 include("nuova_prenotazione.php");

@@ -93,23 +93,23 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                             <p class="dettagli-testo"><strong>Motivazione:</strong><br> <?php echo htmlspecialchars($richiesta["motivazione"]); ?></p>
                         </div>
                     </td>
-                    
-                    <td colspan="2">
-                        <div class="azioni-mobile-stacked show-mobile">
-                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Accetta</button>
-                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Rifiuta</button>
-                        </div>
-                    </td>
-                </tr>
 
-                <tr class="riga-dettagli nascosta">
-                    <td colspan="4">
+                    <td colspan="2">
                         <div class="show-mobile">
                             <?php if(!empty($richiesta["descrizione"])): ?>
                                 <p class="dettagli-testo"><strong>Descrizione:</strong><br> <?php echo htmlspecialchars($richiesta["descrizione"]); ?></p>
                             <?php else: ?>
                                 <p class="dettagli-testo"><em>Nessuna descrizione fornita.</em></p>
                             <?php endif; ?>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr class="riga-dettagli nascosta">
+                    <td colspan="4">
+                        <div class="azioni-mobile-stacked show-mobile">
+                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Accetta</button>
+                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Rifiuta</button>
                         </div>
                     </td>
                 </tr>
