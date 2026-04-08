@@ -2,6 +2,7 @@
 $username = strstr($_SESSION["email_utente"], '@', true);
 $nome_db = ucwords(str_replace('.', ' ', $username));
 $templateParams["prenotazioni"] = $dbh->get_prenotazioni_studente($nome_db);
+
 if (isset($_POST['nome_da_eliminare'])) {
     $codice = $_POST['nome_da_eliminare'];
     $dbh->delete_prenotazione($codice);

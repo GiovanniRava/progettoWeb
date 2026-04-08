@@ -93,7 +93,7 @@ footer p {
 	margin: 0 12px 10px 9px;
 	border-radius: 50%;
 	color:white;
-	transition: all 0.5s ease;
+	transition: all 0.2s ease;
 }
 
 .social a:hover{
@@ -285,34 +285,46 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     background-color: #87ceeb;
 }
 
-.table-prenotazioni-studente {
+table {
     width: 100%; 
     font-family: 'Lucida Sans', sans-serif;
     border-spacing: 0;
     border-collapse: collapse;
     min-width: auto;
+    margin-bottom: 15px;
 }
 
-.table-prenotazioni-studente td:nth-child(-n+4), .table-prenotazioni-studente th:nth-child(-n+4){
+.table-prenotazioni-studente td:nth-child(-n+4), .table-prenotazioni-studente th:nth-child(-n+4),
+.table-prenotazioni-admin td:nth-child(-n+6), .table-prenotazioni-admin th:nth-child(-n+6),
+.table-eventi-admin td:nth-child(-n+4), .table-eventi-admin th:nth-child(-n+4),
+.table-cerca-lab td:nth-child(-n+3), .table-cerca-lab th:nth-child(-n+3) {
     border-right: 1px solid #000;
 }
 
-.table-prenotazioni-studente tr th {
+table tr:nth-child(odd) {
+    background-color: #ebebeb;
+}
+
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+table tr th {
     background-color: #d3d3d3;
     color: black;
     text-align: left;
     padding: 20px 5px;
     border-bottom: 1px solid #999;
-    border-top: none;
+    border-top: 1px solid #999;
 }
 
-.table-prenotazioni-studente tr td {
+table tr td {
     color: black;
     text-align: left;
     padding: 20px 5px;
 }
 
-.table-prenotazioni-studente tr td:last-child {
+.table-prenotazioni-studente tr td:last-child, .table-prenotazioni-admin tr td:last-child {
     text-align: center;
     padding: 20px 0;
 }
@@ -949,11 +961,11 @@ td {
     text-align: left;
 }*/
 
-th, td {
+/* th, td {
     padding: 10px;
     border: 1px solid #000;
     vertical-align: top;
-}
+} */
 
 .btn-accetta {
     background-color: #6fb365;

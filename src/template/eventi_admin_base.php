@@ -56,7 +56,7 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
         </div>
     </main>
 
-    <?php require("footer.php"); ?>
+    <?php require($templateParams["footer"]); ?>
 
     <script>
         //Aspetta di aver caricato tutta la struttura HTML, poi esegui queste funzioni
@@ -82,7 +82,7 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
                 e.preventDefault();
                 body.classList.remove('mostra-form');
                 localStorage.removeItem('statoForm');
-                window.history.replaceState({}, '', window.location.pathname);// Questa riga pulisce l'URL (toglie ?inviato=1) al refresh
+                window.history.replaceState({}, '', window.location.pathname);
             }
         });
 

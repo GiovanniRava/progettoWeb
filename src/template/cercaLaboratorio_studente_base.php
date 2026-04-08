@@ -53,7 +53,7 @@
             </form>
         </section>
         <section class = "table-lab">
-            <table>
+            <table class="table-cerca-lab">
                 <thead>
                     <tr>
                         <th>LABORATORIO</th>
