@@ -848,28 +848,6 @@ table tr td {
     padding: 10px 0 0 0 ;
 }
 
-/* table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    margin-top: 0;
-}
-
-th {
-    background-color: #d3d3d3;
-    padding: 15px;
-    text-align: left;
-    border-bottom: 2px solid #999;
-    border-right: 2px solid #999;
-    border-top: 2px solid #999;
-}
-
-td {
-    padding: 15px;
-    border-bottom: 1px solid #eee;
-    border-right:2px solid #999;
-} */
-
 .riga-dettagliPrenotazione{
     display: none;
     background-color: #f9f9f9; 
@@ -898,10 +876,6 @@ td {
     margin-top: 10px;
     cursor: pointer;
 }
-
-/* th:last-child, td:last-child {
-    border-right: none;
-} */
 
 /*FINE CERCA LAB E AULA AMMINISTRATORE - STUDENTE */
 /*NASCONDO LA NAV BAR DEL DESKTOP PER MOBILE*/
@@ -954,18 +928,6 @@ td {
     text-align: center;
 }
 /*RICHIESTE ADMIIN*/
-
-/* table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-}*/
-
-/* th, td {
-    padding: 10px;
-    border: 1px solid #000;
-    vertical-align: top;
-} */
 
 .btn-accetta {
     background-color: #6fb365;
