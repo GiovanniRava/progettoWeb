@@ -35,9 +35,9 @@
                     <tr>
                         <td colspan="4">Nessuna prenotazione in programma.</td>
                     </tr>
-                <?php else: ?>
-                    <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
-                    <?php $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
+                <?php else:
+                    foreach($templateParams["prenotazioni"] as $prenotazione):
+                    $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
                     <tr>
                         <td headers="numero-aula-lab"><?php echo $prenotazione["num"]; ?></td>
                         <td headers="data-prenotazione"><?php echo $dataFormattata; ?></td>
@@ -51,8 +51,8 @@
                             <button id="button-annulla-prenotazione" class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ANNULLA</button>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endforeach;
+                endif; ?>
                 <dialog id="finestra-annulla">
                     <h3>ANNULLAMENTO PRENOTAZIONE</h3>
                     <p>Sei sicuro di voler annullare la prenotazione?</p>

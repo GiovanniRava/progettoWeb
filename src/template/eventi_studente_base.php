@@ -29,9 +29,9 @@ if (!isset($_SESSION['utente_loggato'])) {
             
             <?php foreach($templateParams["eventi"] as $evento): ?>
                 <article class="card-evento">
-                    <img src="upload/<?php echo htmlspecialchars($evento['locandina']); ?>" 
+                    <img src="<?php echo UPLOAD_DIR.$evento['locandina']; ?>"
                          alt="Locandina <?php echo htmlspecialchars($evento['titolo']); ?>" 
-                         class="img-evento">
+                         class="img-evento"> <!--riki ha cambiato src in base a come lo fa anche Delnevo. PS non l'ho mai visto usare htmlspecialchars-->
                     
                     <div class="info-evento">
                         <?php 

@@ -13,7 +13,7 @@ if (!isset($_SESSION['utente_loggato'])) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -38,9 +38,9 @@ if (!isset($_SESSION['utente_loggato'])) {
                     <tr>
                         <td colspan="6">Nessuna prenotazione in programma.</td>
                     </tr>
-                <?php else: ?>
-                    <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
-                    <?php $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
+                <?php else:
+                    foreach($templateParams["prenotazioni"] as $prenotazione):
+                    $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
                     <tr>
                         <td headers="numero-aula-lab"><?php echo $prenotazione["num"]; ?></td>
                         <td headers="data-prenotazione"><?php echo $dataFormattata; ?></td>
@@ -56,8 +56,8 @@ if (!isset($_SESSION['utente_loggato'])) {
                             <button id="button-elimina-prenotazione" class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                    <?php endforeach;
+                endif; ?>
                 <dialog id="finestra-annulla">
                     <h3>ELIMINA PRENOTAZIONE</h3>
                     <p>Sei sicuro di voler eliminare la prenotazione?</p>

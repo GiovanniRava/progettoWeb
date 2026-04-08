@@ -24,9 +24,9 @@
     </header>
     
     <main class="main-home">
-        <?php if(isset($templateParams["login"])): ?>
-            <?php  include($templateParams["login"]); ?>
-        <?php else: ?>
+        <?php if(isset($templateParams["login"])):
+            include($templateParams["login"]);
+        else: ?>
             <figure>
                 <img src="upload/giardinoCampus.jpeg" alt="giardino Campus di Cesena, foto sfondo Home page" class="home-img">
             </figure>
