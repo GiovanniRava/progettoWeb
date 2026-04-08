@@ -33,7 +33,7 @@
             <tbody>
                 <?php if(empty($templateParams["prenotazioni"])): ?>
                     <tr>
-                        <td colspan="4" style="text-align: center;">Nessun evento in programma.</td>
+                        <td colspan="4">Nessuna prenotazione in programma.</td>
                     </tr>
                 <?php else: ?>
                     <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>

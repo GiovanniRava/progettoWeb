@@ -17,7 +17,7 @@ if (!isset($_SESSION['utente_loggato'])) {
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
-            <h2>LISTA PRENOTAZIONI</h2>
+            <h2>LISTA PRENOTAZIONI</h2><!-- da fare con $templateParams? -->
         </div>
         <div class="spacer"></div>
     </div>
@@ -36,7 +36,7 @@ if (!isset($_SESSION['utente_loggato'])) {
             <tbody>
                 <?php if(empty($templateParams["prenotazioni"])): ?>
                     <tr>
-                        <td colspan="6" style="text-align: center;">Nessun evento in programma.</td>
+                        <td colspan="6">Nessuna prenotazione in programma.</td>
                     </tr>
                 <?php else: ?>
                     <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
@@ -70,7 +70,7 @@ if (!isset($_SESSION['utente_loggato'])) {
             </tbody>
         </table>
     </main>
-    <?php require($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 
     <script>
         const finestra = document.getElementById('finestra-annulla');

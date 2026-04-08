@@ -162,6 +162,7 @@ h1 {
     padding: 4px 10px;
     font-family: 'Lucida Sans', sans-serif;
     border: 1px solid #000;
+    margin: 2px;
 }
 
 .login-form, .form-prenotazione, .form-evento {

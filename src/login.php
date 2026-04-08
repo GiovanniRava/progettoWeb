@@ -1,6 +1,7 @@
 <?php
 require_once("bootstrap.php");
 $templateParams["footer"] = "footer.php";
+$templateParams["login"] = "login_base.php";
 
 $dominio_studente = "/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@studio\.unibo\.it$/";
 $dominio_admin = "/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@unibo\.it$/";
@@ -44,5 +45,5 @@ if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'
         $errore = "Email non valida. Usa un formato come nome.cognome@unibo.it oppure nome.cognome@studio.unibo.it";
     }
 }
-require("template/login_base.php");
+require("template/index_base.php");
 ?>

@@ -38,7 +38,7 @@
         <a href="index.php" class="btn-logout">LOGOUT</a>
     </div>
 
-    <?php require("footer.php"); ?>
+    <?php include("footer.php"); ?>
 </body>
 
 </html>

@@ -31,6 +31,6 @@ if (!isset($_SESSION['utente_loggato'])) {
             ?>
         </section>   
     </div>
-    <?php require ($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 </body>
 </html> 

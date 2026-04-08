@@ -79,6 +79,6 @@
         </table>
     </main>
 
-    <?php require("footer.php"); ?>
+    <?php include("footer.php"); ?>
 </body>
 </html>

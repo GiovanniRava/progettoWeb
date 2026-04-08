@@ -24,9 +24,13 @@
     </header>
     
     <main class="main-home">
-        <figure>
-            <img src="upload/giardinoCampus.jpeg" alt="giardino Campus di Cesena, foto sfondo Home page" class="home-img">
-        </figure>
+        <?php if(isset($templateParams["login"])): ?>
+            <?php  include($templateParams["login"]); ?>
+        <?php else: ?>
+            <figure>
+                <img src="upload/giardinoCampus.jpeg" alt="giardino Campus di Cesena, foto sfondo Home page" class="home-img">
+            </figure>
+        <?php endif; ?>
     </main>
-    <?php require($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 </body>

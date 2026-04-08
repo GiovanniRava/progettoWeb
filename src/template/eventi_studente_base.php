@@ -14,7 +14,7 @@ if (!isset($_SESSION['utente_loggato'])) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["nome"]); ?>
+    <?php include($templateParams["nome"]); ?>
 
     <div class="red-bar">
         <div class="spacer"></div>
@@ -50,6 +50,6 @@ if (!isset($_SESSION['utente_loggato'])) {
         </section>
     </main>
     
-    <?php require("footer.php"); ?>
+    <?php include("footer.php"); ?>
 </body>
 </html>

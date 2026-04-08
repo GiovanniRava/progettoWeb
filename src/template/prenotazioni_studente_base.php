@@ -24,7 +24,7 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body class="<?php echo $classeBody; ?>">
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -52,7 +52,7 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
             </div> 
         </div>
     </main>
-    <?php require($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 
     <script>
         //Aspetta di aver caricato tutta la struttura HTML, poi esegui queste funzioni

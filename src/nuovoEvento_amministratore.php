@@ -14,7 +14,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
     $nome = $_POST['nominativo'];
     $descrizione = $_POST['descrizioneEvento'];
     $locandina = $_FILES['locandina']['name'];
-    move_uploaded_file($_FILES['locandina']['tmp_name'], UPLOAD_DIR . $locandina);
+    move_uploaded_file($_FILES['locandina']['tmp_name'], UPLOAD_DIR.$locandina);
     
     if (empty($aulaLab) || empty($data) || empty($oraInizio) || empty($durata) || empty($nome) || empty($descrizione) || empty($locandina)){
         $errore = "Devi compilare tutti i campi";
