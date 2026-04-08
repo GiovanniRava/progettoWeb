@@ -34,24 +34,30 @@ if (!isset($_SESSION['utente_loggato'])) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
-                <?php $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
-                <tr>
-                    <td headers="numero-aula-lab"><?php echo $prenotazione["num"]; ?></td>
-                    <td headers="data-prenotazione"><?php echo $dataFormattata; ?></td>
-                    <td headers="ora-prenotazione"><?php $oraInizio = date("H:i", strtotime($prenotazione["oraInizio"])); echo $oraInizio; ?> - 
-                    <?php $date = new DateTime($prenotazione["oraInizio"]);
-                        $date->modify("+{$prenotazione["durata"]} minutes");
-                        $oraFine = $date->format('H:i'); 
-                        echo $oraFine;
-                    ?></td>
-                    <td headers="nominativo-prenotazione"><?php echo $prenotazione["nominativo"] ?></td>
-                    <td headers="motivazione-prenotazione"><?php echo $prenotazione["motivazione"] ?></td>
-                    <td headers="sezione-elimina">
-                        <button id="button-elimina-prenotazione" class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
+                <?php if(empty($templateParams["prenotazioni"])): ?>
+                    <tr>
+                        <td colspan="6" style="text-align: center;">Nessun evento in programma.</td>
+                    </tr>
+                <?php else: ?>
+                    <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
+                    <?php $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
+                    <tr>
+                        <td headers="numero-aula-lab"><?php echo $prenotazione["num"]; ?></td>
+                        <td headers="data-prenotazione"><?php echo $dataFormattata; ?></td>
+                        <td headers="ora-prenotazione"><?php $oraInizio = date("H:i", strtotime($prenotazione["oraInizio"])); echo $oraInizio; ?> - 
+                        <?php $date = new DateTime($prenotazione["oraInizio"]);
+                            $date->modify("+{$prenotazione["durata"]} minutes");
+                            $oraFine = $date->format('H:i'); 
+                            echo $oraFine;
+                        ?></td>
+                        <td headers="nominativo-prenotazione"><?php echo $prenotazione["nominativo"] ?></td>
+                        <td headers="motivazione-prenotazione"><?php echo $prenotazione["motivazione"] ?></td>
+                        <td headers="sezione-elimina">
+                            <button id="button-elimina-prenotazione" class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <dialog id="finestra-annulla">
                     <h3>ELIMINA PRENOTAZIONE</h3>
                     <p>Sei sicuro di voler eliminare la prenotazione?</p>

@@ -51,7 +51,7 @@
             </form>
         </section>
         <section class = "table-aule">
-            <table>
+            <table class="table-cerca">
                 <thead>
                     <tr>
                         <th>AULA</th>

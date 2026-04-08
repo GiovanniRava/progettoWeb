@@ -294,19 +294,19 @@ table {
     margin-bottom: 15px;
 }
 
-.table-prenotazioni-studente td:nth-child(-n+4), .table-prenotazioni-studente th:nth-child(-n+4),
-.table-prenotazioni-admin td:nth-child(-n+6), .table-prenotazioni-admin th:nth-child(-n+6),
-.table-eventi-admin td:nth-child(-n+4), .table-eventi-admin th:nth-child(-n+4),
-.table-cerca-lab td:nth-child(-n+3), .table-cerca-lab th:nth-child(-n+3) {
+.table-prenotazioni-studente td:nth-child(-n+4):not(:last-child), .table-prenotazioni-studente th:nth-child(-n+4):not(:last-child),
+.table-prenotazioni-admin td:nth-child(-n+6):not(:last-child), .table-prenotazioni-admin th:nth-child(-n+6):not(:last-child),
+.table-eventi-admin td:nth-child(-n+4):not(:last-child), .table-eventi-admin th:nth-child(-n+4):not(:last-child),
+.table-cerca td:nth-child(-n+3):not(:last-child), .table-cerca th:nth-child(-n+3):not(:last-child) {
     border-right: 1px solid #000;
 }
 
-table tr:nth-child(odd) {
+table tr:nth-child(even) {
     background-color: #ebebeb;
 }
 
-table tr:nth-child(even) {
-    background-color: #ffffff;
+table tr:nth-child(odd) {
+    background-color: #fafafa;
 }
 
 table tr th {

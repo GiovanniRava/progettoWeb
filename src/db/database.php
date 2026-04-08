@@ -81,7 +81,7 @@ class DatabaseHelper {
     }
     
     public function get_lezioni_in_corso() {
-       $query = "SELECT I.nomeIns, L.numeroAula, L.numeroLab 
+       $query = "SELECT I.nomeIns, L.numeroAula, L.numeroLab, L.oraInizio, L.durata
               FROM LEZIONE L 
               JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns 
               WHERE L.data = '2026-09-22'
