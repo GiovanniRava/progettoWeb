@@ -71,14 +71,48 @@ main {
 footer {
     background-color: #e21d1d; 
     color: #fff;
-    text-align: center;
     font-family: 'Courier New', Courier, monospace;
     padding: 20px 0;
-    /*margin-top: 15px;  l'ho commentato perche creava una piccola striscia bianca sopra il footer*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center;
 }
 
 footer p {
-    margin: 20px 14px;
+    margin: 10px;
+}
+
+footer > p:last-child {
+    width: 100%;
+    text-align: center;    /* Lo centra sulla sua riga */
+    margin-top: 15px;      /* Distanza dai blocchi sopra */
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 25px;
+}
+
+.contatti, .social {
+    display: flex;
+    flex-direction: column;
+}
+
+.contatti {
+    text-align: center;
+}
+
+.social {
+    text-align: center;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.contatti p{
+    margin: 5px 10px;
+}
+
+.social p {
+    text-align: center;
+    width: 100%;
 }
 
 .social i{
@@ -99,10 +133,6 @@ footer p {
 .social a:hover{
 	color:#24262b;
 	background-color:#ffffff;
-}
-
-.home-footer {
-    margin: 0;
 }
 
 .home-img, .home-img-login {
@@ -537,6 +567,33 @@ table tr td {
     .menu-pc ul li a:hover{
         background-color: #e21d1d;
         color: #ffffff;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .contatti {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex-shrink: 0;
+        padding-right: 15px;
+        margin-left: 35px;
+        margin-top: 0;
     }
 
     #finestra-annulla button, #finestra-elimina button {
