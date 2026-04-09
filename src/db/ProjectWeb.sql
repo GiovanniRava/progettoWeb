@@ -42,7 +42,7 @@ create table EVENTO (
      numeroLab char(5),
      numeroAula char(5),
      locandina char(50),
-     descrizione char(250),
+     descrizione text(500),
      constraint ID_EVENTO_ID primary key (titolo));
 
 create table LABORATORIO (
