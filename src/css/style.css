@@ -803,6 +803,7 @@ table tr td {
 }
 
 .descrizione-evento {
+    font-size: large;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
