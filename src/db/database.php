@@ -42,7 +42,7 @@ class DatabaseHelper {
     }
 
     public function get_eventi() {
-        $stmt = $this->db->prepare("SELECT titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina 
+        $stmt = $this->db->prepare("SELECT titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina, descrizione 
                   FROM EVENTO 
                   ORDER BY data ASC, oraInizio ASC");
         $stmt->execute();
