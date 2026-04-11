@@ -12,14 +12,10 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
     $durata = $_POST['durataPermanenza'];
     $nome = $_POST['nominativo'];
     $descrizione = $_POST['descrizioneEvento'];
-    $locandina = $_FILES['locandina']['name'];
-    move_uploaded_file($_FILES['locandina']['tmp_name'], UPLOAD_DIR.$locandina);
-    
-    if (empty($aulaLab) || empty($data) || empty($oraInizio) || empty($durata) || empty($nome) || empty($descrizione) || empty($locandina)){
+    $image = $_FILES['locandina']['tmp_name'];
+
+    if (empty($aulaLab) || empty($data) || empty($oraInizio) || empty($durata) || empty($nome) || empty($descrizione) || empty($image)){
         $templateParams["errore"] = "Devi compilare tutti i campi";
-    }
-    else if(){
-        //controllo se il file inserito è un'immagine
     }
     else {
         $insiemeAule = array_column($templateParams["aule"], 'numeroAula');
@@ -36,10 +32,18 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         $durataMinuti = ($ore * 60) + $minuti;
         $oraInizio.=":00";
 
-        $dbh->insert_evento($nome, $data, $oraInizio, $durataMinuti, $laboratorio, $aula, $locandina, $descrizione);
-        header("Location: eventi_admin.php?inviato=1");
-        exit();
+        list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES['locandina']);
+        if($result != 0){
+            $locandina = $msg;
+            $dbh->insert_evento($nome, $data, $oraInizio, $durataMinuti, $laboratorio, $aula, $locandina, $descrizione);
+            header("Location: eventi_admin.php?inviato=1");
+            exit();
+        }
+        else {
+            $templateParams["errore"] = $msg;
+        }
     }
+    //da aggiungere anche la modifica di un evento esistente? citato da Delnevo, dicendo che si dovrebbe fare
 }
 
 //require("template/nuovoEvento_amministratore_base.php");

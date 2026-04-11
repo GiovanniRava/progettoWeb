@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['utente_loggato'])) {
+if (!isUserLogged()) {
     header("Location: login.php");
     exit();
 }
@@ -53,7 +53,7 @@ if (!isset($_SESSION['utente_loggato'])) {
                         <td headers="nominativo-prenotazione"><?php echo $prenotazione["nominativo"] ?></td>
                         <td headers="motivazione-prenotazione"><?php echo $prenotazione["motivazione"] ?></td>
                         <td headers="sezione-elimina">
-                            <button id="button-elimina-prenotazione" class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
+                            <button class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
                         </td>
                     </tr>
                     <?php endforeach;
