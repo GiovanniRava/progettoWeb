@@ -329,7 +329,7 @@ table {
     border-spacing: 0;
     border-collapse: collapse;
     min-width: auto;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .table-prenotazioni-studente td:nth-child(-n+4):not(:last-child), .table-prenotazioni-studente th:nth-child(-n+4):not(:last-child),

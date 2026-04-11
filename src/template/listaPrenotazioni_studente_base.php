@@ -48,7 +48,8 @@
                             echo $oraFine;
                         ?></td>
                         <td headers="sezione-annulla">
-                            <button id="button-annulla-prenotazione" class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ANNULLA</button>
+                            <button class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ANNULLA</button>
+                            <!--non uso id perchè superfluo in questo caso-->
                         </td>
                     </tr>
                     <?php endforeach;
@@ -58,8 +59,8 @@
                     <p>Sei sicuro di voler annullare la prenotazione?</p>
                     <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
                         <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
-                        <button type="submit" id="conferma-annulla">SI</button>
-                        <button type="button" id="revoca-annulla">NO</button>
+                        <button type="submit" id="conferma-annulla" name="conferma-annulla">SI</button>
+                        <button type="button" id="revoca-annulla" name="revoca-annulla">NO</button>
                     </form>
                 </dialog>
             </tbody>

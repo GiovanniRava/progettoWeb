@@ -1,4 +1,4 @@
-/*if (!isset($_SESSION['utente_loggato'])) {
+/*if (!isUserLogged()) {
     header("Location: login.php");
     exit();
 }*/
