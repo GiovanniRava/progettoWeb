@@ -92,8 +92,8 @@
                         </div>
                     </li>
                     <li>
-                        <?php if(isset($errore)): ?>
-                        <p class="error-message"><?php echo $errore; ?></p>
+                        <?php if(isset($templateParams["errore"])): ?>
+                        <p class="error-message"><?php echo $templateParams["errore"]; ?></p>
                         <?php endif; ?>
                         <?php if(isset($successo)): ?>
                         <p class="success-message"><?php echo $successo; ?></p>

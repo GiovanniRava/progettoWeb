@@ -7,7 +7,9 @@ $dominio_studente = "/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@studio\.unibo\.it$/";
 $dominio_admin = "/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@unibo\.it$/";
 $pass_admin_corretta = "abcdef";      
 $pass_studente_corretta = "123456";
-$errore = '';
+
+//aggiungere controllo su admin esistenti nel database? quindi aggiungere la tabella admin nel database in cui salvare i nomi e le
+//rispettive password di chi può entrare come admin.
 
 if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'])) {
     
@@ -15,7 +17,7 @@ if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'
     $password = $_POST['password'];
     
     if (empty($email) || empty($password)) {
-        $errore = "Devi compilare tutti i campi";
+        $templateParams["errore"] = "Devi compilare tutti i campi";
     }
     else if (preg_match($dominio_studente, $email)) {
         if ($password === $pass_studente_corretta) {
@@ -26,7 +28,7 @@ if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'
             header("Location: paginaPrincipale_studente.php");
             exit();
         } else {
-            $errore = "password non valida";
+            $templateParams["errore"] = "password non valida";
         }
     }
     else if (preg_match($dominio_admin, $email)) {
@@ -38,11 +40,11 @@ if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'
             header("Location: paginaPrincipale_amministratore.php");
             exit();
         } else {
-            $errore = "password non valida";
+            $templateParams["errore"] = "password non valida";
         }
     }
     else {
-        $errore = "Email non valida. Usa un formato come nome.cognome@unibo.it oppure nome.cognome@studio.unibo.it";
+        $templateParams["errore"] = "Email non valida. Usa un formato come nome.cognome@unibo.it oppure nome.cognome@studio.unibo.it";
     }
 }
 require("template/index_base.php");

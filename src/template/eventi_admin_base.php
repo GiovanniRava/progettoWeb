@@ -49,9 +49,9 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
                 <?php include('lista_eventi_admin_base.php'); ?>
             </div>
             
-            <div class="sezione-nuovaPrenotazione">
+            <aside class="sezione-nuovaPrenotazione">
                 <?php include('nuovoEvento_amministratore_base.php'); ?>
-            </div>   
+            </aside>
             
         </div>
     </main>

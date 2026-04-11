@@ -3,7 +3,6 @@
 $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 
-$errore = "";
 if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']) && isset($_POST['oraInizio']) &&
     isset($_POST['durataPermanenza']) && isset($_POST['nominativo']) && isset($_POST['descrizioneEvento']) && isset($_FILES['locandina'])) {
     
@@ -17,7 +16,10 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
     move_uploaded_file($_FILES['locandina']['tmp_name'], UPLOAD_DIR.$locandina);
     
     if (empty($aulaLab) || empty($data) || empty($oraInizio) || empty($durata) || empty($nome) || empty($descrizione) || empty($locandina)){
-        $errore = "Devi compilare tutti i campi";
+        $templateParams["errore"] = "Devi compilare tutti i campi";
+    }
+    else if(){
+        //controllo se il file inserito è un'immagine
     }
     else {
         $insiemeAule = array_column($templateParams["aule"], 'numeroAula');

@@ -3,7 +3,6 @@ $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 
 $formatoNome = "/^[A-Z][a-zA-Z0-9]+ [A-Z][a-zA-Z0-9]+$/";
-$errore = "";
 if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']) && isset($_POST['oraInizio']) &&
     isset($_POST['durataPermanenza']) && isset($_POST['nominativo']) && isset($_POST['motivazionePrenotazione'])) {
     
@@ -15,7 +14,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
     $motivazione = $_POST['motivazionePrenotazione'];
     
     if (empty($aulaLab) || empty($data) || empty($oraInizio) || empty($durata) || empty($nome) || empty($motivazione)){
-        $errore = "Devi compilare tutti i campi";
+        $templateParams["errore"] = "Devi compilare tutti i campi";
     }
     else if (preg_match($formatoNome, $nome)) {
         $insiemeAule = array_column($templateParams["aule"], 'numeroAula');
@@ -37,7 +36,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         exit();
     }
     else {
-        $errore = "Nominativo non valido. Prova col formato \"Mario Rossi\"";
+        $templateParams["errore"] = "Nominativo non valido. Prova col formato \"Mario Rossi\"";
     }
 }
 
