@@ -138,7 +138,7 @@ class DatabaseHelper {
     }
 
     public function getRichiesteInCorso() {        
-        $stmt = $this->db->prepare("SELECT codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula, descrizione 
+        $stmt = $this->db->prepare("SELECT codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula 
                   FROM RICHIESTA_IN_CORSO 
                   ORDER BY data ASC, oraInizio ASC");
         $stmt->execute();
@@ -177,7 +177,15 @@ class DatabaseHelper {
             throw new Exception("Errore nell'eliminazione della richiesa");
         }
 
-    }    
+    }  
+
+    public function insert_prenotazione($nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula){
+        $query = "INSERT INTO prenotazione (nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssisss', $nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula);
+        return $stmt->execute();
+    }
 }
 
 ?>
