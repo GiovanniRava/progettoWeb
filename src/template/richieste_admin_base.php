@@ -118,8 +118,22 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
             </tbody>
         </table>
     </main>
-    
-  <?php if ($is_standalone): ?>
+
+    <dialog id="finestra-rifiuta">
+        <h3>RIFIUTA RICHIESTA</h3>
+        <p>Sei sicuro di voler rifiutare questa richiesta di prenotazione?</p>
+        <form id="form-rifiuta-richiesta" action="richieste_admin.php" method="POST">
+            <input type="hidden" name="richiesta_da_eliminare" id="input-nascosto-rifiuta" value="">
+            
+            <button type="submit" id="conferma-rifiuta">SI</button>
+            <button type="button" id="annulla-rifiuto">NO</button>
+        </form>
+    </dialog>
+
+    <form id="form-accetta-richiesta" action="richieste_admin.php" method="POST" style="display: none;">
+        <input type="hidden" name="richiesta_da_accettare" id="input-nascosto-accetta" value="">
+    </form>
+    <?php if ($is_standalone): ?>
         <?php require("footer.php"); ?>
 
     <script>
@@ -130,7 +144,6 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                 bottone.addEventListener('click', function() {
                     const rigaPrincipale = this.closest('.riga-principale');
                     
-                    // Selezioniamo entrambe le righe dei dettagli successive
                     const rigaDettagli1 = rigaPrincipale.nextElementSibling;
                     const rigaDettagli2 = rigaDettagli1.nextElementSibling;
                     
@@ -145,6 +158,38 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                         rigaDettagli2.classList.add('nascosta');
                         this.innerHTML = '&#709;'; // Freccia in giù
                     }
+                });
+            });
+
+            // --- LOGICA RIFIUTA (Con Dialog) ---
+            const dialogRifiuta = document.getElementById('finestra-rifiuta');
+            const inputNascostoRifiuta = document.getElementById('input-nascosto-rifiuta');
+            const btnAnnullaRifiuto = document.getElementById('annulla-rifiuto');
+            const bottoniRifiuta = document.querySelectorAll('.btn-rifiuta');
+
+            bottoniRifiuta.forEach(bottone => {
+                bottone.addEventListener('click', function() {
+                    const idRichiesta = this.getAttribute('data-id');
+                    inputNascostoRifiuta.value = idRichiesta;
+                    dialogRifiuta.showModal();
+                });
+            });
+
+            btnAnnullaRifiuto.addEventListener('click', function() {
+                dialogRifiuta.close();
+                inputNascostoRifiuta.value = ''; // Pulizia
+            });
+
+            // --- LOGICA ACCETTA (Senza Dialog) ---
+            const formAccetta = document.getElementById('form-accetta-richiesta');
+            const inputNascostoAccetta = document.getElementById('input-nascosto-accetta');
+            const bottoniAccetta = document.querySelectorAll('.btn-accetta');
+
+            bottoniAccetta.forEach(bottone => {
+                bottone.addEventListener('click', function() {
+                    const idRichiesta = this.getAttribute('data-id');
+                    inputNascostoAccetta.value = idRichiesta;
+                    formAccetta.submit(); 
                 });
             });
         });

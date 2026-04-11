@@ -145,6 +145,39 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function deleteRichiesta($cod){
+        $stmt = $this->db->prepare("DELETE FROM richiesta_in_corso WHERE codiceRichiesta = ?");
+        $stmt->bind_param('i', $cod);
+        return $stmt->execute();
+    }
+
+    public function accettaRichiesta($cod) {
+        $stmt_select = $this->db->prepare("SELECT * FROM richiesta_in_corso WHERE codiceRichiesta = ?");
+        $stmt_select->bind_param('i', $cod);
+        $stmt_select->execute();
+        $result = $stmt_select->get_result();
+        $richiesta = $result->fetch_assoc();
+
+        if (!$richiesta) {
+            throw new Exception("Richiesta non trovata.");
+        }
+
+        $inserita = $this-> insert_prenotazione($richiesta['nominativo'], $richiesta['data'], $richiesta['oraInizio'],
+                                                $richiesta['durata'], $richiesta['motivazione'], $richiesta['numeroLab'], 
+                                                $richiesta['numeroAula']);
+        
+        if (!$inserita) {
+            throw new Exception("Errore nell'inserimento della nuova prenotazione");
+        }                                    
+
+        $eliminato = $this->deleteRichiesta($cod);
+
+        if(!$eliminato){
+            throw new Exception("Errore nell'eliminazione della richiesa");
+        }
+
+    }    
 }
 
 ?>
