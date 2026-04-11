@@ -31,7 +31,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         $durataMinuti = ($ore * 60) + $minuti;
         $oraInizio.=":00";
 
-        $dbh->insert_prenotazione($nome, $data, $oraInizio, $durataMinuti, $motivazione, $laboratorio, $aula);
+        $dbh->insert_richiesta_prenotazione($nome, $data, $oraInizio, $durataMinuti, $motivazione, $laboratorio, $aula);
         header("Location: prenotazioni_studente.php?inviato=1");
         exit();
     }
