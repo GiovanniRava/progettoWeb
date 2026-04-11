@@ -783,6 +783,8 @@ table tr td {
     border-radius: 12px;
     overflow: hidden; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
 }
 
 
@@ -791,10 +793,12 @@ table tr td {
     aspect-ratio: 3 / 4;
     object-fit: cover; 
     display: block;
-    
+    transition: width 0.4s ease-in-out;
 }
 .info-evento {
+    width: 60%;
     padding: 20px;
+    transition: width 0.4s ease-in-out;
 }
 .info-evento h3 {
     margin: 0 0 10px 0; 
@@ -803,6 +807,35 @@ table tr td {
 .info-evento .data-evento {
     font-size: 1rem;
     color: #555555; 
+}
+
+.descrizione-evento {
+    font-size: large;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+/*CSS per quando uno clicca l'evento e si deve restringere la fot*/
+.card-evento.espansa {
+    background-color:rgb(224, 224, 224);
+}
+.card-evento.espansa .img-evento {
+    width: 0;
+}
+
+
+.card-evento.espansa .info-evento {
+    width: 90%;
+}
+
+
+.card-evento.espansa .descrizione-evento {
+    max-height: 500px; 
+    opacity: 1;
+    margin-top: 15px;
 }
 
 /*PAGINA PRINCIPALE DELL'AMMINISTRATORE - fra*/

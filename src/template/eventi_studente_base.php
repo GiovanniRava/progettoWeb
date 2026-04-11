@@ -7,12 +7,14 @@ if (!isset($_SESSION['utente_loggato'])) {
 ?>
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Eventi - Alma Aule</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
+
 <body>
     <?php include($templateParams["nome"]); ?>
 
@@ -23,33 +25,44 @@ if (!isset($_SESSION['utente_loggato'])) {
         </div>
         <div class="spacer"></div>
     </div>
-    
+
     <main class="container-eventi">
         <section class="griglia-eventi">
-            
-            <?php foreach($templateParams["eventi"] as $evento): ?>
-                <article class="card-evento">
-                    <img src="<?php echo UPLOAD_DIR.$evento['locandina']; ?>"
-                         alt="Locandina <?php echo htmlspecialchars($evento['titolo']); ?>" 
-                         class="img-evento"> <!--riki ha cambiato src in base a come lo fa anche Delnevo. PS non l'ho mai visto usare htmlspecialchars-->
-                    
+
+            <?php foreach ($templateParams["eventi"] as $evento): ?>
+                <article class="card-evento" onclick="toggleEspansione(this)">
+                    <img src="<?php echo UPLOAD_DIR . $evento['locandina']; ?>"
+                        alt="Locandina <?php echo htmlspecialchars($evento['titolo']); ?>"
+                        class="img-evento"> <!--riki ha cambiato src in base a come lo fa anche Delnevo. PS non l'ho mai visto usare htmlspecialchars-->
+
                     <div class="info-evento">
-                        <?php 
-                            $luogo = !empty($evento['numeroAula']) ? $evento['numeroAula'] : 
-                                     (!empty($evento['numeroLab']) ? $evento['numeroLab'] : '');
-                            $titoloDisplay = !empty($luogo) ? $evento['titolo'] . ' - ' . $luogo : $evento['titolo'];
-                            $dataFormattata = date("d/m/Y", strtotime($evento['data']));
-                            $oraFormattata = date("H:i", strtotime($evento['oraInizio']));
+                        <?php
+                        $luogo = !empty($evento['numeroAula']) ? $evento['numeroAula'] : (!empty($evento['numeroLab']) ? $evento['numeroLab'] : '');
+                        $titoloDisplay = !empty($luogo) ? $evento['titolo'] . ' - ' . $luogo : $evento['titolo'];
+                        $dataFormattata = date("d/m/Y", strtotime($evento['data']));
+                        $oraFormattata = date("H:i", strtotime($evento['oraInizio']));
                         ?>
                         <h3><?php echo htmlspecialchars($titoloDisplay); ?></h3>
                         <span class="data-evento"><?php echo $dataFormattata; ?> - Ore <?php echo $oraFormattata; ?></span>
+                        <div class="descrizione-evento">
+                            <p><?php echo nl2br(htmlspecialchars($evento['descrizione'] ?? 'Nessuna descrizione disponibile')); ?></p>
+                        </div>
                     </div>
                 </article>
             <?php endforeach; ?>
 
         </section>
     </main>
-    
+
     <?php include("footer.php"); ?>
+    <script>
+        function toggleEspansione(cardCliccata) {    
+            document.querySelectorAll('.card-evento').forEach(card => {
+                if (card !== cardCliccata) card.classList.remove('espansa');
+            });
+            cardCliccata.classList.toggle('espansa');
+        }
+    </script>
 </body>
+
 </html>

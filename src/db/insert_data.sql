@@ -87,13 +87,13 @@ insert into ESAME (codiceIns, codiceEsame, oraInizio, durata, data, numeroLab, n
 (70117, '102', '10:30:00', 180, '2027-02-11', 'LaMo', null);
 
 insert into EVENTO (titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina, descrizione) values
-('GAME AS A LAB', '2026-11-27', '17:00:00', 120, '2.2', null, 'asALAB.jpeg', ''),
-('QUANTUM ENGINEERING', '2026-11-19', '17:00:00', 90, null, '2.3', 'Quantum.jpeg', ''),
-('FUTURO NELL ICT', '2026-11-27', '17:00:00', 120, null, '2.13', 'futuroICT.jpeg', '');
+('GAME AS A LAB', '2026-11-27', '17:00:00', 120, '2.2', null, 'asALAB.jpeg', "GAME as a Lab trasforma il mondo del gaming in un vero laboratorio d'innovazione tecnologica. In questo spazio pratico, i partecipanti scoprono come lo sviluppo di videogiochi con Java sia la chiave per padroneggiare la programmazione orientata agli oggetti e la gestione di sistemi complessi. Dalla fisica dei motori grafici alla logica del gameplay, il laboratorio esplora come le dinamiche ludiche possano accelerare l'apprendimento tecnico"),
+('QUANTUM ENGINEERING', '2026-11-19', '17:00:00', 90, null, '2.3', 'Quantum.jpeg', "L'Ingegneria Quantistica rappresenta la nuova frontiera dell'innovazione tecnologica, dove i principi della meccanica quantistica vengono trasformati in applicazioni pratiche rivoluzionarie. Il percorso analizza come il controllo di singoli atomi e fotoni permetta di superare i limiti della fisica classica. Dalla potenza di calcolo senza precedenti dei computer a qubit, alla sicurezza assoluta della crittografia quantistica, fino a sensori dalla precisione estrema: scopri come stiamo progettando le infrastrutture digitali di domani."),
+('FUTURO NELL ICT', '2026-11-27', '17:00:00', 120, null, '2.13', 'futuroICT.jpeg', "Futuro nell’ICT offre una panoramica esclusiva sulle tendenze tecnologiche che stanno riscrivendo le regole del mondo digitale. L'evento approfondisce l'integrazione dell'intelligenza artificiale nei processi aziendali, le nuove sfide della cybersecurity e l'evoluzione del cloud computing. Un'occasione fondamentale per studenti e professionisti per comprendere come le tecnologie emergenti trasformeranno il mercato del lavoro e quali competenze saranno indispensabili per guidare l'innovazione nella società 5.0.");
 
 
 INSERT INTO LAUREA(codiceLaurea, oraInizio, durata, corso, data, numeroAula)
-VALUES 
+VALUES
 
     (1, '09:00:00', 420, 'Ingegneria e Scienze Informatiche', '2026-07-22', '3.4'),
     (2, '09:00:00', 420, 'Ingegneria Biomedica', '2026-07-24', '2.1'),
