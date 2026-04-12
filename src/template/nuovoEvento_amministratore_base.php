@@ -27,19 +27,29 @@ if (!isUserLogged()) {
     </div>-->
     <main>
         <div class="form-evento">
-            <form action="eventi_admin.php" method="POST" class="form-form-evento" enctype="multipart/form-data">
+            <form action="eventi_admin.php?action=<?php echo $templateParams["azione"] ?? 0; ?>&id=<?php echo $_GET["id"] ?? ""; ?>" method="POST" class="form-form-evento" enctype="multipart/form-data">
                 <ul>
-                    <li><div class="col-title">AGGIUNGI NUOVO EVENTO</div></li>
+                    <li><div class="col-title">
+                        <?php if(isset($templateParams["form"])):
+                            echo $templateParams["form"];
+                        else: ?>
+                            AGGIUNGI NUOVO EVENTO
+                        <?php endif; ?>
+                    </div></li>
                     <li>
                         <div class="col">
                             <label for="nome-evento">Titolo Evento</label>
-                            <input type="text" class="input-pieno" id="nome-evento" name="nominativo" />
+                            <input type="text" class="input-pieno" id="nome-evento" name="nominativo"
+                            value="<?php if(isset($templateParams["titolo"])): echo $templateParams["titolo"]; endif;?>"/>
                         </div>
                     </li>
                     <li>
                         <div class="col">
                             <label for="aula-lab">Scegli Aula o Lab</label>
                             <select class="input-medio" name="aula-lab" id="aula-lab">
+                                <option value="<?php if(isset($templateParams["aula"])): echo $templateParams["aula"]; endif;?>" hidden selected>
+                                    <?php if(isset($templateParams["aula"])): echo $templateParams["aula"]; endif;?>
+                                </option>
                                 <?php foreach($templateParams["aule"] as $aula): ?>
                                 <option value="<?php echo $aula["numeroAula"] ?>"><?php echo $aula["numeroAula"] ?></option>
                                 <?php endforeach; ?>
@@ -50,13 +60,17 @@ if (!isUserLogged()) {
                         </div>
                         <div class="col">
                             <label for="data">Data</label>
-                            <input type="date" class="input-medio" id="data" name="data" />
+                            <input type="date" class="input-medio" id="data" name="data"
+                            value="<?php if(isset($templateParams["data"])): echo $templateParams["data"]; endif;?>"/>
                         </div>
                     </li>
                     <li>
                         <div class="col">
                             <label for="ora">Orario inizio:</label>
                             <select class="input-medio" name="oraInizio" id="ora">
+                                <option value="<?php if(isset($templateParams["oraInizio"])): echo $templateParams["oraInizio"]; endif;?>" hidden selected>
+                                    <?php if(isset($templateParams["oraInizio"])): echo $templateParams["oraInizio"]; endif;?>
+                                </option>
                                 <option value="09:00">09:00</option>
                                 <option value="09:30">09:30</option>
                                 <option value="10:00">10:00</option>
@@ -81,6 +95,9 @@ if (!isUserLogged()) {
                         <div class="col">
                         <label for="durata">Durata</label>
                             <select class="input-medio" name="durataPermanenza" id="durata">
+                                <option value="<?php if(isset($templateParams["durata"])): echo $templateParams["durata"]; endif;?>" hidden selected>
+                                    <?php if(isset($templateParams["durata"])): echo $templateParams["durata"]; endif;?>
+                                </option>
                                 <option value="00:30">00:30</option>
                                 <option value="01:00">01:00</option>
                                 <option value="01:30">01:30</option>
@@ -99,7 +116,7 @@ if (!isUserLogged()) {
                     <li>
                         <div class="col">
                             <label for="descrizione">Descrizione</label>
-                            <textarea name="descrizioneEvento" id="descrizione" rows="7" placeholder="Scrivi..."></textarea>
+                            <textarea name="descrizioneEvento" id="descrizione" rows="7" placeholder="Scrivi..."><?php if(isset($templateParams["descrizione"])): echo htmlspecialchars($templateParams["descrizione"]); endif;?></textarea>
                         </div>
                     </li>
                     <li>
@@ -111,7 +128,9 @@ if (!isUserLogged()) {
                         <?php endif; ?>
                     </li>
                     <li>
-                        <input type="submit" name="submit" class="button-nuovo-evento" value="AGGIUNGI EVENTO" />
+                        <input type="submit" name="submit" class="button-nuovo-evento"
+                        value="<?php if(isset($templateParams["button"])): echo $templateParams["button"];
+                        else: ?> AGGIUNGI EVENTO <?php endif; ?>" />
                     </li>
                 </ul>  
             </form>

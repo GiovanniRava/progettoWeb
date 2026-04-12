@@ -184,15 +184,21 @@ h1 {
     display: none;
 }
 
-.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotazione {
+.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotazione, .button-elimina-evento, .button-modifica-evento {
     color: #ffffff;
     text-decoration: none;
     background-color: #ed1d1d;
     border-radius: 5px;
-    padding: 4px 10px;
+    padding: 5px 15px;
     font-family: 'Lucida Sans', sans-serif;
     border: 1px solid #000;
-    /* margin: 2px; */
+    margin: 6px 2px;
+}
+
+.button-modifica-evento {
+    background-color: #2f00da;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
 .login-form, .form-prenotazione, .form-evento {
@@ -284,7 +290,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     cursor: pointer;
 }
 
-.button-annulla-prenotazione:hover, .button-elimina-prenotaizone:hover {
+.button-annulla-prenotazione:hover, .button-elimina-prenotaizone:hover, .button-elimina-evento:hover, .button-modifica-evento:hover {
     background-color: #ffffff;
     color: #000;
     cursor: pointer;
@@ -362,7 +368,7 @@ table tr td {
     padding: 20px 5px;
 }
 
-.table-prenotazioni-studente tr td:last-child, .table-prenotazioni-admin tr td:last-child {
+.table-prenotazioni-studente tr td:last-child, .table-prenotazioni-admin tr td:last-child, .table-eventi-admin tr td:last-child {
     text-align: center;
     padding: 20px 0;
 }
@@ -454,8 +460,7 @@ table tr td {
     font-family: 'Lucida Sans', sans-serif;
 }
 
-
-#finestra-annulla::backdrop, #finestra-elimina::backdrop {
+#finestra-annulla::backdrop, #finestra-elimina::backdrop, #finestra-modifica::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -513,10 +518,6 @@ table tr td {
 
     .login, .logout-pc, .add-container, .back-container, .btn-event-container {
         padding-right: 20px;
-    }
-
-    .login a, .logout-pc, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotaizone {
-        padding: 5px 15px;
     }
 
     .contenuto-aula {

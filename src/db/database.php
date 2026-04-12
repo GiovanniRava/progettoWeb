@@ -31,6 +31,12 @@ class DatabaseHelper {
         $stmt->bind_param('i', $cod);
         return $stmt->execute();
     }
+
+    public function delete_evento($cod){
+        $stmt = $this->db->prepare("DELETE FROM evento WHERE titolo = ?");
+        $stmt->bind_param('s', $cod);
+        return $stmt->execute();
+    }
     
     public function get_statistiche_polivalente() {
     $stmt = $this->db->prepare("SELECT postiTotali, postiDisponibili, computerTotali, computerDisponibili 
@@ -49,6 +55,16 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function get_evento_by_title($titolo) {
+        $stmt = $this->db->prepare("SELECT titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina, descrizione 
+                  FROM EVENTO 
+                  WHERE titolo = ?");
+        $stmt->bind_param("s", $titolo);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
     
     public function insert_richiesta_prenotazione($nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula){
         $query = "INSERT INTO richiesta_in_corso (nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
@@ -63,6 +79,13 @@ class DatabaseHelper {
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sssissss', $titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione);
+        return $stmt->execute();
+    }
+
+    public function update_evento($titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione, $id){
+        $query = "UPDATE evento SET titolo = ?, data = ?, oraInizio = ?, durata = ?, numeroLab = ?, numeroAula = ?, locandina = ?, descrizione = ? WHERE titolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssisssss', $titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione, $id);
         return $stmt->execute();
     }
 

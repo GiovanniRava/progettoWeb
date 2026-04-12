@@ -26,6 +26,7 @@
                         <th>AULA</th>
                         <th>DATA</th>
                         <th>ORARIO</th>
+                        <th id="sezione-elimina"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,8 +34,8 @@
                         <tr>
                             <td colspan="4" style="text-align: center;">Nessun evento in programma.</td>
                         </tr>
-                    <?php else: ?>
-                        <?php foreach($templateParams["eventi"] as $evento): ?>
+                    <?php else:
+                        foreach($templateParams["eventi"] as $evento): ?>
                             <?php 
                                 $luogo = !empty($evento['numeroAula']) ? $evento['numeroAula'] : 
                                          (!empty($evento['numeroLab']) ? $evento['numeroLab'] : '-');
@@ -47,13 +48,50 @@
                                 <td><?php echo htmlspecialchars($luogo); ?></td>
                                 <td><?php echo $dataFormattata; ?></td>
                                 <td><?php echo $oraFormattata; ?></td>
+                                <td headers="sezione-elimina">
+                                    <button class="button-elimina-evento" data-id="<?php echo $evento["titolo"]; ?>">ELIMINA</button>
+                                    <a href="eventi_admin.php?action=1&id=<?php echo $evento["titolo"]; ?>" class="button-modifica-evento">MODIFICA</a>
+                                </td>
                             </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                        <?php endforeach;
+                    endif; ?>
+                    <dialog id="finestra-annulla">
+                        <h3>ELIMINA EVENTO</h3>
+                        <p>Sei sicuro di voler eliminare l'evento?</p>
+                        <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
+                            <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
+                            <button type="submit" id="conferma-annulla" name="conferma-annulla">SI</button>
+                            <button type="button" id="revoca-annulla" name="revoca-annulla">NO</button>
+                        </form>
+                    </dialog>
                 </tbody>
             </table>
         <!-- </section> -->
     </main>
     <!--<php -->
+    <script>
+        const finestra = document.getElementById('finestra-annulla');
+        const inputNascosto = document.getElementById('input-nascosto-elimina');
+        const bottoniAnnulla = document.querySelectorAll('.button-elimina-evento');
+        const btnNo = document.getElementById('revoca-annulla');
+        const btnSi = document.getElementById('conferma-annulla');
+
+        bottoniAnnulla.forEach(bottone => {
+            bottone.addEventListener('click', () => {
+                const idDaEliminare = bottone.getAttribute('data-id');
+                inputNascosto.value = idDaEliminare;
+                finestra.showModal(); 
+            });
+        });
+
+        btnNo.addEventListener('click', function(){
+            finestra.close();
+        });
+
+        btnSi.addEventListener('click', () => {
+            console.log("evento eliminato!");
+            finestra.close();
+        });
+    </script>
 </body>
 </html>
