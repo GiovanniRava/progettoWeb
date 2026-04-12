@@ -22,36 +22,48 @@
     
     <main>
         <table class="table-prenotazioni-studente">
-            <tr>
-                <th id="numero-aula-lab">AULA / LAB</th>
-                <th id="data-prenotazione">DATA</th>
-                <th id="ora-prenotazione">ORARIO</th>
-                <th id="sezione-annulla"></th>
-            </tr>
-            <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
-            <tr>
-                <td headers="numero-aula-lab"><?php echo $prenotazione["num"] ?></td>
-                <td headers="data-prenotazione"><?php echo $prenotazione["data"] ?></td>
-                <td headers="ora-prenotazione"><?php echo $prenotazione["oraInizio"] ?> - 
-                <?php $date = new DateTime($prenotazione["oraInizio"]);
-                    $date->modify("+{$prenotazione["durata"]} minutes");
-                    $oraFine = $date->format('H:i:s'); 
-                    echo $oraFine;
-                ?></td>
-                <td headers="sezione-annulla">
-                    <button id="button-annulla-prenotazione" class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ANNULLA</button>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-            <dialog id="finestra-annulla">
-                <h3>ANNULLAMENTO PRENOTAZIONE</h3>
-                <p>Sei sicuro di voler annullare la prenotazione?</p>
-                <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
-                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
-                    <button type="submit" id="conferma-annulla">SI</button>
-                    <button type="button" id="revoca-annulla">NO</button>
-                </form>
-            </dialog>
+            <thead>
+                <tr>
+                    <th id="numero-aula-lab">AULA / LAB</th>
+                    <th id="data-prenotazione">DATA</th>
+                    <th id="ora-prenotazione">ORARIO</th>
+                    <th id="sezione-annulla"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(empty($templateParams["prenotazioni"])): ?>
+                    <tr>
+                        <td colspan="4">Nessuna prenotazione in programma.</td>
+                    </tr>
+                <?php else:
+                    foreach($templateParams["prenotazioni"] as $prenotazione):
+                    $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
+                    <tr>
+                        <td headers="numero-aula-lab"><?php echo $prenotazione["num"]; ?></td>
+                        <td headers="data-prenotazione"><?php echo $dataFormattata; ?></td>
+                        <td headers="ora-prenotazione"><?php $oraInizio = date("H:i", strtotime($prenotazione["oraInizio"])); echo $oraInizio; ?> - 
+                        <?php $date = new DateTime($prenotazione["oraInizio"]);
+                            $date->modify("+{$prenotazione["durata"]} minutes");
+                            $oraFine = $date->format('H:i'); 
+                            echo $oraFine;
+                        ?></td>
+                        <td headers="sezione-annulla">
+                            <button class="button-annulla-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ANNULLA</button>
+                            <!--non uso id perchè superfluo in questo caso-->
+                        </td>
+                    </tr>
+                    <?php endforeach;
+                endif; ?>
+                <dialog id="finestra-annulla">
+                    <h3>ANNULLAMENTO PRENOTAZIONE</h3>
+                    <p>Sei sicuro di voler annullare la prenotazione?</p>
+                    <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
+                        <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
+                        <button type="submit" id="conferma-annulla" name="conferma-annulla">SI</button>
+                        <button type="button" id="revoca-annulla" name="revoca-annulla">NO</button>
+                    </form>
+                </dialog>
+            </tbody>
         </table>
     </main>
 

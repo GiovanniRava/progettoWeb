@@ -1,3 +1,9 @@
+<?php
+if (!isUserLogged()) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 
@@ -38,7 +44,7 @@
         <a href="index.php" class="btn-logout">LOGOUT</a>
     </div>
 
-    <?php require("footer.php"); ?>
+    <?php include("footer.php"); ?>
 </body>
 
 </html>

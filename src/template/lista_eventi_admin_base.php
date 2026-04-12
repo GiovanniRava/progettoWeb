@@ -19,7 +19,7 @@
     <main>
         
         <!-- <section class="table-aule"> -->
-            <table class="table-prenotazioni-studente">
+            <table class="table-eventi-admin">
                 <thead>
                     <tr>
                         <th>TITOLO</th>

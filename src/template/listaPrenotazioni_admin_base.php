@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['utente_loggato'])) {
+if (!isUserLogged()) {
     header("Location: login.php");
     exit();
 }
@@ -13,57 +13,64 @@ if (!isset($_SESSION['utente_loggato'])) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
-            <h2>LISTA PRENOTAZIONI</h2>
+            <h2>LISTA PRENOTAZIONI</h2><!-- da fare con $templateParams? -->
         </div>
         <div class="spacer"></div>
     </div>
     <main>
-        <table>
-            <tr>
-                <th id="numero-aula-lab">AULA / LAB</th>
-                <th id="data-prenotazione">DATA</th>
-                <th id="ora-prenotazione">ORARIO</th>
-                <th id="nominativo-prenotazione">NOME e COGNOME</th>
-                <th id="motivazione-prenotazione">MOTIVAZIONE</th>
-                <th id="sezione-elimina"></th>
-            </tr>
-            <?php foreach($templateParams["prenotazioni"] as $prenotazione): ?>
-            <tr>
-                <td headers="numero-aula-lab"><?php echo $prenotazione["num"] ?></td>
-                <td headers="data-prenotazione"><?php echo $prenotazione["data"] ?></td>
-                <td headers="ora-prenotazione"><?php echo $prenotazione["oraInizio"] ?> - 
-                <?php $date = new DateTime($prenotazione["oraInizio"]);
-                    $date->modify("+{$prenotazione["durata"]} minutes");
-                    $oraFine = $date->format('H:i:s'); 
-                    echo $oraFine;
-                ?></td>
-                <td headers="nominativo-prenotazione"><?php echo $prenotazione["nominativo"] ?></td>
-                <td headers="motivazione-prenotazione"><?php echo $prenotazione["motivazione"] ?></td>
-                <td headers="sezione-elimina">
-                    <button id="button-elimina-prenotazione" class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-            <dialog id="finestra-annulla">
-                <h3>ELIMINA PRENOTAZIONE</h3>
-                <p>Sei sicuro di voler eliminare la prenotazione?</p>
-                <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
-                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
-                    <button type="submit" id="conferma-annulla" name="elimina-prenotazione">SI</button>
-                    <button type="button" id="revoca-annulla" name="revoca-elimina-prenotazione">NO</button>
-                </form>
-            </dialog>
+        <table class="table-prenotazioni-admin">
+            <thead>
+                <tr>
+                    <th id="numero-aula-lab">AULA / LAB</th>
+                    <th id="data-prenotazione">DATA</th>
+                    <th id="ora-prenotazione">ORARIO</th>
+                    <th id="nominativo-prenotazione">NOME e COGNOME</th>
+                    <th id="motivazione-prenotazione">MOTIVAZIONE</th>
+                    <th id="sezione-elimina"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(empty($templateParams["prenotazioni"])): ?>
+                    <tr>
+                        <td colspan="6">Nessuna prenotazione in programma.</td>
+                    </tr>
+                <?php else:
+                    foreach($templateParams["prenotazioni"] as $prenotazione):
+                    $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
+                    <tr>
+                        <td headers="numero-aula-lab"><?php echo $prenotazione["num"]; ?></td>
+                        <td headers="data-prenotazione"><?php echo $dataFormattata; ?></td>
+                        <td headers="ora-prenotazione"><?php $oraInizio = date("H:i", strtotime($prenotazione["oraInizio"])); echo $oraInizio; ?> - 
+                        <?php $date = new DateTime($prenotazione["oraInizio"]);
+                            $date->modify("+{$prenotazione["durata"]} minutes");
+                            $oraFine = $date->format('H:i'); 
+                            echo $oraFine;
+                        ?></td>
+                        <td headers="nominativo-prenotazione"><?php echo $prenotazione["nominativo"] ?></td>
+                        <td headers="motivazione-prenotazione"><?php echo $prenotazione["motivazione"] ?></td>
+                        <td headers="sezione-elimina">
+                            <button class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
+                        </td>
+                    </tr>
+                    <?php endforeach;
+                endif; ?>
+                <dialog id="finestra-annulla">
+                    <h3>ELIMINA PRENOTAZIONE</h3>
+                    <p>Sei sicuro di voler eliminare la prenotazione?</p>
+                    <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
+                        <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
+                        <button type="submit" id="conferma-annulla" name="elimina-prenotazione">SI</button>
+                        <button type="button" id="revoca-annulla" name="revoca-elimina-prenotazione">NO</button>
+                    </form>
+                </dialog>
+            </tbody>
         </table>
     </main>
-
-    <footer>
-        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
-        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
-    </footer>
+    <?php include($templateParams["footer"]); ?>
 
     <script>
         const finestra = document.getElementById('finestra-annulla');

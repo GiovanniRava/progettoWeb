@@ -1,8 +1,8 @@
 <?php 
-if (!isset($_SESSION['utente_loggato'])) {
+if (!isUserLogged()) {
     header("Location: login.php");
     exit();
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -31,6 +31,6 @@ if (!isset($_SESSION['utente_loggato'])) {
             ?>
         </section>   
     </div>
-    <?php require ($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 </body>
 </html> 

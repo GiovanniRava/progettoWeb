@@ -1,3 +1,9 @@
+<?php
+if (!isUserLogged()) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -28,7 +34,7 @@
             </form>
         </section>
         <section class = "table-aule">
-            <table>
+            <table class="table-cerca">
                 <thead>
                     <tr>
                         <th>AULA</th>

@@ -32,7 +32,7 @@ if (!isset($_SESSION['utente_loggato'])) {
             </form>
         </section>
         <section class = "table-lab">
-            <table>
+            <table class="table-cerca">
                 <thead>
                     <tr>
                         <th>LABORATORIO</th>

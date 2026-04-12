@@ -71,14 +71,48 @@ main {
 footer {
     background-color: #e21d1d; 
     color: #fff;
-    text-align: center;
     font-family: 'Courier New', Courier, monospace;
     padding: 20px 0;
-    /*margin-top: 15px;  l'ho commentato perche creava una piccola striscia bianca sopra il footer*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center;
 }
 
 footer p {
-    margin: 20px 14px;
+    margin: 10px;
+}
+
+footer > p:last-child {
+    width: 100%;
+    text-align: center;    /* Lo centra sulla sua riga */
+    margin-top: 15px;      /* Distanza dai blocchi sopra */
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 25px;
+}
+
+.contatti, .social {
+    display: flex;
+    flex-direction: column;
+}
+
+.contatti {
+    text-align: center;
+}
+
+.social {
+    text-align: center;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.contatti p{
+    margin: 5px 10px;
+}
+
+.social p {
+    text-align: center;
+    width: 100%;
 }
 
 .social i{
@@ -93,16 +127,12 @@ footer p {
 	margin: 0 12px 10px 9px;
 	border-radius: 50%;
 	color:white;
-	transition: all 0.5s ease;
+	transition: all 0.2s ease;
 }
 
 .social a:hover{
 	color:#24262b;
 	background-color:#ffffff;
-}
-
-.home-footer {
-    margin: 0;
 }
 
 .home-img, .home-img-login {
@@ -162,6 +192,7 @@ h1 {
     padding: 4px 10px;
     font-family: 'Lucida Sans', sans-serif;
     border: 1px solid #000;
+    /* margin: 2px; */
 }
 
 .login-form, .form-prenotazione, .form-evento {
@@ -182,6 +213,13 @@ h1 {
     margin-top: 15px;
     width: 100%;
     max-width: 330px;
+}
+
+.login-form-form ul li input {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 3px solid #e21d1d;
 }
 
 .form-form-prenotazione, .form-form-evento {
@@ -234,7 +272,7 @@ form ul li{
 }
 
 form ul li input[type="submit"] {
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
 .conferma-login:hover, .login a:hover, .logout-pc a:hover{
@@ -285,34 +323,46 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     background-color: #87ceeb;
 }
 
-.table-prenotazioni-studente {
+table {
     width: 100%; 
     font-family: 'Lucida Sans', sans-serif;
     border-spacing: 0;
     border-collapse: collapse;
     min-width: auto;
+    margin-bottom: 25px;
 }
 
-.table-prenotazioni-studente td:nth-child(-n+4), .table-prenotazioni-studente th:nth-child(-n+4){
+.table-prenotazioni-studente td:nth-child(-n+4):not(:last-child), .table-prenotazioni-studente th:nth-child(-n+4):not(:last-child),
+.table-prenotazioni-admin td:nth-child(-n+6):not(:last-child), .table-prenotazioni-admin th:nth-child(-n+6):not(:last-child),
+.table-eventi-admin td:nth-child(-n+4):not(:last-child), .table-eventi-admin th:nth-child(-n+4):not(:last-child),
+.table-cerca td:nth-child(-n+3):not(:last-child), .table-cerca th:nth-child(-n+3):not(:last-child) {
     border-right: 1px solid #000;
 }
 
-.table-prenotazioni-studente tr th {
+table tr:nth-child(even) {
+    background-color: #ebebeb;
+}
+
+table tr:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+table tr th {
     background-color: #d3d3d3;
     color: black;
     text-align: left;
     padding: 20px 5px;
     border-bottom: 1px solid #999;
-    border-top: none;
+    border-top: 1px solid #999;
 }
 
-.table-prenotazioni-studente tr td {
+table tr td {
     color: black;
     text-align: left;
     padding: 20px 5px;
 }
 
-.table-prenotazioni-studente tr td:last-child {
+.table-prenotazioni-studente tr td:last-child, .table-prenotazioni-admin tr td:last-child {
     text-align: center;
     padding: 20px 0;
 }
@@ -395,7 +445,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     background-color: #ffffff;
 }
 
-#finestra-annulla, #finestra-elimina {
+#finestra-annulla, #finestra-elimina , #finestra-rifiuta{
     border: 2px solid black;
     border-radius: 8px;
     padding: 10px;
@@ -405,32 +455,32 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
 }
 
 
-#finestra-annulla::backdrop, #finestra-elimina::backdrop {
+#finestra-annulla::backdrop, #finestra-elimina::backdrop, #finestra-rifiuta::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-#finestra-annulla button, #finestra-elimina button {
+#finestra-annulla button, #finestra-elimina button, #finestra-rifiuta button {
     margin: 20px 20px;
     padding: 15px 20px;
     cursor: pointer;
     font-size: 18px;
 }
 
-#conferma-annulla, #conferma-elimina {
+#conferma-annulla, #conferma-elimina, #conferma-rifiuta {
     color: #ffffff;
     background-color: #e21d1d;
 }
 
-#conferma-annulla:hover, #conferma-elimina:hover {
+#conferma-annulla:hover, #conferma-elimina:hover, #conferma-rifiuta:hover {
     background-color: #be1919;
 }
 
-#revoca-annulla, #revoca-elimina {
+#revoca-annulla, #revoca-elimina, #annulla-rifiuto {
     color: #000;
     background-color: #ffffff;
 }
 
-#revoca-annulla:hover, #revoca-elimina:hover {
+#revoca-annulla:hover, #revoca-elimina:hover, #annulla-rifiutop:hover {
     background-color: #bebebe;
 }
 
@@ -439,7 +489,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
 }
 
 /*prova doppia pagina*/
-.mostra-form .sezione-listaPrenotazioni, .mostra-form .add-container  {
+.mostra-form .sezione-listaPrenotazioni, .mostra-form .add-container, .mostra-form .section-nuovo-evento-btn {
     display: none; 
 }
 
@@ -524,6 +574,33 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     .menu-pc ul li a:hover{
         background-color: #e21d1d;
         color: #ffffff;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .contatti {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex-shrink: 0;
+        padding-right: 15px;
+        margin-left: 35px;
+        margin-top: 0;
     }
 
     #finestra-annulla button, #finestra-elimina button {
@@ -706,6 +783,8 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     border-radius: 12px;
     overflow: hidden; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
 }
 
 
@@ -714,10 +793,12 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     aspect-ratio: 3 / 4;
     object-fit: cover; 
     display: block;
-    
+    transition: width 0.4s ease-in-out;
 }
 .info-evento {
+    width: 60%;
     padding: 20px;
+    transition: width 0.4s ease-in-out;
 }
 .info-evento h3 {
     margin: 0 0 10px 0; 
@@ -726,6 +807,35 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
 .info-evento .data-evento {
     font-size: 1rem;
     color: #555555; 
+}
+
+.descrizione-evento {
+    font-size: large;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+/*CSS per quando uno clicca l'evento e si deve restringere la fot*/
+.card-evento.espansa {
+    background-color:rgb(224, 224, 224);
+}
+.card-evento.espansa .img-evento {
+    width: 0;
+}
+
+
+.card-evento.espansa .info-evento {
+    width: 90%;
+}
+
+
+.card-evento.espansa .descrizione-evento {
+    max-height: 500px; 
+    opacity: 1;
+    margin-top: 15px;
 }
 
 /*PAGINA PRINCIPALE DELL'AMMINISTRATORE - fra*/
@@ -836,28 +946,6 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     padding: 10px 0 0 0 ;
 }
 
-/* table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    margin-top: 0;
-}
-
-th {
-    background-color: #d3d3d3;
-    padding: 15px;
-    text-align: left;
-    border-bottom: 2px solid #999;
-    border-right: 2px solid #999;
-    border-top: 2px solid #999;
-}
-
-td {
-    padding: 15px;
-    border-bottom: 1px solid #eee;
-    border-right:2px solid #999;
-} */
-
 .riga-dettagliPrenotazione{
     display: none;
     background-color: #f9f9f9; 
@@ -877,7 +965,7 @@ td {
     cursor: pointer;
 }
 
-.button-elimina{
+.button-elimina, .annulla-rifiuto{
     background-color: #e21d1d;
     color: #ffffff;
     border: 1px solid black;
@@ -886,10 +974,6 @@ td {
     margin-top: 10px;
     cursor: pointer;
 }
-
-/* th:last-child, td:last-child {
-    border-right: none;
-} */
 
 /*FINE CERCA LAB E AULA AMMINISTRATORE - STUDENTE */
 /*NASCONDO LA NAV BAR DEL DESKTOP PER MOBILE*/
@@ -942,18 +1026,6 @@ td {
     text-align: center;
 }
 /*RICHIESTE ADMIIN*/
-
-/* table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-}*/
-
-th, td {
-    padding: 10px;
-    border: 1px solid #000;
-    vertical-align: top;
-}
 
 .btn-accetta {
     background-color: #6fb365;

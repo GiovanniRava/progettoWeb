@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['utente_loggato'])) {
+if (!isUserLogged()) {
     header("Location: login.php");
     exit();
 }
@@ -7,7 +7,7 @@ $classeBody = "";
 $successo = "";
 
 // Se nell'URL c'è "inviato=1" o l'errore, allora mostrare il form
-if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
+if (!empty($templateParams["errore"]) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
     $classeBody = "mostra-form";
 }
 
@@ -24,7 +24,7 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body class="<?php echo $classeBody; ?>">
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -47,12 +47,12 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
             <div class="sezione-listaPrenotazioni">
                 <?php include('listaPrenotazioni_studente_base.php'); ?>
             </div>
-            <div class="sezione-nuovaPrenotazione">
+            <aside class="sezione-nuovaPrenotazione">
                 <?php include('nuova_prenotazione_base.php'); ?>
-            </div> 
+            </aside>
         </div>
     </main>
-    <?php require($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 
     <script>
         //Aspetta di aver caricato tutta la struttura HTML, poi esegui queste funzioni

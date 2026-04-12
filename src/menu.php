@@ -6,7 +6,8 @@ $templateParams["voci_menu"] = [
     ["nome" => "AULE", "url" => "cercaAula_studente.php"],
     ["nome" => "LABORATORI", "url" => "cercaLab_studente.php"],
     ["nome" => "POLIVALENTE", "url" => "polivalente.php"],
-    ["nome" => "EVENTI", "url" => "eventi_studente.php"]
+    ["nome" => "EVENTI", "url" => "eventi_studente.php"],
+    ["nome" => "PRENOTAZIONI", "url" => "prenotazioni_studente.php"]
 ];
 require("template/menu_base.php");
 ?>

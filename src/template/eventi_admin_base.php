@@ -1,9 +1,18 @@
 <?php
-$is_included = true;
-
+if (!isUserLogged()) {
+    header("Location: login.php");
+    exit();
+}
 $classeBody = "";
-if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
+$successo = "";
+
+// Se nell'URL c'è "inviato=1" o l'errore, allora mostrare il form
+if (!empty($templateParams["errore"]) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
     $classeBody = "mostra-form";
+}
+
+if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
+    $successo = "Evento aggiunto con successo!";
 }
 ?>
 <!DOCTYPE html>
@@ -16,7 +25,7 @@ if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
 </head>
 <body class="<?php echo $classeBody; ?>">
     
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
 
     <div class="red-bar">
         <div class="spacer"></div>
@@ -30,9 +39,9 @@ if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
         </div>
         <div class="spacer-prenotazioni"></div>
     </div>
-    <section class="section-nuovo-evento-btn">
+    <div class="section-nuovo-evento-btn">
             <a href="#" class="button-nuovo-evento">AGGIUNGI</a>
-    </section>
+    </div>
     <main>
         <div class="container-prenotazioniStudente">
             
@@ -40,42 +49,49 @@ if (!empty($errore) || (isset($_GET['inviato']) && $_GET['inviato'] == 1)) {
                 <?php include('lista_eventi_admin_base.php'); ?>
             </div>
             
-            <div class="sezione-nuovaPrenotazione">
+            <aside class="sezione-nuovaPrenotazione">
                 <?php include('nuovoEvento_amministratore_base.php'); ?>
-            </div>   
+            </aside>
             
         </div>
     </main>
 
-    <?php require("footer.php"); ?>
+    <?php include($templateParams["footer"]); ?>
 
     <script>
+        //Aspetta di aver caricato tutta la struttura HTML, poi esegui queste funzioni
         document.addEventListener('DOMContentLoaded', function() {
-            const btnAdd = document.querySelector('.add-box');
-            const btnBack = document.querySelector('.back-box');
-            const body = document.body;
+        const btnAdd = document.querySelector('.button-nuovo-evento');
+        const btnBack = document.querySelector('.back-box');
+        const body = document.body;
 
-            if (localStorage.getItem('statoFormEventi') === 'aperto' && window.innerWidth < 768) {
-                body.classList.add('mostra-form');
-            }
+        if (localStorage.getItem('statoForm') === 'aperto' && window.innerWidth < 768) {
+            body.classList.add('mostra-form');
+        }
 
+        btnAdd.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
+                e.preventDefault();
                 body.classList.add('mostra-form');
-                localStorage.setItem('statoFormEventi', 'aperto');
+                localStorage.setItem('statoForm', 'aperto');
             }
-            
+        });
+
+        btnBack.addEventListener('click', function(e) {
             if (window.innerWidth < 768) {
+                e.preventDefault();
                 body.classList.remove('mostra-form');
-                localStorage.removeItem('statoFormEventi');
+                localStorage.removeItem('statoForm');
                 window.history.replaceState({}, '', window.location.pathname);
             }
-
-            window.addEventListener('resize', function() {
-                if (window.innerWidth >= 768) {
-                    body.classList.remove('mostra-form');
-                }
-            });
         });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                body.classList.remove('mostra-form');
+            }
+        });
+    });
     </script>
 </body>
 </html>

@@ -21,17 +21,18 @@ if (!isset($_SESSION['utente_loggato'])) {
         <div class = "spacer"></div>
     </div>
     <main>
-        <table>
+        <table class="table-cerca">
             <thead>
                 <tr>
                     <th>EVENTO</th>
                     <th>AULA</th>
+                    <th>ORARIO</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if(empty($templateParams["lezioni"])): ?>
                     <tr>
-                        <td colspan="2">Nessuna lezione in corso.</td>
+                        <td colspan="3">Nessuna lezione in corso.</td>
                     </tr>
                 <?php else: ?>
                     <?php foreach($templateParams["lezioni"] as $lezione): ?>
@@ -44,6 +45,12 @@ if (!isset($_SESSION['utente_loggato'])) {
                             "Aula".$lezione["numeroAula"] :
                             "Lab".$lezione["numeroLab"]; ?>
                         </td>
+                        <td><?php $oraInizio = date("H:i", strtotime($lezione["oraInizio"])); echo $oraInizio; ?> - 
+                        <?php $date = new DateTime($lezione["oraInizio"]);
+                            $date->modify("+{$lezione["durata"]} minutes");
+                            $oraFine = $date->format('H:i'); 
+                            echo $oraFine;
+                        ?></td>
                     </tr> 
                     <?php endforeach; ?>
                 <?php endif; ?>   
