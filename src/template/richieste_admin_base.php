@@ -133,9 +133,7 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
     <form id="form-accetta-richiesta" action="richieste_admin.php" method="POST" style="display: none;">
         <input type="hidden" name="richiesta_da_accettare" id="input-nascosto-accetta" value="">
     </form>
-    <?php if ($is_standalone): ?>
-        <?php require("footer.php"); ?>
-
+        
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const bottoniToggle = document.querySelectorAll('.toggle-btn');
@@ -194,6 +192,9 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
             });
         });
     </script>
+    <?php if ($is_standalone): ?>
+        <?php require("footer.php"); ?>
+    
 </body>
 </html>
 <?php endif; ?>

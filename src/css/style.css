@@ -451,7 +451,7 @@ table tr td {
     background-color: #ffffff;
 }
 
-#finestra-annulla, #finestra-elimina {
+#finestra-annulla, #finestra-elimina , #finestra-rifiuta{
     border: 2px solid black;
     border-radius: 8px;
     padding: 10px;
@@ -460,32 +460,33 @@ table tr td {
     font-family: 'Lucida Sans', sans-serif;
 }
 
-#finestra-annulla::backdrop, #finestra-elimina::backdrop, #finestra-modifica::backdrop {
+
+#finestra-annulla::backdrop, #finestra-elimina::backdrop, #finestra-rifiuta::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-#finestra-annulla button, #finestra-elimina button {
+#finestra-annulla button, #finestra-elimina button, #finestra-rifiuta button {
     margin: 20px 20px;
     padding: 15px 20px;
     cursor: pointer;
     font-size: 18px;
 }
 
-#conferma-annulla, #conferma-elimina {
+#conferma-annulla, #conferma-elimina, #conferma-rifiuta {
     color: #ffffff;
     background-color: #e21d1d;
 }
 
-#conferma-annulla:hover, #conferma-elimina:hover {
+#conferma-annulla:hover, #conferma-elimina:hover, #conferma-rifiuta:hover {
     background-color: #be1919;
 }
 
-#revoca-annulla, #revoca-elimina {
+#revoca-annulla, #revoca-elimina, #annulla-rifiuto {
     color: #000;
     background-color: #ffffff;
 }
 
-#revoca-annulla:hover, #revoca-elimina:hover {
+#revoca-annulla:hover, #revoca-elimina:hover, #annulla-rifiutop:hover {
     background-color: #bebebe;
 }
 
@@ -966,7 +967,7 @@ table tr td {
     cursor: pointer;
 }
 
-.button-elimina{
+.button-elimina, .annulla-rifiuto{
     background-color: #e21d1d;
     color: #ffffff;
     border: 1px solid black;

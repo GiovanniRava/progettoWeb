@@ -84,7 +84,7 @@ create table POLIVALENTE (
      constraint ID_POLIVALENTE_ID primary key (nome));
 
 create table PRENOTAZIONE (
-     codicePre int not null,
+     codicePre int auto_increment not null,
      nominativo char(20) not null,
      data date not null,
      oraInizio char(10) not null,
@@ -103,7 +103,6 @@ create table RICHIESTA_IN_CORSO (
      motivazione char(100) not null,
      numeroLab char(5),
      numeroAula char(5),
-     descrizione char(250) not null,
      constraint ID_RICHIESTA_ID primary key (codiceRichiesta));
 
 -- Constraints Section
