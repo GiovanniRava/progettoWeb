@@ -93,7 +93,7 @@ class DatabaseHelper {
 
     public function get_aula_cercata($search, $data) {
         $query = "
-            SELECT numeroAula, nomeAttivita, oraInizio, oraFine
+            SELECT numeroAula AS nomeAula, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
             FROM (
             SELECT L.numeroAula, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
                 TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
@@ -132,8 +132,39 @@ class DatabaseHelper {
             return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function get_laboratorio_cercato() {
+    public function get_laboratorio_cercato($search, $data) {
+        $query = "
+            SELECT numeroLab AS nomeLab, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
+            FROM (
+            SELECT L.numeroLab, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
+                TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
+            FROM LEZIONE L
+            JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns
 
+            UNION ALL
+
+            SELECT E.numeroLab, CONCAT('ESAME: ', I.nomeIns) AS nomeAttivita, E.data, E.oraInizio,
+                TIME_FORMAT(ADDTIME(E.oraInizio, SEC_TO_TIME(E.durata * 60)), '%H:%i') AS oraFine
+            FROM ESAME E
+            JOIN INSEGNAMENTO I ON E.codiceIns = I.codiceIns
+
+            UNION ALL
+
+            SELECT EV.numeroLab, EV.titolo AS nomeAttivita, EV.data, EV.oraInizio,
+                TIME_FORMAT(ADDTIME(EV.oraInizio, SEC_TO_TIME(EV.durata * 60)), '%H:%i') AS oraFine
+            FROM EVENTO EV
+            ) AS eventiLaboratorioCercato
+            WHERE data = ?
+            AND numeroLab = ?
+            ORDER BY oraInizio ASC
+            ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ss', $data, $search);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getRichiesteInCorso() {        

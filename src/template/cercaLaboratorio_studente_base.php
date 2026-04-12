@@ -25,8 +25,10 @@ if (!isset($_SESSION['utente_loggato'])) {
         <section class="search-bar">
             <form action="#" method="GET">
                 <div class="input-lab">
-                    <input type="text" id="search" name="search" placeholder="Search...">
-                    <input type="date" id="data-lezione" name="data-lezione">
+                    <input type="text" id="search" name="search" placeholder="Cerca..."
+                    value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                    <input type="date" id="data-lezione" name="data-lezione" 
+                    value="<?php echo isset($_GET ['data-lezione']) ? htmlspecialchars($_GET['data-lezione']) : date('Y-m-d'); ?>">
                 </div>
                 <button type="submit" class = "button-prenota">PRENOTA</button>
             </form>
@@ -41,11 +43,19 @@ if (!isset($_SESSION['utente_loggato'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>2.2</td>
-                        <td>Tecnologie Web</td>
-                        <td>09:00-11-00</td>
-                    </tr>
+                    <?php if(empty($templateParams["laboratori"])) : ?>
+                        <tr>
+                            <td>Nessun laboratorio trovato.</td>
+                        </tr>
+                    <?php else: ?>
+                        <?php foreach($templateParams["laboratori"] as $lab): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($lab["nomeLab"]); ?></td>
+                                <td><?php echo htmlspecialchars($lab["nomeEvento"]); ?></td>
+                                <td><?php echo htmlspecialchars(substr($lab["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($lab["oraFine"], 0, 5)); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </section>
