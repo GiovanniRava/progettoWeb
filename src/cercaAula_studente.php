@@ -7,5 +7,8 @@ $data = isset($_GET["data-lezione"]) ? $_GET["data-lezione"] : date("Y-m-d");
 
 $templateParams["aule"] = $dbh->get_aula_cercata($search, $data);
 
-require("template/cercaAulaStudente.php");
+$templateParams["header"] = "header_pagine.php";
+$templateParams["footer"] = "footer.php";
+
+require("template/cercaAula_studente_base.php");
 ?>

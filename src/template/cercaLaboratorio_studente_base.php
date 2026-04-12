@@ -1,7 +1,9 @@
-/*if (!isset($_SESSION['utente_loggato'])) {
+<?php
+if (!isset($_SESSION['utente_loggato'])) {
     header("Location: login.php");
     exit();
-}*/
+}
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,30 +12,7 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.php">
-                <img src="upload/uniboLogo.png" alt="Logo Alma Aule">
-            </a>
-        </div>
-        <div class="title">
-            <h1>Alma Aule</h1>
-        </div>
-        <div class="menu-container">
-            <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
-                &#9776;
-            </a>
-        </div>
-    </header>
-    <nav class="navbar-desktop">
-        <ul>
-            <li><a href="cercaAula_studente.php">AULE</a></li>
-            <li><a href="cercaLaboratorio_studente.php">LABORATORI</a></li>
-            <li><a href="polivalente.php">POLIVALENTE</a></li>
-            <li><a href="eventi_studente.php">EVENTI</a></li>
-            <li><a href="prenotazioni_studente.php">PRENOTAZIONI</a></li>
-        </ul>
-    </nav>
+    <?php require($templateParams["header"]); ?>
     <div class = "red-bar">
         <div class = "spacer"></div>
         <div class = "subtitle">
@@ -71,9 +50,7 @@
             </table>
         </section>
     </main>
-     <footer>
-        <p>Contatti</p>
-    </footer>
+    <?php require($templateParams["footer"]); ?>
 </body>
 
 </html> 

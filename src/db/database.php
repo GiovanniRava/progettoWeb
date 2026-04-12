@@ -98,7 +98,7 @@ class DatabaseHelper {
             SELECT L.numeroAula, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
                 TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
             FROM LEZIONE L
-            JOIN INSEGNAMENTO I ON L.codiceInd = I.codiceIns
+            JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns
 
             UNION ALL
 
@@ -121,16 +121,15 @@ class DatabaseHelper {
             ) AS eventiAulaCercata
             WHERE data = ?
             AND numeroAula = ?
-            ORDERED BY oraInizio ASC
+            ORDER BY oraInizio ASC
             ";
 
             $stmt = $this->db->prepare($query);
-            $searchTerm = '%' . $search . '%';
-            $stmt->bind_param('sss', $data, $searchTerm, $searchTerm);
+            $stmt->bind_param('ss', $data, $search);
             $stmt->execute();
             $result = $stmt->get_result();
 
-    return $result->fetch_all(MYSQLI_ASSOC);
+            return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function get_laboratorio_cercato() {
