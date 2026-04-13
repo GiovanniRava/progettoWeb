@@ -63,10 +63,10 @@
                     <dialog id="finestra-annulla">
                         <h3>ELIMINA EVENTO</h3>
                         <p>Sei sicuro di voler eliminare l'evento?</p>
-                        <form id="form-elimina-prenotazione" action="eventi_admin.php" method="POST">
+                        <form id="form-elimina-evento" action="eventi_admin.php" method="POST">
                             <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
-                            <button type="submit" id="conferma-annulla" name="conferma-annulla">SI</button>
-                            <button type="button" id="revoca-annulla" name="revoca-annulla">NO</button>
+                            <button type="submit" id="conferma-elimina" name="conferma-elimina">SI</button>
+                            <button type="button" id="revoca-elimina" name="revoca-elimina">NO</button>
                         </form>
                     </dialog>
                 </tbody>
@@ -79,8 +79,8 @@
         const finestra = document.getElementById('finestra-annulla');
         const inputNascosto = document.getElementById('input-nascosto-elimina');
         const bottoniAnnulla = document.querySelectorAll('.button-elimina-evento');
-        const btnNo = document.getElementById('revoca-annulla');
-        const btnSi = document.getElementById('conferma-annulla');
+        const btnNo = document.getElementById('revoca-elimina');
+        const btnSi = document.getElementById('conferma-elimina');
 
         bottoniAnnulla.forEach(bottone => {
             bottone.addEventListener('click', () => {

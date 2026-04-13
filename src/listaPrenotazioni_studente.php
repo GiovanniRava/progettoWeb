@@ -12,5 +12,10 @@ if (!empty($_POST['nome_da_eliminare'])) {
     exit();
 }
 
-// require("template/listaPrenotazioni_studente_base.php");
+if (!empty($_POST['richiesta_da_eliminare'])) {
+    $codice = $_POST['richiesta_da_eliminare'];
+    $dbh->delete_richiesta($codice);
+    header("Location: prenotazioni_studente.php");
+    exit();
+}
 ?>
