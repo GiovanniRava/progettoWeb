@@ -32,9 +32,15 @@
             </thead>
             <tbody>
                 <?php if(empty($templateParams["prenotazioni"])): ?>
-                    <tr>
-                        <td colspan="4">Nessuna prenotazione in programma.</td>
-                    </tr>
+                    <?php if($templateParams["richieste_utente"] == 0): ?>
+                        <tr>
+                            <td colspan="4">Nessuna prenotazione in programma.</td>
+                        </tr>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="4">Hai <?= $templateParams["richieste_utente"] ?> richieste pendenti. Attendi che admin le accetti.</td>
+                        </tr>
+                    <?php endif; ?>  
                 <?php else:
                     foreach($templateParams["prenotazioni"] as $prenotazione):
                     $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>

@@ -239,6 +239,19 @@ class DatabaseHelper {
         $stmt->bind_param('sssisss', $nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula);
         return $stmt->execute();
     }
+
+    public function countRichieste($nominativo){
+        $query = "SELECT COUNT(*) AS richiestePendenti FROM RICHIESTA_IN_CORSO WHERE nominativo = ?";
+        $stmt_select = $this->db->prepare($query);
+        $stmt_select->bind_param('s', $nominativo);
+        $stmt_select->execute();
+        $result = $stmt_select->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return $row['richiestePendenti']; 
+        }
+
+        return 0;
+    }
 }
 
 ?>
