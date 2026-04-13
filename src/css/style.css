@@ -342,6 +342,14 @@ table {
     overflow-x: auto;
 }
 
+.title-table {
+    padding: 0 5px;
+    margin-top: 45px;
+    margin-bottom: 7px;;
+    font-family: 'Lucida Sans', sans-serif;
+    text-align: center;
+}
+
 .table-prenotazioni-studente td:nth-child(-n+4):not(:last-child), .table-prenotazioni-studente th:nth-child(-n+4):not(:last-child),
 .table-prenotazioni-admin td:nth-child(-n+6):not(:last-child), .table-prenotazioni-admin th:nth-child(-n+6):not(:last-child),
 .table-eventi-admin td:nth-child(-n+4):not(:last-child), .table-eventi-admin th:nth-child(-n+4):not(:last-child),

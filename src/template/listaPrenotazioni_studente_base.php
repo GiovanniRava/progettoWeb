@@ -71,6 +71,53 @@
                 </dialog>
             </tbody>
         </table>
+        <h3 class="title-table">RICHIESTE IN CORSO</h3>
+        <table class="table-prenotazioni-studente">
+            <thead>
+                <tr>
+                    <th id="numero-aula-lab">AULA / LAB</th>
+                    <th id="data-prenotazione">DATA</th>
+                    <th id="ora-prenotazione">ORARIO</th>
+                    <th id="sezione-annulla"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if(empty($templateParams["richieste_in_corso"])): ?>
+                    <?php if($templateParams["richieste_utente"] == 0): ?>
+                        <tr>
+                            <td colspan="4">Nessuna richiesta in programma.</td>
+                        </tr>
+                    <?php endif; ?>  
+                <?php else:
+                    foreach($templateParams["richieste_in_corso"] as $richiesta):
+                    $dataFormattata = date("d/m/Y", strtotime($richiesta["data"])); ?>
+                    <tr>
+                        <td headers="numero-aula-lab"><?php echo $richiesta["num"]; ?></td>
+                        <td headers="data-prenotazione"><?php echo $dataFormattata; ?></td>
+                        <td headers="ora-prenotazione"><?php $oraInizio = date("H:i", strtotime($richiesta["oraInizio"])); echo $oraInizio; ?> - 
+                        <?php $date = new DateTime($richiesta["oraInizio"]);
+                            $date->modify("+{$richiesta["durata"]} minutes");
+                            $oraFine = $date->format('H:i'); 
+                            echo $oraFine;
+                        ?></td>
+                        <td headers="sezione-annulla">
+                            <button class="button-annulla-prenotazione" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">ANNULLA</button>
+                            <!--non uso id perchè superfluo in questo caso-->
+                        </td>
+                    </tr>
+                    <?php endforeach;
+                endif; ?>
+                <dialog id="finestra-annulla">
+                    <h3>ANNULLAMENTO PRENOTAZIONE</h3>
+                    <p>Sei sicuro di voler annullare la prenotazione?</p>
+                    <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
+                        <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
+                        <button type="submit" id="conferma-annulla" name="conferma-annulla">SI</button>
+                        <button type="button" id="revoca-annulla" name="revoca-annulla">NO</button>
+                    </form>
+                </dialog>
+            </tbody>
+        </table>
     </main>
 
     <!-- <footer>
