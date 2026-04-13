@@ -110,7 +110,8 @@ if (!isUserLogged()) {
                     <li>
                         <div class="col">
                             <label for="locandina-img">Seleziona Immagine Locandina</label>
-                            <input type="file" class="input-pieno" id="locandina-img" name="locandina" />
+                            <input type="file" class="input-pieno" id="locandina-img" name="locandina"/>
+                            <p><?php if(isset($templateParams["locandina"])): ?> img attuale: <?php echo $templateParams["locandina"]; endif;?></p>
                         </div>
                     </li>
                     <li>

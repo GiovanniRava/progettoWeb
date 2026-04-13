@@ -17,7 +17,7 @@
     </div>-->
 
     <main>
-        
+        <div class="table-container">
         <!-- <section class="table-aule"> -->
             <table class="table-eventi-admin">
                 <thead>
@@ -50,7 +50,12 @@
                                 <td><?php echo $oraFormattata; ?></td>
                                 <td headers="sezione-elimina">
                                     <button class="button-elimina-evento" data-id="<?php echo $evento["titolo"]; ?>">ELIMINA</button>
-                                    <a href="eventi_admin.php?action=1&id=<?php echo $evento["titolo"]; ?>" class="button-modifica-evento">MODIFICA</a>
+                                    <?php if($templateParams["azione"] == 1 && $evento["titolo"] == $templateParams["id"]): ?>
+                                        <a href="eventi_admin.php" class="button-modifica-evento">ANNULLA</a>
+                                    <?php else: ?>
+                                        <a href="eventi_admin.php?action=1&id=<?php echo $evento["titolo"]; ?>" class="button-modifica-evento"> MODIFICA</a>
+                                    <?php endif; ?>
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach;
@@ -58,7 +63,7 @@
                     <dialog id="finestra-annulla">
                         <h3>ELIMINA EVENTO</h3>
                         <p>Sei sicuro di voler eliminare l'evento?</p>
-                        <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
+                        <form id="form-elimina-prenotazione" action="eventi_admin.php" method="POST">
                             <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
                             <button type="submit" id="conferma-annulla" name="conferma-annulla">SI</button>
                             <button type="button" id="revoca-annulla" name="revoca-annulla">NO</button>
@@ -67,6 +72,7 @@
                 </tbody>
             </table>
         <!-- </section> -->
+        </div>
     </main>
     <!--<php -->
     <script>

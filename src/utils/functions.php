@@ -28,15 +28,15 @@ function uploadImage($path, $image){
     }
 
     //Controllo se esiste file con stesso nome ed eventualmente lo rinomino
-    if (file_exists($fullPath)) {
-        $i = 1;
-        do{
-            $i++;
-            $imageName = pathinfo(basename($image["name"]), PATHINFO_FILENAME)."_$i.".$imageFileType;
-        }
-        while(file_exists($path.$imageName));
-        $fullPath = $path.$imageName;
-    }
+    // if (file_exists($fullPath)) {
+    //     $i = 1;
+    //     do{
+    //         $i++;
+    //         $imageName = pathinfo(basename($image["name"]), PATHINFO_FILENAME)."_$i.".$imageFileType;
+    //     }
+    //     while(file_exists($path.$imageName));
+    //     $fullPath = $path.$imageName;
+    // }
 
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
     if(strlen($msg)==0){

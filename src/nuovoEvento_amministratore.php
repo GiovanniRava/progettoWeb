@@ -3,17 +3,20 @@
 $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 $templateParams["azione"] = 0;
+$templateParams["id"] = "";
 
 if(isset($_GET["action"])){
     $templateParams["azione"] = $_GET["action"];
+    $templateParams["id"] = $_GET["id"];
 }
 
 if(isset($templateParams["azione"]) && $templateParams["azione"]==1) {
-    $dati = $dbh->get_evento_by_title($_GET["id"]);
+    $dati = $dbh->get_evento_by_title($templateParams["id"]);
     $templateParams["titolo"] = $dati["titolo"];
     $templateParams["data"] = $dati["data"];
     $templateParams["oraInizio"] = date("H:i", strtotime($dati["oraInizio"]));
     $templateParams["durata"] = gmdate("H:i", $dati["durata"]*60);
+    $templateParams["locandina"] = $dati["locandina"];
     $templateParams["descrizione"] = $dati["descrizione"];
     if(isset($dati["numeroLab"])) {
         $templateParams["aula"] = $dati["numeroLab"];
@@ -58,7 +61,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         if($result != 0){
             $locandina = $msg;
             if(($templateParams["azione"]==1)){
-                $dbh->update_evento($nome, $data, $oraInizio, $durataMinuti, $laboratorio, $aula, $locandina, $descrizione, $_GET["id"]);
+                $dbh->update_evento($nome, $data, $oraInizio, $durataMinuti, $laboratorio, $aula, $locandina, $descrizione, $templateParams["id"]);
                 $templateParams["azione"] = 0;
                 header("Location: eventi_admin.php?inviato=1");
                 exit();

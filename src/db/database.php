@@ -199,6 +199,15 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function get_richiesta_by_name($nome) {        
+        $stmt = $this->db->prepare("SELECT codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, COALESCE(numeroLab, numeroAula) AS num
+        FROM richiesta_in_corso WHERE nominativo = ?");
+        $stmt->bind_param("s", $nome);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function deleteRichiesta($cod){
         $stmt = $this->db->prepare("DELETE FROM richiesta_in_corso WHERE codiceRichiesta = ?");
         $stmt->bind_param('i', $cod);
