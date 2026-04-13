@@ -52,8 +52,8 @@
 <nav class="menu-pc">
     <ul>
         <li><a href="listaPrenotazioni_admin.php">PRENOTAZIONI</a></li>
-        <li><a href="richieste_admin.php">RICHIESTE IN CORSO</a></li>
         <li><a href="eventi_admin.php">EVENTI</a></li>
+        <li><a href="richieste_admin.php">RICHIESTE IN CORSO</a></li>
     </ul>
 </nav>
 <?php endif; ?>

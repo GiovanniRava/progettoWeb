@@ -82,25 +82,15 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                 </tr>
                 
                 <tr class="riga-dettagli nascosta">
-                    <td>
+                    <td colspan="2">
                         <div class="show-mobile">
                             <p class="dettagli-testo"><strong>Nome e Cognome:</strong><br> <?php echo htmlspecialchars($richiesta["nominativo"]); ?></p>
                         </div>
                     </td>
                     
-                    <td>
-                        <div class="show-mobile">
-                            <p class="dettagli-testo"><strong>Motivazione:</strong><br> <?php echo htmlspecialchars($richiesta["motivazione"]); ?></p>
-                        </div>
-                    </td>
-
                     <td colspan="2">
                         <div class="show-mobile">
-                            <?php if(!empty($richiesta["descrizione"])): ?>
-                                <p class="dettagli-testo"><strong>Descrizione:</strong><br> <?php echo htmlspecialchars($richiesta["descrizione"]); ?></p>
-                            <?php else: ?>
-                                <p class="dettagli-testo"><em>Nessuna descrizione fornita.</em></p>
-                            <?php endif; ?>
+                            <p class="dettagli-testo"><strong>Motivazione:</strong><br> <?php echo htmlspecialchars($richiesta["motivazione"]); ?></p>
                         </div>
                     </td>
                 </tr>
