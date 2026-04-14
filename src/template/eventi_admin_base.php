@@ -1,5 +1,5 @@
 <?php
-if (!isUserLogged() && !isAdmin()) {
+if (!isUserLogged() || !isAdmin()) {
     header("Location: login.php");
     exit();
 }
