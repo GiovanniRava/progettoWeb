@@ -1,4 +1,3 @@
-# progettoWeb
 # Progetto Tecnologie Web -  ALMA AULE
 ## Gestione Aule e Laboratori Universitari
 
