@@ -34,7 +34,7 @@
     </div>
     <?php endif; ?>
     <div class="logout-pc">
-        <a href="index.php">Logout</a>
+        <a href="logout.php">Logout</a>
     </div>
 </header>
 <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
