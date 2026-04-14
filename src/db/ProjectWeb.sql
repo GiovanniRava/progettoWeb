@@ -19,6 +19,22 @@ use Alma_aule_DB;
 -- Tables Section
 -- _____________ 
 
+create table STUDENTE (
+     matricola char(10) not null,
+    nominativo char(25) not null, 
+    email char(50) not null, 
+    password char(25) not null,
+    constraint ID_STUDENTE_ID primary key(matricola)
+);
+
+create table AMMINISTRATORE (
+	codiceAmministratore char(5) not null,
+    nominativo char(25) not null, 
+    email char(50) not null, 
+    password char(25) not null, 
+    constraint ID_AMMINISTRATORE_ID primary key(codiceAmministratore)
+);
+
 create table AULA (
      numeroAula char(5) not null,
      capienza int not null,
@@ -162,7 +178,12 @@ alter table RICHIESTA_IN_CORSO add constraint FKRICHIESTA_A_FK
 
 -- Index Section
 -- _____________ 
-
+create unique index ID_STUDENTE_ID
+	on STUDENTE (matricola);
+    
+create unique index ID_AMMINISTRATORE_ID
+	on AMMINISTRATORE (codiceAmministratore);
+    
 create unique index ID_AULA_IND
      on AULA (numeroAula);
 

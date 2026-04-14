@@ -3,6 +3,14 @@ function isUserLogged(){
     return !empty($_SESSION['utente_loggato']);
 }
 
+function isStudente(){
+    return isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente";
+}
+
+function isAdmin(){
+    return isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "admin";
+}
+
 function uploadImage($path, $image){
     $imageName = basename($image["name"]);
     $fullPath = $path.$imageName;

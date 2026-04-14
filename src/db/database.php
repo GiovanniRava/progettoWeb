@@ -277,6 +277,24 @@ class DatabaseHelper {
 
         return 0;
     }
+
+    public function getStudente($email){
+        $query = "SELECT * FROM studente WHERE email = ?";
+        $stmt_select = $this->db->prepare($query);
+        $stmt_select->bind_param('s', $email);
+        $stmt_select->execute();
+        $result = $stmt_select->get_result();
+        return $result->fetch_assoc();
+    }
+    
+    public function getAmministratore($email){
+        $query = "SELECT * FROM amministratore WHERE email = ?";
+        $stmt_select = $this->db->prepare($query);
+        $stmt_select->bind_param('s', $email);
+        $stmt_select->execute();
+        $result = $stmt_select->get_result();
+        return $result->fetch_assoc();
+    }
 }
 
 ?>

@@ -41,7 +41,7 @@ if (!isUserLogged()) {
     </nav>
 
     <div class="sezione-logout">
-        <a href="index.php" class="btn-logout">LOGOUT</a>
+        <a href="logout.php" class="btn-logout">LOGOUT</a>
     </div>
 
     <?php include("footer.php"); ?>
