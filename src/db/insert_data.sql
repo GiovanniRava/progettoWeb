@@ -204,3 +204,13 @@ INSERT INTO RICHIESTA_IN_CORSO(nominativo, data, oraInizio, durata, motivazione,
 ('Riccardo Cornacchia', '2026-09-25', '14:30:00', 60, 'incontro ricerca operativa', NULL, 2.12),
 ('Francesca Gatti', '2026-09-23', '11:30:00', 180, 'progetto mobile', 2.2, NULL);
 
+INSERT INTO AMMINISTRATORE(codiceAmministratore, nominativo, email, password) VALUES 
+('1', 'Diego Rossi', 'diego.rossi@unibo.it', 'Diegoo22'),
+('2', 'Franca Neri', 'franca.neri@unibo.it', 'FraBlack55'), 
+('3', 'Marta Risto', 'marta.risto@unibo.it', 'RistoM44@');
+
+INSERT INTO STUDENTE(matricola, nominativo, email, password) VALUES 
+('1116816', 'Giovanni Rava', 'giovanni.rava@studio.unibo.it', 'pincopallino'),
+('1116323', 'Riccardo Cornacchia', 'riccardo.cornacchia@studio.unibo.it', 'GinoPino'), 
+('1116980', 'Francesca Gatti', 'francesca.gatti@studio.unibo.it', 'GattiFra');
+
