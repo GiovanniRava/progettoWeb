@@ -290,7 +290,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     cursor: pointer;
 }
 
-.button-annulla-prenotazione:hover, .button-elimina-prenotaizone:hover, .button-elimina-evento:hover, .button-modifica-evento:hover {
+.button-annulla-prenotazione:hover, .button-elimina-prenotazione:hover, .button-elimina-evento:hover, .button-modifica-evento:hover {
     background-color: #ffffff;
     color: #000;
     cursor: pointer;
@@ -380,7 +380,7 @@ table tr td {
     padding: 20px 5px;
 }
 
-.table-prenotazioni-studente tr td:last-child, .table-prenotazioni-admin tr td:last-child, .table-eventi-admin tr td:last-child {
+.table-prenotazioni-studente tr td:last-child, .table-eventi-admin tr td:last-child {
     text-align: center;
     padding: 20px 0;
 }
@@ -653,6 +653,11 @@ table tr td {
 
     .form-form-prenotazione, .form-form-evento {
         width: 100%;
+    }
+
+    .colonna-azioni {
+        display: flex;
+        justify-content: center;
     }
 }
 
