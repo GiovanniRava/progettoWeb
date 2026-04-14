@@ -1,34 +1,22 @@
-<!-- <!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Nuova - Prenotazione - Studente</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
-</head> -->
 <body>
-    <!-- php
-    <div class="red-bar">
-        <div class="spacer"></div>
-        <div class="subtitle">
-            <h2>NUOVA PRENOTAZIONE</h2>
-        </div>
-        <div class="back-container">
-            <a href="prenotazioni_studente.php" class="back-box" title="BackToPrenotazioni">
-                <span class="cross-icon">&times;</span>
-            </a>
-        </div>
-    </div> -->
-    
     <main>
         <div class="form-prenotazione">
-            <form action="prenotazioni_studente.php" method="POST" class="form-form-prenotazione">
+            <form action="prenotazioni_studente.php?action=<?php echo $templateParams["azione"] ?? 0; ?>&id=<?php echo $_GET["id"] ?? ""; ?>" method="POST" class="form-form-prenotazione">
                 <ul>
-                    <li><div class="col-title">RICHIESTA NUOVA PRENOTAZIONE</div></li>
+                    <li><div class="col-title">
+                        <?php if(isset($templateParams["form"])):
+                            echo $templateParams["form"];
+                        else: ?>
+                            RICHIESTA NUOVA PRENOTAZIONE
+                        <?php endif; ?>
+                    </div></li>
                     <li>
                         <div class="col">
                             <label for="aula-lab">Scegli Aula o Lab</label>
                             <select class="input-medio" name="aula-lab" id="aula-lab">
+                                <option value="<?php if(isset($templateParams["aula"])): echo $templateParams["aula"]; endif;?>" hidden selected>
+                                    <?php if(isset($templateParams["aula"])): echo $templateParams["aula"]; endif;?>
+                                </option>
                                 <?php foreach($templateParams["aule"] as $aula): ?>
                                 <option value="<?php echo $aula["numeroAula"] ?>"><?php echo $aula["numeroAula"] ?></option>
                                 <?php endforeach; ?>
@@ -39,13 +27,17 @@
                         </div>
                         <div class="col">
                             <label for="data">Data</label>
-                            <input type="date" class="input-medio" id="data" name="data" />
+                            <input type="date" class="input-medio" id="data" name="data"
+                            value="<?php if(isset($templateParams["data"])): echo $templateParams["data"]; endif;?>"/>
                         </div>
                     </li>
                     <li>
                         <div class="col">
                             <label for="ora">Orario inizio:</label>
                             <select class="input-medio" name="oraInizio" id="ora">
+                                <option value="<?php if(isset($templateParams["oraInizio"])): echo $templateParams["oraInizio"]; endif;?>" hidden selected>
+                                    <?php if(isset($templateParams["oraInizio"])): echo $templateParams["oraInizio"]; endif;?>
+                                </option>
                                 <option value="09:00">09:00</option>
                                 <option value="09:30">09:30</option>
                                 <option value="10:00">10:00</option>
@@ -70,6 +62,9 @@
                         <div class="col">
                         <label for="durata">Durata</label>
                             <select class="input-medio" name="durataPermanenza" id="durata">
+                                <option value="<?php if(isset($templateParams["durata"])): echo $templateParams["durata"]; endif;?>" hidden selected>
+                                    <?php if(isset($templateParams["durata"])): echo $templateParams["durata"]; endif;?>
+                                </option>
                                 <option value="00:30">00:30</option>
                                 <option value="01:00">01:00</option>
                                 <option value="01:30">01:30</option>
@@ -82,13 +77,14 @@
                     <li>
                         <div class="col">
                             <label for="nominativo">Nome e Cognome</label>
-                            <input type="text" class="input-pieno" id="nominativo" name="nominativo" />
+                            <input type="text" class="input-pieno" id="nominativo" name="nominativo"
+                            value="<?php if(isset($templateParams["nominativo"])): echo $templateParams["nominativo"]; endif;?>"/>
                         </div>
                     </li>
                     <li>
                         <div class="col">
                             <label for="motivazione">Motivazione</label>
-                            <textarea name="motivazionePrenotazione" id="motivazione" rows="7" placeholder="Scrivi..."></textarea>
+                            <textarea name="motivazionePrenotazione" id="motivazione" rows="7" placeholder="Scrivi..."><?php if(isset($templateParams["motivazione"])): echo htmlspecialchars($templateParams["motivazione"]); endif;?></textarea>
                         </div>
                     </li>
                     <li>
@@ -100,15 +96,12 @@
                         <?php endif; ?>
                     </li>
                     <li>
-                        <input type="submit" name="submit" class="button-nuova-prenotazione" value="INVIA PRENOTAZIONE" />
+                        <input type="submit" name="submit" class="button-nuova-prenotazione"
+                        value="<?php if(isset($templateParams["button"])): echo $templateParams["button"];
+                        else: ?> INVIA PRENOTAZIONE <?php endif; ?>" />
                     </li>
                 </ul>
             </form>
         </div>
     </main>
-
-    <!-- <footer>
-        <p>Contatti Per Docenti - Assistenza Didattica tel:0512080302</p>
-        <p>Contatti Per Studenti - Help Desk Studenti tel:0512080301</p>
-    </footer> -->
 </body>

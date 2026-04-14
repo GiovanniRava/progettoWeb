@@ -1,30 +1,4 @@
-<!--<?php
-if (!isUserLogged()) {
-    header("Location: login.php");
-    exit();
-}
-?>
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Nuovo - Evento - Amministratore</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
-</head>-->
 <body>
-    <!--php 
-    <div class="red-bar">
-        <div class="spacer"></div>
-        <div class="subtitle">
-            <h2>NUOVO EVENTO</h2>
-        </div>
-        <div class="back-container">
-            <a href="eventi_admin.php" class="back-box" title="BackToEeventi">
-                <span class="cross-icon">&times;</span>
-            </a>
-        </div>
-    </div>-->
     <main>
         <div class="form-evento">
             <form action="eventi_admin.php?action=<?php echo $templateParams["azione"] ?? 0; ?>&id=<?php echo $_GET["id"] ?? ""; ?>" method="POST" class="form-form-evento" enctype="multipart/form-data">
@@ -137,5 +111,4 @@ if (!isUserLogged()) {
             </form>
         </div>
     </main>
-    <!-- require($templateParams["footer"]) -->
 </body>

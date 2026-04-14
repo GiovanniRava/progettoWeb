@@ -208,6 +208,22 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function get_richiesta_by_cod($cod) {        
+        $stmt = $this->db->prepare("SELECT codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula
+        FROM richiesta_in_corso WHERE codiceRichiesta = ?");
+        $stmt->bind_param("i", $cod);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    public function update_richiesta($nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula, $id){
+        $query = "UPDATE richiesta_in_corso SET nominativo = ?, data = ?, oraInizio = ?, durata = ?, motivazione = ?, numeroLab = ?, numeroAula = ? WHERE codiceRichiesta = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssisssi', $nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula, $id);
+        return $stmt->execute();
+    }
+
     public function deleteRichiesta($cod){
         $stmt = $this->db->prepare("DELETE FROM richiesta_in_corso WHERE codiceRichiesta = ?");
         $stmt->bind_param('i', $cod);

@@ -1,5 +1,4 @@
 <?php
-//require_once("bootstrap.php");
 $templateParams["aule"] = $dbh->get_aule();
 $templateParams["lab"] = $dbh->get_lab();
 $templateParams["azione"] = 0;
@@ -76,8 +75,5 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
             $templateParams["errore"] = $msg;
         }
     }
-    //da aggiungere anche la modifica di un evento esistente? citato da Delnevo, dicendo che si dovrebbe fare, pena penalizzazione
 }
-
-//require("template/nuovoEvento_amministratore_base.php");
 ?>
