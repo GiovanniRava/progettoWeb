@@ -1,5 +1,5 @@
 <?php 
-if (!isUserLogged()) {
+if (!isUserLogged() && !isAdmin()) {
     header("Location: login.php");
     exit();
 }
@@ -50,9 +50,9 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                     <td>
                         <?php 
                             if (!empty($richiesta["numeroAula"])) {
-                                echo "Aula " . htmlspecialchars($richiesta["numeroAula"]);
+                                echo htmlspecialchars($richiesta["numeroAula"]);
                             } elseif (!empty($richiesta["numeroLab"])) {
-                                echo "Lab " . htmlspecialchars($richiesta["numeroLab"]);
+                                echo htmlspecialchars($richiesta["numeroLab"]);
                             } else {
                                 echo "N/D";
                             }

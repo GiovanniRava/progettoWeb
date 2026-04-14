@@ -1,5 +1,5 @@
 <?php
-if (!isUserLogged()) {
+if (!isUserLogged() && !isStudente()) {
     header("Location: login.php");
     exit();
 }
