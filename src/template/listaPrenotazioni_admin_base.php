@@ -1,5 +1,5 @@
 <?php
-if (!isUserLogged()) {
+if (!isUserLogged() || !isAdmin()) {
     header("Location: login.php");
     exit();
 }
@@ -24,15 +24,15 @@ if (!isUserLogged()) {
     </div>
     
     <main>
-        <table >
+        <table class="table-prenotazioni-admin">
             <thead>
                 <tr>
-                    <th>AULA / LAB</th>
-                    <th>DATA</th>
-                    <th>ORARIO</th>
-                    <th class="hide-mobile">NOME e COGNOME</th>
-                    <th class="hide-mobile">MOTIVAZIONE</th>
-                    <th></th>
+                    <th id="numero-aula-lab">AULA / LAB</th>
+                    <th id="data-prenotazione">DATA</th>
+                    <th id="ora-prenotazione">ORARIO</th>
+                    <th id="nominativo-prenotazione" class="hide-mobile">NOME e COGNOME</th>
+                    <th id="motivazione-prenotazione" class="hide-mobile">MOTIVAZIONE</th>
+                    <th id="sezione-elimina"></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,25 +45,18 @@ if (!isUserLogged()) {
                     $dataFormattata = date("d/m/Y", strtotime($prenotazione["data"])); ?>
                     
                     <tr class="riga-principale">
-                        <td><?php echo htmlspecialchars($prenotazione["num"]); ?></td>
-                        <td><?php echo $dataFormattata; ?></td>
-                        <td>
-                            <?php 
-                                $oraInizio = date("H:i", strtotime($prenotazione["oraInizio"])); 
-                                echo $oraInizio; 
-                            ?> - 
-                            <?php 
-                                $date = new DateTime($prenotazione["oraInizio"]);
-                                $date->modify("+{$prenotazione["durata"]} minutes");
-                                $oraFine = $date->format('H:i'); 
-                                echo $oraFine;
-                            ?>
-                        </td>
+                        <td headers="numero-aula-lab"><?php echo htmlspecialchars($prenotazione["num"]); ?></td>
+                        <td headers="data-prenotazione"><?php echo $dataFormattata; ?></td>
+                        <td headers="ora-prenotazione"><?php $oraInizio = date("H:i", strtotime($prenotazione["oraInizio"])); echo $oraInizio; ?> - 
+                        <?php $date = new DateTime($prenotazione["oraInizio"]);
+                            $date->modify("+{$prenotazione["durata"]} minutes");
+                            $oraFine = $date->format('H:i'); 
+                            echo $oraFine;
+                        ?></td>
+                        <td  headers="nominativo-prenotazione" class="hide-mobile"><?php echo htmlspecialchars($prenotazione["nominativo"]); ?></td>
+                        <td headers="motivazione-prenotazione" class="hide-mobile"><?php echo htmlspecialchars($prenotazione["motivazione"]); ?></td>
                         
-                        <td class="hide-mobile"><?php echo htmlspecialchars($prenotazione["nominativo"]); ?></td>
-                        <td class="hide-mobile"><?php echo htmlspecialchars($prenotazione["motivazione"]); ?></td>
-                        
-                        <td class="colonna-azioni">
+                        <td headers="sezione-elimina" class="colonna-azioni">
                             <div class="hide-mobile">
                                 <button class="button-elimina-prenotazione" data-id="<?php echo $prenotazione["codicePre"]; ?>">ELIMINA</button>
                             </div>

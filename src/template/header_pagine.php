@@ -19,22 +19,15 @@
     <div class="title">
         <h1>Alma Aule</h1>
     </div>
-    <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
+    <?php if(isUserLogged()): ?>
     <div class="menu-container">
-        <a href="menu.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
-            &#9776;
-        </a>
-    </div>
-    <?php endif; ?>
-    <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "admin"): ?>
-    <div class="menu-container">
-        <a href="menu_admin.php" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;">
+        <a href="javascript:void(0);" onclick="openMenu()" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;" aria-label="Apri menu">
             &#9776;
         </a>
     </div>
     <?php endif; ?>
     <div class="logout-pc">
-        <a href="index.php">Logout</a>
+        <a href="logout.php">Logout</a>
     </div>
 </header>
 <?php if(isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente"): ?>
@@ -57,3 +50,42 @@
     </ul>
 </nav>
 <?php endif; ?>
+
+<div id="sideMenuMobile" class="side-menu-mobile">
+    <header class="header-menu">
+        <img src="upload/uniboLogo.png" alt="Logo Università" class="logo-menu">
+        <a href="javascript:void(0);" class="btn-chiudi-menu" onclick="closeMenu()">&times;</a>
+    </header>
+
+    <div class="red-bar">
+        <div class="spacer"></div>
+        <div class="subtitle">
+            <h2>MENU</h2>
+        </div>
+        <div class="spacer"></div>
+    </div>
+
+    <?php
+    if (isUserLogged()) {
+        if (isStudente()) {
+            $templateParams["voci_menu"] = [
+                ["nome" => "AULE", "url" => "cercaAula_studente.php"],
+                ["nome" => "LABORATORI", "url" => "cercaLaboratorio_studente.php"],
+                ["nome" => "POLIVALENTE", "url" => "polivalente.php"],
+                ["nome" => "EVENTI", "url" => "eventi_studente.php"],
+                ["nome" => "PRENOTAZIONI", "url" => "prenotazioni_studente.php"]
+            ];
+        } elseif (isAdmin()) {
+            $templateParams["voci_menu"] = [
+                ["nome" => "PRENOTAZIONI", "url" => "listaPrenotazioni_admin.php"],
+                ["nome" => "EVENTI", "url" => "eventi_admin.php"],
+                ["nome" => "RICHIESTE IN CORSO", "url" => "richieste_admin.php"]
+            ];
+        }
+        require("menu_base.php");
+    }
+    ?>
+</div>
+
+<script src="script/header_pagine_script.js"
+    type="text/javascript"></script>

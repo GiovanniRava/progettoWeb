@@ -1,5 +1,5 @@
 <?php
-if (!isUserLogged()) {
+if (!isUserLogged() || !isStudente()) {
     header("Location: login.php");
     exit();
 }
@@ -54,14 +54,8 @@ if (!isUserLogged()) {
     </main>
 
     <?php include("footer.php"); ?>
-    <script>
-        function toggleEspansione(cardCliccata) {    
-            document.querySelectorAll('.card-evento').forEach(card => {
-                if (card !== cardCliccata) card.classList.remove('espansa');
-            });
-            cardCliccata.classList.toggle('espansa');
-        }
-    </script>
+    <script src="script/eventi_studente_script.js"
+    type="text/javascript"></script>
 </body>
 
 </html>

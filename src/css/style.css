@@ -290,7 +290,7 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     cursor: pointer;
 }
 
-.button-annulla-prenotazione:hover, .button-elimina-prenotaizone:hover, .button-elimina-evento:hover, .button-modifica-evento:hover {
+.button-annulla-prenotazione:hover, .button-elimina-prenotazione:hover, .button-elimina-evento:hover, .button-modifica-evento:hover {
     background-color: #ffffff;
     color: #000;
     cursor: pointer;
@@ -374,7 +374,7 @@ table tr td {
     padding: 20px 5px;
 }
 
-.table-prenotazioni-studente tr td:last-child, .table-prenotazioni-admin tr td:last-child, .table-eventi-admin tr td:last-child {
+.table-prenotazioni-studente tr td:last-child, .table-eventi-admin tr td:last-child {
     text-align: center;
     padding: 20px 0;
 }
@@ -647,6 +647,11 @@ table tr td {
 
     .form-form-prenotazione, .form-form-evento {
         width: 100%;
+    }
+
+    .colonna-azioni {
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -1036,9 +1041,9 @@ table tr td {
 }
 
 .btn-rifiuta {
-    background-color: #d2504b;
+    background-color: #e21d1d;
     color: white;
-    border: 1px solid #ac2925;
+    border: 1px solid #e21d1d;
     padding: 6px 12px;
     border-radius: 5px;
     cursor: pointer;
@@ -1114,3 +1119,39 @@ table tr td {
     }
 }
 /*FINE RICHIESTE ADMIN*/
+.side-menu-mobile {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: -100%; /* Nascosto di default a destra */
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: right 0.4s ease-in-out; /* Animazione di entrata */
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu-mobile.open {
+    right: 0; /* Appare quando aggiungiamo la classe tramite JS */
+}
+
+.btn-chiudi-menu {
+    font-size: 40px;
+    color: #333;
+    text-decoration: none;
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.side-menu-mobile .header-menu {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

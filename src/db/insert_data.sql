@@ -204,3 +204,26 @@ INSERT INTO RICHIESTA_IN_CORSO(nominativo, data, oraInizio, durata, motivazione,
 ('Riccardo Cornacchia', '2026-09-25', '14:30:00', 60, 'incontro ricerca operativa', NULL, 2.12),
 ('Francesca Gatti', '2026-09-23', '11:30:00', 180, 'progetto mobile', 2.2, NULL);
 
+INSERT INTO AMMINISTRATORE(codiceAmministratore, nominativo, email, password) VALUES 
+('1', 'Diego Rossi', 'diego.rossi@unibo.it', 'Diegoo22'),
+('2', 'Franca Neri', 'franca.neri@unibo.it', 'FraBlack55'), 
+('3', 'Marta Risto', 'marta.risto@unibo.it', 'RistoM44@');
+
+INSERT INTO STUDENTE(matricola, nominativo, email, password) VALUES 
+('1116816', 'Giovanni Rava', 'giovanni.rava@studio.unibo.it', 'pincopallino'),
+('1116323', 'Riccardo Cornacchia', 'riccardo.cornacchia@studio.unibo.it', 'GinoPino'), 
+('1116980', 'Francesca Gatti', 'francesca.gatti@studio.unibo.it', 'GattiFra'),
+('1234987', 'Sofia Moretti', 'sofia.moretti@studio.unibo.it', '123456'),
+('1045790', 'Alessandro Conti', 'alessandro.conti@studio.unibo.it', 'noTiPicchio'),
+('1124563', 'Chiara Neri', 'chiara.neri@studio.unibo.it', 'Dfifj23'),
+('1802927', 'Lorenzo Serra', 'lorenzo.serra@studio.unibo.it', 'archimede11'),
+('1098735', 'Giulia de Luca', 'giula.deluca@studio.unibo.it', 'algoritmi35'), 
+('1675930', 'Riccardo Sanna', 'riccardo.sanna@studio.unibo.it', 'tecnologieWeb55'),
+('2124355', 'Elena Vitali', 'elena.vatali@studio.unibo.it', 'Parigi33'),
+('2355784', 'Giulia Bianchi', 'giulia.bianchi@studio.unibo.it', 'Lebron233!'), 
+('4232021', 'Marco Gatti', 'marco.gatti@studio.unibo.it', 'Tennis@'), 
+('2953293', 'Beatrice Ferri', 'beatrice.ferri@studio.unibo.it', 'beaFerr04'),
+('2431035', 'Valerio Riva', 'valerio.riva@studio.unibo.it', 'valeeSponda33');
+
+
+

@@ -1,5 +1,5 @@
 <?php
-if (!isUserLogged()) {
+if (!isUserLogged() || !isStudente()) {
     header("Location: login.php");
     exit();
 }
@@ -54,39 +54,8 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
     </main>
     <?php include($templateParams["footer"]); ?>
 
-    <script>
-        //Aspetta di aver caricato tutta la struttura HTML, poi esegui queste funzioni
-        document.addEventListener('DOMContentLoaded', function() {
-        const btnAdd = document.querySelector('.add-box');
-        const btnBack = document.querySelector('.back-box');
-        const body = document.body;
-
-        if (localStorage.getItem('statoForm') === 'aperto' && window.innerWidth < 768) {
-            body.classList.add('mostra-form');
-        }
-
-        btnAdd.addEventListener('click', function(e) {
-            if (window.innerWidth < 768) {
-                e.preventDefault();
-                body.classList.add('mostra-form');
-                localStorage.setItem('statoForm', 'aperto');
-            }
-        });
-
-        btnBack.addEventListener('click', function(e) {
-            if (window.innerWidth < 768) {
-                e.preventDefault();
-                body.classList.remove('mostra-form');
-                localStorage.removeItem('statoForm');
-                window.history.replaceState({}, '', window.location.pathname);// Questa riga pulisce l'URL (toglie ?inviato=1) al refresh
-            }
-        });
-
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768) {
-                body.classList.remove('mostra-form');
-            }
-        });
-    });
-    </script>
+    <script src="script/prenotazioni_studente_script.js"
+    type="text/javascript"
+    data-class="add-box"></script>
 </body>
+</html>
