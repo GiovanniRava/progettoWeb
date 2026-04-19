@@ -29,8 +29,9 @@ if (!isUserLogged()) {
                     value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
                     <input type="date" id="data-lezione" name="data-lezione"
                     value="<?php echo isset($_GET['data-lezione']) ? htmlspecialchars($_GET['data-lezione']) : date('Y-m-d'); ?>">
+                    <button type="submit" class="button-search">CERCA</button>
                 </div>
-                <button type="submit" class="button-prenota">PRENOTA</button>
+                <a href="prenotazioni_studente.php" class="button-prenota">PRENOTA</a>
             </form>
         </section>
         <section class = "table-aule">
@@ -52,7 +53,7 @@ if (!isUserLogged()) {
                             <tr>
                                 <td><?php echo htmlspecialchars($aula["nomeAula"]); ?></td>
                                 <td><?php echo htmlspecialchars($aula["nomeEvento"]); ?></td>
-                                <td><?php echo htmlspecialchars($aula["orarioInizio"]); ?></td>
+                                <td><?php echo htmlspecialchars(substr($aula["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($aula["oraFine"], 0, 5)); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

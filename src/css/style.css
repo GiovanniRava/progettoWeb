@@ -297,20 +297,6 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
 }
 /*ciao sono riki sono arrivato a qui nella pulizia del mio css*/ /*c'è da capire se i form si vedono bene su mobile*/
 
-.search-bar {
-    display: flex;
-    justify-content: center; /* Centra il form orizzontalmente */
-    padding: 40px 0;         /* Crea spazio sopra e sotto (addio effetto appiccicato!) */
-}
-
-.search-bar form {
-    background: none;       /* Rimuove lo sfondo grigio del form generico */
-    box-shadow: none;       /* Rimuove l'ombra */
-    display: flex;
-    flex-direction: column; /* Mette input sopra e bottone sotto */
-    align-items: center;    /* Centra tutto */
-    gap: 15px;              /* Spazio tra i vari elementi del form */
-}
 
 .button-prenota, .button-nuova-prenotazione, .button-nuovo-evento {
     background-color: #add8e6; 
@@ -327,6 +313,14 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
 
 .button-prenota:hover, .button-nuova-prenotazione:hover, .button-nuovo-evento:hover {
     background-color: #87ceeb;
+}
+
+.button-search {
+    background-color: #efefef;
+    border: 1px solid #767676;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 table {
@@ -924,13 +918,13 @@ table tr td {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 15px;
 }
 
 .input-aule, .input-lab {
     display: flex;
+    align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
 }
 
 .input-aule input, .input-lab input {
@@ -942,17 +936,6 @@ table tr td {
 #search {
     border-radius: 25px;
     width: 250px;
-}
-
-.button-prenota {
-    background-color: #52d4ff;
-    color: #000;
-    border: 1px solid #000000;
-    padding: 10px 40px;
-    border-radius: 5px;
-    font-weight: bold; 
-    width: 200px;
-    cursor: pointer;
 }
 
 .table-aule, .table-lab {
