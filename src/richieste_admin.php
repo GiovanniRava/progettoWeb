@@ -1,6 +1,6 @@
 <?php
 require_once("bootstrap.php");
-$templateParams["nome"] = "header_pagine.php";
+$templateParams["header"] = "header_pagine.php";
 $templateParams["richieste_in_corso"] = $dbh->getRichiesteInCorso();
 
 if (isset($_POST['richiesta_da_eliminare'])) {
