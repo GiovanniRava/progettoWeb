@@ -15,7 +15,7 @@ if (!isUserLogged() || !isStudente()) {
 </head>
 
 <body>
-    <?php include($templateParams["nome"]); ?>
+    <?php include($templateParams["header"]); ?>
 
     <div class="red-bar">
         <div class="spacer"></div>
