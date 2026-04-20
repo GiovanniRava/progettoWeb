@@ -29,8 +29,9 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                     value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
                     <input type="date" id="data-lezione" name="data-lezione" 
                     value="<?php echo isset($_GET ['data-lezione']) ? htmlspecialchars($_GET['data-lezione']) : date('Y-m-d'); ?>">
+                    <button type="submit" class="button-search">CERCA</button>
                 </div>
-                <button type="submit" class = "button-prenota">PRENOTA</button>
+                <a href="prenotazioni_studente.php" class="button-prenota">PRENOTA</a>
             </form>
         </section>
         <section class = "table-lab">

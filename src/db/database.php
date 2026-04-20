@@ -115,8 +115,7 @@ class DatabaseHelper {
     }
 
     public function get_aula_cercata($search, $data) {
-        $query = "
-            SELECT numeroAula AS nomeAula, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
+        $query = "SELECT numeroAula AS nomeAula, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
             FROM (
             SELECT L.numeroAula, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
                 TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
@@ -156,8 +155,7 @@ class DatabaseHelper {
     }
 
     public function get_laboratorio_cercato($search, $data) {
-        $query = "
-            SELECT numeroLab AS nomeLab, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
+        $query = "SELECT numeroLab AS nomeLab, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
             FROM (
             SELECT L.numeroLab, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
                 TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
@@ -188,6 +186,86 @@ class DatabaseHelper {
             $result = $stmt->get_result();
 
             return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getNumeroAuleOccupate() {
+        $dataTest = '2026-09-22';
+        $query= "SELECT COUNT(DISTINCT numeroAula) as conteggio FROM (
+            SELECT numeroAula FROM LEZIONE 
+            WHERE data = ? 
+            AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
+            UNION 
+            SELECT numeroAula FROM ESAME 
+            WHERE data = ? 
+            AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
+            UNION 
+            SELECT numeroAula FROM EVENTO 
+            WHERE data = ? 
+            AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
+            UNION 
+            SELECT numeroAula FROM LAUREA 
+            WHERE data = ? 
+            AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
+        ) AS t WHERE numeroAula IS NOT NULL";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssss", $dataTest, $dataTest, $dataTest, $dataTest);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc()["conteggio"];
+    }
+
+    public function getNumeroLabOccupati() {
+        $dataTest = '2026-09-22';
+        $query= "SELECT COUNT(DISTINCT numeroLab) as conteggio FROM (
+            SELECT numeroLab FROM LEZIONE 
+            WHERE data = ? 
+            AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
+            UNION 
+            SELECT numeroLab FROM ESAME 
+            WHERE data = ? 
+            AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
+            UNION 
+            SELECT numeroLab FROM EVENTO 
+            WHERE data = ? 
+            AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
+        ) AS t WHERE numeroLab IS NOT NULL";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sss", $dataTest, $dataTest, $dataTest);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc()["conteggio"];
+    }
+
+    public function getEventiInProgramma() {
+    $dataTest = '2026-09-21';
+    // Un evento è in programma se:
+    // 1. La data è strettamente successiva a quella di test
+    // 2. La data è quella di test ma l'ora di inizio è successiva a quella attuale
+    $query = "SELECT COUNT(*) as conteggio FROM EVENTO 
+              WHERE data > ? 
+              OR (data = ? AND oraInizio > CURRENT_TIME)";
+              
+    $stmt = $this->db->prepare($query);
+    $stmt->bind_param("ss", $dataTest, $dataTest);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc()["conteggio"];
+    }
+
+    public function getTotaleAule() {
+        $query = "SELECT COUNT(*) as totale FROM AULA";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc()["totale"];
+    }
+
+    public function getTotaleLab() {
+        $query = "SELECT COUNT(*) as totale FROM LABORATORIO";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc()["totale"];
     }
 
     public function getRichiesteInCorso() {        

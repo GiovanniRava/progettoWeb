@@ -1,6 +1,6 @@
 <?php
 require_once("bootstrap.php");
-$templateParams["nome"] = "header_pagine.php";  
+//$templateParams["nome"] = "header_pagine.php";  
 
 $templateParams["voci_menu"] = [
     ["nome" => "PRENOTAZIONI", "url" => "listaPrenotazioni_admin.php"],
