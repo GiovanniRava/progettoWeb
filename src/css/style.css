@@ -1150,8 +1150,12 @@ table tr td {
 
 .side-menu-mobile .header-menu {
     position: relative;
-    padding: 20px;
+    padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.card-evento:hover{
+    transform: scale(1.02);
 }
