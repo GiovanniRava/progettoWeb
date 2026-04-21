@@ -35,31 +35,34 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
         <table class="table-richieste-admin">
             <thead>
                 <tr>
-                    <th>AULA / LAB</th>
-                    <th>DATA</th>
-                    <th>ORARIO</th>
+                    <th id="numero-aula-lab">AULA / LAB</th>
+                    <th id="data-richiesta">DATA</th>
+                    <th id="ora-richiesta">ORARIO</th>
                     <th class="hide-mobile">NOME e COGNOME</th>
                     <th class="hide-mobile">MOTIVAZIONE</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
+                <?php if(empty($templateParams["richieste_in_corso"])): ?>
+                    <tr>
+                        <td colspan="6" >Nessuna richiesta in corso</td>
+                    </tr>
+                <?php endif; ?>
                 <?php foreach($templateParams["richieste_in_corso"] as $richiesta): ?>
                 
                 <tr class="riga-principale">
-                    <td>
+                    <td headers="numero-aula-lab">
                         <?php 
                             if (!empty($richiesta["numeroAula"])) {
                                 echo htmlspecialchars($richiesta["numeroAula"]);
                             } elseif (!empty($richiesta["numeroLab"])) {
                                 echo htmlspecialchars($richiesta["numeroLab"]);
-                            } else {
-                                echo "N/D";
                             }
                         ?>
                     </td>
-                    <td><?php echo htmlspecialchars($richiesta["data"]); ?></td>
-                    <td>
+                    <td headers="data-richiesta"><?php echo htmlspecialchars($richiesta["data"]); ?></td>
+                    <td headers="ora-richiesta">
                         <?php 
                             $oraInizio = $richiesta["oraInizio"];
                             $date = new DateTime($oraInizio);
