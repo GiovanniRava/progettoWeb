@@ -8,9 +8,6 @@ $dominio_admin = "/^[a-zA-Z0-9]+\.[a-zA-Z0-9]+@unibo\.it$/";
 $pass_admin_corretta = "abcdef";
 $pass_studente_corretta = "123456";
 
-//aggiungere controllo su admin esistenti nel database? quindi aggiungere la tabella admin nel database in cui salvare i nomi e le
-//rispettive password di chi può entrare come admin.
-
 if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password'])) {
 
     $email = trim($_POST['email']);

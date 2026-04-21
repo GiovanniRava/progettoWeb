@@ -32,7 +32,7 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
     </div>
     
     <main>
-        <table>
+        <table class="table-richieste-admin">
             <thead>
                 <tr>
                     <th>AULA / LAB</th>
@@ -74,8 +74,8 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                     
                     <td class="colonna-azioni">
                         <div class="hide-mobile">
-                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Accetta</button>
-                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Rifiuta</button>
+                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">ACCETTA</button>
+                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">RIFIUTA</button>
                         </div>
                         <button class="toggle-btn show-mobile">&#709;</button>
                     </td>
@@ -98,8 +98,8 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                 <tr class="riga-dettagli nascosta">
                     <td colspan="4">
                         <div class="azioni-mobile-stacked show-mobile">
-                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Accetta</button>
-                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Rifiuta</button>
+                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">ACCETTA</button>
+                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">RIFIUTA</button>
                         </div>
                     </td>
                 </tr>
