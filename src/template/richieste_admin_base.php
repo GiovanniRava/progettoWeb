@@ -21,8 +21,8 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["nome"]); ?>
-<?php endif; ?>
+    <?php require($templateParams["header"]); ?>
+    <?php endif; ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -32,34 +32,37 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
     </div>
     
     <main>
-        <table>
+        <table class="table-richieste-admin">
             <thead>
                 <tr>
-                    <th>AULA / LAB</th>
-                    <th>DATA</th>
-                    <th>ORARIO</th>
+                    <th id="numero-aula-lab">AULA / LAB</th>
+                    <th id="data-richiesta">DATA</th>
+                    <th id="ora-richiesta">ORARIO</th>
                     <th class="hide-mobile">NOME e COGNOME</th>
                     <th class="hide-mobile">MOTIVAZIONE</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
+                <?php if(empty($templateParams["richieste_in_corso"])): ?>
+                    <tr>
+                        <td colspan="6" >Nessuna richiesta in corso</td>
+                    </tr>
+                <?php endif; ?>
                 <?php foreach($templateParams["richieste_in_corso"] as $richiesta): ?>
                 
                 <tr class="riga-principale">
-                    <td>
+                    <td headers="numero-aula-lab">
                         <?php 
                             if (!empty($richiesta["numeroAula"])) {
                                 echo htmlspecialchars($richiesta["numeroAula"]);
                             } elseif (!empty($richiesta["numeroLab"])) {
                                 echo htmlspecialchars($richiesta["numeroLab"]);
-                            } else {
-                                echo "N/D";
                             }
                         ?>
                     </td>
-                    <td><?php echo htmlspecialchars($richiesta["data"]); ?></td>
-                    <td>
+                    <td headers="data-richiesta"><?php echo htmlspecialchars($richiesta["data"]); ?></td>
+                    <td headers="ora-richiesta">
                         <?php 
                             $oraInizio = $richiesta["oraInizio"];
                             $date = new DateTime($oraInizio);
@@ -74,8 +77,8 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                     
                     <td class="colonna-azioni">
                         <div class="hide-mobile">
-                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Accetta</button>
-                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Rifiuta</button>
+                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">ACCETTA</button>
+                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">RIFIUTA</button>
                         </div>
                         <button class="toggle-btn show-mobile">&#709;</button>
                     </td>
@@ -98,8 +101,8 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                 <tr class="riga-dettagli nascosta">
                     <td colspan="4">
                         <div class="azioni-mobile-stacked show-mobile">
-                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Accetta</button>
-                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">Rifiuta</button>
+                            <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">ACCETTA</button>
+                            <button class="btn-rifiuta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">RIFIUTA</button>
                         </div>
                     </td>
                 </tr>

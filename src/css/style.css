@@ -184,7 +184,8 @@ h1 {
     display: none;
 }
 
-.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotazione, .button-elimina-evento, .button-modifica-evento {
+.login a, .logout-pc a, .conferma-login, .button-annulla-prenotazione, .button-elimina-prenotazione, .button-elimina-evento,
+.button-modifica-evento, .btn-accetta, .btn-rifiuta {
     color: #ffffff;
     text-decoration: none;
     background-color: #ed1d1d;
@@ -290,7 +291,8 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     cursor: pointer;
 }
 
-.button-annulla-prenotazione:hover, .button-elimina-prenotazione:hover, .button-elimina-evento:hover, .button-modifica-evento:hover {
+.button-annulla-prenotazione:hover, .button-elimina-prenotazione:hover, .button-elimina-evento:hover, .button-modifica-evento:hover,
+.btn-accetta:hover, .btn-rifiuta:hover  {
     background-color: #ffffff;
     color: #000;
     cursor: pointer;
@@ -347,7 +349,8 @@ table {
 .table-prenotazioni-studente td:nth-child(-n+4):not(:last-child), .table-prenotazioni-studente th:nth-child(-n+4):not(:last-child),
 .table-prenotazioni-admin td:nth-child(-n+6):not(:last-child), .table-prenotazioni-admin th:nth-child(-n+6):not(:last-child),
 .table-eventi-admin td:nth-child(-n+4):not(:last-child), .table-eventi-admin th:nth-child(-n+4):not(:last-child),
-.table-cerca td:nth-child(-n+3):not(:last-child), .table-cerca th:nth-child(-n+3):not(:last-child) {
+.table-cerca td:nth-child(-n+3):not(:last-child), .table-cerca th:nth-child(-n+3):not(:last-child),
+.table-richieste-admin td:nth-child(-n+6):not(:last-child), .table-richieste-admin th:nth-child(-n+6):not(:last-child) {
     border-right: 1px solid #000;
 }
 
@@ -376,7 +379,6 @@ table tr td {
 
 .table-prenotazioni-studente tr td:last-child, .table-eventi-admin tr td:last-child {
     text-align: center;
-    padding: 20px 0;
 }
 
 .red-bar {
@@ -819,7 +821,7 @@ table tr td {
 }
 /*RICHIESTE ADMIIN*/
 
-.btn-accetta {
+/* .btn-accetta {
     background-color: #6fb365;
     color: white;
     border: 1px solid #4cae4c;
@@ -839,7 +841,7 @@ table tr td {
     cursor: pointer;
     margin: 2px;
     font-weight: bold;
-}
+} */
 
 .hide-mobile {
     display: none;
@@ -927,9 +929,6 @@ table tr td {
     justify-content: center;
 }
 
-.card-evento:hover{
-    transform: scale(1.02);
-}
 @media screen and (min-width: 768px) {
 
     header > div > a > figure > img {
@@ -1070,11 +1069,6 @@ table tr td {
         width: 100%;
     }
 
-    .colonna-azioni {
-        display: flex;
-        justify-content: center;
-    }
-
     .section-nuovo-evento-btn{
         display: none;
     }
@@ -1118,9 +1112,9 @@ table tr td {
         display: table-cell;
     }
     
-    div .hide-mobile {
-        padding-right: 10px;
+    .colonna-azioni .hide-mobile {
         display: flex;
+        justify-content: center;
         gap: 5px;
     }
     
