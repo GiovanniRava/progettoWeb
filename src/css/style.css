@@ -195,6 +195,9 @@ h1 {
     border: 1px solid #000;
     margin: 6px 2px;
 }
+.btn-accetta{
+    background-color: #228B22;
+}
 
 .button-modifica-evento {
     background-color: #2f00da;
@@ -647,6 +650,7 @@ table tr td {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     cursor: pointer;
     transition: all 0.4s ease-in-out;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 
@@ -698,6 +702,9 @@ table tr td {
     max-height: 500px; 
     opacity: 1;
     margin-top: 15px;
+}
+.card-evento.espansa .testo-espansione {
+    display: none;
 }
 
 /*PAGINA PRINCIPALE DELL'AMMINISTRATORE - fra*/

@@ -43,7 +43,7 @@ if (!isUserLogged() || !isStudente()) {
                         ?>
                         <h3><?php echo htmlspecialchars($titoloDisplay); ?></h3>
                         <span class="data-evento"><?php echo $dataFormattata; ?> - Ore <?php echo $oraFormattata; ?></span></br>
-                        <span>Clicca per Maggiori Informazioni</span>
+                        <span class="testo-espansione">Clicca per Maggiori Informazioni</span>
                         <div class="descrizione-evento">
                             <p><?php echo nl2br(htmlspecialchars($evento['descrizione'] ?? 'Nessuna descrizione disponibile')); ?></p>
                         </div>
