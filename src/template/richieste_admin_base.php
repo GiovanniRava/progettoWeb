@@ -22,7 +22,7 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
 </head>
 <body>
     <?php require($templateParams["header"]); ?>
-<?php endif; ?>
+    <?php endif; ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -32,7 +32,7 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
     </div>
     
     <main>
-        <table>
+        <table class="table-richieste-admin">
             <thead>
                 <tr>
                     <th>AULA / LAB</th>

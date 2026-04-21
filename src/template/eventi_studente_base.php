@@ -42,7 +42,8 @@ if (!isUserLogged() || !isStudente()) {
                         $oraFormattata = date("H:i", strtotime($evento['oraInizio']));
                         ?>
                         <h3><?php echo htmlspecialchars($titoloDisplay); ?></h3>
-                        <span class="data-evento"><?php echo $dataFormattata; ?> - Ore <?php echo $oraFormattata; ?></span>
+                        <span class="data-evento"><?php echo $dataFormattata; ?> - Ore <?php echo $oraFormattata; ?></span></br>
+                        <span>Clicca per Maggiori Informazioni</span>
                         <div class="descrizione-evento">
                             <p><?php echo nl2br(htmlspecialchars($evento['descrizione'] ?? 'Nessuna descrizione disponibile')); ?></p>
                         </div>
