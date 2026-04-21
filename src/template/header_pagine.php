@@ -21,7 +21,7 @@
     </div>
     <?php if(isUserLogged()): ?>
     <div class="menu-container">
-        <a href="javascript:void(0);" onclick="openMenu()" style="text-decoration: none; font-size: 35px; color: #333333; line-height: 1;" aria-label="Apri menu">
+        <a href="javascript:void(0);" onclick="openMenu()" class="hamburger-menu" aria-label="Apri menu">
             &#9776;
         </a>
     </div>
