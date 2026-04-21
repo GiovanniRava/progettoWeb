@@ -104,14 +104,16 @@ class DatabaseHelper {
     }
     
     public function get_lezioni_in_corso() {
-       $query = "SELECT I.nomeIns, L.numeroAula, L.numeroLab, L.oraInizio, L.durata
+       $data = '2026-09-21';
+       $query = "SELECT I.nomeIns AS nomeEvento, L.numeroAula, L.numeroLab, L.oraInizio, L.durata
               FROM LEZIONE L 
               JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns 
-              WHERE L.data = '2026-09-22'
-              AND CURRENT_TIME >= L.oraInizio 
-              AND CURRENT_TIME <= ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))";
+              WHERE L.data = ? AND CURRENT_TIME BETWEEN L.oraInizio AND ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))";
               $stmt = $this->db->prepare($query);
+              $stmt->bind_param("s", $data);
               $stmt->execute();
+              $result = $stmt->get_result();
+              return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function get_aula_cercata($search, $data) {
