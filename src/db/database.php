@@ -11,7 +11,8 @@ class DatabaseHelper {
     
     public function get_prenotazioni_studente($nome){
         $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
-        FROM prenotazione WHERE nominativo = ?");
+        FROM prenotazione WHERE nominativo = ?
+        AND ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))");
         $stmt->bind_param("s", $nome);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -20,7 +21,8 @@ class DatabaseHelper {
 
     public function get_prenotazioni_admin(){
         $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
-        FROM prenotazione");
+        FROM prenotazione
+        WHERE ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -304,7 +306,7 @@ class DatabaseHelper {
         return $stmt->execute();
     }
 
-    public function deleteRichiesta($cod){
+    public function delete_richiesta($cod){
         $stmt = $this->db->prepare("DELETE FROM richiesta_in_corso WHERE codiceRichiesta = ?");
         $stmt->bind_param('i', $cod);
         return $stmt->execute();
@@ -329,7 +331,7 @@ class DatabaseHelper {
             throw new Exception("Errore nell'inserimento della nuova prenotazione");
         }                                    
 
-        $eliminato = $this->deleteRichiesta($cod);
+        $eliminato = $this->delete_richiesta($cod);
 
         if(!$eliminato){
             throw new Exception("Errore nell'eliminazione della richiesa");
