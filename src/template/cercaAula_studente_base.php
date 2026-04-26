@@ -25,8 +25,15 @@ if (!isUserLogged() || !isStudente() ) {
         <section class="search-bar">
             <form action="#" method="GET">
                 <div class="input-aule">
-                    <input type="text" id="search" name="search" placeholder="Cerca..."
-                    value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                    <select name="search" id="search">
+                        <option value="">Seleziona Aula</option>
+                        <?php foreach($templateParams["elencoAule"] as $aula): ?>
+                            <option value="<?php echo htmlspecialchars($aula["numeroAula"]); ?>" 
+                            <?php echo ($search == $aula["numeroAula"]) ? "selected" : ""; ?>>
+                            <?php echo htmlspecialchars($aula["numeroAula"]); ?>
+                        </option>
+                        <?php endforeach; ?>
+                    </select>
                     <input type="date" id="data-lezione" name="data-lezione"
                     value="<?php echo isset($_GET['data-lezione']) ? htmlspecialchars($_GET['data-lezione']) : date('Y-m-d'); ?>">
                     <button type="submit" class="button-search">CERCA</button>

@@ -756,18 +756,22 @@ table tr td {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
+    justify-content: center;
 }
 
-.input-aule input, .input-lab input {
+.input-aule input, .input-lab input, .input-aule select, .input-lab select {
     padding: 10px;
     border: 1px solid #ccc;
-    /*border-radius: 4px;*/
+    border-radius: 4px;
 }
 
 #search {
     border-radius: 25px;
-    width: 90px;
-    max-width: 300px;
+    width: 100;
+    max-width: 250px;
+    padding: 10px 15px;
+    cursor: pointer;
 }
 
 .table-aule, .table-lab {
