@@ -53,7 +53,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                 <tbody>
                     <?php if(empty($templateParams["laboratori"])) : ?>
                         <tr>
-                            <td>Nessun laboratorio trovato.</td>
+                            <td colspan="3">Nessun laboratorio trovato.</td>
                         </tr>
                     <?php else: ?>
                         <?php foreach($templateParams["laboratori"] as $lab): ?>

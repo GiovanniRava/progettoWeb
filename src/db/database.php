@@ -377,6 +377,19 @@ class DatabaseHelper {
         $result = $stmt_select->get_result();
         return $result->fetch_assoc();
     }
+
+    public function get_prenotazioni_filtrate_admin($search, $data) {
+        $sql = "SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
+                FROM prenotazione
+                WHERE ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))
+                AND COALESCE(numeroLab, numeroAula) = ? 
+                AND data = ?";
+                
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("ss", $search, $data);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>
