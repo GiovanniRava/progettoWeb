@@ -53,7 +53,7 @@ if (!isUserLogged() || !isStudente() ) {
                 <tbody>
                     <?php if(empty($templateParams["aule"])): ?>
                         <tr>
-                            <td>Nessuna aula trovata.</td>
+                            <td colspan="3">Nessuna aula trovata.</td>
                         </tr>
                     <?php else: ?>
                         <?php foreach($templateParams["aule"] as $aula): ?>
@@ -70,5 +70,4 @@ if (!isUserLogged() || !isStudente() ) {
     </main>
     <?php require("footer.php"); ?>
 </body>
-
 </html> 

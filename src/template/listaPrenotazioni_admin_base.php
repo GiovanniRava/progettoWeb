@@ -24,6 +24,32 @@ if (!isUserLogged() || !isAdmin()) {
     </div>
     
     <main>
+        <section class="search-bar">
+            <form action="#" method="GET">
+                <div class="input-aule">
+                    <select name="search" id="search">
+                        <option value="">Seleziona Aula o Lab</option>
+
+                        <?php foreach($templateParams["elencoAule"] as $aula): ?>
+                            <option value="<?php echo $aula["numeroAula"] ?>"
+                                <?php echo ($templateParams["search_selezionata"] == $aula["numeroAula"]) ? "selected" : ""; ?>>
+                                <?php echo $aula["numeroAula"]; ?>
+                            </option>
+                            <?php endforeach; ?>
+
+                            <?php foreach($templateParams["elencoLab"] as $lab): ?>
+                            <option value="<?php echo $lab["numeroLab"] ?>"
+                                <?php echo ($templateParams["search_selezionata"] == $lab["numeroLab"]) ? "selected" : ""; ?>>
+                                <?php echo $lab["numeroLab"]; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <input type="date" id="data-prenotazione" name="data-prenotazione"
+                    value="<?php echo isset($_GET['data-prenotazione']) ? htmlspecialchars($_GET['data-prenotazione']) : date('Y-m-d'); ?>">
+                    <button type="submit" class="button-search">CERCA</button>
+                </div>
+            </form>
+        </section>
         <table class="table-prenotazioni-admin">
             <thead>
                 <tr>
