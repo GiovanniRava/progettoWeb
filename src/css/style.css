@@ -649,7 +649,7 @@ table tr td {
     overflow: hidden; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     cursor: pointer;
-    transition: all 0.4s ease-in-out;
+    /* transition: all 0.4s ease-in-out; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -659,12 +659,12 @@ table tr td {
     aspect-ratio: 3 / 4;
     object-fit: cover; 
     display: block;
-    transition: width 0.4s ease-in-out;
+    /* transition: width 0.4s ease-in-out; */
 }
 .info-evento {
     width: 60%;
     padding: 20px;
-    transition: width 0.4s ease-in-out;
+    /* transition: width 0.4s ease-in-out; */
 }
 .info-evento h3 {
     margin: 0 0 10px 0; 
@@ -681,7 +681,7 @@ table tr td {
     opacity: 0;
     overflow: hidden;
     margin-top: 0;
-    transition: all 0.4s ease-in-out;
+    /* transition: all 0.4s ease-in-out;  */
 }
 
 /*CSS per quando uno clicca l'evento e si deve restringere la fot*/
@@ -1068,7 +1068,7 @@ table tr td {
     }
 
     .sezione-nuovaPrenotazione, .sezione-listaPrenotazioni {
-        display: flex !important;
+        display: block !important;
     }
 
     .sezione-listaPrenotazioni {
