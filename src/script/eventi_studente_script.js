@@ -1,6 +1,17 @@
 function toggleEspansione(cardCliccata) {
+  const isExpanded = cardCliccata.classList.contains("espansa");
+  
   document.querySelectorAll(".card-evento").forEach((card) => {
-    if (card !== cardCliccata) card.classList.remove("espansa");
+    card.classList.remove("espansa");
+    card.setAttribute("aria-expanded", "false");
+    const desc = card.querySelector(".descrizione-evento");
+    if (desc) desc.setAttribute("aria-hidden", "true");
   });
-  cardCliccata.classList.toggle("espansa");
+
+  if (!isExpanded) {
+    cardCliccata.classList.add("espansa");
+    cardCliccata.setAttribute("aria-expanded", "true");
+    const desc = cardCliccata.querySelector(".descrizione-evento");
+    if (desc) desc.setAttribute("aria-hidden", "false");
+  }
 }

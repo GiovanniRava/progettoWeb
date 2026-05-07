@@ -29,10 +29,13 @@ if (!isUserLogged() || !isStudente()) {
         <section class="griglia-eventi">
 
             <?php foreach ($templateParams["eventi"] as $evento): ?>
-                <article class="card-evento" onclick="toggleEspansione(this)">
+                <button type="button" 
+                        class="card-evento" 
+                        onclick="toggleEspansione(this)" 
+                        aria-expanded="false">
                     <img src="<?php echo UPLOAD_DIR . $evento['locandina']; ?>"
                         alt="Locandina <?php echo htmlspecialchars($evento['titolo']); ?>"
-                        class="img-evento"> <!--riki ha cambiato src in base a come lo fa anche Delnevo. PS non l'ho mai visto usare htmlspecialchars-->
+                        class="img-evento">
 
                     <div class="info-evento">
                         <?php
@@ -44,12 +47,13 @@ if (!isUserLogged() || !isStudente()) {
                         <h3><?php echo htmlspecialchars($titoloDisplay); ?></h3>
                         <span class="data-evento"><?php echo $dataFormattata; ?> - Ore <?php echo $oraFormattata; ?></span></br>
                         <span class="testo-espansione">Clicca per Maggiori Informazioni</span>
-                        <div class="descrizione-evento">
+                        <div class="descrizione-evento" aria-hidden="true">
                             <p><?php echo nl2br(htmlspecialchars($evento['descrizione'] ?? 'Nessuna descrizione disponibile')); ?></p>
                         </div>
                     </div>
-                </article>
+                </button>
             <?php endforeach; ?>
+
 
         </section>
     </main>
