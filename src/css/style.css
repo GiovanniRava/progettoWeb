@@ -651,6 +651,14 @@ table tr td {
     margin: 0 auto;
 }
 
+button.card-evento {
+    border: none;
+    padding: 0;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+}
+
 .card-evento {
     display: flex;
     flex-direction: column; 
