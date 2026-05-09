@@ -43,13 +43,13 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
             <a href="#" class="button-nuovo-evento">AGGIUNGI</a>
     </div>
     <main>
-        <div class="container-prenotazioniStudente">
+        <div class="container-doppiaPagina">
             
-            <div class="sezione-listaPrenotazioni">
+            <div class="sezione-tabella">
                 <?php include('lista_eventi_admin_base.php'); ?>
             </div>
             
-            <aside class="sezione-nuovaPrenotazione">
+            <aside class="sezione-form">
                 <?php include('nuovoEvento_amministratore_base.php'); ?>
             </aside>
             

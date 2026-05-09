@@ -43,11 +43,11 @@ if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
         <div class="spacer-prenotazioni"></div>
     </div>
     <main>
-        <div class="container-prenotazioniStudente">
-            <div class="sezione-listaPrenotazioni">
+        <div class="container-doppiaPagina">
+            <div class="sezione-tabella">
                 <?php include('listaPrenotazioni_studente_base.php'); ?>
             </div>
-            <aside class="sezione-nuovaPrenotazione">
+            <aside class="sezione-form">
                 <?php include('nuova_prenotazione_base.php'); ?>
             </aside>
         </div>

@@ -503,17 +503,22 @@ table tr td {
     background-color: #bebebe;
 }
 
-.sezione-nuovaPrenotazione, .spacer-prenotazioni, .back-container {
+.sezione-form, .spacer-prenotazioni, .back-container {
     display: none;
 }
 
 /*prova doppia pagina*/
-.mostra-form .sezione-listaPrenotazioni, .mostra-form .add-container, .mostra-form .section-nuovo-evento-btn {
+.mostra-form .sezione-tabella, .mostra-form .add-container, .mostra-form .section-nuovo-evento-btn {
     display: none; 
 }
 
-.mostra-form .sezione-nuovaPrenotazione, .mostra-form .back-container {
+.mostra-form .sezione-form, .mostra-form .back-container {
     display: flex;
+    justify-content: center;
+}
+
+.mostra-form .back-container {
+    justify-content: flex-end;
 }
 
 /*Serve per immagine sfondo della polivalente*/
@@ -620,6 +625,10 @@ table tr td {
     background-color: rgb(224, 224, 224);
     text-align: center;
     padding: 20px 0;
+}
+
+.sezione-logout a {
+    text-decoration: none;
 }
 
 .btn-logout {
@@ -948,7 +957,7 @@ table tr td {
     line-height: 1; 
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 892px) {
 
     header > div > a > figure > img {
         max-height: 100px;
@@ -1009,13 +1018,14 @@ table tr td {
     }
 
     .menu-pc ul li a {
-        margin: 0 20px 10px;
+        margin: 0 15px 10px;
         font-family: 'Lucida Sans', sans-serif;
         text-decoration: none;
         color: #000;
         padding: 12px;
         border-radius: 5px;
         font-weight: bold;
+        font-size: 15px;
     }
 
     .menu-pc ul li a:hover{
@@ -1061,7 +1071,7 @@ table tr td {
         display: none !important;
     }
 
-    .container-prenotazioniStudente {
+    .container-doppiaPagina {
         display: flex;
         flex-direction: row;
         gap: 60px;
@@ -1069,15 +1079,15 @@ table tr td {
         width: 100%;
     }
 
-    .sezione-nuovaPrenotazione, .sezione-listaPrenotazioni {
+    .sezione-form, .sezione-tabella {
         display: block !important;
     }
 
-    .sezione-listaPrenotazioni {
+    .sezione-tabella {
         width: 65%;
     }
 
-    .sezione-nuovaPrenotazione {
+    .sezione-form {
         width: 35%;
         max-width: 500px; 
         min-width: 330px;

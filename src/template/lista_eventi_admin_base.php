@@ -5,7 +5,6 @@
     <title>Eventi - Alma Aule</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>-->
-<body>
     <!--
 
     <div class="red-bar">
@@ -16,7 +15,6 @@
         <div class="spacer"></div>
     </div>-->
 
-    <main>
         <div class="table-container">
         <!-- <section class="table-aule"> -->
             <table class="table-eventi-admin">
@@ -73,9 +71,6 @@
             </table>
         <!-- </section> -->
         </div>
-    </main>
     <!--<php -->
     <script src="script/lista_eventi_admin_script.js"
     type="text/javascript"></script>
-</body>
-</html>
