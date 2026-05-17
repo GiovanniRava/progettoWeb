@@ -13,7 +13,7 @@ if (!isUserLogged() || !isStudente()) {
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>        
-    <?php include($templateParams["nome"]); ?>
+    <?php include($templateParams["header"]); ?>
     
     <div class="red-bar">
         <div class="spacer"></div>
