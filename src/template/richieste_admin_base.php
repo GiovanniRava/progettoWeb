@@ -21,7 +21,7 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <?php endif; ?>
     <div class="red-bar">
         <div class="spacer"></div>
@@ -134,7 +134,7 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
     type="text/javascript"></script>
     
     <?php if ($is_standalone): ?>
-        <?php require("footer.php"); ?>
+        <?php include("footer.php"); ?>
     
 </body>
 </html>
