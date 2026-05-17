@@ -119,9 +119,9 @@ if (!isUserLogged() || !isAdmin()) {
 
     <dialog id="finestra-annulla">
         <h3>ELIMINA PRENOTAZIONE</h3>
-        <p>Sei sicuro di voler eliminare la prenotazione?</p>
         <form id="form-elimina-prenotazione" action="listaPrenotazioni_admin.php" method="POST">
-            <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
+            <p><label>Sei sicuro di voler eliminare la prenotazione?
+            <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value=""/></label></p>
             <button type="submit" id="conferma-annulla" name="elimina-prenotazione">SI</button>
             <button type="button" id="revoca-annulla" name="revoca-elimina-prenotazione">NO</button>
         </form>

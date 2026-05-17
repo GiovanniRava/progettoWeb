@@ -40,15 +40,16 @@
             endif; ?>
             <dialog id="finestra-annulla">
                 <h4>ANNULLAMENTO PRENOTAZIONE</h4>
-                <p>Sei sicuro di voler annullare la prenotazione?</p>
                 <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
-                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
+                    <p><label>Sei sicuro di voler annullare la prenotazione?
+                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value=""/></label></p>
                     <button type="submit" id="conferma-annulla" name="conferma-annulla">SI</button>
                     <button type="button" id="revoca-annulla" name="revoca-annulla">NO</button>
                 </form>
             </dialog>
         </tbody>
     </table>
+
     <h3 class="title-table">RICHIESTE IN CORSO</h3>
     <table class="table-prenotazioni-studente">
         <thead>
@@ -92,9 +93,9 @@
             endif; ?>
             <dialog id="finestra-elimina">
                 <h4>ELIMINAZIONE RICHIESTA</h4>
-                <p>Sei sicuro di voler eliminare la richiesta?</p>
                 <form id="form-elimina-richiesta" action="prenotazioni_studente.php" method="POST">
-                    <input type="hidden" name="richiesta_da_eliminare" id="input-nascosto-elimina-richiesta" value="">
+                    <p><label>Sei sicuro di voler eliminare la richiesta?
+                    <input type="hidden" name="richiesta_da_eliminare" id="input-nascosto-elimina-richiesta" value=""/></label></p>
                     <button type="submit" id="conferma-elimina" name="conferma-elimina">SI</button>
                     <button type="button" id="revoca-elimina" name="revoca-elimina">NO</button>
                 </form>
