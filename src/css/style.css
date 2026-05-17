@@ -575,11 +575,12 @@ table tr td {
 .banner-avviso {
     width: 100%;
     background-image: url('../upload/polivalenteLaurea.png'); 
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     padding-top: 15px;    
     padding-bottom: 65px; 
-    padding-left: 10px;
+    padding-left: 15px;
     padding-right: 10px;
     text-align: center;
     border-radius: 5px; 
