@@ -28,7 +28,7 @@ if (!isUserLogged() || !isAdmin()) {
             <form action="#" method="GET">
                 <div class="input-aule">
                     <select name="search" id="search">
-                        <option value="">Seleziona Aula o Lab</option>
+                        <option value="">Aula o Lab</option>
 
                         <?php foreach($templateParams["elencoAule"] as $aula): ?>
                             <option value="<?php echo $aula["numeroAula"] ?>"
