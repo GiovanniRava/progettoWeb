@@ -12,7 +12,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class = "red-bar">
         <div class = "spacer"></div>
         <div class = "subtitle">
@@ -57,10 +57,14 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                         </tr>
                     <?php else: ?>
                         <?php foreach($templateParams["laboratori"] as $lab): ?>
+                            <?php 
+                                $oraInizioFormattata = date("H:i", strtotime($lab["orarioInizio"]));
+                                $oraFineFormattata = date("H:i", strtotime($lab["oraFine"]));
+                            ?> 
                             <tr>
                                 <td><?php echo htmlspecialchars($lab["nomeLab"]); ?></td>
                                 <td><?php echo htmlspecialchars($lab["nomeEvento"]); ?></td>
-                                <td><?php echo htmlspecialchars(substr($lab["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($lab["oraFine"], 0, 5)); ?></td>
+                                <td><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -68,7 +72,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
             </table>
         </section>
     </main>
-    <?php require($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 </body>
 
 </html> 
