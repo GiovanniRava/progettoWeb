@@ -45,9 +45,9 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
             <table class="table-cerca">
                 <thead>
                     <tr>
-                        <th>LABORATORIO</th>
-                        <th>EVENTO</th>
-                        <th>ORARIO</th>
+                        <th id="nome-lab">LABORATORIO</th>
+                        <th id="titolo-evento">EVENTO</th>
+                        <th id="orario">ORARIO</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,9 +58,9 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                     <?php else: ?>
                         <?php foreach($templateParams["laboratori"] as $lab): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($lab["nomeLab"]); ?></td>
-                                <td><?php echo htmlspecialchars($lab["nomeEvento"]); ?></td>
-                                <td><?php echo htmlspecialchars(substr($lab["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($lab["oraFine"], 0, 5)); ?></td>
+                                <td headers="nome-lab"><?php echo htmlspecialchars($lab["nomeLab"]); ?></td>
+                                <td headers="titolo-evento"><?php echo htmlspecialchars($lab["nomeEvento"]); ?></td>
+                                <td headers="orario"><?php echo htmlspecialchars(substr($lab["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($lab["oraFine"], 0, 5)); ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

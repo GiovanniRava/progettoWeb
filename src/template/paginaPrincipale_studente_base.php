@@ -24,9 +24,9 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
         <table class="table-cerca">
             <thead>
                 <tr>
-                    <th>EVENTO</th>
-                    <th>AULA</th>
-                    <th>ORARIO</th>
+                    <th id="titolo-evento">EVENTO</th>
+                    <th id="aula">AULA</th>
+                    <th id="orario">ORARIO</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,15 +37,15 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                 <?php else: ?>
                     <?php foreach($templateParams["lezioni"] as $lezione): ?>
                     <tr>
-                        <td>
+                        <td headers="titolo-evento">
                             <?php echo $lezione["nomeEvento"]; ?>
                         </td>
-                        <td>
+                        <td headers="aula">
                             <?php echo !empty($lezione["numeroAula"]) ?
                             "Aula".$lezione["numeroAula"] :
                             "Lab".$lezione["numeroLab"]; ?>
                         </td>
-                        <td><?php $oraInizio = date("H:i", strtotime($lezione["oraInizio"])); echo $oraInizio; ?> - 
+                        <td headers="orario"><?php $oraInizio = date("H:i", strtotime($lezione["oraInizio"])); echo $oraInizio; ?> - 
                         <?php $date = new DateTime($lezione["oraInizio"]);
                             $date->modify("+{$lezione["durata"]} minutes");
                             $oraFine = $date->format('H:i'); 

@@ -38,9 +38,9 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                     <th id="numero-aula-lab">AULA / LAB</th>
                     <th id="data-richiesta">DATA</th>
                     <th id="ora-richiesta">ORARIO</th>
-                    <th class="hide-mobile">NOME e COGNOME</th>
-                    <th class="hide-mobile">MOTIVAZIONE</th>
-                    <th></th>
+                    <th class="hide-mobile" id="nominativo-richiesta">NOME e COGNOME</th>
+                    <th class="hide-mobile" id="motivazione-richiesta">MOTIVAZIONE</th>
+                    <th id="sezione-azioni"></th>
                 </tr>
             </thead>
             <tbody>
@@ -72,8 +72,8 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                         ?>
                     </td>
                     
-                    <td class="hide-mobile"><?php echo htmlspecialchars($richiesta["nominativo"]); ?></td>
-                    <td class="hide-mobile"><?php echo htmlspecialchars($richiesta["motivazione"]); ?></td>
+                    <td class="hide-mobile" headers="nominativo-richiesta"><?php echo htmlspecialchars($richiesta["nominativo"]); ?></td>
+                    <td class="hide-mobile" headers="motivazione-richiesta"><?php echo htmlspecialchars($richiesta["motivazione"]); ?></td>
                     
                     <td class="colonna-azioni">
                         <div class="hide-mobile">
@@ -98,7 +98,7 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
                     </td>
                 </tr>
 
-                <tr class="riga-dettagli nascosta">
+                <tr class="riga-dettagli nascosta" headers="sezione-azioni">
                     <td colspan="4">
                         <div class="azioni-mobile-stacked show-mobile">
                             <button class="btn-accetta" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">ACCETTA</button>
@@ -114,10 +114,11 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
 
     <dialog id="finestra-rifiuta">
         <h3>RIFIUTA RICHIESTA</h3>
-        <p>Sei sicuro di voler rifiutare questa richiesta di prenotazione?</p>
+        
         <form id="form-rifiuta-richiesta" action="richieste_admin.php" method="POST">
-            <input type="hidden" name="richiesta_da_eliminare" id="input-nascosto-rifiuta" value="">
-            <input type="hidden" name="return_url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
+            <p><label>Sei sicuro di voler rifiutare questa richiesta di prenotazione?
+            <input type="hidden" name="richiesta_da_eliminare" id="input-nascosto-rifiuta" value=""/>
+            <input type="hidden" name="return_url" value="<?php echo $_SERVER['REQUEST_URI']; ?>"/></label></p>
             
             <button type="submit" id="conferma-rifiuta">SI</button>
             <button type="button" id="annulla-rifiuto">NO</button>
@@ -125,8 +126,8 @@ $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
     </dialog>
 
     <form id="form-accetta-richiesta" action="richieste_admin.php" method="POST" style="display: none;">
-        <input type="hidden" name="richiesta_da_accettare" id="input-nascosto-accetta" value="">
-        <input type="hidden" name="return_url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
+        <input type="hidden" name="richiesta_da_accettare" id="input-nascosto-accetta" value=""/>
+        <input type="hidden" name="return_url" value="<?php echo $_SERVER['REQUEST_URI']; ?>"/>
     </form>
     
     <script src="script/richieste_admin_script.js"
