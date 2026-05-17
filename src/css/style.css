@@ -22,9 +22,9 @@ main {
 }
 
 .main-home {
-    position: relative; /*fa da ancora per il contenuto sopra */
+    position: relative;
     min-height: 100vh; /* Usa tutta l'altezza dello schermo */
-    display: flex;     /*Usiamo flex per centrare il form facilmente */
+    display: flex;     /*flex per centrare il form facilmente */
     justify-content: center;
     overflow: hidden;  /* Evita che l'immagine crei scroll inutili - previene perchè in realtà non li crea già */
 }
@@ -85,8 +85,8 @@ footer p {
 
 footer > p:last-child {
     width: 100%;
-    text-align: center;    /* Lo centra sulla sua riga */
-    margin-top: 15px;      /* Distanza dai blocchi sopra */
+    text-align: center;
+    margin-top: 15px;
     border-top: 1px solid rgba(255,255,255,0.3);
     padding-top: 25px;
 }
@@ -302,8 +302,6 @@ input[type="file"]::-webkit-file-upload-button, input[type="file"]{
     color: #000;
     cursor: pointer;
 }
-/*ciao sono riki sono arrivato a qui nella pulizia del mio css*/ /*c'è da capire se i form si vedono bene su mobile*/
-
 
 .button-prenota, .button-nuova-prenotazione, .button-nuovo-evento {
     background-color: #add8e6; 
@@ -669,7 +667,6 @@ button.card-evento {
     overflow: hidden; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     cursor: pointer;
-    /* transition: all 0.4s ease-in-out; */
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -679,12 +676,10 @@ button.card-evento {
     aspect-ratio: 3 / 4;
     object-fit: cover; 
     display: block;
-    /* transition: width 0.4s ease-in-out; */
 }
 .info-evento {
     width: 60%;
     padding: 20px;
-    /* transition: width 0.4s ease-in-out; */
 }
 .info-evento h3 {
     margin: 0 0 10px 0; 
@@ -701,10 +696,9 @@ button.card-evento {
     opacity: 0;
     overflow: hidden;
     margin-top: 0;
-    /* transition: all 0.4s ease-in-out;  */
 }
 
-/*CSS per quando uno clicca l'evento e si deve restringere la fot*/
+/*CSS per quando uno clicca l'evento e si deve restringere la foto*/
 .card-evento.espansa {
     background-color:rgb(224, 224, 224);
 }
@@ -727,7 +721,6 @@ button.card-evento {
     display: none;
 }
 
-/*PAGINA PRINCIPALE DELL'AMMINISTRATORE - fra*/
 .stato-aule {
     display: grid;
     grid-template-columns: 1fr 1fr; /*due colonne uguali che usano una frazione uguale di spazio disponibile*/
@@ -755,8 +748,6 @@ button.card-evento {
     display: none;
 }
 
-/*fine parte pagina principale dell'amministratore*/
-/*CERCA AULE E LAB AMMINISTRATORE - STUDENTE - fra*/
 .search-bar {
     padding: 20px 20px 20px 20px;
     background-color: white;
@@ -799,23 +790,6 @@ button.card-evento {
     padding: 10px 0 0 0 ;
 }
 
-@media screen and (min-width: 768px) {
-    .search-bar form{
-        justify-content: center;
-    }
-
-    .input-aule, .input-lab {
-        flex-direction: row;
-        width: auto;
-    }
-
-    #search {
-        width: 250px;
-    }
-}
-
-/*FINE CERCA LAB E AULA AMMINISTRATORE - STUDENTE */
-
 .riga-dettagliPrenotazione{
     display: none;
     background-color: #f9f9f9; 
@@ -850,29 +824,6 @@ button.card-evento {
     padding-bottom: 20px;
     text-align: center;
 }
-/*RICHIESTE ADMIIN*/
-
-/* .btn-accetta {
-    background-color: #6fb365;
-    color: white;
-    border: 1px solid #4cae4c;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 2px;
-    font-weight: bold;
-}
-
-.btn-rifiuta {
-    background-color: #e21d1d;
-    color: white;
-    border: 1px solid #e21d1d;
-    padding: 6px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 2px;
-    font-weight: bold;
-} */
 
 .hide-mobile {
     display: none;
@@ -922,7 +873,6 @@ button.card-evento {
     padding: 10px;
 }
 
-/*FINE RICHIESTE ADMIN*/
 .side-menu-mobile {
     height: 100vh;
     width: 100%;
@@ -1167,5 +1117,18 @@ button.card-evento {
     
     .riga-dettagli {
         display: none !important;
+    }
+
+    .search-bar form{
+        justify-content: center;
+    }
+
+    .input-aule, .input-lab {
+        flex-direction: row;
+        width: auto;
+    }
+
+    #search {
+        width: 250px;
     }
 }

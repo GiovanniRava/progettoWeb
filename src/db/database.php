@@ -125,6 +125,7 @@ class DatabaseHelper {
                 TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
             FROM LEZIONE L
             JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns
+            WHERE L.numeroLab IS NULL
 
             UNION ALL
 
@@ -132,6 +133,7 @@ class DatabaseHelper {
                 TIME_FORMAT(ADDTIME(E.oraInizio, SEC_TO_TIME(E.durata * 60)), '%H:%i') AS oraFine
             FROM ESAME E
             JOIN INSEGNAMENTO I ON E.codiceIns = I.codiceIns
+            WHERE E.numeroLab IS NULL
 
             UNION ALL
             
@@ -144,14 +146,15 @@ class DatabaseHelper {
             SELECT EV.numeroAula, EV.titolo AS nomeAttivita, EV.data, EV.oraInizio,
                 TIME_FORMAT(ADDTIME(EV.oraInizio, SEC_TO_TIME(EV.durata * 60)), '%H:%i') AS oraFine
             FROM EVENTO EV
+            WHERE EV.numeroLab IS NULL
             ) AS eventiAulaCercata
             WHERE data = ?
-            AND numeroAula = ?
+            AND (? = '' OR numeroAula = ?)
             ORDER BY oraInizio ASC
             ";
 
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('ss', $data, $search);
+            $stmt->bind_param('sss', $data, $search, $search);
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -165,6 +168,7 @@ class DatabaseHelper {
                 TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
             FROM LEZIONE L
             JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns
+            WHERE L.numeroAula IS NULL
 
             UNION ALL
 
@@ -172,20 +176,22 @@ class DatabaseHelper {
                 TIME_FORMAT(ADDTIME(E.oraInizio, SEC_TO_TIME(E.durata * 60)), '%H:%i') AS oraFine
             FROM ESAME E
             JOIN INSEGNAMENTO I ON E.codiceIns = I.codiceIns
+            WHERE E.numeroAula IS NULL
 
             UNION ALL
 
             SELECT EV.numeroLab, EV.titolo AS nomeAttivita, EV.data, EV.oraInizio,
                 TIME_FORMAT(ADDTIME(EV.oraInizio, SEC_TO_TIME(EV.durata * 60)), '%H:%i') AS oraFine
             FROM EVENTO EV
+            WHERE EV.numeroAula IS NULL
             ) AS eventiLaboratorioCercato
             WHERE data = ?
-            AND numeroLab = ?
+            AND (? = '' OR numeroLab = ?)
             ORDER BY oraInizio ASC
             ";
 
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param('ss', $data, $search);
+            $stmt->bind_param('sss', $data, $search, $search);
             $stmt->execute();
             $result = $stmt->get_result();
 
