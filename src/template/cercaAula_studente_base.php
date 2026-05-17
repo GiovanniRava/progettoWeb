@@ -12,7 +12,7 @@ if (!isUserLogged() || !isStudente() ) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">
@@ -45,9 +45,9 @@ if (!isUserLogged() || !isStudente() ) {
             <table class="table-cerca">
                 <thead>
                     <tr>
-                        <th>AULA</th>
-                        <th>EVENTO</th>
-                        <th>ORARIO</th>
+                        <th id="numero-aula">AULA</th>
+                        <th id="nome-evento">EVENTO</th>
+                        <th id="orario">ORARIO</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,10 +57,20 @@ if (!isUserLogged() || !isStudente() ) {
                         </tr>
                     <?php else: ?>
                         <?php foreach($templateParams["aule"] as $aula): ?>
+                            <?php 
+                                $oraInizioFormattata = date("H:i", strtotime($aula["orarioInizio"]));
+                                $oraFineFormattata = date("H:i", strtotime($aula["oraFine"]));
+                            ?> 
                             <tr>
+<<<<<<< HEAD
+                                <td headers="numero-aula"><?php echo htmlspecialchars($aula["nomeAula"]); ?></td>
+                                <td headers="nome-evento"><?php echo htmlspecialchars($aula["nomeEvento"]); ?></td>
+                                <td headers="orario"><?php echo htmlspecialchars(substr($aula["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($aula["oraFine"], 0, 5)); ?></td>
+=======
                                 <td><?php echo htmlspecialchars($aula["nomeAula"]); ?></td>
                                 <td><?php echo htmlspecialchars($aula["nomeEvento"]); ?></td>
-                                <td><?php echo htmlspecialchars(substr($aula["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($aula["oraFine"], 0, 5)); ?></td>
+                                <td><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
+>>>>>>> 2e86ecfb371fe0e7880b82e1b9f4c9d1f000ab55
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -68,6 +78,6 @@ if (!isUserLogged() || !isStudente() ) {
             </table>
         </section>
     </main>
-    <?php require("footer.php"); ?>
+    <?php include("footer.php"); ?>
 </body>
 </html> 

@@ -12,7 +12,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class = "red-bar">
         <div class = "spacer"></div>
         <div class = "subtitle">
@@ -45,9 +45,9 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
             <table class="table-cerca">
                 <thead>
                     <tr>
-                        <th>LABORATORIO</th>
-                        <th>EVENTO</th>
-                        <th>ORARIO</th>
+                        <th id="nome-lab">LABORATORIO</th>
+                        <th id="titolo-evento">EVENTO</th>
+                        <th id="orario">ORARIO</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,10 +57,20 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                         </tr>
                     <?php else: ?>
                         <?php foreach($templateParams["laboratori"] as $lab): ?>
+                            <?php 
+                                $oraInizioFormattata = date("H:i", strtotime($lab["orarioInizio"]));
+                                $oraFineFormattata = date("H:i", strtotime($lab["oraFine"]));
+                            ?> 
                             <tr>
+<<<<<<< HEAD
+                                <td headers="nome-lab"><?php echo htmlspecialchars($lab["nomeLab"]); ?></td>
+                                <td headers="titolo-evento"><?php echo htmlspecialchars($lab["nomeEvento"]); ?></td>
+                                <td headers="orario"><?php echo htmlspecialchars(substr($lab["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($lab["oraFine"], 0, 5)); ?></td>
+=======
                                 <td><?php echo htmlspecialchars($lab["nomeLab"]); ?></td>
                                 <td><?php echo htmlspecialchars($lab["nomeEvento"]); ?></td>
-                                <td><?php echo htmlspecialchars(substr($lab["orarioInizio"], 0, 5)) . " - " . htmlspecialchars(substr($lab["oraFine"], 0, 5)); ?></td>
+                                <td><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
+>>>>>>> 2e86ecfb371fe0e7880b82e1b9f4c9d1f000ab55
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -68,7 +78,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
             </table>
         </section>
     </main>
-    <?php require($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 </body>
 
 </html> 

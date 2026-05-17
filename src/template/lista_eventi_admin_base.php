@@ -2,11 +2,11 @@
     <table class="table-eventi-admin">
         <thead>
             <tr>
-                <th>TITOLO</th>
-                <th>AULA</th>
-                <th>DATA</th>
-                <th>ORARIO</th>
-                <th id="sezione-elimina"></th>
+                <th id="titolo-evento">TITOLO</th>
+                <th id="numero-aula">AULA</th>
+                <th id="data-evento">DATA</th>
+                <th id="orario-evento">ORARIO</th>
+                <th id="elimina-evento">ELIMINA</th>
             </tr>
         </thead>
         <tbody>
@@ -24,11 +24,11 @@
                         $oraFormattata = date("H:i", strtotime($evento['oraInizio']));
                     ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($evento['titolo']); ?></td>
-                        <td><?php echo htmlspecialchars($luogo); ?></td>
-                        <td><?php echo $dataFormattata; ?></td>
-                        <td><?php echo $oraFormattata; ?></td>
-                        <td headers="sezione-elimina">
+                        <td headers="titolo-evento"><?php echo htmlspecialchars($evento['titolo']); ?></td>
+                        <td headers="numero-aula"><?php echo htmlspecialchars($luogo); ?></td>
+                        <td headers="data-evento"><?php echo $dataFormattata; ?></td>
+                        <td headers="orario-evento"><?php echo $oraFormattata; ?></td>
+                        <td headers="elimina-evento">
                             <button class="button-elimina-evento" data-id="<?php echo $evento["titolo"]; ?>">ELIMINA</button>
                             <?php if($templateParams["azione"] == 1 && $evento["titolo"] == $templateParams["id"]): ?>
                                 <a href="eventi_admin.php" class="button-modifica-evento">ANNULLA</a>
@@ -42,9 +42,10 @@
             endif; ?>
             <dialog id="finestra-annulla">
                 <h3>ELIMINA EVENTO</h3>
-                <p>Sei sicuro di voler eliminare l'evento?</p>
+                
                 <form id="form-elimina-evento" action="eventi_admin.php" method="POST">
-                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
+                    <p><label>Sei sicuro di voler eliminare l'evento?
+                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value=""></label></p>
                     <button type="submit" id="conferma-elimina" name="conferma-elimina">SI</button>
                     <button type="button" id="revoca-elimina" name="revoca-elimina">NO</button>
                 </form>

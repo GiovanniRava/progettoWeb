@@ -107,7 +107,8 @@ class DatabaseHelper {
     
     public function get_lezioni_in_corso() {
        $data = '2026-09-21';
-       $query = "SELECT I.nomeIns AS nomeEvento, L.numeroAula, L.numeroLab, L.oraInizio, L.durata
+       $query = "SELECT I.nomeIns AS nomeEvento, L.numeroAula, L.numeroLab, L.oraInizio, 
+                    ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata*60)) AS oraFine
               FROM LEZIONE L 
               JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns 
               WHERE L.data = ? AND CURRENT_TIME BETWEEN L.oraInizio AND ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))";
@@ -122,7 +123,7 @@ class DatabaseHelper {
         $query = "SELECT numeroAula AS nomeAula, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
             FROM (
             SELECT L.numeroAula, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
-                TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
+                ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)) AS oraFine
             FROM LEZIONE L
             JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns
             WHERE L.numeroLab IS NULL
@@ -130,7 +131,7 @@ class DatabaseHelper {
             UNION ALL
 
             SELECT E.numeroAula, CONCAT('ESAME: ', I.nomeIns) AS nomeAttivita, E.data, E.oraInizio,
-                TIME_FORMAT(ADDTIME(E.oraInizio, SEC_TO_TIME(E.durata * 60)), '%H:%i') AS oraFine
+                ADDTIME(E.oraInizio, SEC_TO_TIME(E.durata * 60)) AS oraFine
             FROM ESAME E
             JOIN INSEGNAMENTO I ON E.codiceIns = I.codiceIns
             WHERE E.numeroLab IS NULL
@@ -138,13 +139,13 @@ class DatabaseHelper {
             UNION ALL
             
             SELECT LA.numeroAula, CONCAT('LAUREE: ', LA.corso) AS nomeAttivita, LA.data, LA.oraInizio,
-                TIME_FORMAT(ADDTIME(LA.oraInizio, SEC_TO_TIME(LA.durata * 60)), '%H:%i') AS oraFine
+                ADDTIME(LA.oraInizio, SEC_TO_TIME(LA.durata * 60)) AS oraFine
             FROM LAUREA LA
 
             UNION ALL
 
             SELECT EV.numeroAula, EV.titolo AS nomeAttivita, EV.data, EV.oraInizio,
-                TIME_FORMAT(ADDTIME(EV.oraInizio, SEC_TO_TIME(EV.durata * 60)), '%H:%i') AS oraFine
+                ADDTIME(EV.oraInizio, SEC_TO_TIME(EV.durata * 60)) AS oraFine
             FROM EVENTO EV
             WHERE EV.numeroLab IS NULL
             ) AS eventiAulaCercata
@@ -165,7 +166,7 @@ class DatabaseHelper {
         $query = "SELECT numeroLab AS nomeLab, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
             FROM (
             SELECT L.numeroLab, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
-                TIME_FORMAT(ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)), '%H:%i') AS oraFine
+                ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)) AS oraFine
             FROM LEZIONE L
             JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns
             WHERE L.numeroAula IS NULL
@@ -173,7 +174,7 @@ class DatabaseHelper {
             UNION ALL
 
             SELECT E.numeroLab, CONCAT('ESAME: ', I.nomeIns) AS nomeAttivita, E.data, E.oraInizio,
-                TIME_FORMAT(ADDTIME(E.oraInizio, SEC_TO_TIME(E.durata * 60)), '%H:%i') AS oraFine
+                ADDTIME(E.oraInizio, SEC_TO_TIME(E.durata * 60)) AS oraFine
             FROM ESAME E
             JOIN INSEGNAMENTO I ON E.codiceIns = I.codiceIns
             WHERE E.numeroAula IS NULL
@@ -181,7 +182,7 @@ class DatabaseHelper {
             UNION ALL
 
             SELECT EV.numeroLab, EV.titolo AS nomeAttivita, EV.data, EV.oraInizio,
-                TIME_FORMAT(ADDTIME(EV.oraInizio, SEC_TO_TIME(EV.durata * 60)), '%H:%i') AS oraFine
+                ADDTIME(EV.oraInizio, SEC_TO_TIME(EV.durata * 60)) AS oraFine
             FROM EVENTO EV
             WHERE EV.numeroAula IS NULL
             ) AS eventiLaboratorioCercato
