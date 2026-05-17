@@ -26,7 +26,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
             <form action="#" method="GET">
                 <div class="input-lab">
                     <select name="search" id="search">
-                        <option value="">Seleziona Laboratorio</option>
+                        <option value="">Laboratorio</option>
                         <?php foreach($templateParams["elencoLab"] as $lab): ?>
                         <option value="<?php echo htmlspecialchars($lab["numeroLab"]); ?>"
                         <?php echo ($search == $lab["numeroLab"]) ? "selected" : ""; ?>>

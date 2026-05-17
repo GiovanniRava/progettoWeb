@@ -26,7 +26,7 @@ if (!isUserLogged() || !isStudente() ) {
             <form action="#" method="GET">
                 <div class="input-aule">
                     <select name="search" id="search">
-                        <option value="">Seleziona Aula</option>
+                        <option value="">Aula</option>
                         <?php foreach($templateParams["elencoAule"] as $aula): ?>
                             <option value="<?php echo htmlspecialchars($aula["numeroAula"]); ?>" 
                             <?php echo ($search == $aula["numeroAula"]) ? "selected" : ""; ?>>
