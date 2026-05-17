@@ -36,21 +36,20 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                     </tr>
                 <?php else: ?>
                     <?php foreach($templateParams["lezioni"] as $lezione): ?>
+                        <?php 
+                            $oraInizioFormattata = date("H:i", strtotime($lezione["oraInizio"]));
+                            $oraFineFormattata = date("H:i", strtotime($lezione["oraFine"]));
+                        ?>
                     <tr>
                         <td>
                             <?php echo $lezione["nomeEvento"]; ?>
                         </td>
                         <td>
                             <?php echo !empty($lezione["numeroAula"]) ?
-                            "Aula".$lezione["numeroAula"] :
-                            "Lab".$lezione["numeroLab"]; ?>
+                            "Aula ".$lezione["numeroAula"] :
+                            "Lab ".$lezione["numeroLab"]; ?>
                         </td>
-                        <td><?php $oraInizio = date("H:i", strtotime($lezione["oraInizio"])); echo $oraInizio; ?> - 
-                        <?php $date = new DateTime($lezione["oraInizio"]);
-                            $date->modify("+{$lezione["durata"]} minutes");
-                            $oraFine = $date->format('H:i'); 
-                            echo $oraFine;
-                        ?></td>
+                        <td><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
                     </tr> 
                     <?php endforeach; ?>
                 <?php endif; ?>   

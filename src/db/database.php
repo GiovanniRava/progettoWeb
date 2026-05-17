@@ -107,7 +107,8 @@ class DatabaseHelper {
     
     public function get_lezioni_in_corso() {
        $data = '2026-09-21';
-       $query = "SELECT I.nomeIns AS nomeEvento, L.numeroAula, L.numeroLab, L.oraInizio, L.durata
+       $query = "SELECT I.nomeIns AS nomeEvento, L.numeroAula, L.numeroLab, L.oraInizio, 
+                    ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata*60)) AS oraFine
               FROM LEZIONE L 
               JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns 
               WHERE L.data = ? AND CURRENT_TIME BETWEEN L.oraInizio AND ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))";
