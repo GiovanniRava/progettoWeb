@@ -1,16 +1,28 @@
 <?php
+/**
+ * Funzione che verifica se un utente è loggato, controllando se la variabile di sessione 'utente_loggato' è valorizzata.
+ */
 function isUserLogged(){
     return !empty($_SESSION['utente_loggato']);
 }
 
+/**
+ * Funzione che verifica se l'utente loggato è uno studente.
+ */
 function isStudente(){
     return isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "studente";
 }
 
+/**
+ * Funzione che verifica se l'utente loggato è un amministratore.
+ */
 function isAdmin(){
     return isset($_SESSION['tipo_utente']) && $_SESSION['tipo_utente'] === "admin";
 }
 
+/**
+ * Funzione che gestisce il caricamento di un'immagine.
+ */
 function uploadImage($path, $image){
     $imageName = basename($image["name"]);
     $fullPath = $path.$imageName;
@@ -34,18 +46,6 @@ function uploadImage($path, $image){
     if(!in_array($imageFileType, $acceptedExtensions)){
         $msg .= "Accettate solo le seguenti estensioni: ".implode(",", $acceptedExtensions);
     }
-
-    //Controllo se esiste file con stesso nome ed eventualmente lo rinomino
-    // if (file_exists($fullPath)) {
-    //     $i = 1;
-    //     do{
-    //         $i++;
-    //         $imageName = pathinfo(basename($image["name"]), PATHINFO_FILENAME)."_$i.".$imageFileType;
-    //     }
-    //     while(file_exists($path.$imageName));
-    //     $fullPath = $path.$imageName;
-    // }
-
     //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
     if(strlen($msg)==0){
         if(!move_uploaded_file($image["tmp_name"], $fullPath)){
