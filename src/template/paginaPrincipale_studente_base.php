@@ -49,16 +49,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                             "Aula ".$lezione["numeroAula"] :
                             "Lab ".$lezione["numeroLab"]; ?>
                         </td>
-<<<<<<< HEAD
-                        <td headers="orario"><?php $oraInizio = date("H:i", strtotime($lezione["oraInizio"])); echo $oraInizio; ?> - 
-                        <?php $date = new DateTime($lezione["oraInizio"]);
-                            $date->modify("+{$lezione["durata"]} minutes");
-                            $oraFine = $date->format('H:i'); 
-                            echo $oraFine;
-                        ?></td>
-=======
-                        <td><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
->>>>>>> 2e86ecfb371fe0e7880b82e1b9f4c9d1f000ab55
+                        <td headers="orario"><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
                     </tr> 
                     <?php endforeach; ?>
                 <?php endif; ?>   
