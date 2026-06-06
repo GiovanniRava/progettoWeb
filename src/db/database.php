@@ -77,24 +77,21 @@ class DatabaseHelper {
     }
     
     public function insert_richiesta_prenotazione($nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula){
-        $query = "INSERT INTO richiesta_in_corso (nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("INSERT INTO richiesta_in_corso (nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('sssisss', $nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula);
         return $stmt->execute();
     }
 
     public function insert_evento($titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione){
-        $query = "INSERT INTO evento (titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina, descrizione) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("INSERT INTO evento (titolo, data, oraInizio, durata, numeroLab, numeroAula, locandina, descrizione) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('sssissss', $titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione);
         return $stmt->execute();
     }
 
     public function update_evento($titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione, $id){
-        $query = "UPDATE evento SET titolo = ?, data = ?, oraInizio = ?, durata = ?, numeroLab = ?, numeroAula = ?, locandina = ?, descrizione = ? WHERE titolo = ?";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("UPDATE evento SET titolo = ?, data = ?, oraInizio = ?, durata = ?, numeroLab = ?, numeroAula = ?, locandina = ?, descrizione = ? WHERE titolo = ?");
         $stmt->bind_param('sssisssss', $titolo, $data, $oraInizio, $durata, $numeroLab, $numeroAula, $locandina, $descrizione, $id);
         return $stmt->execute();
     }
@@ -115,20 +112,19 @@ class DatabaseHelper {
     
     public function get_lezioni_in_corso() {
        $data = '2026-09-21';
-       $query = "SELECT I.nomeIns AS nomeEvento, L.numeroAula, L.numeroLab, L.oraInizio, 
+       $stmt = $this->db->prepare("SELECT I.nomeIns AS nomeEvento, L.numeroAula, L.numeroLab, L.oraInizio, 
                     ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata*60)) AS oraFine
               FROM LEZIONE L 
               JOIN INSEGNAMENTO I ON L.codiceIns = I.codiceIns 
-              WHERE L.data = ? AND CURRENT_TIME BETWEEN L.oraInizio AND ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))";
-              $stmt = $this->db->prepare($query);
-              $stmt->bind_param("s", $data);
-              $stmt->execute();
-              $result = $stmt->get_result();
-              return $result->fetch_all(MYSQLI_ASSOC);
+              WHERE L.data = ? AND CURRENT_TIME BETWEEN L.oraInizio AND ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60))");
+        $stmt->bind_param("s", $data);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function get_aula_cercata($search, $data) {
-        $query = "SELECT numeroAula AS nomeAula, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
+        $stmt = $this->db->prepare("SELECT numeroAula AS nomeAula, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
             FROM (
             SELECT L.numeroAula, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
                 ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)) AS oraFine
@@ -160,18 +156,17 @@ class DatabaseHelper {
             WHERE data = ?
             AND (? = '' OR numeroAula = ?)
             ORDER BY oraInizio ASC
-            ";
+            ");
 
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param('sss', $data, $search, $search);
-            $stmt->execute();
-            $result = $stmt->get_result();
+        $stmt->bind_param('sss', $data, $search, $search);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-            return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function get_laboratorio_cercato($search, $data) {
-        $query = "SELECT numeroLab AS nomeLab, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
+        $stmt = $this->db->prepare("SELECT numeroLab AS nomeLab, nomeAttivita AS nomeEvento, oraInizio AS orarioInizio, oraFine
             FROM (
             SELECT L.numeroLab, I.nomeIns as nomeAttivita, L.data, L.oraInizio,
                 ADDTIME(L.oraInizio, SEC_TO_TIME(L.durata * 60)) AS oraFine
@@ -197,19 +192,17 @@ class DatabaseHelper {
             WHERE data = ?
             AND (? = '' OR numeroLab = ?)
             ORDER BY oraInizio ASC
-            ";
+            ");
+        $stmt->bind_param('sss', $data, $search, $search);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param('sss', $data, $search, $search);
-            $stmt->execute();
-            $result = $stmt->get_result();
-
-            return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getNumeroAuleOccupate() {
         $dataTest = '2026-09-22';
-        $query= "SELECT COUNT(DISTINCT numeroAula) as conteggio FROM (
+        $stmt = $this->db->prepare("SELECT COUNT(DISTINCT numeroAula) as conteggio FROM (
             SELECT numeroAula FROM LEZIONE 
             WHERE data = ? 
             AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
@@ -225,9 +218,8 @@ class DatabaseHelper {
             SELECT numeroAula FROM LAUREA 
             WHERE data = ? 
             AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
-        ) AS t WHERE numeroAula IS NOT NULL";
+        ) AS t WHERE numeroAula IS NOT NULL");
 
-        $stmt = $this->db->prepare($query);
         $stmt->bind_param("ssss", $dataTest, $dataTest, $dataTest, $dataTest);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -236,7 +228,7 @@ class DatabaseHelper {
 
     public function getNumeroLabOccupati() {
         $dataTest = '2026-09-22';
-        $query= "SELECT COUNT(DISTINCT numeroLab) as conteggio FROM (
+        $stmt = $this->db->prepare("SELECT COUNT(DISTINCT numeroLab) as conteggio FROM (
             SELECT numeroLab FROM LEZIONE 
             WHERE data = ? 
             AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
@@ -248,9 +240,8 @@ class DatabaseHelper {
             SELECT numeroLab FROM EVENTO 
             WHERE data = ? 
             AND CURRENT_TIME BETWEEN oraInizio AND ADDTIME(oraInizio, SEC_TO_TIME(durata * 60))
-        ) AS t WHERE numeroLab IS NOT NULL";
+        ) AS t WHERE numeroLab IS NOT NULL");
 
-        $stmt = $this->db->prepare($query);
         $stmt->bind_param("sss", $dataTest, $dataTest, $dataTest);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -259,14 +250,10 @@ class DatabaseHelper {
 
     public function getEventiInProgramma() {
     $dataTest = '2026-09-21';
-    // Un evento è in programma se:
-    // 1. La data è strettamente successiva a quella di test
-    // 2. La data è quella di test ma l'ora di inizio è successiva a quella attuale
-    $query = "SELECT COUNT(*) as conteggio FROM EVENTO 
+    $stmt = $this->db->prepare("SELECT COUNT(*) as conteggio FROM EVENTO 
               WHERE data > ? 
-              OR (data = ? AND oraInizio > CURRENT_TIME)";
+              OR (data = ? AND oraInizio > CURRENT_TIME)");
               
-    $stmt = $this->db->prepare($query);
     $stmt->bind_param("ss", $dataTest, $dataTest);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -274,15 +261,13 @@ class DatabaseHelper {
     }
 
     public function getTotaleAule() {
-        $query = "SELECT COUNT(*) as totale FROM AULA";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT COUNT(*) as totale FROM AULA");
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc()["totale"];
     }
 
     public function getTotaleLab() {
-        $query = "SELECT COUNT(*) as totale FROM LABORATORIO";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT COUNT(*) as totale FROM LABORATORIO");
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc()["totale"];
     }
@@ -315,8 +300,7 @@ class DatabaseHelper {
     }
 
     public function update_richiesta($nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula, $id){
-        $query = "UPDATE richiesta_in_corso SET nominativo = ?, data = ?, oraInizio = ?, durata = ?, motivazione = ?, numeroLab = ?, numeroAula = ? WHERE codiceRichiesta = ?";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("UPDATE richiesta_in_corso SET nominativo = ?, data = ?, oraInizio = ?, durata = ?, motivazione = ?, numeroLab = ?, numeroAula = ? WHERE codiceRichiesta = ?");
         $stmt->bind_param('sssisssi', $nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula, $id);
         return $stmt->execute();
     }
@@ -355,19 +339,17 @@ class DatabaseHelper {
     }  
 
     public function insert_prenotazione($nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula){
-        $query = "INSERT INTO prenotazione (nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("INSERT INTO prenotazione (nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('sssisss', $nominativo, $data, $oraInizio, $durata, $motivazione, $lab, $aula);
         return $stmt->execute();
     }
 
     public function countRichieste($nominativo){
-        $query = "SELECT COUNT(*) AS richiestePendenti FROM RICHIESTA_IN_CORSO WHERE nominativo = ?";
-        $stmt_select = $this->db->prepare($query);
-        $stmt_select->bind_param('s', $nominativo);
-        $stmt_select->execute();
-        $result = $stmt_select->get_result();
+        $stmt = $this->db->prepare("SELECT COUNT(*) AS richiestePendenti FROM RICHIESTA_IN_CORSO WHERE nominativo = ?");
+        $stmt->bind_param('s', $nominativo);
+        $stmt->execute();
+        $result = $stmt->get_result();
         if ($row = $result->fetch_assoc()) {
             return $row['richiestePendenti']; 
         }
@@ -376,8 +358,7 @@ class DatabaseHelper {
     }
 
     public function getStudente($email){
-        $query = "SELECT * FROM studente WHERE email = ?";
-        $stmt_select = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT * FROM studente WHERE email = ?");
         $stmt_select->bind_param('s', $email);
         $stmt_select->execute();
         $result = $stmt_select->get_result();
@@ -385,8 +366,7 @@ class DatabaseHelper {
     }
     
     public function getAmministratore($email){
-        $query = "SELECT * FROM amministratore WHERE email = ?";
-        $stmt_select = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT * FROM amministratore WHERE email = ?");
         $stmt_select->bind_param('s', $email);
         $stmt_select->execute();
         $result = $stmt_select->get_result();
@@ -394,13 +374,12 @@ class DatabaseHelper {
     }
 
     public function get_prenotazioni_filtrate_admin($search, $data) {
-        $sql = "SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
+        $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
                 FROM prenotazione
                 WHERE ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))
                 AND COALESCE(numeroLab, numeroAula) = ? 
-                AND data = ?";
-                
-        $stmt = $this->db->prepare($sql);
+                AND data = ?");
+
         $stmt->bind_param("ss", $search, $data);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);

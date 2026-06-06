@@ -12,7 +12,7 @@ if (!isUserLogged() || !isAdmin()) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require ($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class="red-bar">
         <div class="spacer"></div>
         <div class="subtitle">

@@ -12,7 +12,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 <body>
-    <?php require($templateParams["header"]); ?>
+    <?php include($templateParams["header"]); ?>
     <div class = "red-bar">
         <div class = "spacer"></div>
         <div class = "subtitle">
@@ -57,6 +57,6 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
         </table>
     </main>
 
-    <?php require($templateParams["footer"]); ?>
+    <?php include($templateParams["footer"]); ?>
 </body>
 </html>
