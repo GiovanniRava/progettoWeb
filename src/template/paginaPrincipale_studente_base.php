@@ -49,7 +49,7 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                             "Aula ".$lezione["numeroAula"] :
                             "Lab ".$lezione["numeroLab"]; ?>
                         </td>
-                        <td><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
+                        <td headers="orario"><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
                     </tr> 
                     <?php endforeach; ?>
                 <?php endif; ?>   
