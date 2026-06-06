@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         bottone.addEventListener('click', () => {
             const idDaEliminare = bottone.getAttribute('data-id');
             inputNascostoR.value = idDaEliminare;
-            finestraR.showModal(); 
+            finestraR.showModal();
         });
     });
 
