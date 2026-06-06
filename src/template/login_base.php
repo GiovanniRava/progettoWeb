@@ -7,7 +7,7 @@
         <ul>
             <li>
                 <label for="email">E-mail</label>
-                <input type="text" id="email" name="email" />
+                <input type="email" id="email" name="email" />
             </li>
             <li>
                 <label for="password">Password</label>

@@ -1,6 +1,6 @@
+//Non ci va il DOMContentLoaded perché questo script è progettato per essere eseguito in modo sincrono e immediato nel momento
+// esatto in cui il browser lo incontra lungo la pagina. Questo script è usato dai due php con il form.
     const classeOrigine = document.currentScript.getAttribute('data-class');
-    
-    document.addEventListener('DOMContentLoaded', function() {
     const btnBack = document.querySelector('.back-box');
     const body = document.body;
     const btnAdd = document.querySelector('.' + classeOrigine);
@@ -31,4 +31,3 @@
             body.classList.remove('mostra-form');
         }
     });
-});
