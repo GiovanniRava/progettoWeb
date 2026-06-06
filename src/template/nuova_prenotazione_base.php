@@ -1,6 +1,7 @@
 <div class="form-prenotazione">
     <form action="prenotazioni_studente.php?action=<?php echo $templateParams["azione"] ?? 0; ?>&id=<?php echo $_GET["id"] ?? ""; ?>" method="POST" class="form-form-prenotazione">
-        <ul>
+    <fieldset>
+    <ul>
             <li><div class="col-title">
                 <?php if(isset($templateParams["form"])):
                     echo $templateParams["form"];
@@ -99,5 +100,6 @@
                 else: ?> INVIA PRENOTAZIONE <?php endif; ?>" />
             </li>
         </ul>
+        </fieldset>    
     </form>
 </div>

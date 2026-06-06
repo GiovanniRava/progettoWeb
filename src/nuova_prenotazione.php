@@ -5,7 +5,7 @@ $templateParams["azione"] = 0;
 $templateParams["id"] = "";
 $formatoNome = "/^[A-Z][a-zA-Z0-9]+ [A-Z][a-zA-Z0-9]+$/";
 
-if(isset($_GET["action"])){
+if(isset($_GET["action"]) && isset($_GET["id"])){
     $templateParams["azione"] = $_GET["action"];
     $templateParams["id"] = $_GET["id"];
 }
