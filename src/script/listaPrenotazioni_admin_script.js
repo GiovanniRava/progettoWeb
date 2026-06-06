@@ -39,4 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
         finestra.close();
         inputNascosto.value = ''; 
     });
+
+    btnSi.addEventListener('click', () => {
+        console.log("Prenotazione annullata!");
+        finestra.close();
+    });
 });

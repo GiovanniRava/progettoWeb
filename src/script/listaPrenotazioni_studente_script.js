@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     btnSiR.addEventListener('click', () => {
-        console.log("Prenotazione annullata!");
+        console.log("Richiesta annullata!");
         finestraR.close();
     });
 });
