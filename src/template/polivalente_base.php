@@ -50,10 +50,15 @@ if (!isUserLogged() || !isStudente()) {
                 <div class="stat-testo">COMPUTER<br>DISPONIBILI</div>
             </div>
         </div>
-
+        
+        <?php if ($templateParams["chiusura"]["attiva"]): ?>
         <div class="banner-avviso">
-            <p>CHIUSURA POLIVALENTE<br>DAL 6/07 AL 10/07<br>PER DISCUSSIONE LAUREA</p>
+            <p>CHIUSURA POLIVALENTE<br>
+               DAL <?php echo $templateParams["chiusura"]["inizio"]; ?> AL <?php echo $templateParams["chiusura"]["fine"]; ?><br>
+               <?php echo htmlspecialchars($templateParams["chiusura"]["motivo"]); ?>
+            </p>
         </div>
+        <?php endif; ?>
 
     </main>
 

@@ -97,6 +97,9 @@ create table POLIVALENTE (
      postiDisponibili int not null,
      computerTotali int not null,
      computerDisponibili int not null,
+     dataInizioChiusura date,
+     dataFineChiusura date,
+     motivoChiusura varchar(100),
      constraint ID_POLIVALENTE_ID primary key (nome));
 
 create table PRENOTAZIONE (

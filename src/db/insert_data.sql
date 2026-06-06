@@ -180,8 +180,8 @@ INSERT INTO LEZIONE(codiceIns, codiceLez, oraInizio, durata, data, numeroLab, nu
 ('30569', 233, '14:00:00', 180, '2026-09-21', 'LIB(M)', NULL), ('30569', 234, '14:00:00', 180, '2026-09-23', 'LIB(M)', NULL),
 ('30569', 235, '14:00:00', 180, '2026-09-28', 'LIB(M)', NULL), ('30569', 236, '14:00:00', 180, '2026-09-30', 'LIB(M)', NULL);
 
-insert into POLIVALENTE (nome, postiTotali, postiDisponibili, computerTotali, computerDisponibili) values
-('Polivalente', 136, 33, 17, 4);
+insert into POLIVALENTE (nome, postiTotali, postiDisponibili, computerTotali, computerDisponibili, dataInizioChiusura, dataFineChiusura, motivoChiusura) values
+('Polivalente', 136, 33, 17, 4, '2026-07-06', '2026-07-10', 'PER DISCUSSIONE LAUREA');
 
 INSERT INTO PRENOTAZIONE (codicePre, nominativo, data, oraInizio, durata, motivazione, numeroLab, numeroAula) VALUES
 (1, 'Alessandro Conti', '2026-09-19', '10:00:00', 120, 'sviluppo progetto', 2.2, NULL),
