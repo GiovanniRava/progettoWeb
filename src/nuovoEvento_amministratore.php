@@ -4,12 +4,12 @@ $templateParams["lab"] = $dbh->get_lab();
 $templateParams["azione"] = 0;
 $templateParams["id"] = "";
 
-if(isset($_GET["action"])){
-    $templateParams["azione"] = $_GET["action"];
+if(isset($_GET["action"])  && !empty($_GET["action"])){
+    $templateParams["azione"] = intval($_GET["action"]);
     $templateParams["id"] = $_GET["id"];
 }
 
-if(isset($templateParams["azione"]) && $templateParams["azione"]==1) {
+if(isset($templateParams["azione"]) && $templateParams["azione"] === 1) {
     $dati = $dbh->get_evento_by_title($templateParams["id"]);
     $templateParams["titolo"] = $dati["titolo"];
     $templateParams["data"] = $dati["data"];
@@ -59,7 +59,7 @@ if (isset($_POST['submit']) && isset($_POST['aula-lab']) && isset($_POST['data']
         list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES['locandina']);
         if($result != 0){
             $locandina = $msg;
-            if(($templateParams["azione"]==1)){
+            if(($templateParams["azione"] === 1)){
                 $dbh->update_evento($nome, $data, $oraInizio, $durataMinuti, $laboratorio, $aula, $locandina, $descrizione, $templateParams["id"]);
                 $templateParams["azione"] = 0;
                 header("Location: eventi_admin.php?inviato=1");

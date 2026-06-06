@@ -1,6 +1,7 @@
 <div class="form-evento">
     <form action="eventi_admin.php?action=<?php echo $templateParams["azione"] ?? 0; ?>&id=<?php echo $_GET["id"] ?? ""; ?>" method="POST" class="form-form-evento" enctype="multipart/form-data">
-        <ul>
+    <fieldset>   
+    <ul>
             <li><div class="col-title">
                 <?php if(isset($templateParams["form"])):
                     echo $templateParams["form"];
@@ -105,6 +106,7 @@
                 value="<?php if(isset($templateParams["button"])): echo $templateParams["button"];
                 else: ?> AGGIUNGI EVENTO <?php endif; ?>" />
             </li>
-        </ul>  
+        </ul>
+        </fieldset> 
     </form>
 </div>

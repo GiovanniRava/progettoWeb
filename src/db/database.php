@@ -358,7 +358,7 @@ class DatabaseHelper {
     }
 
     public function getStudente($email){
-        $stmt = $this->db->prepare("SELECT * FROM studente WHERE email = ?");
+        $stmt_select = $this->db->prepare("SELECT * FROM studente WHERE email = ?");
         $stmt_select->bind_param('s', $email);
         $stmt_select->execute();
         $result = $stmt_select->get_result();
@@ -366,7 +366,7 @@ class DatabaseHelper {
     }
     
     public function getAmministratore($email){
-        $stmt = $this->db->prepare("SELECT * FROM amministratore WHERE email = ?");
+        $stmt_select = $this->db->prepare("SELECT * FROM amministratore WHERE email = ?");
         $stmt_select->bind_param('s', $email);
         $stmt_select->execute();
         $result = $stmt_select->get_result();

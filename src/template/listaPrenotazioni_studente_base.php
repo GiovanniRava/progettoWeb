@@ -41,8 +41,8 @@
             <dialog id="finestra-annulla">
                 <h4>ANNULLAMENTO PRENOTAZIONE</h4>
                 <form id="form-elimina-prenotazione" action="prenotazioni_studente.php" method="POST">
-                    <p><label>Sei sicuro di voler annullare la prenotazione?
-                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value=""/></label></p>
+                    <p>Sei sicuro di voler annullare la prenotazione?</p>
+                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value=""/>
                     <button type="submit" id="conferma-annulla" name="conferma-annulla">SI</button>
                     <button type="button" id="revoca-annulla" name="revoca-annulla">NO</button>
                 </form>
@@ -62,7 +62,7 @@
         </thead>
         <tbody>
             <?php if(empty($templateParams["richieste_in_corso"])): ?>
-                <?php if($templateParams["richieste_utente"] == 0): ?>
+                <?php if($templateParams["richieste_utente"] === 0): ?>
                     <tr>
                         <td colspan="4">Nessuna richiesta in programma.</td>
                     </tr>
@@ -81,7 +81,8 @@
                     ?></td>
                     <td headers="sezione-annulla">
                         <button class="button-elimina-evento" data-id="<?php echo $richiesta["codiceRichiesta"]; ?>">ELIMINA</button>
-                        <?php if($templateParams["azione"] == 1 && $richiesta["codiceRichiesta"] == $templateParams["id"]): ?>
+
+                        <?php if($templateParams["azione"] === 1 && $richiesta["codiceRichiesta"] === $templateParams["id"]): ?>
                             <a href="prenotazioni_studente.php" class="button-modifica-evento">ANNULLA</a>
                         <?php else: ?>
                             <a href="prenotazioni_studente.php?action=1&id=<?php echo $richiesta["codiceRichiesta"]; ?>" class="button-modifica-evento"> MODIFICA</a>
@@ -94,8 +95,8 @@
             <dialog id="finestra-elimina">
                 <h4>ELIMINAZIONE RICHIESTA</h4>
                 <form id="form-elimina-richiesta" action="prenotazioni_studente.php" method="POST">
-                    <p><label>Sei sicuro di voler eliminare la richiesta?
-                    <input type="hidden" name="richiesta_da_eliminare" id="input-nascosto-elimina-richiesta" value=""/></label></p>
+                    <p>Sei sicuro di voler eliminare la richiesta?</p>
+                    <input type="hidden" name="richiesta_da_eliminare" id="input-nascosto-elimina-richiesta" value=""/>
                     <button type="submit" id="conferma-elimina" name="conferma-elimina">SI</button>
                     <button type="button" id="revoca-elimina" name="revoca-elimina">NO</button>
                 </form>

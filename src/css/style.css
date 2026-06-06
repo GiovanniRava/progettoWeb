@@ -248,6 +248,7 @@ h1 {
 form fieldset {
     border: 0px;
     border-radius: 8px;
+    padding: 10px;
 }
 
 form h2 {

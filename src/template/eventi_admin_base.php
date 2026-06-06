@@ -7,11 +7,11 @@ $classeBody = "";
 $successo = "";
 
 // Se nell'URL c'è "inviato=1" o l'errore, allora mostrare il form
-if (!empty($templateParams["errore"]) || (isset($_GET['inviato']) && $_GET['inviato'] == 1) || $templateParams["azione"] == 1) {
+if (!empty($templateParams["errore"]) || (isset($_GET['inviato']) && $_GET['inviato'] == 1) || $templateParams["azione"] === 1) {
     $classeBody = "mostra-form";
 }
 
-if (isset($_GET['inviato']) && $_GET['inviato'] == 1) {
+if (isset($_GET['inviato']) && $_GET['inviato'] === 1) {
     $successo = "Operazione avvenuta con successo!";
 }
 ?>
