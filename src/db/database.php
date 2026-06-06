@@ -49,7 +49,7 @@ class DatabaseHelper {
     }
     
     public function get_statistiche_polivalente() {
-    $stmt = $this->db->prepare("SELECT postiTotali, postiDisponibili, computerTotali, computerDisponibili 
+    $stmt = $this->db->prepare("SELECT postiTotali, postiDisponibili, computerTotali, computerDisponibili, dataInizioChiusura, dataFineChiusura, motivoChiusura
               FROM POLIVALENTE 
               WHERE nome = 'Polivalente'");
     $stmt->execute();
