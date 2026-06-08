@@ -5,14 +5,14 @@ $templateParams["prenotazioni"] = $dbh->get_prenotazioni_studente($nome_db);
 $templateParams["richieste_in_corso"] = $dbh->get_richiesta_by_name($nome_db);
 $templateParams["richieste_utente"] = $dbh->countRichieste($nome_db);
 
-if (!empty($_POST['nome_da_eliminare'])) {
+if (isset($_POST['nome_da_eliminare']) && !empty($_POST['nome_da_eliminare'])) {
     $codice = $_POST['nome_da_eliminare'];
     $dbh->delete_prenotazione($codice);
     header("Location: prenotazioni_studente.php");
     exit();
 }
 
-if (!empty($_POST['richiesta_da_eliminare'])) {
+if (isset($_POST['richiesta_da_eliminare']) && !empty($_POST['richiesta_da_eliminare'])) {
     $codice = $_POST['richiesta_da_eliminare'];
     $dbh->delete_richiesta($codice);
     header("Location: prenotazioni_studente.php");

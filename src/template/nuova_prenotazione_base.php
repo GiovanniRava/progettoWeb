@@ -1,5 +1,5 @@
 <div class="form-prenotazione">
-    <form action="prenotazioni_studente.php?action=<?php echo $templateParams["azione"] ?? 0; ?>&id=<?php echo $_GET["id"] ?? ""; ?>" method="POST" class="form-form-prenotazione">
+    <form action="prenotazioni_studente.php?action=<?php echo $templateParams["azione"] ?? 0; ?>&id=<?php echo $templateParams["id"] ?? ""; ?>" method="POST" class="form-form-prenotazione">
     <fieldset>
     <ul>
             <li><div class="col-title">

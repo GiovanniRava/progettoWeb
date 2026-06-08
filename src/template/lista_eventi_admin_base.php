@@ -30,7 +30,8 @@
                         <td headers="orario-evento"><?php echo $oraFormattata; ?></td>
                         <td headers="elimina-evento">
                             <button class="button-elimina-evento" data-id="<?php echo $evento["titolo"]; ?>">ELIMINA</button>
-                            <?php if($templateParams["azione"] == 1 && $evento["titolo"] == $templateParams["id"]): ?>
+
+                            <?php if($templateParams["azione"] === 1 && $evento["titolo"] === $templateParams["id"]): ?>
                                 <a href="eventi_admin.php" class="button-modifica-evento">ANNULLA</a>
                             <?php else: ?>
                                 <a href="eventi_admin.php?action=1&id=<?php echo $evento["titolo"]; ?>" class="button-modifica-evento"> MODIFICA</a>
@@ -44,9 +45,10 @@
                 <h3>ELIMINA EVENTO</h3>
                 
                 <form id="form-elimina-evento" action="eventi_admin.php" method="POST">
-                    <p><label>Sei sicuro di voler eliminare l'evento?
-                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value=""></label></p>
+                    <p>Sei sicuro di voler eliminare l'evento?</p> <!--non metto label su input nascosto per evitare confusione screen reader-->
+                    <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value="">
                     <button type="submit" id="conferma-elimina" name="conferma-elimina">SI</button>
+                    <!--se cliccato manda in post il valore dell'input nascosto; poi preso da lista_eventi_admin.php-->
                     <button type="button" id="revoca-elimina" name="revoca-elimina">NO</button>
                 </form>
             </dialog>

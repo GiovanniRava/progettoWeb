@@ -32,14 +32,14 @@ if (!isUserLogged() || !isAdmin()) {
 
                         <?php foreach($templateParams["elencoAule"] as $aula): ?>
                             <option value="<?php echo $aula["numeroAula"] ?>"
-                                <?php echo ($templateParams["search_selezionata"] == $aula["numeroAula"]) ? "selected" : ""; ?>>
+                                <?php echo ($templateParams["search_selezionata"] === $aula["numeroAula"]) ? "selected" : ""; ?>>
                                 <?php echo $aula["numeroAula"]; ?>
                             </option>
                             <?php endforeach; ?>
 
                             <?php foreach($templateParams["elencoLab"] as $lab): ?>
                             <option value="<?php echo $lab["numeroLab"] ?>"
-                                <?php echo ($templateParams["search_selezionata"] == $lab["numeroLab"]) ? "selected" : ""; ?>>
+                                <?php echo ($templateParams["search_selezionata"] === $lab["numeroLab"]) ? "selected" : ""; ?>>
                                 <?php echo $lab["numeroLab"]; ?>
                             </option>
                         <?php endforeach; ?>
@@ -120,8 +120,8 @@ if (!isUserLogged() || !isAdmin()) {
     <dialog id="finestra-annulla">
         <h3>ELIMINA PRENOTAZIONE</h3>
         <form id="form-elimina-prenotazione" action="listaPrenotazioni_admin.php" method="POST">
-            <p><label>Sei sicuro di voler eliminare la prenotazione?
-            <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value=""/></label></p>
+            <p>Sei sicuro di voler eliminare la prenotazione?</p>
+            <input type="hidden" name="nome_da_eliminare" id="input-nascosto-elimina" value=""/>
             <button type="submit" id="conferma-annulla" name="elimina-prenotazione">SI</button>
             <button type="button" id="revoca-annulla" name="revoca-elimina-prenotazione">NO</button>
         </form>

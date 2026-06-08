@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         bottone.addEventListener('click', () => {
             const idDaEliminare = bottone.getAttribute('data-id');
             inputNascostoR.value = idDaEliminare;
-            finestraR.showModal(); 
+            finestraR.showModal();
         });
     });
 
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     btnSiR.addEventListener('click', () => {
-        console.log("Prenotazione annullata!");
+        console.log("Richiesta annullata!");
         finestraR.close();
     });
 });
