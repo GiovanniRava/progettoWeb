@@ -14,7 +14,8 @@ class DatabaseHelper {
     public function get_prenotazioni_studente($nome){
         $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
         FROM prenotazione WHERE nominativo = ?
-        AND ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))");
+        AND ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))
+        ORDER BY data ASC, oraInizio ASC");
         $stmt->bind_param("s", $nome);
         if(!$stmt->execute()) {
             echo "errore query";
@@ -30,7 +31,8 @@ class DatabaseHelper {
     public function get_prenotazioni_admin(){
         $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
         FROM prenotazione
-        WHERE ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))");
+        WHERE ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))
+        ORDER BY data ASC, oraInizio ASC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -298,7 +300,8 @@ class DatabaseHelper {
 
     public function get_richiesta_by_name($nome) {        
         $stmt = $this->db->prepare("SELECT codiceRichiesta, nominativo, data, oraInizio, durata, motivazione, COALESCE(numeroLab, numeroAula) AS num
-        FROM richiesta_in_corso WHERE nominativo = ?");
+        FROM richiesta_in_corso WHERE nominativo = ?
+        ORDER BY data ASC, oraInizio ASC");
         $stmt->bind_param("s", $nome);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -398,7 +401,8 @@ class DatabaseHelper {
                 FROM prenotazione
                 WHERE ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))
                 AND COALESCE(numeroLab, numeroAula) = ? 
-                AND data = ?";
+                AND data = ?
+                ORDER BY data ASC, oraInizio ASC";
                 
         $stmt = $this->db->prepare($sql);
         $stmt->bind_param("ss", $search, $data);
