@@ -382,7 +382,7 @@ class DatabaseHelper {
                 WHERE ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))
                 AND COALESCE(numeroLab, numeroAula) = ? 
                 AND data = ?
-                ORDER BY data ASC, oraInizio ASC";
+                ORDER BY data ASC, oraInizio ASC");
                 
         $stmt = $this->db->prepare($sql);
         $stmt->bind_param("ss", $search, $data);
