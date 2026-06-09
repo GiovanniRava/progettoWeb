@@ -1,9 +1,9 @@
 # Progetto Tecnologie Web -  ALMA AULE
 ## Gestione Aule e Laboratori Universitari
 
-Questo progetto è un'applicazione web sviluppata per la gestione delle aule, dei laboratori e degli eventi all'interno di un polo universitario. Permette agli studenti di visualizzare l'occupazione degli spazi e prenotare aule per lo studio, e agli amministratori di gestire le richieste e inserire o modificare nuovi eventi.
+Il sito Alma Aule è stato realizzato con lo scopo di fornire agli studenti un servizio per poter visualizzare se le aule o i laboratori del Campus di Cesena sono occupati da eventuali lezioni, eventi, lauree o esami, oppure per fare richieste di prenotazioni per svolgere attività di diverso tipo in questi spazi; le richieste saranno poi gestite dall’amministratore del sito. Tali informazioni sono gestite tramite dati memorizzati in un database integrato.
 
-## 🚀 Funzionalità Principali
+## Funzionalità Principali
 
 * **Gestione Spazi:** Visualizzazione e gestione di Aule, Laboratori e dell'aula Polivalente.
 * **Orario Universitario:** Integrazione con i dati relativi agli insegnamenti, lezioni quotidiane, appelli d'esame e sedute di laurea.
@@ -13,13 +13,13 @@ Questo progetto è un'applicazione web sviluppata per la gestione delle aule, de
 * **Gestione Eventi (Area Admin):** Creazione, modifica e cancellazione di eventi personalizzati (es. seminari, workshop, presentazioni) con sistema di upload per le locandine.
 * **Design Responsivo:** L'interfaccia utente è adattata sia per dispositivi desktop che mobile, offrendo viste specifiche a seconda del device utilizzato.
 
-## 🛠️ Tecnologie Utilizzate
+## Tecnologie Utilizzate
 
 * **Front-end:** HTML5, CSS, Javascript (layout responsivo tramite Flexbox, CSS Grid e Media Queries).
 * **Back-end:** PHP (gestione logica applicativa, upload file, autenticazione utente e interazione al database).
-* **Database:** SQL (MySQL) per la persistenza e il retrieval dei dati.
+* **Database:** SQL (MySQL).
 
-## ⚙️ Installazione e Configurazione
+## Installazione e Configurazione
 
 1. Clonare il repository all'interno della propria "Document Root" del web server locale (es. cartella `htdocs` per XAMPP o `www` per MAMP/WAMP).
 2. Avviare il server Apache e il database MySQL.
