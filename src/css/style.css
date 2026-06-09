@@ -755,10 +755,12 @@ button.card-evento {
 }
 
 .search-bar {
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
     background-color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .search-bar form {
@@ -1123,6 +1125,11 @@ button.card-evento {
     
     .riga-dettagli {
         display: none !important;
+    }
+
+    .search-bar {
+        flex-direction: column; 
+        align-items: center;    
     }
 
     .search-bar form{
