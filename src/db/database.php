@@ -203,7 +203,7 @@ class DatabaseHelper {
     }
 
     public function getNumeroAuleOccupate() {
-        $dataTest = '2026-09-22';
+        $dataTest = '2026-09-21';
         $stmt = $this->db->prepare("SELECT COUNT(DISTINCT numeroAula) as conteggio FROM (
             SELECT numeroAula FROM LEZIONE 
             WHERE data = ? 
@@ -229,7 +229,7 @@ class DatabaseHelper {
     }
 
     public function getNumeroLabOccupati() {
-        $dataTest = '2026-09-22';
+        $dataTest = '2026-09-21';
         $stmt = $this->db->prepare("SELECT COUNT(DISTINCT numeroLab) as conteggio FROM (
             SELECT numeroLab FROM LEZIONE 
             WHERE data = ? 
