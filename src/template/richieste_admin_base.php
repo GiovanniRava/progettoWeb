@@ -4,14 +4,10 @@ if (!isUserLogged() || !isAdmin()) {
     exit();
 }
 
-/**
- * LOGICA DI INCLUSIONE:
- * Se la pagina è caricata dalla Dashboard, $is_included_in_main sarà TRUE.
- * Se clicchi dal MENU, la variabile NON esiste, quindi siamo in "Standalone".
- */
 $is_standalone = !isset($is_included_in_main) || $is_included_in_main !== true;
 
 ?>
+
 <?php if ($is_standalone): ?>
 <!DOCTYPE html>
 <html lang="it">
