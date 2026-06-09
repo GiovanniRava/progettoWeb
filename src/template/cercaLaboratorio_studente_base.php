@@ -62,9 +62,9 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                                 $oraFineFormattata = date("H:i", strtotime($lab["oraFine"]));
                             ?> 
                             <tr>
-                                <td><?php echo htmlspecialchars($lab["nomeLab"]); ?></td>
-                                <td><?php echo htmlspecialchars($lab["nomeEvento"]); ?></td>
-                                <td><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
+                                <td headers="nome-lab"><?php echo htmlspecialchars($lab["nomeLab"]); ?></td>
+                                <td headers="titolo-evento"><?php echo htmlspecialchars($lab["nomeEvento"]); ?></td>
+                                <td headers="orario"><?php echo $oraInizioFormattata . " - " . $oraFineFormattata; ?></td>
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

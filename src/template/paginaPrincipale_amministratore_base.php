@@ -20,17 +20,19 @@ if (!isUserLogged() || !isAdmin()) {
         </div>
         <div class="spacer"></div>
     </div>
-    <div class="container-pagPrincAdmin">
-        <section class="sezione-numeri">
-            <?php include('infoGenerali_amministratore.php');?>
-        </section>
-        <section class="sezione-richiesteInCorso">
-            <?php
-            $is_included_in_main = true;
-            include('richieste_admin.php'); 
-            ?>
-        </section>   
-    </div>
+    <main>
+        <div class="container-pagPrincAdmin">
+            <section class="sezione-numeri">
+                <?php include('infoGenerali_amministratore.php');?>
+            </section>
+            <section class="sezione-richiesteInCorso">
+                <?php
+                $is_included_in_main = true;
+                include('richieste_admin.php'); 
+                ?>
+            </section>   
+        </div>
+    </main>
     <?php include($templateParams["footer"]); ?>
 </body>
 </html> 
