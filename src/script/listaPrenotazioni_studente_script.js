@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnNoR = document.getElementById('revoca-elimina');
     const btnSiR = document.getElementById('conferma-elimina');
 
-    // Funzione per aprire la finestra (trovata su w3school)
+    // Funzione per aprire la finestra
     bottoniAnnulla.forEach(bottone => {
         bottone.addEventListener('click', () => {
             const idDaEliminare = bottone.getAttribute('data-id');

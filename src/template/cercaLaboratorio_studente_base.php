@@ -38,8 +38,8 @@ if (!isset($_SESSION['utente_loggato']) || !isStudente()) {
                     value="<?php echo isset($_GET ['data-lezione']) ? htmlspecialchars($_GET['data-lezione']) : date('Y-m-d'); ?>">
                     <button type="submit" class="button-search">CERCA</button>
                 </div>
-                <a href="prenotazioni_studente.php" class="button-prenota">PRENOTA</a>
             </form>
+            <a href="prenotazioni_studente.php" class="button-prenota">PRENOTA</a>
         </section>
         <section class = "table-lab">
             <table class="table-cerca">

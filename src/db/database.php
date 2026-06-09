@@ -9,19 +9,13 @@ class DatabaseHelper {
         }
     }
     
-    //ho provato ad impostare la funzione con il controllo degli errori e la chiusura del stmt.
-    //probabilmente è più completo, ma da valutare.
     public function get_prenotazioni_studente($nome){
         $stmt = $this->db->prepare("SELECT codicePre, nominativo, data, COALESCE(numeroLab, numeroAula) AS num, oraInizio, durata, motivazione
         FROM prenotazione WHERE nominativo = ?
         AND ((data > CURRENT_DATE) OR (data = CURRENT_DATE AND oraInizio > CURRENT_TIME))
         ORDER BY data ASC, oraInizio ASC");
         $stmt->bind_param("s", $nome);
-        if(!$stmt->execute()) {
-            echo "errore query";
-            $stmt->close();
-            return [];
-        }
+        $stmt->execute();
         $result = $stmt->get_result();
         $dati =  $result->fetch_all(MYSQLI_ASSOC);
         $stmt->close();
@@ -203,7 +197,7 @@ class DatabaseHelper {
     }
 
     public function getNumeroAuleOccupate() {
-        $dataTest = '2026-09-22';
+        $dataTest = '2026-09-21';
         $stmt = $this->db->prepare("SELECT COUNT(DISTINCT numeroAula) as conteggio FROM (
             SELECT numeroAula FROM LEZIONE 
             WHERE data = ? 
@@ -229,7 +223,7 @@ class DatabaseHelper {
     }
 
     public function getNumeroLabOccupati() {
-        $dataTest = '2026-09-22';
+        $dataTest = '2026-09-21';
         $stmt = $this->db->prepare("SELECT COUNT(DISTINCT numeroLab) as conteggio FROM (
             SELECT numeroLab FROM LEZIONE 
             WHERE data = ? 
