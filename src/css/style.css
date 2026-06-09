@@ -293,7 +293,7 @@ form ul li input[type="submit"] {
     margin-top: 25px;
 }
 
-.conferma-login:hover, .login a:hover, .logout-pc a:hover{
+.conferma-login:hover, .login a:hover, .logout-pc a:hover, .btn-logout:hover{
     cursor: pointer;
     background-color: #be1919;
 }
@@ -643,9 +643,9 @@ table tr td {
 }
 
 .btn-logout {
-    background-color: #cc0000;
+    background-color: #ed1d1d;;
     color: white;
-    border: 1px solid #990000;
+    border: 1px solid black;
     padding: 10px 30px;
     border-radius: 5px;
     font-size: 14px;
