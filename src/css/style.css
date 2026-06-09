@@ -600,6 +600,7 @@ table tr td {
 .menu-navigazione {
     background-color: rgb(224, 224, 224);
     flex-grow: 1;
+    overflow-y: auto;
 }
 
 .menu-navigazione ul {
@@ -626,10 +627,15 @@ table tr td {
     color: #e21d1d; 
 }
 
+.menu-navigazione li:last-child a {
+    margin-bottom: 0;
+}
+
 .sezione-logout {
     background-color: rgb(224, 224, 224);
     text-align: center;
     padding: 20px 0;
+    margin-top: auto;
 }
 
 .sezione-logout a {
@@ -885,16 +891,17 @@ button.card-evento {
     position: fixed;
     z-index: 9999;
     top: 0;
-    right: -100%; /* Nascosto di default a destra */
+    right: -100%; 
     background-color: #fff;
     overflow-x: hidden;
-    transition: right 0.4s ease-in-out; /* Animazione di entrata */
+    overflow-y: hidden;
+    transition: right 0.4s ease-in-out;
     display: flex;
     flex-direction: column;
 }
 
 .side-menu-mobile.open {
-    right: 0; /* Appare quando aggiungiamo la classe tramite JS */
+    right: 0; 
 }
 
 .btn-chiudi-menu {
