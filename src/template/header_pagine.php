@@ -52,7 +52,9 @@
 
 <div id="sideMenuMobile" class="side-menu-mobile">
     <header class="header-menu">
-        <img src="upload/uniboLogo.png" alt="Logo Università" class="logo-menu">
+        <figure>
+            <img src="upload/uniboLogo.png" alt="Logo Università" class="logo-menu">
+        </figure>
         <a href="javascript:void(0);" class="btn-chiudi-menu" onclick="closeMenu()">&gt;</a>
     </header>
 
